@@ -2,15 +2,17 @@
 
 <#
 .SYNOPSIS
-Locates and extracts the archive containing the MR2DX data files.
+Extracts the archive containing the MR2DX game data files.
 
 .DESCRIPTION
-Searches a Steam library for an MR2DX installation at
-'{SteamLibraryPath}/steamapps/common/mfdx/MF2/', and extracts the game data
-archive at '{mr2dxInstallPath}/Resources/data/data.bin'.
+The `ArchivePath` parameter or MR2DX_ARCHIVE_PATH environment variable
+can be set to specify an explicit path to the game data archive.
+If neither are not set or the path does not exist, then the Steam library
+is searched for an MR2DX installation to obtain a path to the archive.
 
-If no Steam library path is given using the `SteamLibraryPath` parameter,
-the default Steam library path for your platform will be used.
+If no Steam library path is given using the `SteamLibraryPath` parameter
+or MR2DX_STEAMLIB_PATH environment variable, then the default Steam library
+path for your platform will be used.
 
 The '7z' command (7-Zip) must be installed to extract the archive.
 On Windows, the command does not have to be in PATH because the registry
@@ -36,7 +38,7 @@ PS> .\extract-game-archive.ps1 -SteamLibraryPath D:\MySteamLibrary
 PS> ./extract-game-archive.ps1 -DestinationPath ~/Documents/MR2-game-files
 #>
 
-[CmdletBinding(DefaultParameterSetName = 'FindArchive')]
+[CmdletBinding()]
 param(
     # The directory to place the files extracted from the archive. It will
     # be created if it does not exist.
@@ -47,28 +49,37 @@ param(
     [Parameter(Position = 0)]
     [ValidateNotNullOrEmpty()]
     [string]
-    $DestinationPath,
+    $DestinationPath =
+        [Environment]::GetEnvironmentVariable('MR2DX_GAMEDATA_PATH'),
 
     # The path to the Steam library directory that MR2DX is installed to
-    # which contains the 'steamapps' subdirectory. Used to loacate the
+    # which contains the 'steamapps' subdirectory. Used to locate the
     # game data archive.
     #
-    # Default:
+    # If this parameter is not specified, it will be set to the value of the
+    # MR2DX_STEAMLIB_PATH environment variable if it is set. Otherwise,
+    # the default Steam library path for your platform is used:
     #  - Windows : C:\Program Files (x86)\Steam\
     #  - MacOS   : ~/Library/Application Support/Steam/
     #  - Linux   : ~/.steam/steam/
-    [Parameter(ParameterSetName = 'FindArchive')]
     [ValidateNotNullOrEmpty()]
     [string]
-    $SteamLibraryPath,
+    $SteamLibraryPath =
+        [Environment]::GetEnvironmentVariable('MR2DX_STEAMLIB_PATH'),
 
     # The path to the game data archive to extract.
-    # Useful on macOS to use a copy of the archive obtained from another computer
-    # or OS since MR2DX cannot be installed on macOS.
-    [Parameter(ParameterSetName = 'ExplicitArchivePath', Mandatory)]
+    # Useful on macOS to use a copy of the archive obtained from another
+    # computer or OS since MR2DX cannot be installed on macOS.
+    #
+    # If this parameter is not specified, it will be set to the value of the
+    # MR2DX_ARCHIVE_PATH environment variable if it is set.
+    #
+    # If the archive path is not set or does not exist, then the Steam
+    # library will be searched for an MR2DX installation to obtain a path
+    # to the game data archive.
     [ValidateNotNullOrEmpty()]
     [string]
-    $ArchivePath,
+    $ArchivePath = [Environment]::GetEnvironmentVariable('MR2DX_ARCHIVE_PATH'),
 
     # By default, only the files currently used to develop the database are
     # extracted. Use this switch to extract them all.
@@ -93,96 +104,100 @@ $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 
 
 function Main {
-    [CmdletBinding()]
-    param()
-
     $ErrorActionPreference = 'Stop'
 
-    if ([string]::IsNullOrEmpty($DestinationPath)) {
-        $DestinationPath =
-            [Environment]::GetEnvironmentVariable('MR2DX_GAMEDATA_PATH')
-
-        if ([string]::IsNullOrEmpty($DestinationPath)) {
-            $DestinationPath = Join-Path $PSScriptRoot '../gamedata'
-        }
+    if (-not $DestinationPath) {
+        $DestinationPath = Join-Path $PSScriptRoot '../gamedata'
     }
 
-    if (-not [string]::IsNullOrEmpty($ArchivePath)) {
-        if (-not (Test-Path $ArchivePath -PathType Leaf)) {
-            throw "The game archive '${ArchivePath}' does not exist."
-        }
+    $gameArchivePath = Get-GameArchivePath
 
-        $gameArchivePath = $ArchivePath
+    if (-not $gameArchivePath) {
+        throw "Failed to find the MR2DX game data archive."
     }
-    elseif ([string]::IsNullOrEmpty($SteamLibraryPath)) {
-        if ($IsLinux) {
-            $SteamLibraryPath = Join-Path $HOME '.steam/steam/'
-        }
-        elseif ($IsMacOS) {
-            $SteamLibraryPath =
-                Join-Path $HOME 'Library/Application Support/Steam/'
-        }
-        else { # Windows
-            $SteamLibraryPath = 'C:\Program Files (x86)\Steam\'
-        }
 
-        Write-Host "Using default Steam library: ${SteamLibraryPath}"
-        $gameArchivePath = Get-GameArchivePath
-    }
+    Write-Host "Extracting MR2DX game data archive at '${gameArchivePath}'..."
 
     Expand-ArchiveWith7z $gameArchivePath
-    Write-Host "Extracted MR2DX game data files to: $(Resolve-Path $DestinationPath)"
+
+    if (-not (Test-Path $DestinationPath -PathType Container)) {
+        throw "Failed to extract MR2DX game data files to '${DestinationPath}'"
+    }
+
+    Write-Host "Extracted MR2DX game data files to" `
+               "'$(Resolve-Path $DestinationPath)'."
 }
 
 
-<#
-.SYNOPSIS
-Gets the path to the archive containing MR2DX game data files.
-
-.OUTPUTS
-The absolute path to the MR2DX 'data.bin' archive.
-#>
 function Get-GameArchivePath {
-    [CmdletBinding()]
-    [OutputType([string])]
-    param()
+    if ($ArchivePath) {
+        if (Test-Path $ArchivePath -PathType Leaf) {
+            return $ArchivePath
+        }
+        else {
+            Write-Host "Game archive path '${ArchivePath}' does not exist."
+        }
+    }
+
+    return Find-GameArchiveInSteamLibrary
+}
+
+
+function Find-GameArchiveInSteamLibrary {
+    if ([string]::IsNullOrEmpty($SteamLibraryPath)) {
+        $SteamLibraryPath = Get-DefaultSteamLibraryPath
+    }
+
+    Write-Host "Searching for game archive in Steam library" `
+               "at '${SteamLibraryPath}'..."
 
     if (-not (Test-Path $SteamLibraryPath -PathType Container)) {
-        throw "The Steam library path '${SteamLibraryPath}' does not exist."
+        Write-Host "The Steam library path '${SteamLibraryPath}' does not exist."
+        return $null
     }
     
     $gamesInstallPath =
         Join-Path (Resolve-Path $SteamLibraryPath) 'steamapps/common/'
     
     if (-not (Test-Path $gamesInstallPath -PathType Container)) {
-        throw "The path '${SteamLibraryPath}' is not a valid Steam library."
+        Write-Host "The path '${SteamLibraryPath}' is not a valid Steam library."
+        return $null
     }
 
     $mr2dxInstallPath = Join-Path $gamesInstallPath 'mfdx/MF2/'
 
     if (-not (Test-Path $mr2dxInstallPath -PathType Container)) {
-        throw "No MR2DX installation found in Steam library " +
-              "at '${SteamLibraryPath}'."
+        Write-Host "No MR2DX installation found in Steam library" `
+                   "at '${SteamLibraryPath}'."
+        return $null
     }
 
     $gameArchivePath = Join-Path $mr2dxInstallPath 'Resources/data/data.bin'
 
     if (-not (Test-Path $gameArchivePath -PathType Leaf)) {
-        throw "An MR2DX installation was found, " +
-              "but the archive '${gameArchivePath}' is missing."
+        Write-Host "An MR2DX installation was found," `
+                   "but the archive '${gameArchivePath}' is missing."
+        return $null
     }
 
     return $gameArchivePath
 }
 
 
-<#
-.SYNOPSIS
-Extracts the archive containing MR2DX game data files
-to the destination path using the 7-Zip command-line utility.
-#>
+function Get-DefaultSteamLibraryPath {
+    if ($IsLinux) {
+        return "~/.steam/steam"
+    }
+    elseif ($IsMacOS) {
+        return "~/Library/Application Support/Steam"
+    }
+
+    # Windows
+    return "C:\Program Files (x86)\Steam"
+}
+
+
 function Expand-ArchiveWith7z {
-    [CmdletBinding()]
     param(
         [Parameter(Position = 0, Mandatory)]
         [ValidateNotNullOrEmpty()]
@@ -193,7 +208,7 @@ function Expand-ArchiveWith7z {
     $7z = Get-7zipCommandPath
 
     if ([string]::IsNullOrEmpty($7z)) {
-        throw "Failed to find the '7z', '7zz', or '7zzs' command. " +
+        throw "Failed to find the '7z', '7zz', or '7zzs' command." +
               "Please install 7-Zip."
     }
 
@@ -229,18 +244,7 @@ NOTE: A non-zero exit code doesn't mean the extraction failed.
 }
 
 
-<#
-.SYNOPSIS
-Checks the PATH and registry for the 7-Zip command-line utility.
-
-.OUTPUTS
-The absolute path to the 7-Zip command-line utility.
-#>
 function Get-7zipCommandPath {
-    [CmdletBinding()]
-    [OutputType([string])]
-    param()
-
     # Check if the 7-Zip command-line utility is in PATH.
     foreach ($cmdName in '7z','7zzs','7zz') {
         $7zAppInfo = Get-Command $cmdName -CommandType App -ErrorAction Ignore
