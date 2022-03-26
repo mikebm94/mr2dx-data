@@ -41,12 +41,13 @@ param(
     # The directory to place the files extracted from the archive. It will
     # be created if it doesn't exist.
     #
-    # Default (relative to the root of the source tree):
-    #   gamedata/
+    # If this parameter isn't set, it will default to the MR2DX_GAMEDATA_PATH
+    # environment variable. If MR2DX_GAMEDATA_PATH isn't set, then it is set
+    # to the 'gamedata' directory in the root of the source tree.
     [Parameter(Position = 0)]
     [ValidateNotNullOrEmpty()]
     [string]
-    $DestinationPath = (Join-Path $PSScriptRoot '../gamedata/'),
+    $DestinationPath,
 
     # The path to the Steam library directory that MR2DX is installed to
     # which contains the 'steamapps' subdirectory. Used to loacate the
@@ -96,6 +97,17 @@ function Main {
     param()
 
     $ErrorActionPreference = 'Stop'
+
+    # If parameter DestinationPath isn't set, set to MR2DX_GAMEDATA_PATH
+    # environment variable or 'gamedata/'.
+    if ([string]::IsNullOrEmpty($DestinationPath)) {
+        $DestinationPath =
+            [Environment]::GetEnvironmentVariable('MR2DX_GAMEDATA_PATH')
+
+        if ([string]::IsNullOrEmpty($DestinationPath)) {
+            $DestinationPath = Join-Path $PSScriptRoot '../gamedata'
+        }
+    }
 
     if (-not [string]::IsNullOrEmpty($ArchivePath)) {
         if (-not (Test-Path $ArchivePath -PathType Leaf)) {
