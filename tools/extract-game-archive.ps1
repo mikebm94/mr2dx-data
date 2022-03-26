@@ -41,9 +41,9 @@ param(
     # The directory to place the files extracted from the archive. It will
     # be created if it doesn't exist.
     #
-    # If this parameter isn't set, it will default to the MR2DX_GAMEDATA_PATH
-    # environment variable. If MR2DX_GAMEDATA_PATH isn't set, then it is set
-    # to the 'gamedata' directory in the root of the source tree.
+    # If this parameter isn't specified, it will be set to the value of the
+    # MR2DX_GAMEDATA_PATH environment variable if it is set. Otherwise,
+    # defaults to the directory 'gamedata' in the repository root.
     [Parameter(Position = 0)]
     [ValidateNotNullOrEmpty()]
     [string]
