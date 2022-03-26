@@ -13,7 +13,7 @@ If no Steam library path is given using the `SteamLibraryPath` parameter,
 the default Steam library path for your platform will be used.
 
 The '7z' command (7-Zip) must be installed to extract the archive.
-On Windows, the command doesn't have to be in PATH because the registry
+On Windows, the command does not have to be in PATH because the registry
 can be searched for the 7-Zip installation location. On Linux and macOS,
 the '7z' command can be provided by p7zip (the 'p7zip-full' package
 or equivalent package for your distribution) or by the official
@@ -39,9 +39,9 @@ PS> ./extract-game-archive.ps1 -DestinationPath ~/Documents/MR2-game-files
 [CmdletBinding(DefaultParameterSetName = 'FindArchive')]
 param(
     # The directory to place the files extracted from the archive. It will
-    # be created if it doesn't exist.
+    # be created if it does not exist.
     #
-    # If this parameter isn't specified, it will be set to the value of the
+    # If this parameter is not specified, it will be set to the value of the
     # MR2DX_GAMEDATA_PATH environment variable if it is set. Otherwise,
     # defaults to the directory 'gamedata' in the repository root.
     [Parameter(Position = 0)]
@@ -64,7 +64,7 @@ param(
 
     # The path to the game data archive to extract.
     # Useful on macOS to use a copy of the archive obtained from another computer
-    # or OS since MR2DX can't be installed on macOS.
+    # or OS since MR2DX cannot be installed on macOS.
     [Parameter(ParameterSetName = 'ExplicitArchivePath', Mandatory)]
     [ValidateNotNullOrEmpty()]
     [string]
@@ -98,8 +98,6 @@ function Main {
 
     $ErrorActionPreference = 'Stop'
 
-    # If parameter DestinationPath isn't set, set to MR2DX_GAMEDATA_PATH
-    # environment variable or 'gamedata/'.
     if ([string]::IsNullOrEmpty($DestinationPath)) {
         $DestinationPath =
             [Environment]::GetEnvironmentVariable('MR2DX_GAMEDATA_PATH')
