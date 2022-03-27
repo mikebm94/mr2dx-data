@@ -14,10 +14,10 @@ If no Steam library path is given using the `SteamLibraryPath` parameter
 or MR2DX_STEAMLIB_PATH environment variable, then the default Steam library
 path for your platform will be used.
 
-The '7z' command (7-Zip) must be installed to extract the archive.
-On Windows, the command does not have to be in PATH because the registry
-can be searched for the 7-Zip installation location. On Linux and macOS,
-the '7z' command can be provided by p7zip (the 'p7zip-full' package
+The '7z', '7zz', or '7zzs' command (7-Zip) must be installed to extract
+the archive. On Windows, the command does not have to be in PATH because
+the registry can be searched for the 7-Zip installation location. On Linux
+and macOS, 7-Zip can be provided by p7zip (the 'p7zip-full' package
 or equivalent package for your distribution) or by the official
 7-Zip for linux.
 
