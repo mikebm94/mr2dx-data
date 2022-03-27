@@ -144,7 +144,7 @@ function Get-GameArchivePath {
 
 
 function Find-GameArchiveInSteamLibrary {
-    if ([string]::IsNullOrEmpty($SteamLibraryPath)) {
+    if (-not $SteamLibraryPath) {
         $SteamLibraryPath = Get-DefaultSteamLibraryPath
     }
 
@@ -207,7 +207,7 @@ function Expand-ArchiveWith7z {
 
     $7z = Get-7zipCommandPath
 
-    if ([string]::IsNullOrEmpty($7z)) {
+    if (-not $7z) {
         throw "Failed to find the '7z', '7zz', or '7zzs' command." +
               "Please install 7-Zip."
     }
