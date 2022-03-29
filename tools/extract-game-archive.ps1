@@ -97,7 +97,7 @@ $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 function Main {
     $ErrorActionPreference = 'Stop'
 
-    $destinationPath = Join-Path $PSScriptRoot '../game-files'
+    $destinationPath = Join-Path $PSScriptRoot '../game-files/'
     $gameArchivePath = Get-GameArchivePath
 
     if (-not $gameArchivePath) {
