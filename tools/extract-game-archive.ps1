@@ -6,7 +6,7 @@ Extracts the archive containing the MR2DX game data files.
 
 .DESCRIPTION
 The contents of the game data archive will be extracted
-to the gamedata/ directory.
+to the game-files/ directory.
 
 The `ArchivePath` parameter or MR2DX_ARCHIVE_PATH environment variable
 can be set to specify an explicit path to the game data archive.
@@ -97,7 +97,7 @@ $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 function Main {
     $ErrorActionPreference = 'Stop'
 
-    $destinationPath = Join-Path $PSScriptRoot '../gamedata'
+    $destinationPath = Join-Path $PSScriptRoot '../game-files'
     $gameArchivePath = Get-GameArchivePath
 
     if (-not $gameArchivePath) {

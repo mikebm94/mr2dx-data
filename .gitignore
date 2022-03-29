@@ -1,6 +1,6 @@
 
-# Default directory to extract the MR2DX data.bin archive
-gamedata/
+# Directory that the MR2DX game files are extracted to
+game-files/
 
 
 ## Backup
