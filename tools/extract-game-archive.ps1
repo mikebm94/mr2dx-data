@@ -5,6 +5,9 @@
 Extracts the archive containing the MR2DX game data files.
 
 .DESCRIPTION
+The contents of the game data archive will be extracted
+to the gamedata/ directory.
+
 The `ArchivePath` parameter or MR2DX_ARCHIVE_PATH environment variable
 can be set to specify an explicit path to the game data archive.
 If neither are not set or the path does not exist, then the Steam library
@@ -35,23 +38,11 @@ without them.
 PS> .\extract-game-archive.ps1 -SteamLibraryPath D:\MySteamLibrary
 
 .EXAMPLE
-PS> ./extract-game-archive.ps1 -DestinationPath ~/Documents/MR2-game-files
+PS> ./extract-game-archive.ps1 -ArchivePath ~/mr2dx-game-files/data.bin
 #>
 
 [CmdletBinding()]
 param(
-    # The directory to place the files extracted from the archive. It will
-    # be created if it does not exist.
-    #
-    # If this parameter is not specified, it will be set to the value of the
-    # MR2DX_GAMEDATA_PATH environment variable if it is set. Otherwise,
-    # defaults to the directory 'gamedata' in the repository root.
-    [Parameter(Position = 0)]
-    [ValidateNotNullOrEmpty()]
-    [string]
-    $DestinationPath =
-        [Environment]::GetEnvironmentVariable('MR2DX_GAMEDATA_PATH'),
-
     # The path to the Steam library directory that MR2DX is installed to
     # which contains the 'steamapps' subdirectory. Used to locate the
     # game data archive.
@@ -106,10 +97,7 @@ $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 function Main {
     $ErrorActionPreference = 'Stop'
 
-    if (-not $DestinationPath) {
-        $DestinationPath = Join-Path $PSScriptRoot '../gamedata'
-    }
-
+    $destinationPath = Join-Path $PSScriptRoot '../gamedata'
     $gameArchivePath = Get-GameArchivePath
 
     if (-not $gameArchivePath) {
@@ -118,14 +106,14 @@ function Main {
 
     Write-Host "Extracting MR2DX game data archive at '${gameArchivePath}'..."
 
-    Expand-ArchiveWith7z $gameArchivePath
+    Expand-ArchiveWith7z $gameArchivePath $destinationPath
 
-    if (-not (Test-Path $DestinationPath -PathType Container)) {
-        throw "Failed to extract MR2DX game data files to '${DestinationPath}'"
+    if (-not (Test-Path $destinationPath -PathType Container)) {
+        throw "Failed to extract MR2DX game data files to '${destinationPath}'"
     }
 
     Write-Host "Extracted MR2DX game data files to" `
-               "'$(Resolve-Path $DestinationPath)'."
+               "'$(Resolve-Path $destinationPath)'."
 }
 
 
@@ -202,7 +190,12 @@ function Expand-ArchiveWith7z {
         [Parameter(Position = 0, Mandatory)]
         [ValidateNotNullOrEmpty()]
         [string]
-        $GameArchivePath
+        $GameArchivePath,
+
+        [Parameter(Position = 1, Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $DestinationPath
     )
 
     $7z = Get-7zipCommandPath
