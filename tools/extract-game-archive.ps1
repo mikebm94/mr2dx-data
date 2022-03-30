@@ -90,6 +90,9 @@ param(
 )
 
 
+# Source common variables and cmdlets.
+. (Join-Path $PSScriptRoot 'common.ps1')
+
 $GameArchivePassword = 'KoeiTecmoMF1&2'
 $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 
@@ -97,7 +100,7 @@ $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 function Main {
     $ErrorActionPreference = 'Stop'
 
-    $destinationPath = Join-Path $PSScriptRoot '../game-files/'
+    $destinationPath = $GameFilesPath
     $gameArchivePath = Get-GameArchivePath
 
     if (-not $gameArchivePath) {

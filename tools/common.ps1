@@ -1,4 +1,7 @@
 
+# Directory for game files extracted from the MR2DX game data archive.
+$GameFilesPath = Join-Path $PSScriptRoot '../game-files/'
+
 # Directory for gathered MR2DX data and images.
 $DataPath = Join-Path $PSScriptRoot '../data/'
 
