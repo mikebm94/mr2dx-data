@@ -29,6 +29,7 @@ using the specified properties as the keys and values.
 #>
 function ConvertTo-Hashtable {
     [CmdletBinding()]
+    [OutputType([hashtable])]
     param(
         # The objects used to create the hashtable.
         [Parameter(Mandatory, ValueFromPipeline)]
