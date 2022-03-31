@@ -90,6 +90,8 @@ param(
 )
 
 
+$ErrorActionPreference = 'Stop'
+
 # Source common variables and cmdlets.
 . (Join-Path $PSScriptRoot 'common.ps1')
 
@@ -98,8 +100,6 @@ $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 
 
 function Main {
-    $ErrorActionPreference = 'Stop'
-
     $destinationPath = $GameFilesPath
     $gameArchivePath = Get-GameArchivePath
 
