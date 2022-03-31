@@ -107,7 +107,7 @@ function Main {
         throw "Failed to find the MR2DX game data archive."
     }
 
-    Write-Host "Extracting MR2DX game data archive at '${gameArchivePath}'..."
+    Write-Host "Extracting MR2DX game data archive at '${gameArchivePath}' ..."
 
     Expand-ArchiveWith7z $gameArchivePath $destinationPath
 
