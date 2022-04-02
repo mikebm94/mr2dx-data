@@ -75,7 +75,7 @@ $GameFiles = @{
     'Techs_mz'           = 'mf2/data/mon/mzmus/mz_mz_wz.dat' # Worm
     'Techs_na'           = 'mf2/data/mon/naaga/na_na_wz.dat' # Naga
 
-    # Defines baseline stats and parameters for all breeds.
+    # Defines baseline stats and parameters for all non-special monster types.
     'MonsterBaselines'   = 'mf2/data/monbase/mon_base.dat'
 }
 
