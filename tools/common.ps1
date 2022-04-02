@@ -22,7 +22,7 @@ $FinishedDataPath = Resolve-Path (Join-Path $DataPath 'csv/')
 $ImageDataPath = Resolve-Path (Join-Path $DataPath 'images/')
 
 
-# Maps a friendly name to a game file path.
+# Map friendly names to game file paths.
 $GameFiles = @{
     # CSV table of all monster variations that can be obtained at the shrine.
     'ShrineMonsters'     = 'SDATA_MONSTER.csv'
