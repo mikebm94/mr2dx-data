@@ -42,47 +42,193 @@ $GameFiles = @{
     'ShrineSongs'        = 'en_sqlout_name.txt'
 
     # Defines techniques available to a breed.
-    'Techs_ka'           = 'mf2/data/mon/kapi/ka_ka_wz.dat'  # Pixie
-    'Techs_kb'           = 'mf2/data/mon/kbdr/kb_kb_wz.dat'  # Dragon
-    'Techs_kc'           = 'mf2/data/mon/kckn/kc_kc_wz.dat'  # Centaur
-    'Techs_kd'           = 'mf2/data/mon/kdro/kd_kd_wz.dat'  # ColorPandora
-    'Techs_ke'           = 'mf2/data/mon/kebe/ke_ke_wz.dat'  # Beaclon
-    'Techs_kf'           = 'mf2/data/mon/kfhe/kf_kf_wz.dat'  # Henger
-    'Techs_kh'           = 'mf2/data/mon/khcy/kh_kh_wz.dat'  # Wracky
-    'Techs_ki'           = 'mf2/data/mon/kigo/ki_ki_wz.dat'  # Golem
-    'Techs_kk'           = 'mf2/data/mon/kkro/kk_kk_wz.dat'  # Zuum
-    'Techs_kl'           = 'mf2/data/mon/klyo/kl_kl_wz.dat'  # Durahan
-    'Techs_km'           = 'mf2/data/mon/kmto/km_km_wz.dat'  # Arrow Head
-    'Techs_ma'           = 'mf2/data/mon/marig/ma_ma_wz.dat' # Tiger
-    'Techs_mb'           = 'mf2/data/mon/mbhop/mb_mb_wz.dat' # Hopper
-    'Techs_mc'           = 'mf2/data/mon/mcham/mc_mc_wz.dat' # Hare
-    'Techs_md'           = 'mf2/data/mon/mdbak/md_md_wz.dat' # Baku
-    'Techs_me'           = 'mf2/data/mon/megar/me_me_wz.dat' # Gali
-    'Techs_mf'           = 'mf2/data/mon/mfakr/mf_mf_wz.dat' # Kato
-    'Techs_mg'           = 'mf2/data/mon/mggjr/mg_mg_wz.dat' # Zilla
-    'Techs_mh'           = 'mf2/data/mon/mhlam/mh_mh_wz.dat' # Bajarl
-    'Techs_mi'           = 'mf2/data/mon/minya/mi_mi_wz.dat' # Mew
-    'Techs_mj'           = 'mf2/data/mon/mjfbd/mj_mj_wz.dat' # Phoenix
-    'Techs_mk'           = 'mf2/data/mon/mkgho/mk_mk_wz.dat' # Ghost
-    'Techs_ml'           = 'mf2/data/mon/mlspm/ml_ml_wz.dat' # Metalner
-    'Techs_mm'           = 'mf2/data/mon/mmxsu/mm_mm_wz.dat' # Suezo
-    'Techs_mn'           = 'mf2/data/mon/mnsnm/mn_mn_wz.dat' # Jill
-    'Techs_mo'           = 'mf2/data/mon/mochy/mo_mo_wz.dat' # Mochi
-    'Techs_mp'           = 'mf2/data/mon/mpjok/mp_mp_wz.dat' # Joker
-    'Techs_mq'           = 'mf2/data/mon/mqnen/mq_mq_wz.dat' # Gaboo
-    'Techs_mr'           = 'mf2/data/mon/mrpru/mr_mr_wz.dat' # Jell
-    'Techs_ms'           = 'mf2/data/mon/msund/ms_ms_wz.dat' # Undine
-    'Techs_mt'           = 'mf2/data/mon/mtgai/mt_mt_wz.dat' # Niton
-    'Techs_mu'           = 'mf2/data/mon/muoku/mu_mu_wz.dat' # Mock
-    'Techs_mv'           = 'mf2/data/mon/mvdak/mv_mv_wz.dat' # Ducken
-    'Techs_mw'           = 'mf2/data/mon/mwpla/mw_mw_wz.dat' # Plant
-    'Techs_mx'           = 'mf2/data/mon/mxris/mx_mx_wz.dat' # Monol
-    'Techs_my'           = 'mf2/data/mon/mylau/my_my_wz.dat' # Ape
-    'Techs_mz'           = 'mf2/data/mon/mzmus/mz_mz_wz.dat' # Worm
-    'Techs_na'           = 'mf2/data/mon/naaga/na_na_wz.dat' # Naga
+    # Files are encoding using Shift-JIS.
+    'Techs_ka'           = # Pixie
+        @{ Path = 'mf2/data/mon/kapi/ka_ka_wz.dat'; Codepage = 932 }
+    'Techs_kb'           = # Dragon
+        @{ Path = 'mf2/data/mon/kbdr/kb_kb_wz.dat'; Codepage = 932 }
+    'Techs_kc'           = # Centaur
+        @{ Path = 'mf2/data/mon/kckn/kc_kc_wz.dat'; Codepage = 932 }
+    'Techs_kd'           = # ColorPandora
+        @{ Path = 'mf2/data/mon/kdro/kd_kd_wz.dat'; Codepage = 932 }
+    'Techs_ke'           = # Beaclon
+        @{ Path = 'mf2/data/mon/kebe/ke_ke_wz.dat'; Codepage = 932 }
+    'Techs_kf'           = # Henger
+        @{ Path = 'mf2/data/mon/kfhe/kf_kf_wz.dat'; Codepage = 932 }
+    'Techs_kh'           = # Wracky
+        @{ Path = 'mf2/data/mon/khcy/kh_kh_wz.dat'; Codepage = 932 }
+    'Techs_ki'           = # Golem
+        @{ Path = 'mf2/data/mon/kigo/ki_ki_wz.dat'; Codepage = 932 }
+    'Techs_kk'           = # Zuum
+        @{ Path = 'mf2/data/mon/kkro/kk_kk_wz.dat'; Codepage = 932 }
+    'Techs_kl'           = # Durahan
+        @{ Path = 'mf2/data/mon/klyo/kl_kl_wz.dat'; Codepage = 932 }
+    'Techs_km'           = # Arrow Head
+        @{ Path = 'mf2/data/mon/kmto/km_km_wz.dat'; Codepage = 932 }
+    'Techs_ma'           = # Tiger
+        @{ Path = 'mf2/data/mon/marig/ma_ma_wz.dat'; Codepage = 932 }
+    'Techs_mb'           = # Hopper
+        @{ Path = 'mf2/data/mon/mbhop/mb_mb_wz.dat'; Codepage = 932 }
+    'Techs_mc'           = # Hare
+        @{ Path = 'mf2/data/mon/mcham/mc_mc_wz.dat'; Codepage = 932 }
+    'Techs_md'           = # Baku
+        @{ Path = 'mf2/data/mon/mdbak/md_md_wz.dat'; Codepage = 932 }
+    'Techs_me'           = # Gali
+        @{ Path = 'mf2/data/mon/megar/me_me_wz.dat'; Codepage = 932 }
+    'Techs_mf'           = # Kato
+        @{ Path = 'mf2/data/mon/mfakr/mf_mf_wz.dat'; Codepage = 932 }
+    'Techs_mg'           = # Zilla
+        @{ Path = 'mf2/data/mon/mggjr/mg_mg_wz.dat'; Codepage = 932 }
+    'Techs_mh'           = # Bajarl
+        @{ Path = 'mf2/data/mon/mhlam/mh_mh_wz.dat'; Codepage = 932 }
+    'Techs_mi'           = # Mew
+        @{ Path = 'mf2/data/mon/minya/mi_mi_wz.dat'; Codepage = 932 }
+    'Techs_mj'           = # Phoenix
+        @{ Path = 'mf2/data/mon/mjfbd/mj_mj_wz.dat'; Codepage = 932 }
+    'Techs_mk'           = # Ghost
+        @{ Path = 'mf2/data/mon/mkgho/mk_mk_wz.dat'; Codepage = 932 }
+    'Techs_ml'           = # Metalner
+        @{ Path = 'mf2/data/mon/mlspm/ml_ml_wz.dat'; Codepage = 932 }
+    'Techs_mm'           = # Suezo
+        @{ Path = 'mf2/data/mon/mmxsu/mm_mm_wz.dat'; Codepage = 932 }
+    'Techs_mn'           = # Jill
+        @{ Path = 'mf2/data/mon/mnsnm/mn_mn_wz.dat'; Codepage = 932 }
+    'Techs_mo'           = # Mochi
+        @{ Path = 'mf2/data/mon/mochy/mo_mo_wz.dat'; Codepage = 932 }
+    'Techs_mp'           = # Joker
+        @{ Path = 'mf2/data/mon/mpjok/mp_mp_wz.dat'; Codepage = 932 }
+    'Techs_mq'           = # Gaboo
+        @{ Path = 'mf2/data/mon/mqnen/mq_mq_wz.dat'; Codepage = 932 }
+    'Techs_mr'           = # Jell
+        @{ Path = 'mf2/data/mon/mrpru/mr_mr_wz.dat'; Codepage = 932 }
+    'Techs_ms'           = # Undine
+        @{ Path = 'mf2/data/mon/msund/ms_ms_wz.dat'; Codepage = 932 }
+    'Techs_mt'           = # Niton
+        @{ Path = 'mf2/data/mon/mtgai/mt_mt_wz.dat'; Codepage = 932 }
+    'Techs_mu'           = # Mock
+        @{ Path = 'mf2/data/mon/muoku/mu_mu_wz.dat'; Codepage = 932 }
+    'Techs_mv'           = # Ducken
+        @{ Path = 'mf2/data/mon/mvdak/mv_mv_wz.dat'; Codepage = 932 }
+    'Techs_mw'           = # Plant
+        @{ Path = 'mf2/data/mon/mwpla/mw_mw_wz.dat'; Codepage = 932 }
+    'Techs_mx'           = # Monol
+        @{ Path = 'mf2/data/mon/mxris/mx_mx_wz.dat'; Codepage = 932 }
+    'Techs_my'           = # Ape
+        @{ Path = 'mf2/data/mon/mylau/my_my_wz.dat'; Codepage = 932 }
+    'Techs_mz'           = # Worm
+        @{ Path = 'mf2/data/mon/mzmus/mz_mz_wz.dat'; Codepage = 932 }
+    'Techs_na'           = # Naga
+        @{ Path = 'mf2/data/mon/naaga/na_na_wz.dat'; Codepage = 932 }
 
     # Defines baseline stats and parameters for all non-special monster types.
     'MonsterBaselines'   = 'mf2/data/monbase/mon_base.dat'
+}
+
+
+<#
+.SYNOPSIS
+Imports CSV data from an MR2DX game file.
+
+.OUTPUTS
+The objects described by the content of the CSV file.
+#>
+function Import-GameFileCsv {
+    [CmdletBinding()]
+    [OutputType([object])]
+    param(
+        # A key referring to a game file path defined
+        # in the `GameFiles` hashtable.
+        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileKey,
+
+        # Specifies the delimiter that separates the property values
+        # in the CSV file. The default is comma (`,`).
+        [Parameter(Position = 1)]
+        [char]
+        $Delimiter = ',',
+
+        # A comma-separated list of strings to be used an alternate column
+        # header row for the imported file. The column header determines
+        # the property names of the objects created.
+        [ValidateNotNull()]
+        [string[]]
+        $Header
+    )
+
+    $filePath = $GameFiles[$FileKey]
+    $fileEncoding = 'UTF8NoBOM'
+
+    if ($null -eq $filePath) {
+        throw "Failed to import CSV data from MR2DX game file: " +
+              "No file path defined for key '${FileKey}'."
+    }
+
+    # File uses a non-default encoding.
+    if ($filePath -is [hashtable]) {
+        $fileEncoding = $filePath['Codepage']
+        $filePath = $filePath['Path']
+    }
+
+    $filePath = Join-Path $GameFilesPath $filePath
+
+    if (-not (Test-Path $filePath -PathType Leaf)) {
+        throw "Failed to import CSV data from MR2DX game file: " +
+              "File '${filePath}' does not exist." +
+              "Please run the game archive extraction script first."
+    }
+
+    if ($Header) {
+        Import-Csv $filePath -Header $Header -Encoding $fileEncoding
+    } else {
+        Import-Csv $filePath -Encoding $fileEncoding
+    }
+}
+
+
+<#
+.SYNOPSIS
+Gets the content of an MR2DX game file.
+
+.OUTPUTS
+The full content of the file as a single string.
+#>
+function Get-GameFileContent {
+    [CmdletBinding()]
+    [OutputType([string])]
+    param(
+        # A key referring to a game file path defined
+        # in the `GameFiles` hashtable.
+        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileKey
+    )
+
+    $filePath = $GameFiles[$FileKey]
+    $fileEncoding = 'UTF8NoBOM'
+
+    if ($null -eq $filePath) {
+        throw "Failed to get content of MR2DX game file: " +
+              "No file path defined for key '${FileKey}'."
+    }
+
+    # File uses a non-default encoding.
+    if ($filePath -is [hashtable]) {
+        $fileEncoding = $filePath['Codepage']
+        $filePath = $filePath['Path']
+    }
+
+    $filePath = Join-Path $GameFilesPath $filePath
+
+    if (-not (Test-Path $filePath -PathType Leaf)) {
+        throw "Failed to get content of MR2DX game file: " +
+              "File '${filePath}' does not exist. " +
+              "Please run the game archive extraction script first."
+    }
+
+    Get-Content $filePath -Raw -Encoding $fileEncoding
 }
 
 
