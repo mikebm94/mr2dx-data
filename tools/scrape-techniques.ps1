@@ -29,7 +29,7 @@ function Main {
 
     $scrapeUrl = 'https://legendcup.com/faqmr2techs.php'
 
-    Write-Host "Scraping technique data from '$scrapeUrl' ..."
+    Write-Host "Scraping technique data from '${scrapeUrl}' ..."
 
     $response = Invoke-WebRequest $scrapeUrl
 
