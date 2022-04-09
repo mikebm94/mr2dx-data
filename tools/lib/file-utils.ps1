@@ -46,7 +46,7 @@ function Import-GameFileCsv {
 
     if ($null -eq $filePath) {
         throw "Failed to import CSV data from MR2DX game file: " +
-        "No file path defined for key '${FileKey}'."
+              "No file path defined for key '${FileKey}'."
     }
 
     # File uses a non-default encoding.
@@ -59,8 +59,8 @@ function Import-GameFileCsv {
 
     if (-not (Test-Path $filePath -PathType Leaf)) {
         throw "Failed to import CSV data from MR2DX game file: " +
-        "File '${filePath}' does not exist." +
-        "Please run the game archive extraction script first."
+              "File '${filePath}' does not exist." +
+              "Please run the game archive extraction script first."
     }
 
     if ($Header) {
@@ -96,7 +96,7 @@ function Get-GameFileContent {
 
     if ($null -eq $filePath) {
         throw "Failed to get content of MR2DX game file: " +
-        "No file path defined for key '${FileKey}'."
+              "No file path defined for key '${FileKey}'."
     }
 
     # File uses a non-default encoding.
@@ -109,8 +109,8 @@ function Get-GameFileContent {
 
     if (-not (Test-Path $filePath -PathType Leaf)) {
         throw "Failed to get content of MR2DX game file: " +
-        "File '${filePath}' does not exist. " +
-        "Please run the game archive extraction script first."
+              "File '${filePath}' does not exist. " +
+              "Please run the game archive extraction script first."
     }
 
     Get-Content $filePath -Raw -Encoding $fileEncoding
