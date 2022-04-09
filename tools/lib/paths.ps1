@@ -9,25 +9,9 @@
 # The root directory of the repository/source-tree.
 $SourceTreeRoot = Resolve-Path (Join-Path $PSScriptRoot '../../')
 
-# game-files/
-#   Directory for game files extracted from the MR2DX game data archive.
-$GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
-
 # data/
 #   Directory for gathered MR2DX data and images.
 $DataPath = Join-Path $SourceTreeRoot 'data/'
-
-# data/intermediate/
-#   Directory for data that is used to help generate the finished data tables.
-$IntermediateDataPath = Join-Path $DataPath 'intermediate/'
-
-# data/intermediate/scraped/
-#   Directory for intermediate data scraped from the web.
-$ScrapedDataPath = Join-Path $IntermediateDataPath 'scraped/'
-
-# data/intermediate/extracted/
-#   Directory for intermediate data extracted from the MR2DX game files.
-$ExtractedDataPath = Join-Path $IntermediateDataPath 'extracted/'
 
 # data/csv/
 #   Directory for finished CSV data tables that are suitable for use
@@ -37,3 +21,19 @@ $FinishedDataPath = Join-Path $DataPath 'csv/'
 # data/images/
 #   Directory for images and icons such as technique icons.
 $ImageDataPath = Join-Path $DataPath 'images/'
+
+# data/intermediate/
+#   Directory for data that is used to help generate the finished data tables.
+$IntermediateDataPath = Join-Path $DataPath 'intermediate/'
+
+# data/intermediate/extracted/
+#   Directory for intermediate data extracted from the MR2DX game files.
+$ExtractedDataPath = Join-Path $IntermediateDataPath 'extracted/'
+
+# data/intermediate/scraped/
+#   Directory for intermediate data scraped from the web.
+$ScrapedDataPath = Join-Path $IntermediateDataPath 'scraped/'
+
+# game-files/
+#   Directory for game files extracted from the MR2DX game data archive.
+$GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
