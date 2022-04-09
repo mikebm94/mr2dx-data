@@ -2,12 +2,12 @@
 # game-files/
 #   Directory for game files extracted from the MR2DX game data archive.
 $GameFilesPath =
-    Resolve-Path (Join-Path $PSScriptRoot '../game-files/')
+    Resolve-Path (Join-Path $PSScriptRoot '../../game-files/')
 
 # data/
 #   Directory for gathered MR2DX data and images.
 $DataPath =
-    Resolve-Path (Join-Path $PSScriptRoot '../data/')
+    Resolve-Path (Join-Path $PSScriptRoot '../../data/')
 
 # data/intermediate/
 #   Directory for data that is used to help generate the finished data tables.
