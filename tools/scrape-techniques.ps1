@@ -182,8 +182,6 @@ function Get-BreedTechnique {
             throw "Could not find techniques for breed '${breedName}'."
         }
 
-        
-
         $matchInfo.Matches | Get-ParsedTechnique $breedId
     }
 }

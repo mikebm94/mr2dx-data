@@ -31,6 +31,7 @@ $FinishedDataPath = Join-Path $DataPath 'csv/'
 #   Directory for images and icons such as technique icons.
 $ImageDataPath = Join-Path $DataPath 'images/'
 
+
 # Map friendly names to game file paths.
 $GameFiles = @{
     # CSV table defining the monster variations
@@ -168,6 +169,7 @@ $GameFiles = @{
     'Baseline'       = 'mf2/data/monbase/mon_base.dat'
 }
 
+
 <#
 .SYNOPSIS
 Imports CSV data from an MR2DX game file.
@@ -224,7 +226,8 @@ function Import-GameFileCsv {
 
     if ($Header) {
         Import-Csv $filePath -Header $Header -Encoding $fileEncoding
-    } else {
+    }
+    else {
         Import-Csv $filePath -Encoding $fileEncoding
     }
 }
