@@ -6,6 +6,18 @@
 
 <#
 .SYNOPSIS
+Display an error message and abort the script.
+#>
+function Abort {
+    $commandName = (Get-Item $MyInvocation.PSCommandPath).Name
+    $message = $args -join ' '
+    Write-Host "${commandName}: ${message}" -ForegroundColor Red
+    exit 1
+}
+
+
+<#
+.SYNOPSIS
 Create a hashtable from a collection of objects
 using the specified properties as the keys and values.
 #>

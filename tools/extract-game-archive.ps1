@@ -92,6 +92,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+. (Join-Path $PSScriptRoot 'lib/misc-utils.ps1')
 . (Join-Path $PSScriptRoot 'lib/paths.ps1')
 
 
@@ -104,7 +105,7 @@ function Main {
     $gameArchivePath = Get-GameArchivePath
 
     if (-not $gameArchivePath) {
-        throw "Failed to find the MR2DX game data archive."
+        Abort "Failed to find the MR2DX game data archive."
     }
 
     Write-Host "Extracting MR2DX game data archive at '${gameArchivePath}' ..."
@@ -112,7 +113,7 @@ function Main {
     Expand-ArchiveWith7z $gameArchivePath $destinationPath
 
     if (-not (Test-Path $destinationPath -PathType Container)) {
-        throw "Failed to extract MR2DX game data files to '${destinationPath}'"
+        Abort "Failed to extract MR2DX game data files to '${destinationPath}'"
     }
 
     Write-Host "Extracted MR2DX game data files to" `
@@ -204,7 +205,7 @@ function Expand-ArchiveWith7z {
     $7z = Get-7zipCommandPath
 
     if (-not $7z) {
-        throw "Failed to find the '7z', '7zz', or '7zzs' command." +
+        Abort "Failed to find the '7z', '7zz', or '7zzs' command." `
               "Please install 7-Zip."
     }
 

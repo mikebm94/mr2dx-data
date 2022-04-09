@@ -32,7 +32,12 @@ function Main {
 
     Write-Host "Scraping technique data from '${scrapeUrl}' ..."
 
-    $response = Invoke-WebRequest $scrapeUrl
+    try {
+        $response = Invoke-WebRequest $scrapeUrl
+    }
+    catch {
+        Abort $_.Exception.Message
+    }
 
     $techniques =
         $response.Content |
