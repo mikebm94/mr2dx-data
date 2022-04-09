@@ -17,8 +17,8 @@ param()
 
 $ErrorActionPreference = 'Stop'
 
-# Source common variables and cmdlets.
-. (Join-Path $PSScriptRoot 'lib/common.ps1')
+. (Join-Path $PSScriptRoot 'lib/misc-utils.ps1')
+. (Join-Path $PSScriptRoot 'lib/paths.ps1')
 
 $OutputFilePath = Join-Path $ScrapedDataPath 'breed-techniques-legendcup.csv'
 

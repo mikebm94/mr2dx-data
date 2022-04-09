@@ -92,8 +92,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# Source common variables and cmdlets.
-. (Join-Path $PSScriptRoot 'lib/common.ps1')
+. (Join-Path $PSScriptRoot 'lib/paths.ps1')
 
 $GameArchivePassword = 'KoeiTecmoMF1&2'
 $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
