@@ -94,6 +94,7 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/paths.ps1')
 
+
 $GameArchivePassword = 'KoeiTecmoMF1&2'
 $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 

@@ -4,7 +4,6 @@
         the data generation scripts.
 #>
 
-
 <#
 .SYNOPSIS
 Create a hashtable from a collection of objects

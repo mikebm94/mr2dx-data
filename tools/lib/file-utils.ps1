@@ -5,7 +5,6 @@
         without the need to change multiple files.
 #>
 
-
 . (Join-Path $PSScriptRoot 'file-manifiests.ps1')
 . (Join-Path $PSScriptRoot 'misc-utils.ps1')
 

@@ -7,7 +7,6 @@
 
 using namespace System.Diagnostics.CodeAnalysis
 
-
 . (Join-Path $PSScriptRoot 'paths.ps1')
 
 
