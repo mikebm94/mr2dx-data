@@ -5,11 +5,14 @@
         to update multiple files when a file is renamed.
 #>
 
+using namespace System.Diagnostics.CodeAnalysis
+
 
 . (Join-Path $PSScriptRoot 'paths.ps1')
 
 
 # Map friendly names to game file paths.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $GameFiles = @{
     # CSV table defining the monster variations
     # that can be obtained at the shrine.

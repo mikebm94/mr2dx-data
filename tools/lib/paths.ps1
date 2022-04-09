@@ -5,6 +5,8 @@
         structure is changed.
 #>
 
+using namespace System.Diagnostics.CodeAnalysis
+
 
 # The root directory of the repository/source-tree.
 $SourceTreeRoot = Resolve-Path (Join-Path $PSScriptRoot '../../')
@@ -16,10 +18,12 @@ $DataPath = Join-Path $SourceTreeRoot 'data/'
 # data/csv/
 #   Directory for finished CSV data tables that are suitable for use
 #   in development and to generate the database.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FinishedDataPath = Join-Path $DataPath 'csv/'
 
 # data/images/
 #   Directory for images and icons such as technique icons.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ImageDataPath = Join-Path $DataPath 'images/'
 
 # data/intermediate/
@@ -28,12 +32,15 @@ $IntermediateDataPath = Join-Path $DataPath 'intermediate/'
 
 # data/intermediate/extracted/
 #   Directory for intermediate data extracted from the MR2DX game files.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ExtractedDataPath = Join-Path $IntermediateDataPath 'extracted/'
 
 # data/intermediate/scraped/
 #   Directory for intermediate data scraped from the web.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ScrapedDataPath = Join-Path $IntermediateDataPath 'scraped/'
 
 # game-files/
 #   Directory for game files extracted from the MR2DX game data archive.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
