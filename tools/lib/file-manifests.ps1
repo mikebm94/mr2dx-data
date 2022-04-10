@@ -15,135 +15,135 @@ using namespace System.Diagnostics.CodeAnalysis
 $GameFiles = @{
     # CSV table defining the monster variations
     # that can be obtained at the shrine.
-    'ShrineMonster'  = 'SDATA_MONSTER.csv'
+    'ShrineMonsters'       = 'SDATA_MONSTER.csv'
 
     # TSV table mapping song IDs in the English music database
     # to a corresponding shrine monster ID as well as an offset
     # that may be applied to the monster after shrining.
-    'SongShrineInfo' = 'en_sqlout_b.txt'
+    'ShrineMonster_Songs'  = 'en_sqlout_b.txt'
 
     # TSV table mapping song IDs in the English music database
     # to the corresponding artist name and title.
-    'SongInfo'       = 'en_sqlout_name.txt'
+    'Songs'                = 'en_sqlout_name.txt'
 
     # Data files defining the techniques available to each monster breed.
     # Files are encoded using Shift-JIS.
-    'Technique_ka'   = @{ # Pixie
+    'TechniquesKA'         = @{ # Pixie
         Path = 'mf2/data/mon/kapi/ka_ka_wz.dat'; Codepage = 932
     }
-    'Technique_kb'   = @{ # Dragon
+    'TechniquesKB'         = @{ # Dragon
         Path = 'mf2/data/mon/kbdr/kb_kb_wz.dat'; Codepage = 932
     }
-    'Technique_kc'   = @{ # Centaur
+    'TechniquesKC'         = @{ # Centaur
         Path = 'mf2/data/mon/kckn/kc_kc_wz.dat'; Codepage = 932
     }
-    'Technique_kd'   = @{ # ColorPandora
+    'TechniquesKD'         = @{ # ColorPandora
         Path = 'mf2/data/mon/kdro/kd_kd_wz.dat'; Codepage = 932
     }
-    'Technique_ke'   = @{ # Beaclon
+    'TechniquesKE'         = @{ # Beaclon
         Path = 'mf2/data/mon/kebe/ke_ke_wz.dat'; Codepage = 932
     }
-    'Technique_kf'   = @{ # Henger
+    'TechniquesKF'         = @{ # Henger
         Path = 'mf2/data/mon/kfhe/kf_kf_wz.dat'; Codepage = 932
     }
-    'Technique_kh'   = @{ # Wracky
+    'TechniquesKH'         = @{ # Wracky
         Path = 'mf2/data/mon/khcy/kh_kh_wz.dat'; Codepage = 932
     }
-    'Technique_ki'   = @{ # Golem
+    'TechniquesKI'         = @{ # Golem
         Path = 'mf2/data/mon/kigo/ki_ki_wz.dat'; Codepage = 932
     }
-    'Technique_kk'   = @{ # Zuum
+    'TechniquesKK'         = @{ # Zuum
         Path = 'mf2/data/mon/kkro/kk_kk_wz.dat'; Codepage = 932
     }
-    'Technique_kl'   = @{ # Durahan
+    'TechniquesKL'         = @{ # Durahan
         Path = 'mf2/data/mon/klyo/kl_kl_wz.dat'; Codepage = 932
     }
-    'Technique_km'   = @{ # Arrow Head
+    'TechniquesKM'         = @{ # Arrow Head
         Path = 'mf2/data/mon/kmto/km_km_wz.dat'; Codepage = 932
     }
-    'Technique_ma'   = @{ # Tiger
+    'TechniquesMA'         = @{ # Tiger
         Path = 'mf2/data/mon/marig/ma_ma_wz.dat'; Codepage = 932
     }
-    'Technique_mb'   = @{ # Hopper
+    'TechniquesMB'         = @{ # Hopper
         Path = 'mf2/data/mon/mbhop/mb_mb_wz.dat'; Codepage = 932
     }
-    'Technique_mc'   = @{ # Hare
+    'TechniquesMC'         = @{ # Hare
         Path = 'mf2/data/mon/mcham/mc_mc_wz.dat'; Codepage = 932
     }
-    'Technique_md'   = @{ # Baku
+    'TechniquesMD'         = @{ # Baku
         Path = 'mf2/data/mon/mdbak/md_md_wz.dat'; Codepage = 932
     }
-    'Technique_me'   = @{ # Gali
+    'TechniquesME'         = @{ # Gali
         Path = 'mf2/data/mon/megar/me_me_wz.dat'; Codepage = 932
     }
-    'Technique_mf'   = @{ # Kato
+    'TechniquesMF'         = @{ # Kato
         Path = 'mf2/data/mon/mfakr/mf_mf_wz.dat'; Codepage = 932
     }
-    'Technique_mg'   = @{ # Zilla
+    'TechniquesMG'         = @{ # Zilla
         Path = 'mf2/data/mon/mggjr/mg_mg_wz.dat'; Codepage = 932
     }
-    'Technique_mh'   = @{ # Bajarl
+    'TechniquesMH'         = @{ # Bajarl
         Path = 'mf2/data/mon/mhlam/mh_mh_wz.dat'; Codepage = 932
     }
-    'Technique_mi'   = @{ # Mew
+    'TechniquesMI'         = @{ # Mew
         Path = 'mf2/data/mon/minya/mi_mi_wz.dat'; Codepage = 932
     }
-    'Technique_mj'   = @{ # Phoenix
+    'TechniquesMJ'         = @{ # Phoenix
         Path = 'mf2/data/mon/mjfbd/mj_mj_wz.dat'; Codepage = 932
     }
-    'Technique_mk'   = @{ # Ghost
+    'TechniquesMK'         = @{ # Ghost
         Path = 'mf2/data/mon/mkgho/mk_mk_wz.dat'; Codepage = 932
     }
-    'Technique_ml'   = @{ # Metalner
+    'TechniquesML'         = @{ # Metalner
         Path = 'mf2/data/mon/mlspm/ml_ml_wz.dat'; Codepage = 932
     }
-    'Technique_mm'   = @{ # Suezo
+    'TechniquesMM'         = @{ # Suezo
         Path = 'mf2/data/mon/mmxsu/mm_mm_wz.dat'; Codepage = 932
     }
-    'Technique_mn'   = @{ # Jill
+    'TechniquesMN'         = @{ # Jill
         Path = 'mf2/data/mon/mnsnm/mn_mn_wz.dat'; Codepage = 932
     }
-    'Technique_mo'   = @{ # Mochi
+    'TechniquesMO'         = @{ # Mochi
         Path = 'mf2/data/mon/mochy/mo_mo_wz.dat'; Codepage = 932
     }
-    'Technique_mp'   = @{ # Joker
+    'TechniquesMP'         = @{ # Joker
         Path = 'mf2/data/mon/mpjok/mp_mp_wz.dat'; Codepage = 932
     }
-    'Technique_mq'   = @{ # Gaboo
+    'TechniquesMQ'         = @{ # Gaboo
         Path = 'mf2/data/mon/mqnen/mq_mq_wz.dat'; Codepage = 932
     }
-    'Technique_mr'   = @{ # Jell
+    'TechniquesMR'         = @{ # Jell
         Path = 'mf2/data/mon/mrpru/mr_mr_wz.dat'; Codepage = 932
     }
-    'Technique_ms'   = @{ # Undine
+    'TechniquesMS'         = @{ # Undine
         Path = 'mf2/data/mon/msund/ms_ms_wz.dat'; Codepage = 932
     }
-    'Technique_mt'   = @{ # Niton
+    'TechniquesMT'         = @{ # Niton
         Path = 'mf2/data/mon/mtgai/mt_mt_wz.dat'; Codepage = 932
     }
-    'Technique_mu'   = @{ # Mock
+    'TechniquesMU'         = @{ # Mock
         Path = 'mf2/data/mon/muoku/mu_mu_wz.dat'; Codepage = 932
     }
-    'Technique_mv'   = @{ # Ducken
+    'TechniquesMV'         = @{ # Ducken
         Path = 'mf2/data/mon/mvdak/mv_mv_wz.dat'; Codepage = 932
     }
-    'Technique_mw'   = @{ # Plant
+    'TechniquesMW'         = @{ # Plant
         Path = 'mf2/data/mon/mwpla/mw_mw_wz.dat'; Codepage = 932
     }
-    'Technique_mx'   = @{ # Monol
+    'TechniquesMX'         = @{ # Monol
         Path = 'mf2/data/mon/mxris/mx_mx_wz.dat'; Codepage = 932
     }
-    'Technique_my'   = @{ # Ape
+    'TechniquesMY'         = @{ # Ape
         Path = 'mf2/data/mon/mylau/my_my_wz.dat'; Codepage = 932
     }
-    'Technique_mz'   = @{ # Worm
+    'TechniquesMZ'         = @{ # Worm
         Path = 'mf2/data/mon/mzmus/mz_mz_wz.dat'; Codepage = 932
     }
-    'Technique_na'   = @{ # Naga
+    'TechniquesNA'         = @{ # Naga
         Path = 'mf2/data/mon/naaga/na_na_wz.dat'; Codepage = 932
     }
 
     # Data file defining baseline stats and parameters
     # for all non-special monster types.
-    'Baseline'       = 'mf2/data/monbase/mon_base.dat'
+    'MonsterTypeBaselines' = 'mf2/data/monbase/mon_base.dat'
 }
