@@ -27,16 +27,19 @@ $FinishedDataPath = Join-Path $DataPath 'csv/'
 $ImageDataPath = Join-Path $DataPath 'images/'
 
 # data/intermediate/
-#   Directory for data that is used to help generate the finished data tables.
+#   Directory for intermediate data compiled manually
+#   that is used to help generate the finished data tables.
 $IntermediateDataPath = Join-Path $DataPath 'intermediate/'
 
 # data/intermediate/extracted/
-#   Directory for intermediate data extracted from the MR2DX game files.
+#   Directory for intermediate data extracted from the MR2DX game files
+#   that is used to help generate the finished data tables.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ExtractedDataPath = Join-Path $IntermediateDataPath 'extracted/'
 
 # data/intermediate/scraped/
-#   Directory for intermediate data scraped from the web.
+#   Directory for intermediate data scraped from the web
+#   that is used to help generate the finished data tables.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ScrapedDataPath = Join-Path $IntermediateDataPath 'scraped/'
 
