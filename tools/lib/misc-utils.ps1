@@ -6,6 +6,17 @@
 
 <#
 .SYNOPSIS
+Displays an error message.
+#>
+function ErrorMsg {
+    $commandName = (Get-Item $MyInvocation.PSCommandPath).Name
+    $message = $args -join ' '
+    Write-Host "${commandName}: ${message}" -ForegroundColor Red
+}
+
+
+<#
+.SYNOPSIS
 Display an error message and abort the script.
 #>
 function Abort {
