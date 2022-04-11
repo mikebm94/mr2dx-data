@@ -150,7 +150,7 @@ function Get-BreedTechnique {
 
     begin {
         $breedNamesToIds =
-            Import-Csv (Join-Path $IntermediateDataPath 'monster-breeds.csv') |
+            Import-Csv (Join-Path $IntermediateDataPath 'breeds.csv') |
             ConvertTo-HashTable -KeyProperty Name -ValueProperty Id
     }
 
