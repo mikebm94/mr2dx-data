@@ -21,7 +21,8 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/paths.ps1')
 
 
-$OutputFilePath = Join-Path $ScrapedDataPath 'techniques-legendcup.csv'
+$OutputFilePath =
+    Join-Path $ScrapedIntermediateDataPath 'techniques-legendcup.csv'
 
 
 function Main {
