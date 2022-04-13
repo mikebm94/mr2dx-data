@@ -63,12 +63,17 @@ function Import-GameFileCsv {
               "Please run the game archive extraction script first."
     }
 
+    $importArgs = @{
+        'Path'      = $filePath
+        'Delimiter' = $Delimiter
+        'Encoding'  = $fileEncoding
+    }
+
     if ($Header) {
-        Import-Csv $filePath -Header $Header -Encoding $fileEncoding
+        $importArgs['Header'] = $Header
     }
-    else {
-        Import-Csv $filePath -Encoding $fileEncoding
-    }
+
+    Import-Csv @importArgs
 }
 
 
