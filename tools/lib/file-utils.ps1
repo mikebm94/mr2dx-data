@@ -79,7 +79,7 @@ function Import-Mr2dxDataFileCsv {
                  "File '${filePath}' does not exist."
         
         if ($FileManifest -eq 'GameFiles') {
-            ErrorMsg "Please run the game archive extraction script first."
+            ErrorMsg "Please run the game files extraction script first."
         }
 
         exit 1
@@ -144,7 +144,7 @@ function Get-GameFileContent {
     if (-not (Test-Path $filePath -PathType Leaf)) {
         Abort "Failed to get content of MR2DX game file:" `
               "File '${filePath}' does not exist." `
-              "Please run the game archive extraction script first."
+              "Please run the game files extraction script first."
     }
 
     if ($fileEncoding) {
