@@ -5,6 +5,9 @@
         without the need to change multiple files.
 #>
 
+using namespace System.IO
+using namespace System.Text
+
 . (Join-Path $PSScriptRoot 'file-manifests.ps1')
 . (Join-Path $PSScriptRoot 'misc-utils.ps1')
 
@@ -109,7 +112,7 @@ function Get-GameFileContent {
 
     # File uses a non-default encoding.
     if ($filePath -is [PSCustomObject]) {
-        $fileEncoding = $filePath.Codepage
+        $fileEncoding = [Encoding]::GetEncoding($filePath.Codepage)
         $filePath = $filePath.Path
     }
 
@@ -122,9 +125,9 @@ function Get-GameFileContent {
     }
 
     if ($fileEncoding) {
-        Get-Content $filePath -Raw -Encoding $fileEncoding
+        [File]::ReadAllText($filePath, $fileEncoding)
     }
     else {
-        Get-Content $filePath -Raw
+        [File]::ReadAllText($filePath)
     }
 }
