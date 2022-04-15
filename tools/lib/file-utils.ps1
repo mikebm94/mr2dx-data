@@ -44,7 +44,8 @@ function Import-GameFileCsv {
         $Header
     )
 
-    $filePath = $GameFiles[$FileKey]
+    $manifest = $FileManifests['GameFiles']
+    $filePath = $manifest.Files[$FileKey]
     $fileEncoding = ''
 
     if ($null -eq $filePath) {
@@ -58,7 +59,7 @@ function Import-GameFileCsv {
         $filePath = $filePath.Path
     }
 
-    $filePath = Join-Path $GameFilesPath $filePath
+    $filePath = Join-Path $manifest.Directory $filePath
 
     if (-not (Test-Path $filePath -PathType Leaf)) {
         Abort "Failed to import CSV data from MR2DX game file:" `
@@ -102,7 +103,8 @@ function Get-GameFileContent {
         $FileKey
     )
 
-    $filePath = $GameFiles[$FileKey]
+    $manifest = $FileManifests['GameFiles']
+    $filePath = $manifest.Files[$FileKey]
     $fileEncoding = ''
 
     if ($null -eq $filePath) {
@@ -116,7 +118,7 @@ function Get-GameFileContent {
         $filePath = $filePath.Path
     }
 
-    $filePath = Join-Path $GameFilesPath $filePath
+    $filePath = Join-Path $manifest.Directory $filePath
 
     if (-not (Test-Path $filePath -PathType Leaf)) {
         Abort "Failed to get content of MR2DX game file:" `
