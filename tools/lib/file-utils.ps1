@@ -51,8 +51,8 @@ function Import-GameFileCsv {
 
     # File uses a non-default encoding.
     if ($filePath -is [PSCustomObject]) {
-        $fileEncoding = $filePath['Codepage']
-        $filePath = $filePath['Path']
+        $fileEncoding = $filePath.Codepage
+        $filePath = $filePath.Path
     }
 
     $filePath = Join-Path $GameFilesPath $filePath
@@ -106,8 +106,8 @@ function Get-GameFileContent {
 
     # File uses a non-default encoding.
     if ($filePath -is [PSCustomObject]) {
-        $fileEncoding = $filePath['Codepage']
-        $filePath = $filePath['Path']
+        $fileEncoding = $filePath.Codepage
+        $filePath = $filePath.Path
     }
 
     $filePath = Join-Path $GameFilesPath $filePath
