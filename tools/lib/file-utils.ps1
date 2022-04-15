@@ -105,7 +105,7 @@ function Get-GameFileContent {
     }
 
     # File uses a non-default encoding.
-    if ($filePath -is [hashtable]) {
+    if ($filePath -is [PSCustomObject]) {
         $fileEncoding = $filePath['Codepage']
         $filePath = $filePath['Path']
     }
