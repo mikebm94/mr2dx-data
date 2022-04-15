@@ -42,7 +42,7 @@ function Import-GameFileCsv {
     )
 
     $filePath = $GameFiles[$FileKey]
-    $fileEncoding = 'UTF8NoBOM'
+    $fileEncoding = ''
 
     if ($null -eq $filePath) {
         throw "Failed to import CSV data from MR2DX game file: " +
@@ -66,7 +66,10 @@ function Import-GameFileCsv {
     $importArgs = @{
         'Path'      = $filePath
         'Delimiter' = $Delimiter
-        'Encoding'  = $fileEncoding
+    }
+
+    if ($fileEncoding) {
+        $importArgs['Encoding'] = $fileEncoding
     }
 
     if ($Header) {
@@ -97,7 +100,7 @@ function Get-GameFileContent {
     )
 
     $filePath = $GameFiles[$FileKey]
-    $fileEncoding = 'UTF8NoBOM'
+    $fileEncoding = ''
 
     if ($null -eq $filePath) {
         throw "Failed to get content of MR2DX game file:" +
@@ -118,5 +121,10 @@ function Get-GameFileContent {
               "Please run the game archive extraction script first."
     }
 
-    Get-Content $filePath -Raw -Encoding $fileEncoding
+    if ($fileEncoding) {
+        Get-Content $filePath -Raw -Encoding $fileEncoding
+    }
+    else {
+        Get-Content $filePath -Raw
+    }
 }
