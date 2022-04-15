@@ -147,3 +147,12 @@ $GameFiles = @{
     # for all non-special monster types.
     'MonsterTypeBaselines' = 'mf2/data/monbase/mon_base.dat'
 }
+
+# Map file manifest names to their directory and file table.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$FileManifests = @{
+    'GameFiles' = [PSCustomObject]@{
+        Directory = $GameFilesPath
+        Files     = $GameFiles
+    }
+}
