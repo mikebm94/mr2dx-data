@@ -145,7 +145,10 @@ $GameFiles = @{
 
     # Data file defining baseline stats and parameters
     # for all non-special monster types.
-    'MonsterTypeBaselines' = 'mf2/data/monbase/mon_base.dat'
+    # Encoded using Shift-JIS.
+    'MonsterTypeBaselines' = [PSCustomObject]@{
+        Path = 'mf2/data/monbase/mon_base.dat'; Codepage = 932
+    }
 }
 
 # Map file manifest names to their directory and file table.
