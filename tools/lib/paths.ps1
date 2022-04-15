@@ -20,7 +20,7 @@ $DataPath = Join-Path $SourceTreeRoot 'data/'
 #   in development and for generating other database formats
 #   such as a SQLite database.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
-$FinishedCsvDataPath = Join-Path $DataPath 'csv/'
+$FinishedDataPath = Join-Path $DataPath 'csv/'
 
 # data/images/
 #   Directory for images and icons such as technique icons.
