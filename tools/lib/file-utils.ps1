@@ -14,25 +14,31 @@ using namespace System.Text
 
 <#
 .SYNOPSIS
-Imports CSV data from an MR2DX game file.
+Imports CSV data from a file in the specified file manifest.
 
 .OUTPUTS
 The objects described by the content of the CSV file.
 #>
-function Import-GameFileCsv {
+function Import-Mr2dxDataFileCsv {
     [CmdletBinding()]
     [OutputType([object])]
     param(
-        # A key referring to a game file path defined
-        # in the `GameFiles` hashtable.
-        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        # The file manifest to search for the file
+        # corresponding to the specified file key.
+        [Parameter(Mandatory, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileManifest,
+
+        # A key corresponding to a file defined in the specified file manifest.
+        [Parameter(Mandatory, Position = 1, ValueFromPipeline)]
         [ValidateNotNullOrEmpty()]
         [string]
         $FileKey,
 
         # Specifies the delimiter that separates the property values
         # in the CSV file. The default is comma (`,`).
-        [Parameter(Position = 1)]
+        # Only used for files in the 'GameFiles' manifest.
         [char]
         $Delimiter = ',',
 
@@ -44,13 +50,20 @@ function Import-GameFileCsv {
         $Header
     )
 
-    $manifest = $FileManifests['GameFiles']
+    $manifest = $FileManifests[$FileManifest]
+
+    if ($null -eq $manifest) {
+        throw "Failed to import CSV file: " +
+              "File manifest named '${FileManifest}' does not exist."
+    }
+
     $filePath = $manifest.Files[$FileKey]
     $fileEncoding = ''
 
     if ($null -eq $filePath) {
-        throw "Failed to import CSV data from MR2DX game file: " +
-              "No file path defined for key '${FileKey}'."
+        throw "Failed to import CSV file: " +
+              "No file path defined for key '{0}' in file manifest '{1}'." `
+              -f $FileKey, $FileManifest
     }
 
     # File uses a non-default encoding.
@@ -62,14 +75,22 @@ function Import-GameFileCsv {
     $filePath = Join-Path $manifest.Directory $filePath
 
     if (-not (Test-Path $filePath -PathType Leaf)) {
-        Abort "Failed to import CSV data from MR2DX game file:" `
-              "File '${filePath}' does not exist." `
-              "Please run the game archive extraction script first."
+        ErrorMsg "Failed to import CSV file:" `
+                 "File '${filePath}' does not exist."
+        
+        if ($FileManifest -eq 'GameFiles') {
+            ErrorMsg "Please run the game archive extraction script first."
+        }
+
+        exit 1
     }
 
     $importArgs = @{
-        'Path'      = $filePath
-        'Delimiter' = $Delimiter
+        'Path' = $filePath
+    }
+
+    if ($FileManifest -eq 'GameFiles') {
+        $importArgs['Delimiter'] = $Delimiter
     }
 
     if ($fileEncoding) {
