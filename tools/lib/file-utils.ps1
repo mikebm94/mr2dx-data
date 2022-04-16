@@ -117,7 +117,7 @@ function Get-GameFileContent {
     [OutputType([string])]
     param(
         # A key referring to a game file path defined
-        # in the `GameFiles` hashtable.
+        # in the 'GameFiles' manifest.
         [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
         [ValidateNotNullOrEmpty()]
         [string]
