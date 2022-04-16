@@ -171,9 +171,9 @@ $GameFiles = @{
 # Map file manifest names to their directory and file table.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FileManifests = @{
-    'IntermediateData' = [PSCustomObject] @{
+    'IntermediateData' = [PSCustomObject]@{
         Directory = $IntermediateDataPath
-        Files = $IntermediateDataFiles
+        Files     = $IntermediateDataFiles
     }
 
     'ScrapedData' = [PSCustomObject]@{
