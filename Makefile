@@ -1,5 +1,5 @@
 
-PWSH = pwsh -NoLogo -NoProfile
+PWSH = pwsh -NoProfile
 
 # Common directories.
 scraped_data_dir = data/intermediate/scraped
