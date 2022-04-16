@@ -48,3 +48,15 @@ $ScrapedIntermediateDataPath = Join-Path $IntermediateDataPath 'scraped/'
 #   Directory for game files extracted from the MR2DX game data archive.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
+
+
+# For directories that can be fully repopulated via scripts
+# and must exist, create them if needed.
+foreach ($path in $FinishedDataPath,
+                  $ImageDataPath,
+                  $ExtractedIntermediateDataPath,
+                  $ScrapedIntermediateDataPath) {
+    if (-not (Test-Path $path -PathType Container)) {
+        New-Item -Path $path -ItemType Directory | Out-Null
+    }
+}
