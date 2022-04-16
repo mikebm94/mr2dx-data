@@ -17,6 +17,16 @@ $IntermediateDataFiles = @{
     'Breeds' = 'breeds.csv'
 }
 
+# Map friendly names to intermediate data files
+# containing data scraped from the web.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$ScrapedIntermediateDataFiles = @{
+    # Defines the techniques available to each monster breed.
+    # Used to obtain additional data points on techniques not extracted
+    # from the game files such as English names and hit/miss durations.
+    'TechniquesLegendCup' = 'techniques-legendcup.csv'
+}
+
 # Map friendly names to game file paths.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $GameFiles = @{
@@ -164,6 +174,11 @@ $FileManifests = @{
     'IntermediateData' = [PSCustomObject] @{
         Directory = $IntermediateDataPath
         Files = $IntermediateDataFiles
+    }
+
+    'ScrapedData' = [PSCustomObject]@{
+        Directory = $ScrapedIntermediateDataPath
+        Files     = $ScrapedIntermediateDataFiles
     }
 
     'GameFiles' = [PSCustomObject]@{
