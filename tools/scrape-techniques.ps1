@@ -20,10 +20,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
 
-$OutputFilePath =
-    Join-Path $ScrapedIntermediateDataPath 'techniques-legendcup.csv'
-
-
 function Main {
     [CmdletBinding()]
     param()
@@ -48,9 +44,10 @@ function Main {
     
     Write-Host "Scraped $( $techniques.Count ) technique(s)."
     
-    $techniques | Export-Csv $OutputFilePath -UseQuotes AsNeeded
+    $outputFilePath =
+        $techniques | Export-Mr2dxDataFileCsv ScrapedData TechniquesLegendCup
 
-    Write-Host "Saved scraped technique data to '${OutputFilePath}'."
+    Write-Host "Saved scraped technique data to '${outputFilePath}'."
 }
 
 

@@ -107,6 +107,80 @@ function Import-Mr2dxDataFileCsv {
 
 <#
 .SYNOPSIS
+Exports data to a CSV file in the specified file manifest.
+
+.INPUTS
+The PSObjects to export in CSV format.
+
+.OUTPUTS
+The file path the CSV data was exported to.
+#>
+function Export-Mr2dxDataFileCsv {
+    [CmdletBinding()]
+    param(
+        # The file manifest to search for the file
+        # corresponding to the specified file key.
+        [Parameter(Mandatory, Position = 0)]
+        [ValidateSet('ScrapedData')]
+        [string]
+        $FileManifest,
+
+        # A key corresponding to a file defined in the specified file manifest.
+        [Parameter(Mandatory, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileKey,
+
+        # Specifies the objects to export in CSV format.
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [ValidateNotNull()]
+        [PSObject]
+        $InputObject
+    )
+
+    end {
+        $manifest = $FileManifests[$FileManifest]
+
+        if ($null -eq $manifest) {
+            throw "Failed to export data to CSV file: " +
+                  "File manifest named '${FileManifest}' does not exist."
+        }
+
+        $filePath = $manifest.Files[$FileKey]
+        $fileEncoding = ''
+
+        if ($null -eq $filePath) {
+            throw "Failed to export data to CSV file: " +
+                  "No file path defined for key '{0}' in file manifest '{1}'." `
+                  -f $FileKey, $FileManifest
+        }
+
+        # File uses a non-default encoding.
+        if ($filePath -is [PSCustomObject]) {
+            $fileEncoding = $filePath.Codepage
+            $filePath = $filePath.Path
+        }
+
+        $filePath = Join-Path $manifest.Directory $filePath
+
+        $exportArgs = @{
+            'Path'      = $filePath
+            'UseQuotes' = 'AsNeeded'
+        }
+
+        if ($fileEncoding) {
+            $exportArgs['Encoding'] = $fileEncoding
+        }
+
+        $input | Export-Csv @exportArgs | Out-Null
+        
+        return $filePath
+    }
+}
+
+
+<#
+.SYNOPSIS
 Gets the content of an MR2DX game file.
 
 .OUTPUTS
