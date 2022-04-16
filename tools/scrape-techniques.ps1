@@ -17,8 +17,7 @@ param()
 
 $ErrorActionPreference = 'Stop'
 
-. (Join-Path $PSScriptRoot 'lib/misc-utils.ps1')
-. (Join-Path $PSScriptRoot 'lib/paths.ps1')
+. (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
 
 $OutputFilePath =
@@ -151,7 +150,7 @@ function Get-BreedTechnique {
 
     begin {
         $breedNamesToIds =
-            Import-Csv (Join-Path $IntermediateDataPath 'breeds.csv') |
+            Import-Mr2dxDataFileCsv IntermediateData Breeds |
             ConvertTo-HashTable -KeyProperty Name -ValueProperty Id
     }
 

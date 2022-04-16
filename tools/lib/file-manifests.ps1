@@ -10,6 +10,13 @@ using namespace System.Diagnostics.CodeAnalysis
 . (Join-Path $PSScriptRoot 'paths.ps1')
 
 
+# Map friendly names to manually compiled intermediate data file paths.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$IntermediateDataFiles = @{
+    # Defines the available monster breeds.
+    'Breeds' = 'breeds.csv'
+}
+
 # Map friendly names to game file paths.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $GameFiles = @{
@@ -154,6 +161,11 @@ $GameFiles = @{
 # Map file manifest names to their directory and file table.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FileManifests = @{
+    'IntermediateData' = [PSCustomObject] @{
+        Directory = $IntermediateDataPath
+        Files = $IntermediateDataFiles
+    }
+
     'GameFiles' = [PSCustomObject]@{
         Directory = $GameFilesPath
         Files     = $GameFiles
