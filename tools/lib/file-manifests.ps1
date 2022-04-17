@@ -10,6 +10,10 @@ using namespace System.Diagnostics.CodeAnalysis
 . (Join-Path $PSScriptRoot 'paths.ps1')
 
 
+# Map friendly names to finished CSV data file paths.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$FinishedDataFiles = @{}
+
 # Map friendly names to manually compiled intermediate data file paths.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $IntermediateDataFiles = @{
@@ -171,6 +175,11 @@ $GameFiles = @{
 # Map file manifest names to their directory and file table.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FileManifests = @{
+    'FinishedData' = [PSCustomObject]@{
+        Directory = $FinishedDataPath
+        Files = $FinishedDataFiles
+    }
+    
     'IntermediateData' = [PSCustomObject]@{
         Directory = $IntermediateDataPath
         Files     = $IntermediateDataFiles

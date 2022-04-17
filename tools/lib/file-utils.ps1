@@ -121,7 +121,10 @@ function Export-Mr2dxDataFileCsv {
         # The file manifest to search for the file
         # corresponding to the specified file key.
         [Parameter(Mandatory, Position = 0)]
-        [ValidateSet('ScrapedData')]
+        [ValidateSet(
+            'FinishedData',
+            'ScrapedData'
+        )]
         [string]
         $FileManifest,
 
