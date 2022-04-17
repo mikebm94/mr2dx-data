@@ -116,8 +116,7 @@ function Main {
         Abort "Failed to extract MR2DX game data files to '${destinationPath}'"
     }
 
-    Write-Host "Extracted MR2DX game data files to" `
-               "'$(Resolve-Path $destinationPath)'."
+    Write-Host "Extracted MR2DX game data files to '${destinationPath}'."
 }
 
 
