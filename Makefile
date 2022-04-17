@@ -8,6 +8,7 @@ extracted_dir = $(intmd_dir)/extracted
 scraped_dir = $(intmd_dir)/scraped
 
 
+.PHONY: all
 all: \
 		$(finished_dir)/Breeds.csv \
 		$(scraped_dir)/techniques-legendcup.csv
