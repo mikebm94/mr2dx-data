@@ -12,12 +12,16 @@ using namespace System.Diagnostics.CodeAnalysis
 
 # Map friendly names to finished CSV data file paths.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
-$FinishedDataFiles = @{}
+$FinishedDataFiles = @{
+    # Defines the available monster breeds.
+    'Breeds' = 'Breeds.csv'
+}
 
 # Map friendly names to manually compiled intermediate data file paths.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $IntermediateDataFiles = @{
-    # Defines the available monster breeds.
+    # Defines the available monster breeds, including implementation-detail
+    # data points needed by some data generation scripts.
     'Breeds' = 'breeds.csv'
 }
 
@@ -179,7 +183,7 @@ $FileManifests = @{
         Directory = $FinishedDataPath
         Files = $FinishedDataFiles
     }
-    
+
     'IntermediateData' = [PSCustomObject]@{
         Directory = $IntermediateDataPath
         Files     = $IntermediateDataFiles
