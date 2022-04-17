@@ -1,5 +1,5 @@
 
-PWSH = pwsh -NoProfile
+PWSH ?= pwsh -NoProfile
 
 # Common directories.
 data_dir = data
