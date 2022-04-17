@@ -6,6 +6,7 @@ finished_dir = $(data_dir)/csv
 intmd_dir = $(data_dir)/intermediate
 extracted_dir = $(intmd_dir)/extracted
 scraped_dir = $(intmd_dir)/scraped
+game_files_dir = game-files
 
 
 .PHONY: all
