@@ -2,23 +2,23 @@
 PWSH ?= pwsh -NoProfile
 
 data_dir = data
-finished_data_dir = $(data_dir)/csv
-intermediate_data_dir = $(data_dir)/intermediate
-extracted_data_dir = $(intermediate_data_dir)/extracted
-scraped_data_dir = $(intermediate_data_dir)/scraped
+finished_dir = $(data_dir)/csv
+intmd_dir = $(data_dir)/intermediate
+extracted_dir = $(intmd_dir)/extracted
+scraped_dir = $(intmd_dir)/scraped
 
 
 all: \
-		$(finished_data_dir)/Breeds.csv \
-		$(scraped_data_dir)/techniques-legendcup.csv
+		$(finished_dir)/Breeds.csv \
+		$(scraped_dir)/techniques-legendcup.csv
 
-$(finished_data_dir)/Breeds.csv: \
-		$(intermediate_data_dir)/breeds.csv \
+$(finished_dir)/Breeds.csv: \
+		$(intmd_dir)/breeds.csv \
 		tools/make-breeds-tbl.ps1 \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/make-breeds-tbl.ps1
 
-$(scraped_data_dir)/techniques-legendcup.csv: \
+$(scraped_dir)/techniques-legendcup.csv: \
 		tools/scrape-techniques.ps1 \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/scrape-techniques.ps1
