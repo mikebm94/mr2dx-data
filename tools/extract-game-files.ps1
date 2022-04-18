@@ -116,6 +116,22 @@ function Main {
         Abort "Failed to extract MR2DX game data files to '${destinationPath}'"
     }
 
+    Write-Host "Updating MR2DX game data file modification timestamps ..."
+
+    try {
+        # Most game files have modification timestamps older than
+        # that of the game archive, which causes make to always see them
+        # as out of date. Prevent this by 'touching' the files.
+        $now = Get-Date
+        Get-ChildItem -Path $destinationPath | ForEach-Object {
+            $_.LastWriteTime = $now
+        }
+    }
+    catch {
+        ErrorMsg 'Failed to update modification timestamps:' `
+                 $_.Exception.Message
+    }
+
     Write-Host "Extracted MR2DX game data files to '${destinationPath}'."
 }
 
