@@ -11,8 +11,7 @@ game_files_dir = game-files
 
 .PHONY: all
 all: \
-		$(finished_dir)/Breeds.csv \
-		$(scraped_dir)/techniques-legendcup.csv
+		$(finished_dir)/Breeds.csv
 
 $(finished_dir)/Breeds.csv: \
 		$(intmd_dir)/breeds.csv \
