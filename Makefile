@@ -3,10 +3,10 @@ PWSH ?= pwsh -NoProfile
 
 data_dir = data
 finished_dir = $(data_dir)/csv
-intmd_dir = $(data_dir)/intermediate
-extracted_dir = $(intmd_dir)/extracted
-scraped_dir = $(intmd_dir)/scraped
-game_files_dir = game-files
+intermediate_dir = $(data_dir)/intermediate
+extracted_dir = $(intermediate_dir)/extracted
+scraped_dir = $(intermediate_dir)/scraped
+gamefiles_dir = game-files
 
 
 .PHONY: all
@@ -14,7 +14,7 @@ all: \
 		$(finished_dir)/Breeds.csv
 
 $(finished_dir)/Breeds.csv: \
-		$(intmd_dir)/breeds.csv \
+		$(intermediate_dir)/breeds.csv \
 		tools/make-breeds-tbl.ps1 \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/make-breeds-tbl.ps1
