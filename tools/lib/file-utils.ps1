@@ -75,14 +75,15 @@ function Import-Mr2dxDataFileCsv {
     $filePath = Join-Path $manifest.Directory $filePath
 
     if (-not (Test-Path $filePath -PathType Leaf)) {
-        ErrorMsg "Failed to import CSV file:" `
-                 "File '${filePath}' does not exist."
+        $errorMsg = "$( (Get-Item $MyInvocation.PSCommandPath).Name ): " +
+                    "fatal: Failed to import CSV file: " +
+                    "File '${filePath}' does not exist."
         
         if ($FileManifest -eq 'GameFiles') {
-            ErrorMsg "Please run the game files extraction script first."
+            $errorMsg += " Please run the game files extraction script first."
         }
 
-        exit 1
+        Abort $errorMsg
     }
 
     $importArgs = @{
@@ -219,10 +220,10 @@ function Get-GameFileContent {
     $filePath = Join-Path $manifest.Directory $filePath
 
     if (-not (Test-Path $filePath -PathType Leaf)) {
-        ErrorMsg "Failed to get content of MR2DX game file:" `
-                 "File '${filePath}' does not exist."
-        ErrorMsg "Please run the game files extraction script first."
-        exit 1
+        Abort "$( (Get-Item $MyInvocation.PSCommandPath).Name ):" `
+              "fatal: Failed to get content of MR2DX game file:" `
+              "File '${filePath}' does not exist." `
+              "Please run the game files extraction script first."
     }
 
     if ($fileEncoding) {

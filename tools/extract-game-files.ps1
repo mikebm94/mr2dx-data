@@ -96,6 +96,7 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/paths.ps1')
 
 
+$ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
 $GameArchivePassword = 'KoeiTecmoMF1&2'
 $GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 
@@ -105,7 +106,8 @@ function Main {
     $gameArchivePath = Get-GameArchivePath
 
     if (-not $gameArchivePath) {
-        Abort "Failed to find the MR2DX game data archive."
+        Abort "${ScriptName}: fatal:" `
+              "Failed to find the MR2DX game data archive."
     }
 
     Write-Host "Extracting MR2DX game data archive at '${gameArchivePath}' ..."
@@ -113,7 +115,8 @@ function Main {
     Expand-ArchiveWith7z $gameArchivePath $destinationPath
 
     if (-not (Test-Path $destinationPath -PathType Container)) {
-        Abort "Failed to extract MR2DX game data files to '${destinationPath}'"
+        Abort "${ScriptName}: fatal:" `
+              "Failed to extract MR2DX game data files to '${destinationPath}'"
     }
 
     Write-Host "Updating MR2DX game data file modification timestamps ..."
@@ -220,7 +223,8 @@ function Expand-ArchiveWith7z {
     $7z = Get-7zipCommandPath
 
     if (-not $7z) {
-        Abort "Failed to find the '7z', '7zz', or '7zzs' command." `
+        Abort "${ScriptName}: fatal:" `
+              "Failed to find the '7z', '7zz', or '7zzs' command." `
               "Please install 7-Zip."
     }
 

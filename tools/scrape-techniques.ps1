@@ -20,6 +20,9 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
 
+$ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
+
+
 function Main {
     [CmdletBinding()]
     param()
@@ -32,7 +35,7 @@ function Main {
         $response = Invoke-WebRequest $scrapeUrl
     }
     catch {
-        Abort $_.Exception.Message
+        Abort "${ScriptName}: fatal: $( $_.Exception.Message )"
     }
 
     $techniques =

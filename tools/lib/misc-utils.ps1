@@ -9,9 +9,8 @@
 Displays an error message.
 #>
 function ErrorMsg {
-    $commandName = (Get-Item $MyInvocation.PSCommandPath).Name
     $message = $args -join ' '
-    Write-Host "${commandName}: ${message}" -ForegroundColor Red
+    Write-Host $message -ForegroundColor Red
 }
 
 
@@ -20,9 +19,8 @@ function ErrorMsg {
 Display an error message and abort the script.
 #>
 function Abort {
-    $commandName = (Get-Item $MyInvocation.PSCommandPath).Name
     $message = $args -join ' '
-    Write-Host "${commandName}: ${message}" -ForegroundColor Red
+    Write-Host $message -ForegroundColor Red
     exit 1
 }
 
