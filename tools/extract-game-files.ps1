@@ -131,8 +131,9 @@ function Main {
         }
     }
     catch {
-        ErrorMsg 'Failed to update modification timestamps:' `
-                 $_.Exception.Message
+        WarningMsg "${ScriptName}: warning:" `
+                   "Failed to update modification timestamps:" `
+                   $_.Exception.Message
     }
 
     Write-Host "Extracted MR2DX game data files to '${destinationPath}'."

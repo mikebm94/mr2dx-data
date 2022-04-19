@@ -6,6 +6,16 @@
 
 <#
 .SYNOPSIS
+Displays an warning message.
+#>
+function WarningMsg {
+    $message = $args -join ' '
+    Write-Host $message -ForegroundColor Yellow
+}
+
+
+<#
+.SYNOPSIS
 Displays an error message.
 #>
 function ErrorMsg {
