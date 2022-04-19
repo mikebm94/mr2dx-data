@@ -162,9 +162,9 @@ function Get-BreedTechnique {
         $techniquePattern = @'
 (?x)
             \[\s*
-            '(?<Range>\d)-(?<Slot>\d)',\s*
+            '(?<RangeId>\d)-(?<Slot>\d)',\s*
             '(?<Name>[\w -]+)',\s*
-            (?<TechniqueType>\d+),\s*
+            (?<TechniqueTypeId>\d+),\s*
             (?<GutsCost>\d+),\s*
             '(?<Force>\d*)',\s*
             '(?<HitPercent>(?:-?\d+)?)',\s*
@@ -208,7 +208,7 @@ function Get-ParsedTechnique {
         # Fields that are converted to a type other than string.
         # Used to check if the conversion failed.
         $convertedFields = @(
-            'Range', 'Slot', 'TechniqueType', 'GutsCost',
+            'RangeId', 'Slot', 'TechniqueTypeId', 'GutsCost',
             'Force', 'HitPercent', 'Withering', 'Sharpness',
             'DurationHit', 'DurationMiss', 'Errantry'
         )
@@ -218,20 +218,20 @@ function Get-ParsedTechnique {
         $matchGroups = $TechniqueMatch.Groups
 
         $technique = [PSCustomObject]@{
-            BreedId       = $BreedId
-            Range         = $matchGroups['Range'].Value -as [int]
-            Slot          = $matchGroups['Slot'].Value -as [int]
-            Name          = $matchGroups['Name'].Value
-            TechniqueType = $matchGroups['TechniqueType'].Value -as [int]
-            GutsCost      = $matchGroups['GutsCost'].Value -as [int]
-            Force         = $matchGroups['Force'].Value -as [int]
-            HitPercent    = $matchGroups['HitPercent'].Value -as [int]
-            Withering     = $matchGroups['Withering'].Value -as [int]
-            Sharpness     = $matchGroups['Sharpness'].Value -as [int]
-            Effect        = $matchGroups['Effect'].Value
-            DurationHit   = $matchGroups['DurationHit'].Value -as [float]
-            DurationMiss  = $matchGroups['DurationMiss'].Value -as [float]
-            Errantry      = $matchGroups['Errantry'].Value -as [int]
+            BreedId         = $BreedId
+            RangeId         = $matchGroups['RangeId'].Value -as [int]
+            Slot            = $matchGroups['Slot'].Value -as [int]
+            Name            = $matchGroups['Name'].Value
+            TechniqueTypeId = $matchGroups['TechniqueTypeId'].Value -as [int]
+            GutsCost        = $matchGroups['GutsCost'].Value -as [int]
+            Force           = $matchGroups['Force'].Value -as [int]
+            HitPercent      = $matchGroups['HitPercent'].Value -as [int]
+            Withering       = $matchGroups['Withering'].Value -as [int]
+            Sharpness       = $matchGroups['Sharpness'].Value -as [int]
+            Effect          = $matchGroups['Effect'].Value
+            DurationHit     = $matchGroups['DurationHit'].Value -as [float]
+            DurationMiss    = $matchGroups['DurationMiss'].Value -as [float]
+            Errantry        = $matchGroups['Errantry'].Value -as [int]
         }
 
         # A group with a null value means a type conversion above failed.
@@ -241,7 +241,7 @@ function Get-ParsedTechnique {
                     'Error in scraped technique ' +
                     '(Breed: {0}, Range: {1}, Slot: {2}): ' +
                     "Could not parse value for field '{3}': '{4}'"
-                ) -f $technique.BreedId, $technique.Range, $technique.Slot,
+                ) -f $technique.BreedId, $technique.RangeId, $technique.Slot,
                      $field, $TechniqueMatch.Groups[$field].Value
             }
         }
@@ -251,7 +251,7 @@ function Get-ParsedTechnique {
                 'Error in scraped technique ' +
                 '(Breed: {0}, Range: {1}, Slot: {2}): ' +
                 'Name is empty.'
-            ) -f $technique.BreedId, $technique.Range, $technique.Slot
+            ) -f $technique.BreedId, $technique.RangeId, $technique.Slot
         }
 
         Write-Output $technique

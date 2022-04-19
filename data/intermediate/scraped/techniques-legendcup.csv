@@ -1,4 +1,4 @@
-BreedId,Range,Slot,Name,TechniqueType,GutsCost,Force,HitPercent,Withering,Sharpness,Effect,DurationHit,DurationMiss,Errantry
+BreedId,RangeId,Slot,Name,TechniqueTypeId,GutsCost,Force,HitPercent,Withering,Sharpness,Effect,DurationHit,DurationMiss,Errantry
 0,1,1,Pat,0,12,6,10,0,0,,3.8,3.8,-1
 0,1,2,Slap,0,18,15,9,5,0,,3.8,4.1,0
 0,1,3,Kick,0,10,7,4,0,0,,3.8,4.1,-1
