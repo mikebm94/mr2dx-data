@@ -16,7 +16,7 @@ function ErrorMsg {
 
 <#
 .SYNOPSIS
-Display an error message and abort the script.
+Displays an error message and abort the script.
 #>
 function Abort {
     $message = $args -join ' '
@@ -27,7 +27,7 @@ function Abort {
 
 <#
 .SYNOPSIS
-Create a hashtable from a collection of objects
+Creates a hashtable from a collection of objects
 using the specified properties as the keys and values.
 #>
 function ConvertTo-Hashtable {
