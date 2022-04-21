@@ -11,6 +11,8 @@ using namespace System.Diagnostics.CodeAnalysis
 
 
 # Map friendly names to finished CSV data file paths.
+# These files can be used on their own as a data set, but are also used
+# to generate/populate other database formats (such as an SQLite database.)
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FinishedDataFiles = @{
     # Defines the available monster breeds.
@@ -18,10 +20,13 @@ $FinishedDataFiles = @{
 }
 
 # Map friendly names to manually compiled intermediate data file paths.
+# These files contain additional data points not needed in the finished data,
+# including implementation-detail data points (such as flag names used 
+# throughout the game data files) and IDs used to associate data
+# with data obtained from another source (such data scraped from LegendCup.)
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $IntermediateDataFiles = @{
-    # Defines the available monster breeds, including implementation-detail
-    # data points needed by some data generation scripts.
+    # Defines the available monster breeds.
     'Breeds' = 'breeds.csv'
 }
 
