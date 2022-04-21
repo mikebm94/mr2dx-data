@@ -17,6 +17,10 @@ using namespace System.Diagnostics.CodeAnalysis
 $FinishedDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = 'Breeds.csv'
+
+    # Defines the types of techniques.
+    # (Basic, Hit, Heavy, Withering, Sharp, Special)
+    'TechniqueTypes' = 'TechniqueTypes.csv'
 }
 
 # Map friendly names to manually compiled intermediate data file paths.
@@ -28,6 +32,10 @@ $FinishedDataFiles = @{
 $IntermediateDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = 'breeds.csv'
+
+    # Defines the types of techniques.
+    # (Basic, Hit, Heavy, Withering, Sharp, Special)
+    'TechniqueTypes' = 'technique-types.csv'
 }
 
 # Map friendly names to intermediate data files

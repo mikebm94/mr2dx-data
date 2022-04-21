@@ -11,13 +11,20 @@ gamefiles_dir = game-files
 
 .PHONY: all
 all: \
-		$(finished_dir)/Breeds.csv
+		$(finished_dir)/Breeds.csv \
+		$(finished_dir)/TechniqueTypes.csv
 
 $(finished_dir)/Breeds.csv: \
 		$(intermediate_dir)/breeds.csv \
 		tools/make-breeds-tbl.ps1 \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/make-breeds-tbl.ps1
+
+$(finished_dir)/TechniqueTypes.csv: \
+		$(intermediate_dir)/technique-types.csv \
+		tools/make-techniquetypes-tbl.ps1 \
+		tools/lib/file-utils.ps1
+	$(PWSH) tools/make-techniquetypes-tbl.ps1
 
 $(scraped_dir)/techniques-legendcup.csv: \
 		tools/scrape-techniques.ps1 \
