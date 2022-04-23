@@ -39,19 +39,19 @@ $FinishedDataFiles = @{
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $IntermediateDataFiles = @{
     # Defines the available monster breeds.
-    'Breeds' = 'breeds.csv'
+    'Breeds' = 'Breeds.csv'
 
     # Defines the types of forces that techniques can draw their power from.
     # (Power, Intelligence)
-    'ForceTypes' = 'force-types.csv'
+    'ForceTypes' = 'ForceTypes.csv'
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
-    'TechniqueNatureTypes' = 'technique-nature-types.csv'
+    'TechniqueNatureTypes' = 'TechniqueNatureTypes.csv'
 
     # Defines the types of techniques.
     # (Basic, Hit, Heavy, Withering, Sharp, Special)
-    'TechniqueTypes' = 'technique-types.csv'
+    'TechniqueTypes' = 'TechniqueTypes.csv'
 }
 
 # Map friendly names to intermediate data files

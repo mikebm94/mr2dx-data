@@ -16,29 +16,11 @@ all: \
 		$(finished_dir)/TechniqueNatureTypes.csv \
 		$(finished_dir)/TechniqueTypes.csv
 
-$(finished_dir)/Breeds.csv: \
-		$(intermediate_dir)/breeds.csv \
-		tools/make-breeds-tbl.ps1 \
+$(finished_dir)/%.csv: \
+		$(intermediate_dir)/%.csv \
+		tools/make-%.ps1 \
 		tools/lib/file-utils.ps1
-	$(PWSH) tools/make-breeds-tbl.ps1
-
-$(finished_dir)/ForceTypes.csv: \
-		$(intermediate_dir)/force-types.csv \
-		tools/make-forcetypes-tbl.ps1 \
-		tools/lib/file-utils.ps1
-	$(PWSH) tools/make-forcetypes-tbl.ps1
-
-$(finished_dir)/TechniqueNatureTypes.csv: \
-		$(intermediate_dir)/technique-nature-types.csv \
-		tools/make-techniquenaturetypes-tbl.ps1 \
-		tools/lib/file-utils.ps1
-	$(PWSH) tools/make-techniquenaturetypes-tbl.ps1
-
-$(finished_dir)/TechniqueTypes.csv: \
-		$(intermediate_dir)/technique-types.csv \
-		tools/make-techniquetypes-tbl.ps1 \
-		tools/lib/file-utils.ps1
-	$(PWSH) tools/make-techniquetypes-tbl.ps1
+	$(PWSH) tools/make-$*.ps1
 
 $(scraped_dir)/techniques-legendcup.csv: \
 		tools/scrape-techniques.ps1 \
