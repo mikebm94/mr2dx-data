@@ -22,11 +22,6 @@ $DataPath = Join-Path $SourceTreeRoot 'data/'
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FinishedDataPath = Join-Path $DataPath 'csv/'
 
-# data/images/
-#   Directory for images and icons such as technique icons.
-[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
-$ImageDataPath = Join-Path $DataPath 'images/'
-
 # data/intermediate/
 #   Directory for intermediate data compiled manually
 #   that is used to help generate the finished data tables.
@@ -53,7 +48,6 @@ $GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
 # For directories that can be fully repopulated via scripts
 # and must exist, create them if needed.
 foreach ($path in $FinishedDataPath,
-                  $ImageDataPath,
                   $ExtractedIntermediateDataPath,
                   $ScrapedIntermediateDataPath) {
     if (-not (Test-Path $path -PathType Container)) {

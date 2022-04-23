@@ -16,7 +16,6 @@ $ErrorActionPreference = 'Stop'
 
 $DirectoriesToClean = @(
     $FinishedDataPath,
-    $ImageDataPath,
     $ExtractedIntermediateDataPath,
     $ScrapedIntermediateDataPath,
     $GameFilesPath
