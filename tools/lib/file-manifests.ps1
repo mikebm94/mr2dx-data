@@ -20,7 +20,7 @@ $FinishedDataFiles = @{
 
     # Defines the types of technique forces.
     # (Power, Intelligence)
-    'TechniqueForceTypes'  = 'TechniqueForceTypes.csv'
+    'TechniqueForceTypes' = 'TechniqueForceTypes.csv'
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
@@ -33,7 +33,7 @@ $FinishedDataFiles = @{
 
 # Map friendly names to manually compiled intermediate data file paths.
 # These files contain additional data points not needed in the finished data,
-# including implementation-detail data points (such as flag names used 
+# including implementation-detail data points (such as flag names used
 # throughout the game data files) and IDs used to associate data
 # with data obtained from another source (such data scraped from LegendCup.)
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
@@ -74,131 +74,131 @@ $ScrapedIntermediateDataFiles = @{
 $GameFiles = @{
     # CSV table defining the monster variations
     # that can be obtained at the shrine.
-    'ShrineMonsters'       = 'SDATA_MONSTER.csv'
+    'ShrineMonsters' = 'SDATA_MONSTER.csv'
 
     # TSV table mapping song IDs in the English music database
     # to a corresponding shrine monster ID as well as an offset
     # that may be applied to the monster after shrining.
-    'ShrineMonster_Songs'  = 'en_sqlout_b.txt'
+    'ShrineMonster_Songs' = 'en_sqlout_b.txt'
 
     # TSV table mapping song IDs in the English music database
     # to the corresponding artist name and title.
-    'Songs'                = 'en_sqlout_name.txt'
+    'Songs' = 'en_sqlout_name.txt'
 
     # Data files defining the techniques available to each monster breed.
     # Files are encoded using Shift-JIS.
-    'TechniquesKA'         = [PSCustomObject]@{ # Pixie
+    'TechniquesKA' = [PSCustomObject]@{ # Pixie
         Path = 'mf2/data/mon/kapi/ka_ka_wz.dat'; Codepage = 932
     }
-    'TechniquesKB'         = [PSCustomObject]@{ # Dragon
+    'TechniquesKB' = [PSCustomObject]@{ # Dragon
         Path = 'mf2/data/mon/kbdr/kb_kb_wz.dat'; Codepage = 932
     }
-    'TechniquesKC'         = [PSCustomObject]@{ # Centaur
+    'TechniquesKC' = [PSCustomObject]@{ # Centaur
         Path = 'mf2/data/mon/kckn/kc_kc_wz.dat'; Codepage = 932
     }
-    'TechniquesKD'         = [PSCustomObject]@{ # ColorPandora
+    'TechniquesKD' = [PSCustomObject]@{ # ColorPandora
         Path = 'mf2/data/mon/kdro/kd_kd_wz.dat'; Codepage = 932
     }
-    'TechniquesKE'         = [PSCustomObject]@{ # Beaclon
+    'TechniquesKE' = [PSCustomObject]@{ # Beaclon
         Path = 'mf2/data/mon/kebe/ke_ke_wz.dat'; Codepage = 932
     }
-    'TechniquesKF'         = [PSCustomObject]@{ # Henger
+    'TechniquesKF' = [PSCustomObject]@{ # Henger
         Path = 'mf2/data/mon/kfhe/kf_kf_wz.dat'; Codepage = 932
     }
-    'TechniquesKH'         = [PSCustomObject]@{ # Wracky
+    'TechniquesKH' = [PSCustomObject]@{ # Wracky
         Path = 'mf2/data/mon/khcy/kh_kh_wz.dat'; Codepage = 932
     }
-    'TechniquesKI'         = [PSCustomObject]@{ # Golem
+    'TechniquesKI' = [PSCustomObject]@{ # Golem
         Path = 'mf2/data/mon/kigo/ki_ki_wz.dat'; Codepage = 932
     }
-    'TechniquesKK'         = [PSCustomObject]@{ # Zuum
+    'TechniquesKK' = [PSCustomObject]@{ # Zuum
         Path = 'mf2/data/mon/kkro/kk_kk_wz.dat'; Codepage = 932
     }
-    'TechniquesKL'         = [PSCustomObject]@{ # Durahan
+    'TechniquesKL' = [PSCustomObject]@{ # Durahan
         Path = 'mf2/data/mon/klyo/kl_kl_wz.dat'; Codepage = 932
     }
-    'TechniquesKM'         = [PSCustomObject]@{ # Arrow Head
+    'TechniquesKM' = [PSCustomObject]@{ # Arrow Head
         Path = 'mf2/data/mon/kmto/km_km_wz.dat'; Codepage = 932
     }
-    'TechniquesMA'         = [PSCustomObject]@{ # Tiger
+    'TechniquesMA' = [PSCustomObject]@{ # Tiger
         Path = 'mf2/data/mon/marig/ma_ma_wz.dat'; Codepage = 932
     }
-    'TechniquesMB'         = [PSCustomObject]@{ # Hopper
+    'TechniquesMB' = [PSCustomObject]@{ # Hopper
         Path = 'mf2/data/mon/mbhop/mb_mb_wz.dat'; Codepage = 932
     }
-    'TechniquesMC'         = [PSCustomObject]@{ # Hare
+    'TechniquesMC' = [PSCustomObject]@{ # Hare
         Path = 'mf2/data/mon/mcham/mc_mc_wz.dat'; Codepage = 932
     }
-    'TechniquesMD'         = [PSCustomObject]@{ # Baku
+    'TechniquesMD' = [PSCustomObject]@{ # Baku
         Path = 'mf2/data/mon/mdbak/md_md_wz.dat'; Codepage = 932
     }
-    'TechniquesME'         = [PSCustomObject]@{ # Gali
+    'TechniquesME' = [PSCustomObject]@{ # Gali
         Path = 'mf2/data/mon/megar/me_me_wz.dat'; Codepage = 932
     }
-    'TechniquesMF'         = [PSCustomObject]@{ # Kato
+    'TechniquesMF' = [PSCustomObject]@{ # Kato
         Path = 'mf2/data/mon/mfakr/mf_mf_wz.dat'; Codepage = 932
     }
-    'TechniquesMG'         = [PSCustomObject]@{ # Zilla
+    'TechniquesMG' = [PSCustomObject]@{ # Zilla
         Path = 'mf2/data/mon/mggjr/mg_mg_wz.dat'; Codepage = 932
     }
-    'TechniquesMH'         = [PSCustomObject]@{ # Bajarl
+    'TechniquesMH' = [PSCustomObject]@{ # Bajarl
         Path = 'mf2/data/mon/mhlam/mh_mh_wz.dat'; Codepage = 932
     }
-    'TechniquesMI'         = [PSCustomObject]@{ # Mew
+    'TechniquesMI' = [PSCustomObject]@{ # Mew
         Path = 'mf2/data/mon/minya/mi_mi_wz.dat'; Codepage = 932
     }
-    'TechniquesMJ'         = [PSCustomObject]@{ # Phoenix
+    'TechniquesMJ' = [PSCustomObject]@{ # Phoenix
         Path = 'mf2/data/mon/mjfbd/mj_mj_wz.dat'; Codepage = 932
     }
-    'TechniquesMK'         = [PSCustomObject]@{ # Ghost
+    'TechniquesMK' = [PSCustomObject]@{ # Ghost
         Path = 'mf2/data/mon/mkgho/mk_mk_wz.dat'; Codepage = 932
     }
-    'TechniquesML'         = [PSCustomObject]@{ # Metalner
+    'TechniquesML' = [PSCustomObject]@{ # Metalner
         Path = 'mf2/data/mon/mlspm/ml_ml_wz.dat'; Codepage = 932
     }
-    'TechniquesMM'         = [PSCustomObject]@{ # Suezo
+    'TechniquesMM' = [PSCustomObject]@{ # Suezo
         Path = 'mf2/data/mon/mmxsu/mm_mm_wz.dat'; Codepage = 932
     }
-    'TechniquesMN'         = [PSCustomObject]@{ # Jill
+    'TechniquesMN' = [PSCustomObject]@{ # Jill
         Path = 'mf2/data/mon/mnsnm/mn_mn_wz.dat'; Codepage = 932
     }
-    'TechniquesMO'         = [PSCustomObject]@{ # Mochi
+    'TechniquesMO' = [PSCustomObject]@{ # Mochi
         Path = 'mf2/data/mon/mochy/mo_mo_wz.dat'; Codepage = 932
     }
-    'TechniquesMP'         = [PSCustomObject]@{ # Joker
+    'TechniquesMP' = [PSCustomObject]@{ # Joker
         Path = 'mf2/data/mon/mpjok/mp_mp_wz.dat'; Codepage = 932
     }
-    'TechniquesMQ'         = [PSCustomObject]@{ # Gaboo
+    'TechniquesMQ' = [PSCustomObject]@{ # Gaboo
         Path = 'mf2/data/mon/mqnen/mq_mq_wz.dat'; Codepage = 932
     }
-    'TechniquesMR'         = [PSCustomObject]@{ # Jell
+    'TechniquesMR' = [PSCustomObject]@{ # Jell
         Path = 'mf2/data/mon/mrpru/mr_mr_wz.dat'; Codepage = 932
     }
-    'TechniquesMS'         = [PSCustomObject]@{ # Undine
+    'TechniquesMS' = [PSCustomObject]@{ # Undine
         Path = 'mf2/data/mon/msund/ms_ms_wz.dat'; Codepage = 932
     }
-    'TechniquesMT'         = [PSCustomObject]@{ # Niton
+    'TechniquesMT' = [PSCustomObject]@{ # Niton
         Path = 'mf2/data/mon/mtgai/mt_mt_wz.dat'; Codepage = 932
     }
-    'TechniquesMU'         = [PSCustomObject]@{ # Mock
+    'TechniquesMU' = [PSCustomObject]@{ # Mock
         Path = 'mf2/data/mon/muoku/mu_mu_wz.dat'; Codepage = 932
     }
-    'TechniquesMV'         = [PSCustomObject]@{ # Ducken
+    'TechniquesMV' = [PSCustomObject]@{ # Ducken
         Path = 'mf2/data/mon/mvdak/mv_mv_wz.dat'; Codepage = 932
     }
-    'TechniquesMW'         = [PSCustomObject]@{ # Plant
+    'TechniquesMW' = [PSCustomObject]@{ # Plant
         Path = 'mf2/data/mon/mwpla/mw_mw_wz.dat'; Codepage = 932
     }
-    'TechniquesMX'         = [PSCustomObject]@{ # Monol
+    'TechniquesMX' = [PSCustomObject]@{ # Monol
         Path = 'mf2/data/mon/mxris/mx_mx_wz.dat'; Codepage = 932
     }
-    'TechniquesMY'         = [PSCustomObject]@{ # Ape
+    'TechniquesMY' = [PSCustomObject]@{ # Ape
         Path = 'mf2/data/mon/mylau/my_my_wz.dat'; Codepage = 932
     }
-    'TechniquesMZ'         = [PSCustomObject]@{ # Worm
+    'TechniquesMZ' = [PSCustomObject]@{ # Worm
         Path = 'mf2/data/mon/mzmus/mz_mz_wz.dat'; Codepage = 932
     }
-    'TechniquesNA'         = [PSCustomObject]@{ # Naga
+    'TechniquesNA' = [PSCustomObject]@{ # Naga
         Path = 'mf2/data/mon/naaga/na_na_wz.dat'; Codepage = 932
     }
 
@@ -215,7 +215,7 @@ $GameFiles = @{
 $FileManifests = @{
     'FinishedData' = [PSCustomObject]@{
         Directory = $FinishedDataPath
-        Files = $FinishedDataFiles
+        Files     = $FinishedDataFiles
     }
 
     'IntermediateData' = [PSCustomObject]@{
