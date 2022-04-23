@@ -18,6 +18,10 @@ $FinishedDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = 'Breeds.csv'
 
+    # Defines the types of technique natures.
+    # (Normal, Good, Bad)
+    'TechniqueNatureTypes' = 'TechniqueNatureTypes.csv'
+
     # Defines the types of techniques.
     # (Basic, Hit, Heavy, Withering, Sharp, Special)
     'TechniqueTypes' = 'TechniqueTypes.csv'
@@ -32,6 +36,10 @@ $FinishedDataFiles = @{
 $IntermediateDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = 'breeds.csv'
+
+    # Defines the types of technique natures.
+    # (Normal, Good, Bad)
+    'TechniqueNatureTypes' = 'technique-nature-types.csv'
 
     # Defines the types of techniques.
     # (Basic, Hit, Heavy, Withering, Sharp, Special)
