@@ -39,6 +39,11 @@ $IntermediateDataFiles = @{
 }
 
 # Map friendly names to intermediate data files
+# containing data extracted from the MR2DX game files.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$ExtractedIntermediateDataFiles = @{}
+
+# Map friendly names to intermediate data files
 # containing data scraped from the web.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ScrapedIntermediateDataFiles = @{
@@ -200,6 +205,11 @@ $FileManifests = @{
     'IntermediateData' = [PSCustomObject]@{
         Directory = $IntermediateDataPath
         Files     = $IntermediateDataFiles
+    }
+
+    'ExtractedData' = [PSCustomObject]@{
+        Directory = $ExtractedIntermediateDataPath
+        Files     = $ExtractedIntermediateDataFiles
     }
 
     'ScrapedData' = [PSCustomObject]@{

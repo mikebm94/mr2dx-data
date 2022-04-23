@@ -124,6 +124,7 @@ function Export-Mr2dxDataFileCsv {
         [Parameter(Mandatory, Position = 0)]
         [ValidateSet(
             'FinishedData',
+            'ExtractedData',
             'ScrapedData'
         )]
         [string]
