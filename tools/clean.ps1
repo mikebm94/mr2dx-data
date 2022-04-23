@@ -11,6 +11,7 @@ param(
     # for which their directory should be cleaned.
     [Parameter(Position = 0, ValueFromRemainingArguments)]
     [ValidateNotNull()]
+    [ValidateSet('FinishedData', 'ExtractedData', 'ScrapedData', 'GameFiles')]
     [string[]]
     $CleanTargets = @(
         'FinishedData', 'ExtractedData', 'ScrapedData', 'GameFiles'
