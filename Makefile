@@ -33,7 +33,7 @@ $(scraped_dir)/techniques-legendcup.csv: \
 # the other directories are cleaned.
 .PHONY: clean
 clean:
-	$(PWSH) tools/clean.ps1 FinishedData,ExtractedData,GameFiles
+	$(PWSH) tools/clean.ps1 FinishedData ExtractedData GameFiles
 
 .PHONY: clean-all
 clean-all:
