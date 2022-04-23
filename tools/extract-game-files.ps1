@@ -92,13 +92,11 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-. (Join-Path $PSScriptRoot 'lib/misc-utils.ps1')
-. (Join-Path $PSScriptRoot 'lib/paths.ps1')
+. (Join-Path $PSScriptRoot 'lib/file-manifests.ps1')
 
 
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
 $GameArchivePassword = 'KoeiTecmoMF1&2'
-$GameFilesManifestPath = Join-Path $PSScriptRoot '../game-files-manifest.txt'
 
 
 function Main {
@@ -244,11 +242,14 @@ function Expand-ArchiveWith7z {
 
     $7zArgs += $GameArchivePath
 
-    if (-not $ExtractAllFiles) {
-        $7zArgs += "@${GameFilesManifestPath}"
+    if ($ExtractAllFiles) {
+        & $7z @7zArgs
     }
-
-    & $7z @7zArgs
+    else {
+        $archiveMembers = Get-GameArchiveMembers
+        & $7z @7zArgs @archiveMembers
+    }
+    
     $7zExitCode = $LASTEXITCODE
 
     Write-Host @"
@@ -306,6 +307,22 @@ function Get-7zipCommandPath {
     }
 
     return $null
+}
+
+
+function Get-GameArchiveMembers {
+    [CmdletBinding()]
+    [OutputType([string])]
+    param()
+
+    foreach ($member in $FileManifests['GameFiles'].Files.Values) {
+        if ($member -is [PSCustomObject]) {
+            Write-Output $member.Path
+        }
+        else {
+            Write-Output $member
+        }
+    }
 }
 
 
