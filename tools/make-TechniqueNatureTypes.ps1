@@ -14,11 +14,13 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
 
-Write-Host "Generating finished data for the 'TechniqueNatureTypes' table ..."
+$TableName = 'TechniqueNatureTypes'
+
+Write-Host "Generating finished data for the '${TableName}' table ..."
 
 $outputFilePath =
-    Import-Mr2dxDataFileCsv IntermediateData TechniqueNatureTypes |
+    Import-Mr2dxDataFileCsv IntermediateData $TableName |
     Select-Object -ExcludeProperty Flag |
-    Export-Mr2dxDataFileCsv FinishedData TechniqueNatureTypes
+    Export-Mr2dxDataFileCsv FinishedData $TableName
 
-Write-Host "Saved 'TechniqueNatureTypes' table data to '${outputFilePath}'."
+Write-Host "Saved '${TableName}' table data to '${outputFilePath}'."
