@@ -12,6 +12,7 @@ gamefiles_dir = game-files
 .PHONY: all
 all: \
 		$(finished_dir)/Breeds.csv \
+		$(finished_dir)/TechniqueForceTypes.csv \
 		$(finished_dir)/TechniqueNatureTypes.csv \
 		$(finished_dir)/TechniqueTypes.csv
 
@@ -20,6 +21,12 @@ $(finished_dir)/Breeds.csv: \
 		tools/make-breeds-tbl.ps1 \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/make-breeds-tbl.ps1
+
+$(finished_dir)/TechniqueForceTypes.csv: \
+		$(intermediate_dir)/technique-force-types.csv \
+		tools/make-techniqueforcetypes-tbl.ps1 \
+		tools/lib/file-utils.ps1
+	$(PWSH) tools/make-techniqueforcetypes-tbl.ps1
 
 $(finished_dir)/TechniqueNatureTypes.csv: \
 		$(intermediate_dir)/technique-nature-types.csv \
