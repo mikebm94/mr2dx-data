@@ -20,7 +20,7 @@ $FinishedDataFiles = @{
 
     # Defines the types of technique forces.
     # (Power, Intelligence)
-    'TechniqueForceTypes' = 'TechniqueForceTypes.csv'
+    'ForceTypes' = 'ForceTypes.csv'
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
@@ -41,9 +41,9 @@ $IntermediateDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = 'breeds.csv'
 
-    # Defines the types of technique forces.
+    # Defines the types of forces that techniques can draw their power from.
     # (Power, Intelligence)
-    'TechniqueForceTypes' = 'technique-force-types.csv'
+    'ForceTypes' = 'force-types.csv'
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
