@@ -13,6 +13,7 @@ gamefiles_dir = game-files
 all: \
 		$(finished_dir)/Breeds.csv \
 		$(finished_dir)/ForceTypes.csv \
+		$(finished_dir)/Ranges.csv \
 		$(finished_dir)/TechniqueNatureTypes.csv \
 		$(finished_dir)/TechniqueTypes.csv
 

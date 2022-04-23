@@ -22,6 +22,10 @@ $FinishedDataFiles = @{
     # (Power, Intelligence)
     'ForceTypes' = 'ForceTypes.csv'
 
+    # Defines the ranges that a technique can be executed in.
+    # (Near, Middle, Far, Very Far)
+    'Ranges' = 'Ranges.csv'
+
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
     'TechniqueNatureTypes' = 'TechniqueNatureTypes.csv'
@@ -44,6 +48,10 @@ $IntermediateDataFiles = @{
     # Defines the types of forces that techniques can draw their power from.
     # (Power, Intelligence)
     'ForceTypes' = 'ForceTypes.csv'
+
+    # Defines the ranges that a technique can be executed in.
+    # (Near, Middle, Far, Very Far)
+    'Ranges' = 'Ranges.csv'
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
