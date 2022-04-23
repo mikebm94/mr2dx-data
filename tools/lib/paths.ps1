@@ -47,9 +47,11 @@ $GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
 
 # For directories that can be fully repopulated via scripts
 # and must exist, create them if needed.
-foreach ($path in $FinishedDataPath,
-                  $ExtractedIntermediateDataPath,
-                  $ScrapedIntermediateDataPath) {
+foreach ($path in
+    $FinishedDataPath,
+    $ExtractedIntermediateDataPath,
+    $ScrapedIntermediateDataPath
+) {
     if (-not (Test-Path $path -PathType Container)) {
         New-Item -Path $path -ItemType Directory | Out-Null
     }
