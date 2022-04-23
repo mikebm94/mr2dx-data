@@ -31,6 +31,23 @@ $(scraped_dir)/techniques-legendcup.csv: \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/scrape-techniques.ps1
 
+
 .PHONY: clean
 clean:
 	$(PWSH) tools/clean.ps1
+
+.PHONY: clean-finished
+clean-finished:
+	$(PWSH) tools/clean.ps1 FinishedData
+
+.PHONY: clean-extracted
+clean-extracted:
+	$(PWSH) tools/clean.ps1 ExtractedData
+
+.PHONY: clean-scraped
+clean-scraped:
+	$(PWSH) tools/clean.ps1 ScrapedData
+
+.PHONY: clean-gamefiles
+clean-gamefiles:
+	$(PWSH) tools/clean.ps1 GameFiles
