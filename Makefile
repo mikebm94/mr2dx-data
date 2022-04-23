@@ -31,9 +31,15 @@ $(scraped_dir)/techniques-legendcup.csv: \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/scrape-techniques.ps1
 
-
+# Don't clean scraped data files by default.
+# Shouldn't need to connect to the internet every time
+# the other directories are cleaned.
 .PHONY: clean
 clean:
+	$(PWSH) tools/clean.ps1 FinishedData,ExtractedData,GameFiles
+
+.PHONY: clean-all
+clean-all:
 	$(PWSH) tools/clean.ps1
 
 .PHONY: clean-finished
