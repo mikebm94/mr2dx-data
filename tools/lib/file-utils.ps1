@@ -23,7 +23,7 @@ function Import-Mr2dxDataFileCsv {
     [CmdletBinding()]
     [OutputType([object])]
     param(
-        # The file manifest to search for the file
+        # The name of the file manifest to search for the file
         # corresponding to the specified file key.
         [Parameter(Mandatory, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -119,7 +119,7 @@ The file path the CSV data was exported to.
 function Export-Mr2dxDataFileCsv {
     [CmdletBinding()]
     param(
-        # The file manifest to search for the file
+        # The name of the file manifest to search for the file
         # corresponding to the specified file key.
         [Parameter(Mandatory, Position = 0)]
         [ValidateSet(
