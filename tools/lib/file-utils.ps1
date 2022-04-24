@@ -187,7 +187,7 @@ Gets the content of an MR2DX game file.
 .OUTPUTS
 The full content of the file as a single string.
 #>
-function Get-GameFileContent {
+function Get-Mr2dxGameFileContent {
     [CmdletBinding()]
     [OutputType([string])]
     param(
