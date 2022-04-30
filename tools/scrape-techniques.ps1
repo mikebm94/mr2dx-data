@@ -159,7 +159,8 @@ function Get-BreedTechnique {
         $breedId = $breedNamesToIds[$breedName]
 
         if ($null -eq $breedId) {
-            throw "Error in scraped data: Unknown breed name '${breedName}'."
+            Abort "${ScriptName}: fatal: " +
+                  "Error in scraped data: Unknown breed name '${breedName}'."
         }
 
         $techniquePattern = @'
