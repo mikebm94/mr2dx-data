@@ -18,7 +18,7 @@ $FinishedDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = 'Breeds.csv'
 
-    # Defines the types of technique forces.
+    # Defines the types of forces that techniques can draw their power from.
     # (Power, Intelligence)
     'ForceTypes' = 'ForceTypes.csv'
 
