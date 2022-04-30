@@ -24,7 +24,7 @@ $FinishedDataFiles = @{
 
     # Defines the ranges that a technique can be executed in.
     # (Near, Middle, Far, Very Far)
-    'Ranges' = 'Ranges.csv'
+    'TechniqueRanges' = 'TechniqueRanges.csv'
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
@@ -51,7 +51,7 @@ $IntermediateDataFiles = @{
 
     # Defines the ranges that a technique can be executed in.
     # (Near, Middle, Far, Very Far)
-    'Ranges' = 'Ranges.csv'
+    'TechniqueRanges' = 'TechniqueRanges.csv'
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
