@@ -28,7 +28,7 @@ $FinishedDataFiles = @{
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
-    'TechniqueNatureTypes' = 'TechniqueNatureTypes.csv'
+    'TechniqueNatures' = 'TechniqueNatures.csv'
 
     # Defines the types of techniques.
     # (Basic, Hit, Heavy, Withering, Sharp, Special)
@@ -55,7 +55,7 @@ $IntermediateDataFiles = @{
 
     # Defines the types of technique natures.
     # (Normal, Good, Bad)
-    'TechniqueNatureTypes' = 'TechniqueNatureTypes.csv'
+    'TechniqueNatures' = 'TechniqueNatures.csv'
 
     # Defines the types of techniques.
     # (Basic, Hit, Heavy, Withering, Sharp, Special)

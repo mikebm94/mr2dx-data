@@ -2,7 +2,7 @@
 
 <#
 .SYNOPSIS
-Generates the finished data for the 'TechniqueNatureTypes' table.
+Generates the finished data for the 'TechniqueNatures' table.
 #>
 
 [CmdletBinding()]
@@ -14,7 +14,7 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
 
-$TableName = 'TechniqueNatureTypes'
+$TableName = 'TechniqueNatures'
 
 Write-Host "Generating finished data for the '${TableName}' table ..."
 

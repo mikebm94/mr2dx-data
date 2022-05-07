@@ -14,7 +14,7 @@ all: \
 		$(finished_dir)/Breeds.csv \
 		$(finished_dir)/ForceTypes.csv \
 		$(finished_dir)/TechniqueRanges.csv \
-		$(finished_dir)/TechniqueNatureTypes.csv \
+		$(finished_dir)/TechniqueNatures.csv \
 		$(finished_dir)/TechniqueTypes.csv
 
 $(finished_dir)/%.csv: \
