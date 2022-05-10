@@ -12,15 +12,23 @@ param()
 $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/Breed.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/BreedIntermediate.ps1')
 
 
 $TableName = 'Breeds'
 
 Write-Host "Generating finished data for the '${TableName}' table ..."
 
-$outputFilePath =
+$BreedsIntermediate =
     Import-Mr2dxDataFileCsv IntermediateData $TableName |
-    Select-Object -ExcludeProperty Initials |
-    Export-Mr2dxDataFileCsv FinishedData $TableName
+        ForEach-Object { [BreedIntermediate]$PSItem }
 
-Write-Host "Saved '${TableName}' table data to '${outputFilePath}'."
+$Breeds =
+    $BreedsIntermediate |
+        Select-Object -ExcludeProperty Initials |
+        ForEach-Object { [Breed]$PSItem }
+
+$OutputFilePath = $Breeds | Export-Mr2dxDataFileCsv FinishedData $TableName
+
+Write-Host "Saved '${TableName}' table data to '${OutputFilePath}'."

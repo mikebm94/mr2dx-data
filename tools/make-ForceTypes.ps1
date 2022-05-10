@@ -12,15 +12,23 @@ param()
 $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/ForceType.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/ForceTypeIntermediate.ps1')
 
 
 $TableName = 'ForceTypes'
 
 Write-Host "Generating finished data for the '${TableName}' table ..."
 
-$outputFilePath =
+$ForceTypesIntermediate =
     Import-Mr2dxDataFileCsv IntermediateData $TableName |
-    Select-Object -ExcludeProperty Flag |
-    Export-Mr2dxDataFileCsv FinishedData $TableName
+        ForEach-Object { [ForceTypeIntermediate]$PSItem }
+
+$ForceTypes =
+    $ForceTypesIntermediate |
+        Select-Object -ExcludeProperty Flag |
+        ForEach-Object { [ForceType]$PSItem }
+
+$outputFilePath = $ForceTypes | Export-Mr2dxDataFileCsv FinishedData $TableName
 
 Write-Host "Saved '${TableName}' table data to '${outputFilePath}'."

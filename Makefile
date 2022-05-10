@@ -17,11 +17,13 @@ all: \
 		$(finished_dir)/TechniqueNatures.csv \
 		$(finished_dir)/TechniqueTypes.csv
 
-$(finished_dir)/%.csv: \
-		$(intermediate_dir)/%.csv \
-		tools/make-%.ps1 \
-		tools/lib/file-utils.ps1
-	$(PWSH) tools/make-$*.ps1
+$(finished_dir)/%s.csv: \
+		$(intermediate_dir)/%s.csv \
+		tools/make-%s.ps1 \
+		tools/lib/file-utils.ps1 \
+		tools/lib/entities/%.ps1 \
+		tools/lib/entities/%Intermediate.ps1
+	$(PWSH) tools/make-$*s.ps1
 
 $(scraped_dir)/techniques-legendcup.csv: \
 		tools/scrape-techniques.ps1 \
