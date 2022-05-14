@@ -27,7 +27,8 @@ $(finished_dir)/%s.csv: \
 
 $(scraped_dir)/techniques-legendcup.csv: \
 		tools/scrape-techniques.ps1 \
-		tools/lib/file-utils.ps1
+		tools/lib/file-utils.ps1 \
+		tools/lib/entities/TechniqueScraped.ps1
 	$(PWSH) tools/scrape-techniques.ps1
 
 # Don't clean scraped data files by default.

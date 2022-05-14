@@ -18,6 +18,7 @@ param()
 $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/TechniqueScraped.ps1')
 
 
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
@@ -140,7 +141,7 @@ function Get-BreedCaseMatch {
 
 function Get-BreedTechnique {
     [CmdletBinding()]
-    [OutputType([PSCustomObject])]
+    [OutputType([TechniqueScraped])]
     param(
         [Parameter(Mandatory, ValueFromPipeline)]
         [ValidateNotNull()]
@@ -166,7 +167,7 @@ function Get-BreedTechnique {
         $techniquePattern = @'
 (?x)
             \[\s*
-            '(?<RangeId>\d)-(?<Slot>\d)',\s*
+            '(?<TechniqueRangeId>\d)-(?<Slot>\d)',\s*
             '(?<Name>[\w -]+)',\s*
             (?<TechniqueTypeId>\d+),\s*
             (?<GutsCost>\d+),\s*
@@ -195,7 +196,7 @@ function Get-BreedTechnique {
 
 function Get-ParsedTechnique {
     [CmdletBinding()]
-    [OutputType([PSCustomObject])]
+    [OutputType([TechniqueScraped])]
     param(
         [Parameter(Mandatory, ValueFromPipeline)]
         [ValidateNotNull()]
@@ -208,54 +209,20 @@ function Get-ParsedTechnique {
         $BreedId
     )
 
-    begin {
-        # Fields that are converted to a type other than string.
-        # Used to check if the conversion failed.
-        $convertedFields = @(
-            'RangeId', 'Slot', 'TechniqueTypeId', 'GutsCost',
-            'Force', 'HitPercent', 'Withering', 'Sharpness',
-            'DurationHit', 'DurationMiss', 'Errantry'
-        )
-    }
-
     process {
-        $matchGroups = $TechniqueMatch.Groups
+        $technique = [TechniqueScraped]::new()
+        $technique.BreedId = $BreedId
 
-        $technique = [PSCustomObject]@{
-            BreedId         = $BreedId
-            RangeId         = $matchGroups['RangeId'].Value -as [int]
-            Slot            = $matchGroups['Slot'].Value -as [int]
-            Name            = $matchGroups['Name'].Value
-            TechniqueTypeId = $matchGroups['TechniqueTypeId'].Value -as [int]
-            GutsCost        = $matchGroups['GutsCost'].Value -as [int]
-            Force           = $matchGroups['Force'].Value -as [int]
-            HitPercent      = $matchGroups['HitPercent'].Value -as [int]
-            Withering       = $matchGroups['Withering'].Value -as [int]
-            Sharpness       = $matchGroups['Sharpness'].Value -as [int]
-            Effect          = $matchGroups['Effect'].Value
-            DurationHit     = $matchGroups['DurationHit'].Value -as [float]
-            DurationMiss    = $matchGroups['DurationMiss'].Value -as [float]
-            Errantry        = $matchGroups['Errantry'].Value -as [int]
-        }
-
-        # A group with a null value means a type conversion above failed.
-        foreach ($field in $convertedFields) {
-            if ($null -eq $technique.$field) {
-                throw (
-                    'Error in scraped technique ' +
-                    '(Breed: {0}, Range: {1}, Slot: {2}): ' +
-                    "Could not parse value for field '{3}': '{4}'"
-                ) -f $technique.BreedId, $technique.RangeId, $technique.Slot,
-                     $field, $TechniqueMatch.Groups[$field].Value
+        # Populate the scraped techniques values using the values of
+        # the capture groups with the same name.
+        foreach ($matchGroup in $TechniqueMatch.Groups) {
+            # Skip the automatic group containing the entire match.
+            if ($matchGroup.Name -eq '0') {
+                continue
             }
-        }
 
-        if ([string]::IsNullOrWhiteSpace($technique.Name)) {
-            throw (
-                'Error in scraped technique ' +
-                '(Breed: {0}, Range: {1}, Slot: {2}): ' +
-                'Name is empty.'
-            ) -f $technique.BreedId, $technique.RangeId, $technique.Slot
+            $fieldName = $matchGroup.Name
+            $technique.$fieldName = $matchGroup.Value
         }
 
         Write-Output $technique
