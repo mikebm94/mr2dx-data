@@ -21,13 +21,13 @@ $(finished_dir)/%s.csv: \
 		$(intermediate_dir)/%s.csv \
 		tools/make-%s.ps1 \
 		tools/lib/file-utils.ps1 \
-		tools/lib/entities/%.ps1 \
-		tools/lib/entities/%Intermediate.ps1
+		tools/lib/entities/%.ps1
 	$(PWSH) tools/make-$*s.ps1
 
 $(scraped_dir)/techniques-legendcup.csv: \
 		tools/scrape-techniques.ps1 \
 		tools/lib/file-utils.ps1 \
+		tools/lib/entities/Breed.ps1 \
 		tools/lib/entities/TechniqueScraped.ps1
 	$(PWSH) tools/scrape-techniques.ps1
 

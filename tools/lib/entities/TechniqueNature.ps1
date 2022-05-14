@@ -8,3 +8,13 @@ class TechniqueNature {
     [ValidateSet('Normal', 'Good', 'Bad')]
     [string] $Name
 }
+
+<#
+    Entity representing the nature of a technique,
+    including data points not needed in the finished data.
+#>
+class TechniqueNatureIntermediate : TechniqueNature {
+    # Flag name used in the games technique data files to specify a nature.
+    [ValidateSet('NORMAL', 'YOI', 'WARU')]
+    [string] $Flag
+}

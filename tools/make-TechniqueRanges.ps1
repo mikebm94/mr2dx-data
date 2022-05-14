@@ -13,7 +13,6 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueRange.ps1')
-. (Join-Path $PSScriptRoot 'lib/entities/TechniqueRangeIntermediate.ps1')
 
 
 $TableName = 'TechniqueRanges'

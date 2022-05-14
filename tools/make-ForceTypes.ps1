@@ -13,7 +13,6 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/ForceType.ps1')
-. (Join-Path $PSScriptRoot 'lib/entities/ForceTypeIntermediate.ps1')
 
 
 $TableName = 'ForceTypes'
