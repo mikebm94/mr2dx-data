@@ -1,5 +1,5 @@
 <#
-    Entity class representing a type of force that techniques can draw
+    Entity representing a type of force that techniques can draw
     their power from.
 #>
 class ForceType {

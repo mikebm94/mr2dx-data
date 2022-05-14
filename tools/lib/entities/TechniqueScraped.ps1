@@ -1,6 +1,7 @@
 <#
-    Entity class representing a technique scraped from LegendCup.com,
-    including additional data points not needed in the finished data.
+    Entity representing a technique scraped from LegendCup.com used to obtain
+    data points that cannot be extracted from the game files, including data
+    points not needed in the finished data.
 #>
 class TechniqueScraped {
     [ValidateRange(0, 37)]

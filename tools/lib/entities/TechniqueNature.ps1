@@ -1,5 +1,5 @@
 <#
-    Entity class representing the nature of a technique.
+    Entity representing the nature of a technique.
 #>
 class TechniqueNature {
     [ValidateRange(0, 2)]

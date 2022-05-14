@@ -1,6 +1,6 @@
 <#
-    Entity class representing a type of technique,
-    including additional data points not needed in the finished data.
+    Entity representing a type of technique,
+    including data points not needed in the finished data.
 #>
 class TechniqueTypeIntermediate {
     [ValidateRange(0, 5)]

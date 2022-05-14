@@ -1,5 +1,5 @@
 <#
-    Entity class representing a monster breed, including additional
+    Entity representing a monster breed, including
     data points not needed in the finished data.
 #>
 class BreedIntermediate {

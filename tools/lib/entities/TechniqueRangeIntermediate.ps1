@@ -1,6 +1,6 @@
 <#
-    Entity class representing a range that a technique can be executed in,
-    including additional data points not needed in the finished data.
+    Entity representing a range that a technique can be executed in,
+    including data points not needed in the finished data.
 #>
 class TechniqueRangeIntermediate {
     [ValidateRange(0, 3)]

@@ -1,7 +1,6 @@
 <#
-    Entity class representing a type of force that techniques can draw
-    their power from., including additional data points not needed in
-    the finished data.
+    Entity representing a type of force that techniques can draw their power
+    from, including data points not needed in the finished data.
 #>
 class ForceTypeIntermediate {
     [ValidateRange(0, 1)]

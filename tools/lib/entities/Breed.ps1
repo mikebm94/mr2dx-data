@@ -1,5 +1,5 @@
 <#
-    Entity class representing a monster breed.
+    Entity representing a monster breed.
 #>
 class Breed {
     [ValidateRange(0, 37)]

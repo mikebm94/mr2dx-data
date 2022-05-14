@@ -1,5 +1,5 @@
 <#
-    Entity class representing a range that a technique can be executed in.
+    Entity representing a range that a technique can be executed in.
 #>
 class TechniqueRange {
     [ValidateRange(0, 3)]
