@@ -18,6 +18,7 @@ param()
 $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/Breed.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueScraped.ps1')
 
 
@@ -152,7 +153,7 @@ function Get-BreedTechnique {
     begin {
         $breedNamesToIds =
             Import-Mr2dxDataFileCsv IntermediateData Breeds |
-                ForEach-Object { [Breed]$PSItem } |
+                ForEach-Object { [BreedIntermediate]$PSItem } |
                 ConvertTo-HashTable -KeyProperty Name -ValueProperty Id
         
         $techniquePattern = @'
