@@ -153,17 +153,7 @@ function Get-BreedTechnique {
         $breedNamesToIds =
             Import-Mr2dxDataFileCsv IntermediateData Breeds |
             ConvertTo-HashTable -KeyProperty Name -ValueProperty Id
-    }
-
-    process {
-        $breedName = $BreedCaseMatch.Groups['BreedName'].Value
-        $breedId = $breedNamesToIds[$breedName]
-
-        if ($null -eq $breedId) {
-            Abort "${ScriptName}: fatal: " +
-                  "Error in scraped data: Unknown breed name '${breedName}'."
-        }
-
+        
         $techniquePattern = @'
 (?x)
             \[\s*
@@ -181,6 +171,16 @@ function Get-BreedTechnique {
             (?<Errantry>-?\d)\s*
             \]
 '@
+    }
+
+    process {
+        $breedName = $BreedCaseMatch.Groups['BreedName'].Value
+        $breedId = $breedNamesToIds[$breedName]
+
+        if ($null -eq $breedId) {
+            Abort "${ScriptName}: fatal: " +
+                  "Error in scraped data: Unknown breed name '${breedName}'."
+        }
 
         $matchInfo =
             $BreedCaseMatch.Groups['Techniques'].Value |
