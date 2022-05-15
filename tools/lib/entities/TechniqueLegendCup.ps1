@@ -42,12 +42,13 @@ class TechniqueBase {
 #>
 class TechniqueLegendCup : TechniqueBase {
     # The ID of the range that the technique can be performed at.
+    # LegendCup uses 1-4 for ranges instead of 0-3.
     [ValidateRange(1, 4)]
-    [int] $TechniqueRangeId
+    [int] $TechniqueRangeIdLegendCup
 
     # LegendCup technique types have different IDs.
     [ValidateRange(0, 5)]
-    [int] $TechniqueTypeId
+    [int] $TechniqueTypeIdLegendCup
     
     # The name of the technique.
     [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]

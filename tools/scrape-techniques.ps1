@@ -159,9 +159,9 @@ function Get-BreedTechnique {
         $techniquePattern = @'
 (?x)
             \[\s*
-            '(?<TechniqueRangeId>\d)-(?<Slot>\d)',\s*
+            '(?<TechniqueRangeIdLegendCup>\d)-(?<Slot>\d)',\s*
             '(?<Name>[\w -]+)',\s*
-            (?<TechniqueTypeId>\d+),\s*
+            (?<TechniqueTypeIdLegendCup>\d+),\s*
             (?<GutsCost>\d+),\s*
             '(?<Force>\d*)',\s*
             '(?<HitPercent>(?:-?\d+)?)',\s*
