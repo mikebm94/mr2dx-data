@@ -19,7 +19,7 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/Breed.ps1')
-. (Join-Path $PSScriptRoot 'lib/entities/TechniqueScraped.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/TechniqueLegendCup.ps1')
 
 
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
@@ -142,7 +142,7 @@ function Get-BreedCaseMatch {
 
 function Get-BreedTechnique {
     [CmdletBinding()]
-    [OutputType([TechniqueScraped])]
+    [OutputType([TechniqueLegendCup])]
     param(
         [Parameter(Mandatory, ValueFromPipeline)]
         [ValidateNotNull()]
@@ -198,7 +198,7 @@ function Get-BreedTechnique {
 
 function Get-ParsedTechnique {
     [CmdletBinding()]
-    [OutputType([TechniqueScraped])]
+    [OutputType([TechniqueLegendCup])]
     param(
         [Parameter(Mandatory, ValueFromPipeline)]
         [ValidateNotNull()]
@@ -212,7 +212,7 @@ function Get-ParsedTechnique {
     )
 
     process {
-        $technique = [TechniqueScraped]::new()
+        $technique = [TechniqueLegendCup]::new()
         $technique.BreedId = $BreedId
 
         # Populate the scraped techniques values using the values of

@@ -40,7 +40,7 @@ class TechniqueBase {
     data points that cannot be extracted from the game files, including data
     points not needed in the finished data.
 #>
-class TechniqueScraped : TechniqueBase {
+class TechniqueLegendCup : TechniqueBase {
     # The ID of the range that the technique can be performed at.
     [ValidateRange(1, 4)]
     [int] $TechniqueRangeId
