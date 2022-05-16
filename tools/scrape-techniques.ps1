@@ -19,7 +19,7 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/Breed.ps1')
-. (Join-Path $PSScriptRoot 'lib/entities/TechniqueLegendCup.ps1')
+. (Join-Path $PSScriptRoot 'lib/entities/Technique.ps1')
 
 
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
