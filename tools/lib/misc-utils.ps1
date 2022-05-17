@@ -52,14 +52,14 @@ function ConvertTo-Hashtable {
 
         # The property of the input objects to use as keys for the hashtable.
         [Parameter(Mandatory, Position = 0)]
-        [ValidateNotNull()]
-        [object]
+        [ValidateNotNullOrEmpty()]
+        [string]
         $KeyProperty,
 
         # The property of the input objects to use as values for the hashtable.
         [Parameter(Mandatory, Position = 1)]
-        [ValidateNotNull()]
-        [object]
+        [ValidateNotNullOrEmpty()]
+        [string]
         $ValueProperty
     )
 
