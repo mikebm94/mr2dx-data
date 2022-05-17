@@ -57,8 +57,8 @@ function ConvertTo-Hashtable {
         $KeyProperty,
 
         # The property of the input objects to use as values for the hashtable.
-        [Parameter(Mandatory, Position = 1)]
-        [ValidateNotNullOrEmpty()]
+        # If not specified, the input objects themselves will be the values.
+        [Parameter(Position = 1)]
         [string]
         $ValueProperty
     )
@@ -68,7 +68,11 @@ function ConvertTo-Hashtable {
     }
 
     process {
-        $table.Add($InputObject.$KeyProperty, $InputObject.$ValueProperty)
+        if ($null -eq $ValueProperty) {
+            $table.Add($InputObject.$KeyProperty, $InputObject)
+        } else {
+            $table.Add($InputObject.$KeyProperty, $InputObject.$ValueProperty)
+        }
     }
 
     end {
