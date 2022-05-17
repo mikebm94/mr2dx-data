@@ -79,3 +79,50 @@ function ConvertTo-Hashtable {
         return $table
     }
 }
+
+
+<#
+.SYNOPSIS
+Creates an OrderedDictionary from a collection of objects
+using the specified properties as the keys and values.
+#>
+function ConvertTo-OrderedDictionary {
+    [CmdletBinding()]
+    [OutputType([System.Collections.Specialized.OrderedDictionary])]
+    param(
+        # The objects used to create the dictionary.
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [ValidateNotNull()]
+        [PSObject]
+        $InputObject,
+
+        # The property of the input objects to use as keys for the dictionary.
+        [Parameter(Mandatory, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $KeyProperty,
+
+        # The property of the input objects to use as values for the dictionary.
+        # If not specified, the input objects themselves will be the values.
+        [Parameter(Position = 1)]
+        [string]
+        $ValueProperty
+    )
+
+    begin {
+        $table = [System.Collections.Specialized.OrderedDictionary]::new()
+    }
+
+    process {
+        if ($null -eq $ValueProperty) {
+            $table.Add($InputObject.$KeyProperty, $InputObject)
+        }
+        else {
+            $table.Add($InputObject.$KeyProperty, $InputObject.$ValueProperty)
+        }
+    }
+
+    end {
+        return $table
+    }
+}
