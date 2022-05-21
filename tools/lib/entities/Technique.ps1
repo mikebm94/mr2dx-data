@@ -121,6 +121,10 @@ class TechniqueExtracted : TechniqueBase {
     [ValidateSet('NORMAL', 'YOI', 'WARU')]
     [string] $TechniqueNatureFlag
 
+    # Flag name used in the game's technique data files to specify a force type.
+    [ValidateSet('POW', 'IQ')]
+    [string] $ForceTypeFlag
+
     [ValidateRange(0, 255)]
     [int] $HpDrain
     
