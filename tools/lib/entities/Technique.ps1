@@ -126,6 +126,9 @@ class TechniqueExtracted : TechniqueBase {
     [string] $ForceTypeFlag
 
     [ValidateRange(0, 255)]
+    [int] $GutsDrain
+
+    [ValidateRange(0, 255)]
     [int] $HpDrain
     
     [ValidateRange(0, 255)]
