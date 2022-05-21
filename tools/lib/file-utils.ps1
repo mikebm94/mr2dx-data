@@ -14,6 +14,58 @@ using namespace System.Text
 
 <#
 .SYNOPSIS
+Gets the path to a file in the specified file manifest.
+
+.OUTPUTS
+The full path to the file with the specified key
+in the specified file manifest.
+#>
+function Get-Mr2dxDataFilePath {
+    [CmdletBinding()]
+    [OutputType([string])]
+    param(
+        # The name of the file manifest to search for the file
+        # corresponding to the specified file key.
+        [Parameter(Mandatory, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileManifest,
+
+        # A key corresponding to a file defined in the specified file manifest.
+        [Parameter(Mandatory, Position = 1, ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileKey
+    )
+
+    process {
+        $manifest = $FileManifests[$FileManifest]
+
+        if ($null -eq $manifest) {
+            throw "Failed to get file path: " +
+                  "File manifest named '${FileManifest}' does not exist."
+        }
+
+        $filePath = $manifest.Files[$FileKey]
+
+        if ($null -eq $filePath) {
+            throw "Failed to get file path: " +
+                  "No file path defined for key '{0}' in file manifest '{1}'." `
+                  -f $FileKey, $FileManifest
+        }
+
+        # File uses a non-default encoding.
+        if ($filePath -is [PSCustomObject]) {
+            $filePath = $filePath.Path
+        }
+
+        Write-Output (Join-Path $manifest.Directory $filePath)
+    }
+}
+
+
+<#
+.SYNOPSIS
 Imports CSV data from a file in the specified file manifest.
 
 .OUTPUTS
