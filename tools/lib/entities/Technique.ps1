@@ -108,9 +108,8 @@ class TechniqueExtracted : TechniqueBase {
     [ValidateRange(0, 23)]
     [int] $Index
 
-    # Flag name used in the game's technique data files to specify a range.
-    [ValidateSet('NEAR', 'MIDDLE', 'FAR', 'VERYFAR')]
-    [string] $TechniqueRangeFlag
+    [ValidateRange(0, 3)]
+    [int] $TechniqueRangeId
 
     # Flag name used in the game's technique data files to specify a type.
     [ValidateSet(
