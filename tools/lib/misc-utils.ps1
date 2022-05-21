@@ -68,7 +68,7 @@ function ConvertTo-Hashtable {
     }
 
     process {
-        if ($null -eq $ValueProperty) {
+        if ([string]::IsNullOrEmpty($ValueProperty)) {
             $table.Add($InputObject.$KeyProperty, $InputObject)
         } else {
             $table.Add($InputObject.$KeyProperty, $InputObject.$ValueProperty)
@@ -114,7 +114,7 @@ function ConvertTo-OrderedDictionary {
     }
 
     process {
-        if ($null -eq $ValueProperty) {
+        if ([string]::IsNullOrEmpty($ValueProperty)) {
             $table.Add($InputObject.$KeyProperty, $InputObject)
         }
         else {
