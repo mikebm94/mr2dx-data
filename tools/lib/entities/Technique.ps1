@@ -68,7 +68,7 @@ class Technique : TechniqueBase {
     [float] $DurationMiss
 
     # The amount of guts stolen from the opponent on success.
-    [ValidateRange(0, 100)]
+    [ValidateRange(0, 255)]
     [int] $GutsDrain
     
     # The amount of HP stolen from the opponent on success.
