@@ -65,7 +65,10 @@ $IntermediateDataFiles = @{
 # Map friendly names to intermediate data files
 # containing data extracted from the MR2DX game files.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
-$ExtractedIntermediateDataFiles = @{}
+$ExtractedIntermediateDataFiles = @{
+    # Defines the techniques available to each monster breed.
+    'Techniques' = 'TechniquesExtracted.csv'
+}
 
 # Map friendly names to intermediate data files
 # containing data scraped from the web.
