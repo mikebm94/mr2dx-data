@@ -52,6 +52,10 @@ class Technique : TechniqueBase {
     [ValidateRange(0, 5)]
     [int] $TechniqueTypeId
 
+    # The ID of the technique's force type.
+    [ValidateRange(0, 1)]
+    [int] $ForceTypeId
+
     # The ID of the technique's nature.
     [ValidateRange(0, 2)]
     [int] $TechniqueNatureId
