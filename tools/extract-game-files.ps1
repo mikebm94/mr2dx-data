@@ -124,7 +124,7 @@ function Main {
         # that of the game archive, which causes make to always see them
         # as out of date. Prevent this by 'touching' the files.
         $now = Get-Date
-        Get-ChildItem -Path $destinationPath | ForEach-Object {
+        Get-ChildItem -Path $destinationPath -Recurse | ForEach-Object {
             $_.LastWriteTime = $now
         }
     }
