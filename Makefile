@@ -80,7 +80,7 @@ $(extracted_dir)/TechniquesExtracted.csv: \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/extract-techniques.ps1
 
-$(scraped_dir)/techniques-legendcup.csv: \
+$(scraped_dir)/TechniquesLegendCup.csv: \
 		tools/scrape-techniques.ps1 \
 		tools/lib/file-utils.ps1 \
 		tools/lib/entities/Breed.ps1 \
