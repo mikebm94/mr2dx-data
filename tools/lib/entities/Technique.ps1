@@ -11,10 +11,6 @@ class TechniqueBase {
     [ValidateRange(1, 6)]
     [int] $Slot
 
-    # The amount of guts used to perform the technique.
-    [ValidateRange(0, 100)]
-    [int] $GutsCost
-
     # Determines the amount of damage the technique can inflict.
     [ValidateRange(0, 100)]
     [int] $Force
@@ -33,6 +29,10 @@ class TechniqueBase {
     # Determines the chance of a critical hit on success.
     [ValidateRange(0, 100)]
     [int] $Sharpness
+
+    # The amount of guts used to perform the technique.
+    [ValidateRange(0, 100)]
+    [int] $GutsCost
 }
 
 <#
@@ -44,6 +44,10 @@ class Technique : TechniqueBase {
     [ValidateRange(1, 4)]
     [int] $TechniqueRangeId
 
+    # The name of the technique.
+    [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
+    [string] $Name
+
     # The ID of the technique's type.
     [ValidateRange(0, 5)]
     [int] $TechniqueTypeId
@@ -51,21 +55,6 @@ class Technique : TechniqueBase {
     # The ID of the technique's nature.
     [ValidateRange(0, 2)]
     [int] $TechniqueNatureId
-
-    # The name of the technique.
-    [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
-    [string] $Name
-
-    # The description of the technique's special effect, if any.
-    [string] $Effect
-
-    # The time in seconds taken when the technique hits the opponent.
-    [ValidateRange(1.0, 15.0)]
-    [float] $DurationHit
-
-    # The time in seconds taken when the technique misses the opponent.
-    [ValidateRange(1.0, 15.0)]
-    [float] $DurationMiss
 
     # The amount of guts stolen from the opponent on success.
     [ValidateRange(0, 255)]
@@ -86,6 +75,17 @@ class Technique : TechniqueBase {
     # The amount of damage to the monster on failure.
     [ValidateRange(0, 255)]
     [int] $SelfDamageMiss
+
+    # The description of the technique's special effect, if any.
+    [string] $Effect
+
+    # The time in seconds taken when the technique hits the opponent.
+    [ValidateRange(1.0, 15.0)]
+    [float] $DurationHit
+
+    # The time in seconds taken when the technique misses the opponent.
+    [ValidateRange(1.0, 15.0)]
+    [float] $DurationMiss
 }
 
 <#
@@ -93,6 +93,9 @@ class Technique : TechniqueBase {
     including data points not needed in the finished data.
 #>
 class TechniqueExtracted : TechniqueBase {
+    [ValidateRange(0, 3)]
+    [int] $TechniqueRangeId
+
     <#
         Every technique in a monster breed's technique data file is given a
         number. These numbers are used in bitmasks in other data files to
@@ -108,22 +111,19 @@ class TechniqueExtracted : TechniqueBase {
     [ValidateRange(0, 23)]
     [int] $Index
 
-    [ValidateRange(0, 3)]
-    [int] $TechniqueRangeId
-
     # Flag name used in the game's technique data files to specify a type.
     [ValidateSet(
         'KIHON', 'MEICHU', 'DAI_DAMAGE', 'GUTS_DOWN', 'CRITICAL', 'HISSATSU'
     )]
     [string] $TechniqueTypeFlag
 
-    # Flag name used in the game's technique data files to specify a nature.
-    [ValidateSet('NORMAL', 'YOI', 'WARU')]
-    [string] $TechniqueNatureFlag
-
     # Flag name used in the game's technique data files to specify a force type.
     [ValidateSet('POW', 'IQ')]
     [string] $ForceTypeFlag
+
+    # Flag name used in the game's technique data files to specify a nature.
+    [ValidateSet('NORMAL', 'YOI', 'WARU')]
+    [string] $TechniqueNatureFlag
 
     [ValidateRange(0, 255)]
     [int] $GutsDrain
@@ -150,12 +150,12 @@ class TechniqueLegendCup : TechniqueBase {
     [ValidateRange(1, 4)]
     [int] $TechniqueRangeIdLegendCup
 
+    [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
+    [string] $Name
+
     # LegendCup technique types have different IDs.
     [ValidateRange(0, 5)]
     [int] $TechniqueTypeIdLegendCup
-    
-    [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
-    [string] $Name
 
     [string] $Effect
 
