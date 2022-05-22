@@ -76,7 +76,7 @@ $(extracted_dir)/TechniquesExtracted.csv: \
 		tools/extract-techniques.ps1 \
 		tools/lib/entities/Breed.ps1 \
 		tools/lib/entities/Technique.ps1 \
-		tools/lib/entities/TechniqueRange.ps1
+		tools/lib/entities/TechniqueRange.ps1 \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/extract-techniques.ps1
 
