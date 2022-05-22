@@ -125,13 +125,13 @@ function Main {
         # as out of date. Prevent this by 'touching' the files.
         $now = Get-Date
         Get-ChildItem -Path $destinationPath -Recurse | ForEach-Object {
-            $_.LastWriteTime = $now
+            $PSItem.LastWriteTime = $now
         }
     }
     catch {
         WarningMsg "${ScriptName}: warning:" `
                    "Failed to update modification timestamps:" `
-                   $_.Exception.Message
+                   $PSItem.Exception.Message
     }
 
     Write-Host "Extracted MR2DX game data files to '${destinationPath}'."

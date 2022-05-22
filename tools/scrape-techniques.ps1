@@ -37,7 +37,7 @@ function Main {
         $response = Invoke-WebRequest $scrapeUrl
     }
     catch {
-        Abort "${ScriptName}: fatal: $( $_.Exception.Message )"
+        Abort "${ScriptName}: fatal: $( $PSItem.Exception.Message )"
     }
 
     $techniques =
