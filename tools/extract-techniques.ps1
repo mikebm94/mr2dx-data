@@ -6,7 +6,6 @@ Extracts raw data for the techniques available to each monster breed
 from the game's technique data files.
 #>
 
-using namespace System.Collections.Specialized
 using namespace System.Text
 
 [CmdletBinding()]
