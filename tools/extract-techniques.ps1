@@ -6,8 +6,6 @@ Extracts raw data for the techniques available to each monster breed
 from the game's technique data files.
 #>
 
-using namespace System.Text
-
 [CmdletBinding()]
 param()
 
@@ -19,7 +17,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/entities/Technique.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueRange.ps1')
 
-#blah
 
 # The number of technique slots in each range.
 $SlotCount = 6
@@ -43,13 +40,9 @@ function Main {
         ForEach-Object { [BreedIntermediate]$PSItem }
 
     $techniques = $breeds | Get-BreedTechnique
-
     Write-Host "Extracted $( $techniques.Count ) technique(s)."
     
-    $outputFilePath =
-        $techniques |
-        Export-Mr2dxDataFileCsv ExtractedData Techniques
-    
+    $outputFilePath = $techniques | Export-Mr2dxDataFileCsv ExtractedData Techniques
     Write-Host "Saved extracted technique data to '${outputFilePath}'."
 }
 
@@ -70,7 +63,7 @@ function Get-BreedTechnique {
     )
 
     begin {
-        $techiqueDefinitionPattern = @'
+        $techniqueDefinitionPattern = @'
 (?msx)
 ^/ \s* WAZA_DATA_0*(?<Index>\d+): \s* (?:;.*?)?
 ^/ \s* NAME_START \s* (?:;.*?)?
@@ -97,63 +90,51 @@ function Get-BreedTechnique {
     }
 
     process {
-        $techniqueDataFileKey = 'Techniques{0}' -f $Breed.Initials
-        $techniqueData = Get-Mr2dxGameFileContent $techniqueDataFileKey
+        $dataFileKey = 'Techniques{0}' -f $Breed.Initials
+        $techniqueData = Get-Mr2dxGameFileContent $dataFileKey
 
-        $techniqueDataFilePath =
-            Get-Mr2dxDataFilePath GameFiles $techniqueDataFileKey
+        $dataFilePath = Get-Mr2dxDataFilePath GameFiles $dataFileKey
         
         Write-Host (
-            "Extracting technique data for breed '{0}' from '{1}' ..." `
-            -f $Breed.Name, $techniqueDataFilePath
+            "Extracting technique data for breed '{0}' from '{1}' ..." -f $Breed.Name, $dataFilePath
         )
 
         <#
-        The technique table is a section in a monster breed's technique data
-        file that declares the techniques that are actually available in the
-        game and what range and slot they exist in.
+          The technique table is a section in a monster breed's technique data file that declares the
+          techniques that are actually available in the game and what range and slot they exist in.
 
-        Get a collection of TechniqueExtracted objects with the
-        TechniqueRangeId, Slot, and Index fields populated based on the
-        contents of the technique table. Then, create a dictionary mapping the
-        index numbers of the techniques to the techniques themselves.
-        The dictionary will be used when parsing the technique definitions to
-        determine if the definition corresponds to a technique actually
-        available in the game.
+          Get a collection of `TechniqueExtracted` objects with the `TechniqueRangeId`, `Slot`,
+          and `Index` fields populated based on the contents of the technique table.
+          Then, create a dictionary mapping the index numbers of the techniques to the techniques
+          themselves. The dictionary will be used when parsing the technique definitions
+          to determine if the definition corresponds to a technique actually available in the game.
         #>
-        $techniqueTable =
-            Get-DeclaredTechnique $techniqueData |
-            ConvertTo-Hashtable -KeyProperty Index
+        $techniqueTable = Get-DeclaredTechnique $techniqueData | ConvertTo-Hashtable -KeyProperty Index
         
-        $matchInfo =
-            $techniqueData |
-            Select-String $techiqueDefinitionPattern -AllMatches
+        $matchInfo = $techniqueData | Select-String $techniqueDefinitionPattern -AllMatches
     
         if (-not $matchInfo) {
             throw 'Could not find technique definitions.'
         }
 
-        # The data points to extract from the technique definitions.
-        # These are fields on a `TechniqueExtracted` object to be populated
-        # by the values of capture groups with the same name.
+        # The data points to extract from the technique definitions. These are the fields of the
+        # `TechniqueExtracted` objects populated by the values of capture groups with the same name.
         $dataPoints = @(
-            'TechniqueTypeFlag', 'TechniqueNatureFlag', 'ForceTypeFlag',
-            'HitPercent', 'Force', 'Withering', 'Sharpness', 'GutsCost',
-            'GutsDrain', 'HpDrain', 'HpRecovery', 'SelfDamageMiss',
-            'SelfDamageHit'
+            'TechniqueTypeFlag', 'ForceTypeFlag', 'TechniqueNatureFlag', 'HitPercent', 'Force',
+            'Withering', 'Sharpness', 'GutsCost', 'GutsDrain', 'HpDrain', 'HpRecovery',
+            'SelfDamageHit', 'SelfDamageMiss'
         )
 
-        # Use this to check whether we found definitions for all of the
-        # techniques declared in the technique table.
+        # Use this to check whether we found definitions
+        # for all of the techniques declared in the technique table.
         $techniqueCount = 0
         
         foreach ($match in $matchInfo.Matches) {
-            [int]$techniqueIndex = $match.Groups['Index'].Value
-            $technique = $techniqueTable[$techniqueIndex]
+            $technique = $techniqueTable[($match.Groups['Index'].Value -as [int])]
 
             if ($null -eq $technique) {
-                # Technique was not declared in the technique table and so is
-                # not available in the game, skip it.
+                # Technique was not declared in the technique table
+                # and so is not available in the game, skip it.
                 continue
             }
 
@@ -178,13 +159,11 @@ function Get-BreedTechnique {
 
 <#
 .SYNOPSIS
-Gets the techniques declared in the technique table of a breed's
-technique data.
+Gets the techniques declared in the technique table of a breed's technique data file.
 
 .DESCRIPTION
-The TechniqueRangeId and Slot fields will be populated based on where
-in the technique table that the technique was defined. The Index field
-will also be populated.
+The `TechniqueRangeId` and `Slot` fields will be populated based on where in the technique table
+that the technique was defined. The `Index` field will also be populated.
 #>
 function Get-DeclaredTechnique {
     [CmdletBinding()]
@@ -200,20 +179,19 @@ function Get-DeclaredTechnique {
     begin {
         # Build the regular expression used to parse the technique table.
 
-        $techniqueTablePatternSb = [StringBuilder]::new('(?msx)', 1024)
+        $techniqueTablePatternSb = [System.Text.StringBuilder]::new('(?msx)', 1024)
 
-        # The technique table consists of four ranges, each with the same
-        # structure; create a template for the pattern used to match them.
+        # The technique table consists of four ranges, each with the same structure.
+        # Create a template for the pattern used to match them.
         $rangePatternTemplate = @'
 ^/; .*?
 ^/ \s* dw \s* {0}\s*, \s* {1}\s*, \s* {2} \s*
 ^/ \s* dw \s* {3}\s*, \s* {4}\s*, \s* {5} \s*
 '@
 
-        # There are 6 slots in each range that can contain a technique or a
-        # dummy value. Create the patterns used to match these slots, with
-        # groups named '{range flag}_{slot number}' used to capture the
-        # index of the techniques in the slots.
+        # There are 6 slots in each range that can contain a technique or a dummy value.
+        # Create the patterns used to match these slots, with groups named '{range flag}_{slot number}'
+        # used to capture the index of the techniques in the slots.
         $slotPatternTemplate = 'WAZA_DATA_(?<{0}_{1}>DMY|0*\d+)'
 
         foreach ($range in $TechniqueRanges) {
@@ -223,18 +201,14 @@ function Get-DeclaredTechnique {
 
             # Plug the slot patterns into the range pattern template
             # and append the result to the technique table pattern.
-            $techniqueTablePatternSb.AppendFormat(
-                $rangePatternTemplate, $slotPatterns
-            ) | Out-Null
+            $techniqueTablePatternSb.AppendFormat($rangePatternTemplate, $slotPatterns) | Out-Null
         }
 
         $techniqueTablePattern = $techniqueTablePatternSb.ToString()
     }
 
     process {
-        $matchInfo =
-            $TechniqueData |
-            Select-String $techniqueTablePattern
+        $matchInfo = $TechniqueData | Select-String $techniqueTablePattern
         
         if (-not $matchInfo) {
             throw 'Could not find technique table.'
@@ -247,8 +221,7 @@ function Get-DeclaredTechnique {
 
             for ($i = 1; $i -le $SlotCount; $i++) {
                 $slotGroupName = "{0}_{1}" -f $range.Flag, $i
-                $techniqueIndex =
-                    $match.Groups[$slotGroupName].Value
+                $techniqueIndex = $match.Groups[$slotGroupName].Value
 
                 if ($techniqueIndex -eq 'DMY') {
                     # Slot contains a dummy value, skip it.
