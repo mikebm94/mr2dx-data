@@ -87,6 +87,14 @@ function Get-BreedTechnique {
 ^/ \s* END_OF_DATA \s* (?:;.*?)?
 ^/; \s* (?:;.*?)?
 '@
+
+        # The data points to extract from the technique definitions. These are the fields of the
+        # `TechniqueExtracted` objects populated by the values of capture groups with the same name.
+        $dataPoints = @(
+            'TechniqueTypeFlag', 'ForceTypeFlag', 'TechniqueNatureFlag', 'HitPercent', 'Force',
+            'Withering', 'Sharpness', 'GutsCost', 'GutsDrain', 'HpDrain', 'HpRecovery',
+            'SelfDamageHit', 'SelfDamageMiss'
+        )
     }
 
     process {
@@ -116,14 +124,6 @@ function Get-BreedTechnique {
         if (-not $matchInfo) {
             throw 'Could not find technique definitions.'
         }
-
-        # The data points to extract from the technique definitions. These are the fields of the
-        # `TechniqueExtracted` objects populated by the values of capture groups with the same name.
-        $dataPoints = @(
-            'TechniqueTypeFlag', 'ForceTypeFlag', 'TechniqueNatureFlag', 'HitPercent', 'Force',
-            'Withering', 'Sharpness', 'GutsCost', 'GutsDrain', 'HpDrain', 'HpRecovery',
-            'SelfDamageHit', 'SelfDamageMiss'
-        )
 
         # Use this to check whether we found definitions
         # for all of the techniques declared in the technique table.
