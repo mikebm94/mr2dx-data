@@ -41,7 +41,7 @@ class TechniqueBase {
 #>
 class Technique : TechniqueBase {
     # The ID of the range that the technique can be performed at.
-    [ValidateRange(1, 4)]
+    [ValidateRange(0, 3)]
     [int] $TechniqueRangeId
 
     # The name of the technique.
