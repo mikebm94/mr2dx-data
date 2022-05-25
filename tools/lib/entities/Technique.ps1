@@ -40,6 +40,14 @@ class TechniqueBase {
     by a certain monster breed during battle.
 #>
 class Technique : TechniqueBase {
+    # The order in which the columns should appear in the finished CSV data.
+    static [string[]] $ColumnOrder = @(
+        'BreedId', 'TechniqueRangeId', 'Slot', 'Name', 'TechniqueTypeId', 'ForceTypeId',
+        'TechniqueNatureId', 'HitPercent', 'Force', 'Withering', 'Sharpness', 'GutsCost',
+        'GutsDrain', 'HpRecovery', 'HpDrain', 'SelfDamageHit', 'SelfDamageMiss',
+        'Effect', 'DurationHit', 'DurationMiss'
+    )
+
     # The ID of the range that the technique can be performed at.
     [ValidateRange(0, 3)]
     [int] $TechniqueRangeId

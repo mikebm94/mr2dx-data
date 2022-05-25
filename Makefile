@@ -57,7 +57,8 @@ all: \
 		$(finished_dir)/ForceTypes.csv \
 		$(finished_dir)/TechniqueRanges.csv \
 		$(finished_dir)/TechniqueNatures.csv \
-		$(finished_dir)/TechniqueTypes.csv
+		$(finished_dir)/TechniqueTypes.csv \
+		$(finished_dir)/Techniques.csv
 
 $(game_files) &: tools/extract-game-files.ps1
 	$(PWSH) tools/extract-game-files.ps1
@@ -68,6 +69,22 @@ $(finished_dir)/%s.csv: \
 		tools/lib/file-utils.ps1 \
 		tools/lib/entities/%.ps1
 	$(PWSH) tools/make-$*s.ps1
+
+$(finished_dir)/Techniques.csv: \
+		$(extracted_dir)/TechniquesExtracted.csv \
+		$(scraped_dir)/TechniquesLegendCup.csv \
+		$(intermediate_dir)/ForceTypes.csv \
+		$(intermediate_dir)/TechniqueNatures.csv \
+		$(intermediate_dir)/TechniqueRanges.csv \
+		$(intermediate_dir)/TechniqueTypes.csv \
+		tools/lib/entities/ForceType.ps1 \
+		tools/lib/entities/TechniqueNature.ps1 \
+		tools/lib/entities/TechniqueRange.ps1 \
+		tools/lib/entities/TechniqueType.ps1 \
+		tools/make-Techniques.ps1 \
+		tools/lib/file-utils.ps1 \
+		tools/lib/entities/Technique.ps1
+	$(PWSH) tools/make-Techniques.ps1
 
 $(extracted_dir)/TechniquesExtracted.csv: \
 		$(intermediate_dir)/Breeds.csv \

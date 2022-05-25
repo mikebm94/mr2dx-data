@@ -33,6 +33,9 @@ $FinishedDataFiles = @{
     # Defines the types of techniques.
     # (Basic, Hit, Heavy, Withering, Sharp, Special)
     'TechniqueTypes' = 'TechniqueTypes.csv'
+
+    # Defines the techniques available to each monster breed.
+    'Techniques' = 'Techniques.csv'
 }
 
 # Map friendly names to manually compiled intermediate data file paths.
