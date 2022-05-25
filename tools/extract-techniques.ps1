@@ -24,7 +24,7 @@ $SlotCount = 6
 # The ranges that techniques can be performed in.
 $TechniqueRanges =
     Import-Mr2dxDataFileCsv IntermediateData TechniqueRanges |
-    Sort-Object -Property Id |
+    Sort-Object -Property { [int]$PSItem.Id } |
     ForEach-Object { [TechniqueRangeIntermediate]$PSItem }
 
 
@@ -36,7 +36,7 @@ function Main {
 
     $breeds =
         Import-Mr2dxDataFileCsv IntermediateData Breeds |
-        Sort-Object -Property Id |
+        Sort-Object -Property { [int]$PSItem.Id } |
         ForEach-Object { [BreedIntermediate]$PSItem }
 
     $techniques = $breeds | Get-BreedTechnique
