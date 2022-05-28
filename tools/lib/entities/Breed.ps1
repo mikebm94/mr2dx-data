@@ -5,6 +5,7 @@ class Breed {
     [ValidateRange(0, 37)]
     [int] $Id
 
+    [ValidateLength(3, 12)]
     [ValidatePattern('^[A-Z][a-z]{2,}(?: [A-Z][a-z]{2,})?$')]
     [string] $Name
 }
