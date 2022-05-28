@@ -1,4 +1,4 @@
-TechniqueRangeId,Index,TechniqueTypeFlag,ForceTypeFlag,TechniqueNatureFlag,GutsDrain,HpDrain,HpRecovery,SelfDamageHit,SelfDamageMiss,BreedId,Slot,Force,HitPercent,Withering,Sharpness,GutsCost
+TechniqueRangeId,Index,TechniqueTypeFlag,ForceTypeFlag,TechniqueNatureFlag,GutsDrain,HpDrain,HpRecovery,SelfDamageHit,SelfDamageMiss,BreedId,Slot,Damage,HitPercent,Withering,Sharpness,GutsCost
 0,0,KIHON,POW,NORMAL,0,0,0,0,0,0,1,6,10,0,0,12
 0,1,KIHON,POW,NORMAL,0,0,0,0,0,0,2,15,9,5,0,18
 0,3,KIHON,POW,NORMAL,0,0,0,0,0,0,3,7,4,0,0,10

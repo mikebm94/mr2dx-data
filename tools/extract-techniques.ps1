@@ -75,7 +75,7 @@ function Get-BreedTechnique {
                       \s* (?<ForceTypeFlag>[A-Z_]+)        \s* (?:;.*?)?
 ^/ \s* MAXHIT         \s+ \d+                              \s* (?:;.*?)?
 ^/ \s* HIT_PER        \s+ (?<HitPercent>-?\d+)             \s* (?:;.*?)?
-^/ \s* HP_DMGVAL      \s+ (?<Force>\d+)                    \s* (?:;.*?)?
+^/ \s* HP_DMGVAL      \s+ (?<Damage>\d+)                    \s* (?:;.*?)?
 ^/ \s* GUTS_DMGVAL    \s+ (?<Withering>\d+)                \s* (?:;.*?)?
 ^/ \s* CR_PER         \s+ (?<Sharpness>\d+)                \s* (?:;.*?)?
 ^/ \s* GUTS_COST      \s+ (?<GutsCost>\d+)                 \s* (?:;.*?)?
@@ -91,7 +91,7 @@ function Get-BreedTechnique {
         # The data points to extract from the technique definitions. These are the fields of the
         # `TechniqueExtracted` objects populated by the values of capture groups with the same name.
         $dataPoints = @(
-            'TechniqueTypeFlag', 'ForceTypeFlag', 'TechniqueNatureFlag', 'HitPercent', 'Force',
+            'TechniqueTypeFlag', 'ForceTypeFlag', 'TechniqueNatureFlag', 'HitPercent', 'Damage',
             'Withering', 'Sharpness', 'GutsCost', 'GutsDrain', 'HpDrain', 'HpRecovery',
             'SelfDamageHit', 'SelfDamageMiss'
         )

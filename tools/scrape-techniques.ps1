@@ -163,7 +163,7 @@ function Get-BreedTechnique {
             '(?<TechniqueName>[\w -]+)',\s*
             (?<TechniqueTypeIdLegendCup>\d+),\s*
             (?<GutsCost>\d+),\s*
-            '(?<Force>\d*)',\s*
+            '(?<Damage>\d*)',\s*
             '(?<HitPercent>(?:-?\d+)?)',\s*
             '(?<Withering>\d*)',\s*
             '(?<Sharpness>\d*)',\s*

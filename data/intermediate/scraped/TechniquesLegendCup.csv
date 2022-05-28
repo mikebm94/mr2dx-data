@@ -1,4 +1,4 @@
-TechniqueRangeIdLegendCup,TechniqueName,TechniqueTypeIdLegendCup,Effect,DurationHit,DurationMiss,Errantry,BreedId,Slot,Force,HitPercent,Withering,Sharpness,GutsCost
+TechniqueRangeIdLegendCup,TechniqueName,TechniqueTypeIdLegendCup,Effect,DurationHit,DurationMiss,Errantry,BreedId,Slot,Damage,HitPercent,Withering,Sharpness,GutsCost
 1,Pat,0,,3.8,3.8,-1,0,1,6,10,0,0,12
 1,Slap,0,,3.8,4.1,0,0,2,15,9,5,0,18
 1,Kick,0,,3.8,4.1,-1,0,3,7,4,0,0,10

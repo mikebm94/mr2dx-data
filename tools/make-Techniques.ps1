@@ -148,7 +148,7 @@ function Get-ConsolidatedTechnique {
         $technique.ForceTypeId = $flagsToForceTypes[$extractedTech.ForceTypeFlag].Id
         $technique.TechniqueNatureId = $flagsToTechniqueNatures[$extractedTech.TechniqueNatureFlag].Id
         $technique.HitPercent = $extractedTech.HitPercent
-        $technique.Force = $extractedTech.Force
+        $technique.Damage = $extractedTech.Damage
         $technique.Withering = $extractedTech.Withering
         $technique.Sharpness = $extractedTech.Sharpness
         $technique.GutsCost = $extractedTech.GutsCost

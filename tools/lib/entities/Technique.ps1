@@ -13,7 +13,7 @@ class TechniqueBase {
 
     # Determines the amount of damage the technique can inflict.
     [ValidateRange(0, 100)]
-    [int] $Force
+    [int] $Damage
 
     # Determines how likely the technique is to succeed in hitting the
     # opponent. The initial percentage is determined by the monsters Skill,
@@ -43,7 +43,7 @@ class Technique : TechniqueBase {
     # The order in which the columns should appear in the finished CSV data.
     static [string[]] $ColumnOrder = @(
         'BreedId', 'TechniqueRangeId', 'Slot', 'TechniqueName', 'TechniqueTypeId', 'ForceTypeId',
-        'TechniqueNatureId', 'HitPercent', 'Force', 'Withering', 'Sharpness', 'GutsCost',
+        'TechniqueNatureId', 'HitPercent', 'Damage', 'Withering', 'Sharpness', 'GutsCost',
         'GutsDrain', 'HpRecovery', 'HpDrain', 'SelfDamageHit', 'SelfDamageMiss',
         'Effect', 'DurationHit', 'DurationMiss'
     )

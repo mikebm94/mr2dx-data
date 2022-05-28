@@ -1,4 +1,4 @@
-BreedId,TechniqueRangeId,Slot,TechniqueName,TechniqueTypeId,ForceTypeId,TechniqueNatureId,HitPercent,Force,Withering,Sharpness,GutsCost,GutsDrain,HpRecovery,HpDrain,SelfDamageHit,SelfDamageMiss,Effect,DurationHit,DurationMiss
+BreedId,TechniqueRangeId,Slot,TechniqueName,TechniqueTypeId,ForceTypeId,TechniqueNatureId,HitPercent,Damage,Withering,Sharpness,GutsCost,GutsDrain,HpRecovery,HpDrain,SelfDamageHit,SelfDamageMiss,Effect,DurationHit,DurationMiss
 0,0,1,Pat,0,0,0,10,6,0,0,12,0,0,0,0,0,,3.8,3.8
 0,0,2,Slap,0,0,0,9,15,5,0,18,0,0,0,0,0,,3.8,4.1
 0,0,3,Kick,0,0,0,4,7,0,0,10,0,0,0,0,0,,3.8,4.1
