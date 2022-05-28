@@ -14,6 +14,53 @@ using namespace System.Text
 
 <#
 .SYNOPSIS
+Gets the file keys and paths of all files in the specified file manifest.
+
+.OUTPUTS
+PSCustomObjects with `Key` and `Path` properties corresponding the file key and full path
+of the files in the specified file manifest.
+#>
+function Get-ManifestFile {
+    [CmdletBinding()]
+    [OutputType([PSCustomObject])]
+    param(
+        # The name of the file manifest of which to get it's files.
+        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileManifest
+    )
+
+    process {
+        $manifest = $FileManifests[$FileManifest]
+
+        if ($null -eq $manifest) {
+            throw "File manifest named '${FileManifest}' does not exist."
+        }
+
+        foreach ($pair in $manifest.Files.GetEnumerator()) {
+            $fileKey = $pair.Key
+
+            if ($pair.Value -is [PSCustomObject]) {
+                $filePath = $pair.Value.Path
+            }
+            else {
+                $filePath = $pair.Value
+            }
+
+            $fullFilePath = Join-Path $manifest.Directory $filePath
+
+            [PSCustomObject]@{
+                Key = $fileKey
+                Path = $fullFilePath
+            }
+        }
+    }
+}
+
+
+<#
+.SYNOPSIS
 Gets the path to a file in the specified file manifest.
 
 .OUTPUTS
