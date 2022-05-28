@@ -53,6 +53,7 @@ class Technique : TechniqueBase {
     [int] $TechniqueRangeId
 
     # The name of the technique.
+    [ValidateLength(3, 12)]
     [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
     [string] $Name
 
@@ -162,6 +163,7 @@ class TechniqueLegendCup : TechniqueBase {
     [ValidateRange(1, 4)]
     [int] $TechniqueRangeIdLegendCup
 
+    [ValidateLength(3, 12)]
     [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
     [string] $Name
 
