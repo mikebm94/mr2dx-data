@@ -6,7 +6,7 @@ class TechniqueRange {
     [int] $Id
 
     [ValidateSet('Near', 'Middle', 'Far', 'Very Far')]
-    [string] $Name
+    [string] $TechniqueRangeName
 }
 
 <#

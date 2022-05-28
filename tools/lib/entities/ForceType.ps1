@@ -7,7 +7,7 @@ class ForceType {
     [int] $Id
 
     [ValidateSet('Power', 'Intelligence')]
-    [string] $Name
+    [string] $ForceTypeName
 }
 
 <#

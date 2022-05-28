@@ -154,13 +154,13 @@ function Get-BreedTechnique {
         $breedNamesToIds =
             Import-Mr2dxDataFileCsv IntermediateData Breeds |
                 ForEach-Object { [BreedIntermediate]$PSItem } |
-                ConvertTo-HashTable -KeyProperty Name -ValueProperty Id
+                ConvertTo-HashTable -KeyProperty BreedName -ValueProperty Id
         
         $techniquePattern = @'
 (?x)
             \[\s*
             '(?<TechniqueRangeIdLegendCup>\d)-(?<Slot>\d)',\s*
-            '(?<Name>[\w -]+)',\s*
+            '(?<TechniqueName>[\w -]+)',\s*
             (?<TechniqueTypeIdLegendCup>\d+),\s*
             (?<GutsCost>\d+),\s*
             '(?<Force>\d*)',\s*

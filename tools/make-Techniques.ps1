@@ -143,7 +143,7 @@ function Get-ConsolidatedTechnique {
         $technique.BreedId = $extractedTech.BreedId
         $technique.TechniqueRangeId = $extractedTech.TechniqueRangeId
         $technique.Slot = $extractedTech.Slot
-        $technique.Name = $scrapedTech.Name
+        $technique.TechniqueName = $scrapedTech.TechniqueName
         $technique.TechniqueTypeId = $flagsToTechniqueTypes[$extractedTech.TechniqueTypeFlag].Id
         $technique.ForceTypeId = $flagsToForceTypes[$extractedTech.ForceTypeFlag].Id
         $technique.TechniqueNatureId = $flagsToTechniqueNatures[$extractedTech.TechniqueNatureFlag].Id

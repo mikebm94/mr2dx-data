@@ -7,7 +7,7 @@ class Breed {
 
     [ValidateLength(3, 12)]
     [ValidatePattern('^[A-Z][a-z]{2,}(?: [A-Z][a-z]{2,})?$')]
-    [string] $Name
+    [string] $BreedName
 }
 
 <#

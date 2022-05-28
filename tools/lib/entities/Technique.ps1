@@ -42,7 +42,7 @@ class TechniqueBase {
 class Technique : TechniqueBase {
     # The order in which the columns should appear in the finished CSV data.
     static [string[]] $ColumnOrder = @(
-        'BreedId', 'TechniqueRangeId', 'Slot', 'Name', 'TechniqueTypeId', 'ForceTypeId',
+        'BreedId', 'TechniqueRangeId', 'Slot', 'TechniqueName', 'TechniqueTypeId', 'ForceTypeId',
         'TechniqueNatureId', 'HitPercent', 'Force', 'Withering', 'Sharpness', 'GutsCost',
         'GutsDrain', 'HpRecovery', 'HpDrain', 'SelfDamageHit', 'SelfDamageMiss',
         'Effect', 'DurationHit', 'DurationMiss'
@@ -55,7 +55,7 @@ class Technique : TechniqueBase {
     # The name of the technique.
     [ValidateLength(3, 12)]
     [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
-    [string] $Name
+    [string] $TechniqueName
 
     # The ID of the technique's type.
     [ValidateRange(0, 5)]
@@ -165,7 +165,7 @@ class TechniqueLegendCup : TechniqueBase {
 
     [ValidateLength(3, 12)]
     [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
-    [string] $Name
+    [string] $TechniqueName
 
     # LegendCup technique types have different IDs.
     [ValidateRange(0, 5)]
