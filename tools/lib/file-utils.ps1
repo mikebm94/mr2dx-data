@@ -40,19 +40,20 @@ function Get-ManifestFile {
 
         foreach ($pair in $manifest.Files.GetEnumerator()) {
             $fileKey = $pair.Key
+            $fileInfo = $pair.Value
 
-            if ($pair.Value -is [PSCustomObject]) {
-                $filePath = $pair.Value.Path
+            if ($null -eq $fileInfo) {
+                throw "Failed to get file path: " +
+                      "No file info defined for key '${fileKey}' in manifest '${FileManifest}'."
             }
-            else {
-                $filePath = $pair.Value
+            elseif (-not $fileInfo.Path) {
+                throw "Failed to get file path: " +
+                      "No file path defined for key '${fileKey}' in manifest '${FileManifest}'."
             }
-
-            $fullFilePath = Join-Path $manifest.Directory $filePath
 
             [PSCustomObject]@{
                 Key = $fileKey
-                Path = $fullFilePath
+                Path = Join-Path $manifest.Directory $fileInfo.Path
             }
         }
     }
@@ -93,30 +94,28 @@ function Get-Mr2dxDataFilePath {
                   "File manifest named '${FileManifest}' does not exist."
         }
 
-        $filePath = $manifest.Files[$FileKey]
+        $fileInfo = $manifest.Files[$FileKey]
 
-        if ($null -eq $filePath) {
+        if ($null -eq $fileInfo) {
             throw "Failed to get file path: " +
-                  "No file path defined for key '{0}' in file manifest '{1}'." `
-                  -f $FileKey, $FileManifest
+                  "No file info defined for key '${FileKey}' in manifest '${FileManifest}'."
+        }
+        elseif (-not $fileInfo.Path) {
+            throw "Failed to get file path: " +
+                  "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
         }
 
-        # File uses a non-default encoding.
-        if ($filePath -is [PSCustomObject]) {
-            $filePath = $filePath.Path
-        }
-
-        Write-Output (Join-Path $manifest.Directory $filePath)
+        Write-Output (Join-Path $manifest.Directory $fileInfo.Path)
     }
 }
 
 
 <#
 .SYNOPSIS
-Imports CSV data from a file in the specified file manifest.
+Imports CSV/TSV data from a file in the specified file manifest.
 
 .OUTPUTS
-The objects described by the content of the CSV file.
+The objects described by the content of the CSV/TSV file.
 #>
 function Import-Mr2dxDataFileCsv {
     [CmdletBinding()]
@@ -135,12 +134,6 @@ function Import-Mr2dxDataFileCsv {
         [string]
         $FileKey,
 
-        # Specifies the delimiter that separates the property values
-        # in the CSV file. The default is comma (`,`).
-        # Only used for files in the 'GameFiles' manifest.
-        [char]
-        $Delimiter = ',',
-
         # A comma-separated list of strings to be used an alternate column
         # header row for the imported file. The column header determines
         # the property names of the objects created.
@@ -152,31 +145,31 @@ function Import-Mr2dxDataFileCsv {
     $manifest = $FileManifests[$FileManifest]
 
     if ($null -eq $manifest) {
-        throw "Failed to import CSV file: " +
+        throw "Failed to import CSV/TSV file: " +
               "File manifest named '${FileManifest}' does not exist."
     }
 
-    $filePath = $manifest.Files[$FileKey]
-    $fileEncoding = ''
+    $fileInfo = $manifest.Files[$FileKey]
 
-    if ($null -eq $filePath) {
-        throw "Failed to import CSV file: " +
-              "No file path defined for key '{0}' in file manifest '{1}'." `
-              -f $FileKey, $FileManifest
+    if ($null -eq $fileInfo) {
+        throw "Failed to import CSV/TSV file: " +
+              "No file info defined for key '${FileKey}' in manifest '${FileManifest}'."
+    }
+    elseif (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
+        throw "Failed to import CSV/TSV file: " +
+              "File for key '${FileKey}' in manifest '${FileManifest}' is not a CSV/TSV file."
+    }
+    elseif (-not $fileInfo.Path) {
+        throw "Failed to import CSV/TSV file: " +
+              "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
     }
 
-    # File uses a non-default encoding.
-    if ($filePath -is [PSCustomObject]) {
-        $fileEncoding = $filePath.Codepage
-        $filePath = $filePath.Path
-    }
+    $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
 
-    $filePath = Join-Path $manifest.Directory $filePath
-
-    if (-not (Test-Path $filePath -PathType Leaf)) {
+    if (-not (Test-Path $fullFilePath -PathType Leaf)) {
         $errorMsg = "$( (Get-Item $MyInvocation.PSCommandPath).Name ): " +
                     "fatal: Failed to import CSV file: " +
-                    "File '${filePath}' does not exist."
+                    "File '${fullFilePath}' does not exist."
         
         if ($FileManifest -eq 'GameFiles') {
             $errorMsg += " Please run the game files extraction script first."
@@ -186,15 +179,15 @@ function Import-Mr2dxDataFileCsv {
     }
 
     $importArgs = @{
-        'Path' = $filePath
+        'Path' = $fullFilePath
+        'Delimiter' = switch ($fileInfo.FileType) {
+            'CSV' { ',' }
+            'TSV' { "`t" }
+        }
     }
 
-    if ($FileManifest -eq 'GameFiles') {
-        $importArgs['Delimiter'] = $Delimiter
-    }
-
-    if ($fileEncoding) {
-        $importArgs['Encoding'] = $fileEncoding
+    if ($null -ne $fileInfo.CodePage) {
+        $importArgs['Encoding'] = $fileInfo.CodePage
     }
 
     if ($Header) {
@@ -207,13 +200,13 @@ function Import-Mr2dxDataFileCsv {
 
 <#
 .SYNOPSIS
-Exports data to a CSV file in the specified file manifest.
+Exports data to a CSV/TSV file in the specified file manifest.
 
 .INPUTS
-The PSObjects to export in CSV format.
+The PSObjects to export in CSV/TSV format.
 
 .OUTPUTS
-The file path the CSV data was exported to.
+The file path the CSV/TSV data was exported to.
 #>
 function Export-Mr2dxDataFileCsv {
     [CmdletBinding()]
@@ -242,39 +235,43 @@ function Export-Mr2dxDataFileCsv {
         $manifest = $FileManifests[$FileManifest]
 
         if ($null -eq $manifest) {
-            throw "Failed to export data to CSV file: " +
+            throw "Failed to export data to CSV/TSV file: " +
                   "File manifest named '${FileManifest}' does not exist."
         }
 
-        $filePath = $manifest.Files[$FileKey]
-        $fileEncoding = ''
+        $fileInfo = $manifest.Files[$FileKey]
 
-        if ($null -eq $filePath) {
-            throw "Failed to export data to CSV file: " +
-                  "No file path defined for key '{0}' in file manifest '{1}'." `
-                  -f $FileKey, $FileManifest
+        if ($null -eq $fileInfo) {
+            throw "Failed to export data to CSV/TSV file: " +
+                  "No file info defined for key '${FileKey}' in manifest '${FileManifest}'."
+        }
+        elseif (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
+            throw "Failed to export data to CSV/TSV file: " +
+                  "File for key '${FileKey}' in manifest '${FileManifest}' is not a CSV/TSV file."
+        }
+        elseif (-not $fileInfo.Path) {
+            throw "Failed to export data to CSV/TSV file: " +
+                  "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
         }
 
-        # File uses a non-default encoding.
-        if ($filePath -is [PSCustomObject]) {
-            $fileEncoding = $filePath.Codepage
-            $filePath = $filePath.Path
-        }
-
-        $filePath = Join-Path $manifest.Directory $filePath
+        $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
 
         $exportArgs = @{
-            'Path'      = $filePath
+            'Path' = $fullFilePath
             'UseQuotes' = 'AsNeeded'
+            'Delimiter' = switch ($fileInfo.FileType) {
+                'CSV' { ',' }
+                'TSV' { "`t" }
+            }
         }
 
-        if ($fileEncoding) {
-            $exportArgs['Encoding'] = $fileEncoding
+        if ($null -ne $fileInfo.CodePage) {
+            $exportArgs['Encoding'] = $fileInfo.CodePage
         }
 
         $input | Export-Csv @exportArgs | Out-Null
         
-        return $filePath
+        return $fullFilePath
     }
 }
 
@@ -299,33 +296,30 @@ function Get-Mr2dxGameFileContent {
     )
 
     $manifest = $FileManifests['GameFiles']
-    $filePath = $manifest.Files[$FileKey]
-    $fileEncoding = ''
+    $fileInfo = $manifest.Files[$FileKey]
 
-    if ($null -eq $filePath) {
-        throw "Failed to get content of MR2DX game file:" +
+    if ($null -eq $fileInfo) {
+        throw "Failed to get content of MR2DX game file: " +
+              "No file info defined for key '${FileKey}'."
+    }
+    elseif (-not $fileInfo.Path) {
+        throw "Failed to get content of MR2DX game file: " +
               "No file path defined for key '${FileKey}'."
     }
 
-    # File uses a non-default encoding.
-    if ($filePath -is [PSCustomObject]) {
-        $fileEncoding = [Encoding]::GetEncoding($filePath.Codepage)
-        $filePath = $filePath.Path
-    }
+    $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
 
-    $filePath = Join-Path $manifest.Directory $filePath
-
-    if (-not (Test-Path $filePath -PathType Leaf)) {
+    if (-not (Test-Path $fullFilePath -PathType Leaf)) {
         Abort "$( (Get-Item $MyInvocation.PSCommandPath).Name ):" `
               "fatal: Failed to get content of MR2DX game file:" `
-              "File '${filePath}' does not exist." `
+              "File '${fullFilePath}' does not exist." `
               "Please run the game files extraction script first."
     }
 
-    if ($fileEncoding) {
-        [File]::ReadAllText($filePath, $fileEncoding)
+    if ($null -ne $fileInfo.CodePage) {
+        [File]::ReadAllText($fullFilePath, [Encoding]::GetEncoding($fileInfo.CodePage))
     }
     else {
-        [File]::ReadAllText($filePath)
+        [File]::ReadAllText($fullFilePath)
     }
 }

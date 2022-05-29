@@ -246,7 +246,7 @@ function Expand-ArchiveWith7z {
         & $7z @7zArgs
     }
     else {
-        $archiveMembers = Get-GameArchiveMembers
+        $archiveMembers = $FileManifests['GameFiles'].Files.Values | Select-Object -ExpandProperty Path
         & $7z @7zArgs @archiveMembers
     }
     
@@ -307,22 +307,6 @@ function Get-7zipCommandPath {
     }
 
     return $null
-}
-
-
-function Get-GameArchiveMembers {
-    [CmdletBinding()]
-    [OutputType([string])]
-    param()
-
-    foreach ($member in $FileManifests['GameFiles'].Files.Values) {
-        if ($member -is [PSCustomObject]) {
-            Write-Output $member.Path
-        }
-        else {
-            Write-Output $member
-        }
-    }
 }
 
 
