@@ -42,11 +42,25 @@ class TechniqueBase {
 class Technique : TechniqueBase {
     # The order in which the columns should appear in the finished CSV data.
     static [string[]] $ColumnOrder = @(
-        'BreedId', 'TechniqueRangeId', 'Slot', 'TechniqueName', 'TechniqueTypeId', 'ForceTypeId',
-        'TechniqueNatureId', 'HitPercent', 'Damage', 'Withering', 'Sharpness', 'GutsCost',
-        'GutsDrain', 'HpRecovery', 'HpDrain', 'SelfDamageHit', 'SelfDamageMiss',
+        'BreedId', 'TechniqueNumber', 'TechniqueRangeId', 'Slot', 'TechniqueName', 'TechniqueTypeId',
+        'ForceTypeId', 'TechniqueNatureId', 'HitPercent', 'Damage', 'Withering', 'Sharpness',
+        'GutsCost', 'GutsDrain', 'HpRecovery', 'HpDrain', 'SelfDamageHit', 'SelfDamageMiss',
         'Effect', 'DurationHit', 'DurationMiss'
     )
+
+    <#
+        A number used to uniquely identify each of a monster breed's available techniques.
+        A monster breed can have a total of 24 available techniques, but most have less than this.
+
+        Every technique in a monster breed's technique data file is given a number. These numbers
+        are used in bitmasks in other data files to specify multiple techniques, for example,
+        in the shrine data file to specify which techniques the monster will have when obtained.
+    
+        This number and the monster breed ID comprise the techniques' primary key, and foreign keys
+        used in join tables linking monsters to the techniques that they possess.
+    #>
+    [ValidateRange(0, 23)]
+    [int] $TechniqueNumber
 
     # The ID of the range that the technique can be performed at.
     [ValidateRange(0, 3)]
@@ -109,18 +123,6 @@ class TechniqueExtracted : TechniqueBase {
     [ValidateRange(0, 3)]
     [int] $TechniqueRangeId
 
-    <#
-        Every technique in a monster breed's technique data file is given a
-        number. These numbers are used in bitmasks in other data files to
-        specify multiple techniques, for example, in the shrine data file
-        to specify which techniques the monster will have when obtained.
-    
-        This number will not be used in the finished data. Instead, join
-        tables will be created as needed.
-
-        A monster breed can have a total of 24 available techniques,
-        but most have less than this.
-    #>
     [ValidateRange(0, 23)]
     [int] $TechniqueNumber
 

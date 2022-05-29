@@ -141,6 +141,7 @@ function Get-ConsolidatedTechnique {
 
         $technique = [Technique]::new()
         $technique.BreedId = $extractedTech.BreedId
+        $technique.TechniqueNumber = $extractedTech.TechniqueNumber
         $technique.TechniqueRangeId = $extractedTech.TechniqueRangeId
         $technique.Slot = $extractedTech.Slot
         $technique.TechniqueName = $scrapedTech.TechniqueName
