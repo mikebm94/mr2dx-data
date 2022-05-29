@@ -129,7 +129,7 @@ function Import-Mr2dxDataFileCsv {
         $FileManifest,
 
         # A key corresponding to a file defined in the specified file manifest.
-        [Parameter(Mandatory, Position = 1, ValueFromPipeline)]
+        [Parameter(Mandatory, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [string]
         $FileKey,
@@ -295,31 +295,33 @@ function Get-Mr2dxGameFileContent {
         $FileKey
     )
 
-    $manifest = $FileManifests['GameFiles']
-    $fileInfo = $manifest.Files[$FileKey]
+    process {
+        $manifest = $FileManifests['GameFiles']
+        $fileInfo = $manifest.Files[$FileKey]
 
-    if ($null -eq $fileInfo) {
-        throw "Failed to get content of MR2DX game file: " +
-              "No file info defined for key '${FileKey}'."
-    }
-    elseif (-not $fileInfo.Path) {
-        throw "Failed to get content of MR2DX game file: " +
-              "No file path defined for key '${FileKey}'."
-    }
+        if ($null -eq $fileInfo) {
+            throw "Failed to get content of MR2DX game file: " +
+                "No file info defined for key '${FileKey}'."
+        }
+        elseif (-not $fileInfo.Path) {
+            throw "Failed to get content of MR2DX game file: " +
+                "No file path defined for key '${FileKey}'."
+        }
 
-    $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
+        $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
 
-    if (-not (Test-Path $fullFilePath -PathType Leaf)) {
-        Abort "$( (Get-Item $MyInvocation.PSCommandPath).Name ):" `
-              "fatal: Failed to get content of MR2DX game file:" `
-              "File '${fullFilePath}' does not exist." `
-              "Please run the game files extraction script first."
-    }
+        if (-not (Test-Path $fullFilePath -PathType Leaf)) {
+            Abort "$( (Get-Item $MyInvocation.PSCommandPath).Name ):" `
+                "fatal: Failed to get content of MR2DX game file:" `
+                "File '${fullFilePath}' does not exist." `
+                "Please run the game files extraction script first."
+        }
 
-    if ($null -ne $fileInfo.CodePage) {
-        [File]::ReadAllText($fullFilePath, [Encoding]::GetEncoding($fileInfo.CodePage))
-    }
-    else {
-        [File]::ReadAllText($fullFilePath)
+        if ($null -ne $fileInfo.CodePage) {
+            [File]::ReadAllText($fullFilePath, [Encoding]::GetEncoding($fileInfo.CodePage))
+        }
+        else {
+            [File]::ReadAllText($fullFilePath)
+        }
     }
 }
