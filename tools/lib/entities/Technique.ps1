@@ -31,7 +31,7 @@ class TechniqueBase {
     [int] $Sharpness
 
     # The amount of guts used to perform the technique.
-    [ValidateRange(0, 100)]
+    [ValidateRange(10, 99)]
     [int] $GutsCost
 }
 
