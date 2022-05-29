@@ -1,8 +1,7 @@
 <#
     file-manifests.ps1
-        Defines hashtables mapping friendly names to files needed
-        by the data generation scripts. This prevents the need
-        to update multiple files when a file is renamed.
+        Defines hashtables mapping friendly names to files needed by the data generation scripts.
+        This prevents the need to update multiple files when a file is renamed.
 #>
 
 using namespace System.Diagnostics.CodeAnalysis
@@ -10,89 +9,74 @@ using namespace System.Diagnostics.CodeAnalysis
 . (Join-Path $PSScriptRoot 'paths.ps1')
 
 
-# Map friendly names to finished CSV data file paths.
-# These files can be used on their own as a data set, but are also used
-# to generate/populate other database formats (such as an SQLite database.)
+# Map friendly names to finished CSV data file paths. These files can be used on their own as a data set,
+# but are also used to generate/populate other database formats (such as an SQLite database.)
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FinishedDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = @{ Path = 'Breeds.csv'; FileType = 'CSV' }
 
-    # Defines the types of forces that techniques can draw their power from.
-    # (Power, Intelligence)
+    # Defines the types of forces that techniques can draw their power from. (Power, Intelligence)
     'ForceTypes' = @{ Path = 'ForceTypes.csv'; FileType = 'CSV' }
 
-    # Defines the ranges that a technique can be executed in.
-    # (Near, Middle, Far, Very Far)
+    # Defines the ranges that a technique can be executed in. (Near, Middle, Far, Very Far)
     'TechniqueRanges' = @{ Path = 'TechniqueRanges.csv'; FileType = 'CSV' }
 
-    # Defines the types of technique natures.
-    # (Normal, Good, Bad)
+    # Defines the types of technique natures. (Normal, Good, Bad)
     'TechniqueNatures' = @{ Path = 'TechniqueNatures.csv'; FileType = 'CSV' }
 
-    # Defines the types of techniques.
-    # (Basic, Hit, Heavy, Withering, Sharp, Special)
+    # Defines the types of techniques. (Basic, Hit, Heavy, Withering, Sharp, Special)
     'TechniqueTypes' = @{ Path = 'TechniqueTypes.csv'; FileType = 'CSV' }
 
     # Defines the techniques available to each monster breed.
     'Techniques' = @{ Path = 'Techniques.csv'; FileType = 'CSV' }
 }
 
-# Map friendly names to manually compiled intermediate data file paths.
-# These files contain additional data points not needed in the finished data,
-# including implementation-detail data points (such as flag names used
-# throughout the game data files) and IDs used to associate data
-# with data obtained from another source (such data scraped from LegendCup.)
+# Map friendly names to manually compiled intermediate data file paths. These files contain additional
+# data points not needed in the finished data, including implementation-detail data points (such as flag
+# names used throughout the game data files) and IDs used to associate data with data obtained
+# from another source (such data scraped from LegendCup.)
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $IntermediateDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = @{ Path = 'Breeds.csv'; FileType = 'CSV' }
 
-    # Defines the types of forces that techniques can draw their power from.
-    # (Power, Intelligence)
+    # Defines the types of forces that techniques can draw their power from. (Power, Intelligence)
     'ForceTypes' = @{ Path = 'ForceTypes.csv'; FileType = 'CSV' }
 
-    # Defines the ranges that a technique can be executed in.
-    # (Near, Middle, Far, Very Far)
+    # Defines the ranges that a technique can be executed in. (Near, Middle, Far, Very Far)
     'TechniqueRanges' = @{ Path = 'TechniqueRanges.csv'; FileType = 'CSV' }
 
-    # Defines the types of technique natures.
-    # (Normal, Good, Bad)
+    # Defines the types of technique natures. (Normal, Good, Bad)
     'TechniqueNatures' = @{ Path = 'TechniqueNatures.csv'; FileType = 'CSV' }
 
-    # Defines the types of techniques.
-    # (Basic, Hit, Heavy, Withering, Sharp, Special)
+    # Defines the types of techniques. (Basic, Hit, Heavy, Withering, Sharp, Special)
     'TechniqueTypes' = @{ Path = 'TechniqueTypes.csv'; FileType = 'CSV' }
 }
 
-# Map friendly names to intermediate data files
-# containing data extracted from the MR2DX game files.
+# Map friendly names to intermediate data files containing data extracted from the MR2DX game files.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ExtractedIntermediateDataFiles = @{
     # Defines the techniques available to each monster breed.
     'Techniques' = @{ Path = 'TechniquesExtracted.csv'; FileType = 'CSV' }
 }
 
-# Map friendly names to intermediate data files
-# containing data scraped from the web.
+# Map friendly names to intermediate data files containing data scraped from the web.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ScrapedIntermediateDataFiles = @{
-    # Defines the techniques available to each monster breed.
-    # Used to obtain additional data points on techniques not extracted
-    # from the game files such as English names and hit/miss durations.
+    # Defines the techniques available to each monster breed. Used to obtain additional data points
+    # on techniques not extracted from the game files such as English names and hit/miss durations.
     'TechniquesLegendCup' = @{ Path = 'TechniquesLegendCup.csv'; FileType = 'CSV' }
 }
 
 # Map friendly names to game file paths.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $GameFiles = @{
-    # CSV table defining the monster variations
-    # that can be obtained at the shrine.
+    # CSV table defining the monster variations that can be obtained at the shrine.
     'ShrineMonsters' = @{ Path = 'SDATA_MONSTER.csv'; FileType = 'CSV' }
 
-    # TSV table mapping song IDs in the English music database
-    # to a corresponding shrine monster ID as well as an offset
-    # that may be applied to the monster after shrining.
+    # TSV table mapping song IDs in the English music database to a corresponding shrine monster ID
+    # as well as an offset that may be applied to the monster after shrining.
     'ShrineMonster_Songs' = @{ Path = 'en_sqlout_b.txt'; FileType = 'TSV' }
 
     # TSV table mapping song IDs in the English music database
@@ -216,8 +200,7 @@ $GameFiles = @{
         Path = 'mf2/data/mon/naaga/na_na_wz.dat'; FileType = 'Text'; CodePage = 932
     }
 
-    # Data file defining baseline stats and parameters
-    # for all non-special monster types.
+    # Data file defining baseline stats and parameters for all non-special monster types.
     # Encoded using Shift-JIS.
     'MonsterTypeBaselines' = @{
         Path = 'mf2/data/monbase/mon_base.dat'; FileType = 'Text'; CodePage = 932

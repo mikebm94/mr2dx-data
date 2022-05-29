@@ -1,8 +1,7 @@
 <#
     file-utils.ps1
-        Cmdlets for reading/writing files used by the data generation scripts.
-        This abstraction allows changes to the way files are read/written
-        without the need to change multiple files.
+        Cmdlets for reading/writing files used by the data generation scripts. This abstraction
+        allows changes to the way files are read/written without the need to change multiple files.
 #>
 
 using namespace System.IO
@@ -104,8 +103,7 @@ function Import-Mr2dxDataFileCsv {
     [CmdletBinding()]
     [OutputType([object])]
     param(
-        # The name of the file manifest to search for the file
-        # corresponding to the specified file key.
+        # The name of the file manifest to search for the file corresponding to the specified file key.
         [Parameter(Mandatory, Position = 0)]
         [ValidateNotNullOrEmpty()]
         [string]
@@ -117,9 +115,8 @@ function Import-Mr2dxDataFileCsv {
         [string]
         $FileKey,
 
-        # A comma-separated list of strings to be used an alternate column
-        # header row for the imported file. The column header determines
-        # the property names of the objects created.
+        # A comma-separated list of strings to be used an alternate column header row
+        # for the imported file. The column header determines the property names of the objects created.
         [ValidateNotNull()]
         [string[]]
         $Header
@@ -194,8 +191,7 @@ The file path the CSV/TSV data was exported to.
 function Export-Mr2dxDataFileCsv {
     [CmdletBinding()]
     param(
-        # The name of the file manifest to search for the file
-        # corresponding to the specified file key.
+        # The name of the file manifest to search for the file corresponding to the specified file key.
         [Parameter(Mandatory, Position = 0)]
         [ValidateSet('FinishedData', 'ExtractedData', 'ScrapedData')]
         [string]
@@ -270,8 +266,7 @@ function Get-Mr2dxGameFileContent {
     [CmdletBinding()]
     [OutputType([string])]
     param(
-        # A key referring to a game file path defined
-        # in the 'GameFiles' manifest.
+        # A key referring to a game file path defined in the 'GameFiles' manifest.
         [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
         [ValidateNotNullOrEmpty()]
         [string]
@@ -295,9 +290,9 @@ function Get-Mr2dxGameFileContent {
 
         if (-not (Test-Path $fullFilePath -PathType Leaf)) {
             Abort "$( (Get-Item $MyInvocation.PSCommandPath).Name ):" `
-                "fatal: Failed to get content of MR2DX game file:" `
-                "File '${fullFilePath}' does not exist." `
-                "Please run the game files extraction script first."
+                  "fatal: Failed to get content of MR2DX game file:" `
+                  "File '${fullFilePath}' does not exist." `
+                  "Please run the game files extraction script first."
         }
 
         if ($null -ne $fileInfo.CodePage) {
