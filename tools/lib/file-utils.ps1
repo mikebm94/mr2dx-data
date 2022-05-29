@@ -68,24 +68,24 @@ function Get-ManifestFileInfo {
         }
         
         foreach ($pair in $manifest.Files.GetEnumerator()) {
-            $fileKey = $pair.Key
-            $fileInfo = $pair.Value
+            $currentFileKey = $pair.Key
+            $currentFileInfo = $pair.Value
 
-            if ($null -eq $fileInfo) {
+            if ($null -eq $currentFileInfo) {
                 throw "Failed to get file path: " +
-                      "No file info defined for key '${fileKey}' in manifest '${FileManifest}'."
+                      "No file info defined for key '${currentFileKey}' in manifest '${FileManifest}'."
             }
-            elseif (-not $fileInfo.Path) {
+            elseif (-not $currentFileInfo.Path) {
                 throw "Failed to get file path: " +
-                      "No file path defined for key '${fileKey}' in manifest '${FileManifest}'."
+                      "No file path defined for key '${currentFileKey}' in manifest '${FileManifest}'."
             }
 
             [PSCustomObject]@{
-                Key = $FileKey
-                Path = $fileInfo.Path
-                FullPath = Join-Path $manifest.Directory $fileInfo.Path
-                FileType = $fileInfo.FileType
-                CodePage = $fileInfo.CodePage
+                Key = $currentFileKey
+                Path = $currentFileInfo.Path
+                FullPath = Join-Path $manifest.Directory $currentFileInfo.Path
+                FileType = $currentFileInfo.FileType
+                CodePage = $currentFileInfo.CodePage
             }
         }
     }
