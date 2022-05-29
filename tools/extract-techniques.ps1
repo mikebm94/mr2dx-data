@@ -65,7 +65,7 @@ function Get-BreedTechnique {
     begin {
         $techniqueDefinitionPattern = @'
 (?msx)
-^/ \s* WAZA_DATA_0*(?<Index>\d+): \s* (?:;.*?)?
+^/ \s* WAZA_DATA_0*(?<TechniqueNumber>\d+): \s* (?:;.*?)?
 ^/ \s* NAME_START \s* (?:;.*?)?
 ^  \s* .*? \s*
 ^/ \s* NAME_END \s* (?:;.*?)?
@@ -112,12 +112,14 @@ function Get-BreedTechnique {
           techniques that are actually available in the game and what range and slot they exist in.
 
           Get a collection of `TechniqueExtracted` objects with the `TechniqueRangeId`, `Slot`,
-          and `Index` fields populated based on the contents of the technique table.
-          Then, create a dictionary mapping the index numbers of the techniques to the techniques
+          and `TechniqueNumber` fields populated based on the contents of the technique table.
+          Then, create a dictionary mapping the technique numbers of the techniques to the techniques
           themselves. The dictionary will be used when parsing the technique definitions
           to determine if the definition corresponds to a technique actually available in the game.
         #>
-        $techniqueTable = Get-DeclaredTechnique $techniqueData | ConvertTo-Hashtable -KeyProperty Index
+        $techniqueTable =
+            Get-DeclaredTechnique $techniqueData |
+            ConvertTo-Hashtable -KeyProperty TechniqueNumber
         
         $matchInfo = $techniqueData | Select-String $techniqueDefinitionPattern -AllMatches
     
@@ -130,7 +132,7 @@ function Get-BreedTechnique {
         $techniqueCount = 0
         
         foreach ($match in $matchInfo.Matches) {
-            $technique = $techniqueTable[($match.Groups['Index'].Value -as [int])]
+            $technique = $techniqueTable[($match.Groups['TechniqueNumber'].Value -as [int])]
 
             if ($null -eq $technique) {
                 # Technique was not declared in the technique table
@@ -163,7 +165,7 @@ Gets the techniques declared in the technique table of a breed's technique data 
 
 .DESCRIPTION
 The `TechniqueRangeId` and `Slot` fields will be populated based on where in the technique table
-that the technique was defined. The `Index` field will also be populated.
+that the technique was defined. The `TechniqueNumber` field will also be populated.
 #>
 function Get-DeclaredTechnique {
     [CmdletBinding()]
@@ -191,7 +193,7 @@ function Get-DeclaredTechnique {
 
         # There are 6 slots in each range that can contain a technique or a dummy value.
         # Create the patterns used to match these slots, with groups named '{range flag}_{slot number}'
-        # used to capture the index of the techniques in the slots.
+        # used to capture the number of the techniques in the slots.
         $slotPatternTemplate = 'WAZA_DATA_(?<{0}_{1}>DMY|0*\d+)'
 
         foreach ($range in $TechniqueRanges) {
@@ -221,9 +223,9 @@ function Get-DeclaredTechnique {
 
             for ($i = 1; $i -le $SlotCount; $i++) {
                 $slotGroupName = "{0}_{1}" -f $range.Flag, $i
-                $techniqueIndex = $match.Groups[$slotGroupName].Value
+                $techniqueNumber = $match.Groups[$slotGroupName].Value
 
-                if ($techniqueIndex -eq 'DMY') {
+                if ($techniqueNumber -eq 'DMY') {
                     # Slot contains a dummy value, skip it.
                     continue
                 }
@@ -231,7 +233,7 @@ function Get-DeclaredTechnique {
                 $technique = [TechniqueExtracted]::new()
                 $technique.TechniqueRangeId = $range.Id
                 $technique.Slot = $slot
-                $technique.Index = $techniqueIndex
+                $technique.TechniqueNumber = $techniqueNumber
 
                 $slot++
                 Write-Output $technique

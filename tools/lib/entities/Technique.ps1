@@ -122,7 +122,7 @@ class TechniqueExtracted : TechniqueBase {
         but most have less than this.
     #>
     [ValidateRange(0, 23)]
-    [int] $Index
+    [int] $TechniqueNumber
 
     # Flag name used in the game's technique data files to specify a type.
     [ValidateSet(
