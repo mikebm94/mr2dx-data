@@ -104,6 +104,7 @@ class Technique : TechniqueBase {
     [int] $SelfDamageMiss
 
     # The description of the technique's special effect, if any.
+    [ValidateLength(0, 48)]
     [string] $Effect
 
     # The time in seconds taken when the technique hits the opponent.
@@ -173,6 +174,7 @@ class TechniqueLegendCup : TechniqueBase {
     [ValidateRange(0, 5)]
     [int] $TechniqueTypeIdLegendCup
 
+    [ValidateLength(0, 48)]
     [string] $Effect
 
     [ValidateRange(1.0, 15.0)]
