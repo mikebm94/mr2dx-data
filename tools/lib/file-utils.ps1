@@ -14,21 +14,30 @@ using namespace System.Text
 
 <#
 .SYNOPSIS
-Gets the file keys and paths of all files in the specified file manifest.
+Gets the information of a specific file or all files in the specified file manifest.
 
 .OUTPUTS
-PSCustomObjects with `Key` and `Path` properties corresponding the file key and full path
-of the files in the specified file manifest.
+Hashtables containing the information for all files in the specified file manifest,
+or for a specific file if the `FileKey` parameter was specified. An additional property `FullPath`
+is added to the objects which is the file's `Path` joined with the manifest's directory.
 #>
-function Get-ManifestFile {
+function Get-ManifestFileInfo {
     [CmdletBinding()]
     [OutputType([PSCustomObject])]
     param(
-        # The name of the file manifest of which to get it's files.
-        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        # The name of the file manifest of which to get it's files information.
+        [Parameter(ParameterSetName = 'AllFiles', Mandatory, Position = 0, ValueFromPipeline)]
+        [Parameter(ParameterSetName = 'OneFile', Mandatory, Position = 0)]
         [ValidateNotNullOrEmpty()]
         [string]
-        $FileManifest
+        $FileManifest,
+
+        # A key corresponding to a file defined in the specified file manifest.
+        # If not specified, then all 
+        [Parameter(ParameterSetName = 'OneFile', Mandatory, Position = 1, ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileKey
     )
 
     process {
@@ -38,6 +47,27 @@ function Get-ManifestFile {
             throw "File manifest named '${FileManifest}' does not exist."
         }
 
+        if ($FileKey) {
+            $fileInfo = $manifest.Files[$FileKey]
+
+            if ($null -eq $fileInfo) {
+                throw "Failed to get file path: " +
+                      "No file info defined for key '${FileKey}' in manifest '${FileManifest}'."
+            }
+            elseif (-not $fileInfo.Path) {
+                throw "Failed to get file path: " +
+                      "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
+            }
+
+            return ([PSCustomObject]@{
+                Key = $FileKey
+                Path = $fileInfo.Path
+                FullPath = Join-Path $manifest.Directory $fileInfo.Path
+                FileType = $fileInfo.FileType
+                CodePage = $fileInfo.CodePage
+            })
+        }
+        
         foreach ($pair in $manifest.Files.GetEnumerator()) {
             $fileKey = $pair.Key
             $fileInfo = $pair.Value
@@ -52,60 +82,13 @@ function Get-ManifestFile {
             }
 
             [PSCustomObject]@{
-                Key = $fileKey
-                Path = Join-Path $manifest.Directory $fileInfo.Path
+                Key = $FileKey
+                Path = $fileInfo.Path
+                FullPath = Join-Path $manifest.Directory $fileInfo.Path
+                FileType = $fileInfo.FileType
+                CodePage = $fileInfo.CodePage
             }
         }
-    }
-}
-
-
-<#
-.SYNOPSIS
-Gets the path to a file in the specified file manifest.
-
-.OUTPUTS
-The full path to the file with the specified key
-in the specified file manifest.
-#>
-function Get-Mr2dxDataFilePath {
-    [CmdletBinding()]
-    [OutputType([string])]
-    param(
-        # The name of the file manifest to search for the file
-        # corresponding to the specified file key.
-        [Parameter(Mandatory, Position = 0)]
-        [ValidateNotNullOrEmpty()]
-        [string]
-        $FileManifest,
-
-        # A key corresponding to a file defined in the specified file manifest.
-        [Parameter(Mandatory, Position = 1, ValueFromPipeline)]
-        [ValidateNotNullOrEmpty()]
-        [string]
-        $FileKey
-    )
-
-    process {
-        $manifest = $FileManifests[$FileManifest]
-
-        if ($null -eq $manifest) {
-            throw "Failed to get file path: " +
-                  "File manifest named '${FileManifest}' does not exist."
-        }
-
-        $fileInfo = $manifest.Files[$FileKey]
-
-        if ($null -eq $fileInfo) {
-            throw "Failed to get file path: " +
-                  "No file info defined for key '${FileKey}' in manifest '${FileManifest}'."
-        }
-        elseif (-not $fileInfo.Path) {
-            throw "Failed to get file path: " +
-                  "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
-        }
-
-        Write-Output (Join-Path $manifest.Directory $fileInfo.Path)
     }
 }
 

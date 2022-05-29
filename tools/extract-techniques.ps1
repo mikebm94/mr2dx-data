@@ -101,7 +101,7 @@ function Get-BreedTechnique {
         $dataFileKey = 'Techniques{0}' -f $Breed.Initials
         $techniqueData = Get-Mr2dxGameFileContent $dataFileKey
 
-        $dataFilePath = Get-Mr2dxDataFilePath GameFiles $dataFileKey
+        $dataFilePath = (Get-ManifestFileInfo GameFiles $dataFileKey).FullPath
         
         Write-Host (
             "Extracting technique data for breed '{0}' from '{1}' ..." -f $Breed.BreedName, $dataFilePath

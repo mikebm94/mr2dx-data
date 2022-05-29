@@ -92,7 +92,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-. (Join-Path $PSScriptRoot 'lib/file-manifests.ps1')
+. (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
 
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
@@ -246,7 +246,7 @@ function Expand-ArchiveWith7z {
         & $7z @7zArgs
     }
     else {
-        $archiveMembers = $FileManifests['GameFiles'].Files.Values | Select-Object -ExpandProperty Path
+        $archiveMembers = Get-ManifestFileInfo GameFiles | Select-Object -ExpandProperty Path
         & $7z @7zArgs @archiveMembers
     }
     
