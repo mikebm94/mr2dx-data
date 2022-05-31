@@ -3,7 +3,7 @@
 #>
 class TechniqueNature {
     [ValidateRange(0, 2)]
-    [int] $Id
+    [int] $TechniqueNatureId
 
     [ValidateSet('Normal', 'Good', 'Bad')]
     [string] $TechniqueNatureName

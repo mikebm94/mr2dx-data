@@ -25,7 +25,7 @@ $TechniqueTypesIntermediate =
 
 $TechniqueTypes =
     $TechniqueTypesIntermediate |
-        Select-Object -ExcludeProperty IdLegendCup, Flag |
+        Select-Object -ExcludeProperty TechniqueTypeIdLegendCup, Flag |
         ForEach-Object { [TechniqueType]$PSItem }
 
 $OutputFilePath =

@@ -3,7 +3,7 @@
 #>
 class TechniqueType {
     [ValidateRange(0, 5)]
-    [int] $Id
+    [int] $TechniqueTypeId
 
     [ValidateSet('Basic', 'Hit', 'Heavy', 'Withering', 'Sharp', 'Special')]
     [string] $TechniqueTypeName
@@ -17,7 +17,7 @@ class TechniqueTypeIntermediate : TechniqueType {
     # Technique data scraped from LegendCup.com uses different indexes
     # for technique types.
     [ValidateRange(0, 5)]
-    [int] $IdLegendCup
+    [int] $TechniqueTypeIdLegendCup
 
     # Flag name used in the games technique data files.
     [ValidateSet(

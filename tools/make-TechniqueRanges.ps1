@@ -25,7 +25,7 @@ $TechniqueRangesIntermediate =
 
 $TechniqueRanges =
     $TechniqueRangesIntermediate |
-        Select-Object -ExcludeProperty IdLegendCup, Flag |
+        Select-Object -ExcludeProperty TechniqueRangeIdLegendCup, Flag |
         ForEach-Object { [TechniqueRange]$PSItem }
 
 $OutputFilePath =

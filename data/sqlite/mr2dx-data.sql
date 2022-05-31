@@ -3,14 +3,14 @@ PRAGMA foreign_keys = ON;
 
 
 CREATE TABLE Breeds (
-    Id  INT  PRIMARY KEY  NOT NULL  CHECK ( Id BETWEEN 0 AND 37 ),
+    BreedId  INT  PRIMARY KEY  NOT NULL  CHECK ( BreedId BETWEEN 0 AND 37 ),
 
     BreedName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE  CHECK ( LENGTH(BreedName) BETWEEN 3 AND 12 )
 );
 
 
 CREATE TABLE ForceTypes (
-    Id  INT  PRIMARY KEY  NOT NULL  CHECK ( Id BETWEEN 0 AND 1 ),
+    ForceTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( ForceTypeId BETWEEN 0 AND 1 ),
     
     ForceTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(ForceTypeName) BETWEEN 3 AND 12 )
@@ -18,7 +18,7 @@ CREATE TABLE ForceTypes (
 
 
 CREATE TABLE TechniqueNatures (
-    Id  INT  PRIMARY KEY  NOT NULL  CHECK ( Id BETWEEN 0 AND 2 ),
+    TechniqueNatureId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueNatureId BETWEEN 0 AND 2 ),
     
     TechniqueNatureName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueNatureName) BETWEEN 3 AND 12 )
@@ -26,7 +26,7 @@ CREATE TABLE TechniqueNatures (
 
 
 CREATE TABLE TechniqueRanges (
-    Id  INT  PRIMARY KEY  NOT NULL  CHECK ( Id BETWEEN 0 AND 3 ),
+    TechniqueRangeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueRangeId BETWEEN 0 AND 3 ),
     
     TechniqueRangeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueRangeName) BETWEEN 3 AND 12 )
@@ -34,7 +34,7 @@ CREATE TABLE TechniqueRanges (
 
 
 CREATE TABLE TechniqueTypes (
-    Id  INT  PRIMARY KEY  NOT NULL  CHECK ( Id BETWEEN 0 AND 5 ),
+    TechniqueTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueTypeId BETWEEN 0 AND 5 ),
     
     TechniqueTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueTypeName) BETWEEN 3 AND 12 )
@@ -43,25 +43,25 @@ CREATE TABLE TechniqueTypes (
 
 CREATE TABLE Techniques (
     BreedId  INT  NOT NULL
-        REFERENCES Breeds (Id)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+        REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
     
     TechniqueNumber  INT  NOT NULL  CHECK ( TechniqueNumber BETWEEN 0 AND 23 ),
 
     TechniqueRangeId  INT  NOT NULL
-        REFERENCES TechniqueRanges (Id)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+        REFERENCES TechniqueRanges (TechniqueRangeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
     
     Slot  INT  NOT NULL  CHECK ( Slot BETWEEN 1 AND 6 ),
 
     TechniqueName  TEXT  NOT NULL  COLLATE NOCASE  CHECK ( LENGTH(TechniqueName) BETWEEN 3 AND 12 ),
     
     TechniqueTypeId  INT  NOT NULL
-        REFERENCES TechniqueTypes (Id)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+        REFERENCES TechniqueTypes (TechniqueTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
     
     ForceTypeId  INT  NOT NULL
-        REFERENCES ForceTypes (Id)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+        REFERENCES ForceTypes (ForceTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
     
     TechniqueNatureId  INT  NOT NULL
-        REFERENCES TechniqueNatures (Id)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+        REFERENCES TechniqueNatures (TechniqueNatureId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
     
     HitPercent  INT  NOT NULL  CHECK ( HitPercent BETWEEN -50 AND 50 ),
 

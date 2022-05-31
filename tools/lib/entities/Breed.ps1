@@ -3,7 +3,7 @@
 #>
 class Breed {
     [ValidateRange(0, 37)]
-    [int] $Id
+    [int] $BreedId
 
     [ValidateLength(3, 12)]
     [ValidatePattern('^[A-Z][a-z]{2,}(?: [A-Z][a-z]{2,})?$')]

@@ -34,7 +34,7 @@ $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
 $TechniqueRangesLegendCup =
     Import-Mr2dxDataFileCsv IntermediateData TechniqueRanges |
     ForEach-Object { [TechniqueRangeIntermediate]$PSItem } |
-    ConvertTo-Hashtable -KeyProperty IdLegendCup
+    ConvertTo-Hashtable -KeyProperty TechniqueRangeIdLegendCup
 
 
 
@@ -119,7 +119,7 @@ function Get-ConsolidatedTechnique {
         },
         {
             "param($a, $b)
-            $a.TechniqueRangeId -eq $TechniqueRangesLegendCup[$b.TechniqueRangeIdLegendCup].Id"
+            $a.TechniqueRangeId -eq $TechniqueRangesLegendCup[$b.TechniqueRangeIdLegendCup].TechniqueRangeId"
         },
         {
             "param($a, $b)
@@ -145,9 +145,11 @@ function Get-ConsolidatedTechnique {
         $technique.TechniqueRangeId = $extractedTech.TechniqueRangeId
         $technique.Slot = $extractedTech.Slot
         $technique.TechniqueName = $scrapedTech.TechniqueName
-        $technique.TechniqueTypeId = $flagsToTechniqueTypes[$extractedTech.TechniqueTypeFlag].Id
-        $technique.ForceTypeId = $flagsToForceTypes[$extractedTech.ForceTypeFlag].Id
-        $technique.TechniqueNatureId = $flagsToTechniqueNatures[$extractedTech.TechniqueNatureFlag].Id
+        $technique.TechniqueTypeId =
+            $flagsToTechniqueTypes[$extractedTech.TechniqueTypeFlag].TechniqueTypeId
+        $technique.ForceTypeId = $flagsToForceTypes[$extractedTech.ForceTypeFlag].ForceTypeId
+        $technique.TechniqueNatureId =
+            $flagsToTechniqueNatures[$extractedTech.TechniqueNatureFlag].TechniqueNatureId
         $technique.HitPercent = $extractedTech.HitPercent
         $technique.Damage = $extractedTech.Damage
         $technique.Withering = $extractedTech.Withering

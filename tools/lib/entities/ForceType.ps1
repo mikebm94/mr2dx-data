@@ -4,7 +4,7 @@
 #>
 class ForceType {
     [ValidateRange(0, 1)]
-    [int] $Id
+    [int] $ForceTypeId
 
     [ValidateSet('Power', 'Intelligence')]
     [string] $ForceTypeName

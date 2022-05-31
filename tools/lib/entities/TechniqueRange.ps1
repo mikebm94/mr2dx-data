@@ -3,7 +3,7 @@
 #>
 class TechniqueRange {
     [ValidateRange(0, 3)]
-    [int] $Id
+    [int] $TechniqueRangeId
 
     [ValidateSet('Near', 'Middle', 'Far', 'Very Far')]
     [string] $TechniqueRangeName
@@ -17,7 +17,7 @@ class TechniqueRangeIntermediate : TechniqueRange {
     # Technique data scraped from LegendCup.com uses one-based indexes
     # for technique ranges.
     [ValidateRange(1, 4)]
-    [int] $IdLegendCup
+    [int] $TechniqueRangeIdLegendCup
 
     # Flag name used in the games technique data files to specify a range.
     [ValidateSet('NEAR', 'MIDDLE', 'FAR', 'VERYFAR')]
