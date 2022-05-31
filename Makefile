@@ -2,11 +2,20 @@
 PWSH ?= pwsh -NoProfile
 
 data_dir = data
+sqlite_dir = $(data_dir)/sqlite
 finished_dir = $(data_dir)/csv
 intermediate_dir = $(data_dir)/intermediate
 extracted_dir = $(intermediate_dir)/extracted
 scraped_dir = $(intermediate_dir)/scraped
 gamefiles_dir = game-files
+
+finished_data_files = \
+	$(finished_dir)/Breeds.csv \
+	$(finished_dir)/ForceTypes.csv \
+	$(finished_dir)/TechniqueRanges.csv \
+	$(finished_dir)/TechniqueNatures.csv \
+	$(finished_dir)/TechniqueTypes.csv \
+	$(finished_dir)/Techniques.csv
 
 game_technique_files = \
 	$(gamefiles_dir)/mf2/data/mon/kapi/ka_ka_wz.dat \
@@ -52,13 +61,16 @@ game_files = $(game_technique_files)
 
 
 .PHONY: all
-all: \
-		$(finished_dir)/Breeds.csv \
-		$(finished_dir)/ForceTypes.csv \
-		$(finished_dir)/TechniqueRanges.csv \
-		$(finished_dir)/TechniqueNatures.csv \
-		$(finished_dir)/TechniqueTypes.csv \
-		$(finished_dir)/Techniques.csv
+all: $(finished_data_files)
+
+.PHONY: sqlite-db
+sqlite-db: $(sqlite_dir)/mr2dx-data.db
+
+$(sqlite_dir)/mr2dx-data.db: \
+		$(finished_data_files) \
+		$(sqlite_dir)/mr2dx-data.sql \
+		tools/build-SQLiteDatabase.ps1
+	$(PWSH) tools/build-SQLiteDatabase.ps1
 
 $(game_files) &: tools/extract-game-files.ps1
 	$(PWSH) tools/extract-game-files.ps1
@@ -109,11 +121,15 @@ $(scraped_dir)/TechniquesLegendCup.csv: \
 # the other directories are cleaned.
 .PHONY: clean
 clean:
-	$(PWSH) tools/clean.ps1 FinishedData ExtractedData GameFiles
+	$(PWSH) tools/clean.ps1 SQLiteData FinishedData ExtractedData GameFiles
 
 .PHONY: clean-all
 clean-all:
 	$(PWSH) tools/clean.ps1
+
+.PHONY: clean-databases
+clean-databases:
+	$(PWSH) tools/clean.ps1 SQLiteData
 
 .PHONY: clean-finished
 clean-finished:

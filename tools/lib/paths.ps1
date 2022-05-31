@@ -22,6 +22,11 @@ $DataPath = Join-Path $SourceTreeRoot 'data/'
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FinishedDataPath = Join-Path $DataPath 'csv/'
 
+# data/sqlite/
+#   Directory for the SQLite database generated from the finished data.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$SQLiteDataPath = Join-Path $DataPath 'sqlite/'
+
 # data/intermediate/
 #   Directory for intermediate data compiled manually
 #   that is used to help generate the finished data tables.

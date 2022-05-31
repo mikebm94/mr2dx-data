@@ -9,6 +9,12 @@ using namespace System.Diagnostics.CodeAnalysis
 . (Join-Path $PSScriptRoot 'paths.ps1')
 
 
+# Map friendly name to built SQLite database populated using the finished CSV data files.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$SQLiteDataFiles = @{
+    'SQLiteDatabase' = @{ Path = 'mr2dx-data.db'; FileType = 'Binary' }
+}
+
 # Map friendly names to finished CSV data file paths. These files can be used on their own as a data set,
 # but are also used to generate/populate other database formats (such as an SQLite database.)
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
@@ -210,6 +216,11 @@ $GameFiles = @{
 # Map file manifest names to their directory and file table.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $FileManifests = @{
+    'SQLiteData' = [PSCustomObject]@{
+        Directory = $SQLiteDataPath
+        Files     = $SQLiteDataFiles
+    }
+
     'FinishedData' = [PSCustomObject]@{
         Directory = $FinishedDataPath
         Files     = $FinishedDataFiles

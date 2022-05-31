@@ -10,9 +10,9 @@ param(
     # The names of the file manifests for which their directory should be cleaned.
     [Parameter(Position = 0, ValueFromRemainingArguments)]
     [ValidateNotNull()]
-    [ValidateSet('FinishedData', 'ExtractedData', 'ScrapedData', 'GameFiles')]
+    [ValidateSet('SQLiteData', 'FinishedData', 'ExtractedData', 'ScrapedData', 'GameFiles')]
     [string[]]
-    $CleanTargets = @( 'FinishedData', 'ExtractedData', 'ScrapedData', 'GameFiles' )
+    $CleanTargets = @( 'SQLiteData', 'FinishedData', 'ExtractedData', 'ScrapedData', 'GameFiles' )
 )
 
 
