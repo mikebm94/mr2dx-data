@@ -17,8 +17,10 @@ $SQLiteDataFiles = @{
 
 # Map friendly names to finished CSV data file paths. These files can be used on their own as a data set,
 # but are also used to generate/populate other database formats (such as an SQLite database.)
+# NOTE: The order here matters. When generating databases, foreign key constraints can be violated
+# if a referenced row hasn't been created in the referenced table yet.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
-$FinishedDataFiles = @{
+$FinishedDataFiles = [ordered]@{
     # Defines the available monster breeds.
     'Breeds' = @{ Path = 'Breeds.csv'; FileType = 'CSV' }
 
