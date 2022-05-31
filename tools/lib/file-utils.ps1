@@ -124,34 +124,16 @@ function Import-Mr2dxDataFileCsv {
         $Header
     )
 
-    $manifest = $FileManifests[$FileManifest]
+    $fileInfo = Get-ManifestFileInfo $FileManifest $FileKey
 
-    if ($null -eq $manifest) {
-        throw "Failed to import CSV/TSV file: " +
-              "File manifest named '${FileManifest}' does not exist."
-    }
-
-    $fileInfo = $manifest.Files[$FileKey]
-
-    if ($null -eq $fileInfo) {
-        throw "Failed to import CSV/TSV file: " +
-              "No file info defined for key '${FileKey}' in manifest '${FileManifest}'."
-    }
-    elseif (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
+    if (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
         throw "Failed to import CSV/TSV file: " +
               "File for key '${FileKey}' in manifest '${FileManifest}' is not a CSV/TSV file."
     }
-    elseif (-not $fileInfo.Path) {
-        throw "Failed to import CSV/TSV file: " +
-              "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
-    }
-
-    $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
-
-    if (-not (Test-Path $fullFilePath -PathType Leaf)) {
+    elseif (-not (Test-Path $fileInfo.FullPath -PathType Leaf)) {
         $errorMsg = "$( (Get-Item $MyInvocation.PSCommandPath).Name ): " +
                     "fatal: Failed to import CSV file: " +
-                    "File '${fullFilePath}' does not exist."
+                    "File '$( $fileInfo.FullPath )' does not exist."
         
         if ($FileManifest -eq 'GameFiles') {
             $errorMsg += " Please run the game files extraction script first."
@@ -161,7 +143,7 @@ function Import-Mr2dxDataFileCsv {
     }
 
     $importArgs = @{
-        'Path' = $fullFilePath
+        'Path' = $fileInfo.FullPath
         'Delimiter' = switch ($fileInfo.FileType) {
             'CSV' { ',' }
             'TSV' { "`t" }
@@ -213,26 +195,11 @@ function Export-Mr2dxDataFileCsv {
     )
 
     end {
-        $manifest = $FileManifests[$FileManifest]
+        $fileInfo = Get-ManifestFileInfo $FileManifest $FileKey
 
-        if ($null -eq $manifest) {
-            throw "Failed to export data to CSV/TSV file: " +
-                  "File manifest named '${FileManifest}' does not exist."
-        }
-
-        $fileInfo = $manifest.Files[$FileKey]
-
-        if ($null -eq $fileInfo) {
-            throw "Failed to export data to CSV/TSV file: " +
-                  "No file info defined for key '${FileKey}' in manifest '${FileManifest}'."
-        }
-        elseif (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
+        if (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
             throw "Failed to export data to CSV/TSV file: " +
                   "File for key '${FileKey}' in manifest '${FileManifest}' is not a CSV/TSV file."
-        }
-        elseif (-not $fileInfo.Path) {
-            throw "Failed to export data to CSV/TSV file: " +
-                  "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
         }
         elseif ($fileInfo.IsStaticData) {
             throw "Failed to export data to CSV/TSV file: " +
@@ -240,10 +207,8 @@ function Export-Mr2dxDataFileCsv {
                   "is static data (manually created) and should not be overwritten."
         }
 
-        $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
-
         $exportArgs = @{
-            'Path' = $fullFilePath
+            'Path' = $fileInfo.FullPath
             'UseQuotes' = 'AsNeeded'
             'Delimiter' = switch ($fileInfo.FileType) {
                 'CSV' { ',' }
@@ -257,7 +222,7 @@ function Export-Mr2dxDataFileCsv {
 
         $input | Export-Csv @exportArgs | Out-Null
         
-        return $fullFilePath
+        return $fileInfo.FullPath
     }
 }
 
@@ -277,36 +242,24 @@ function Get-Mr2dxGameFileContent {
         [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
         [ValidateNotNullOrEmpty()]
         [string]
-        $FileKey
+        $GameFileKey
     )
 
     process {
-        $manifest = $FileManifests['GameFiles']
-        $fileInfo = $manifest.Files[$FileKey]
+        $fileInfo = Get-ManifestFileInfo GameFiles $GameFileKey
 
-        if ($null -eq $fileInfo) {
-            throw "Failed to get content of MR2DX game file: " +
-                "No file info defined for key '${FileKey}'."
-        }
-        elseif (-not $fileInfo.Path) {
-            throw "Failed to get content of MR2DX game file: " +
-                "No file path defined for key '${FileKey}'."
-        }
-
-        $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
-
-        if (-not (Test-Path $fullFilePath -PathType Leaf)) {
+        if (-not (Test-Path $fileInfo.FullPath -PathType Leaf)) {
             Abort "$( (Get-Item $MyInvocation.PSCommandPath).Name ):" `
                   "fatal: Failed to get content of MR2DX game file:" `
-                  "File '${fullFilePath}' does not exist." `
+                  "File '$( $fileInfo.FullPath )' does not exist." `
                   "Please run the game files extraction script first."
         }
 
         if ($null -ne $fileInfo.CodePage) {
-            [File]::ReadAllText($fullFilePath, [Encoding]::GetEncoding($fileInfo.CodePage))
+            [File]::ReadAllText($fileInfo.FullPath, [Encoding]::GetEncoding($fileInfo.CodePage))
         }
         else {
-            [File]::ReadAllText($fullFilePath)
+            [File]::ReadAllText($fileInfo.FullPath)
         }
     }
 }
