@@ -32,7 +32,7 @@ function Get-ManifestFileInfo {
         $FileManifest,
 
         # A key corresponding to a file defined in the specified file manifest.
-        # If not specified, then all 
+        # If not specified, then the information for all files in the manifest is retrieved.
         [Parameter(ParameterSetName = 'OneFile', Mandatory, Position = 1, ValueFromPipeline)]
         [ValidateNotNullOrEmpty()]
         [string]
