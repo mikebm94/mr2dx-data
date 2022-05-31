@@ -22,7 +22,7 @@ $ErrorActionPreference = 'Stop'
 
 
 $CleanTargets | Get-ManifestFileInfo | ForEach-Object {
-    if (Test-Path -LiteralPath $PSItem.FullPath) {
+    if ((-not $PSItem.IsStaticData) -and (Test-Path -LiteralPath $PSItem.FullPath)) {
         Remove-Item -LiteralPath $PSItem.FullPath -Force -ErrorAction Continue
     }
 }

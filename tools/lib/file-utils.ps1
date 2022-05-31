@@ -64,6 +64,7 @@ function Get-ManifestFileInfo {
                 FullPath = Join-Path $manifest.Directory $fileInfo.Path
                 FileType = $fileInfo.FileType
                 CodePage = $fileInfo.CodePage
+                IsStaticData = $fileInfo.IsStaticData
             })
         }
         
@@ -86,6 +87,7 @@ function Get-ManifestFileInfo {
                 FullPath = Join-Path $manifest.Directory $currentFileInfo.Path
                 FileType = $currentFileInfo.FileType
                 CodePage = $currentFileInfo.CodePage
+                IsStaticData = $currentFileInfo.IsStaticData
             }
         }
     }
@@ -231,6 +233,11 @@ function Export-Mr2dxDataFileCsv {
         elseif (-not $fileInfo.Path) {
             throw "Failed to export data to CSV/TSV file: " +
                   "No file path defined for key '${FileKey}' in manifest '${FileManifest}'."
+        }
+        elseif ($fileInfo.IsStaticData) {
+            throw "Failed to export data to CSV/TSV file: " +
+                  "File for key '${FileKey}' in manifest '${FileManifest}' " +
+                  "is static data (manually created) and should not be overwritten."
         }
 
         $fullFilePath = Join-Path $manifest.Directory $fileInfo.Path
