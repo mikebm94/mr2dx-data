@@ -9,6 +9,25 @@ CREATE TABLE Breeds (
 );
 
 
+CREATE TABLE MonsterTypes (
+    MonsterTypeId  INTEGER PRIMARY KEY  NOT NULL  CHECK ( MonsterTypeId BETWEEN 1 AND 415 ),
+
+    MainBreedId  INT  NOT NULL
+        REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+
+    SubBreedId  INT  NOT NULL  CHECK ( SubBreedId >= 0 ),
+
+    CardNumber  INT  UNIQUE  NOT NULL  CHECK ( CardNumber BETWEEN 1 and 415 ),
+
+    MonsterTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
+        CHECK ( LENGTH(MonsterTypeName) BETWEEN 3 AND 12 ),
+
+    MonsterTypeDescription  TEXT  COLLATE NOCASE
+
+    UNIQUE (MainBreedId, SubBreedId)
+);
+
+
 CREATE TABLE ForceTypes (
     ForceTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( ForceTypeId BETWEEN 0 AND 1 ),
     
