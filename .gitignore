@@ -2,9 +2,9 @@
 # Directory that the MR2DX game files are extracted to
 game-files/
 
-# Built database files
+# Database files
 *.db
-
+*.db-journal
 
 ## Backup
 ##############################################################################
