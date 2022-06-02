@@ -25,7 +25,7 @@ $FinishedDataFiles = [ordered]@{
     'Breeds' = @{ Path = 'Breeds.csv'; FileType = 'CSV' }
 
     # Defines the available monster types (combination of main breed and sub breed.)
-    'MonsterTypes' = @{ Path = 'MonsterTypes.csv'; FileType = 'CSV'; IsStaticData = $true }
+    'MonsterTypes' = @{ Path = 'MonsterTypes.csv'; FileType = 'CSV' }
 
     # Defines the types of forces that techniques can draw their power from. (Power, Intelligence)
     'ForceTypes' = @{ Path = 'ForceTypes.csv'; FileType = 'CSV' }
@@ -51,6 +51,9 @@ $FinishedDataFiles = [ordered]@{
 $IntermediateDataFiles = @{
     # Defines the available monster breeds.
     'Breeds' = @{ Path = 'Breeds.csv'; FileType = 'CSV'; IsStaticData = $true }
+
+    # Defines the available monster types (combination of main breed and sub breed.)
+    'MonsterTypes' = @{ Path = 'MonsterTypes.csv'; FileType = 'CSV'; IsStaticData = $true }
 
     # Defines the types of forces that techniques can draw their power from. (Power, Intelligence)
     'ForceTypes' = @{ Path = 'ForceTypes.csv'; FileType = 'CSV'; IsStaticData = $true }

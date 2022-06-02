@@ -15,7 +15,8 @@ CREATE TABLE MonsterTypes (
     MainBreedId  INT  NOT NULL
         REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
 
-    SubBreedId  INT  NOT NULL  CHECK ( SubBreedId >= 0 ),
+    SubBreedId  INT
+        REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
 
     CardNumber  INT  UNIQUE  NOT NULL  CHECK ( CardNumber BETWEEN 1 and 415 ),
 
