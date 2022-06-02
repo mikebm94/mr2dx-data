@@ -22,7 +22,7 @@ CREATE TABLE MonsterTypes (
     MonsterTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(MonsterTypeName) BETWEEN 3 AND 12 ),
 
-    MonsterTypeDescription  TEXT  COLLATE NOCASE
+    MonsterTypeDescription  TEXT  COLLATE NOCASE,
 
     UNIQUE (MainBreedId, SubBreedId)
 );
