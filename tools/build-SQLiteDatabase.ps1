@@ -79,8 +79,8 @@ function Get-SqliteDbGenerationCommands {
           an empty string.
         #>
         [Parameter(Position = 1)]
-        [hashtable]
         [ValidateNotNull()]
+        [hashtable]
         $NullableTableColumn = @{}
     )
 
