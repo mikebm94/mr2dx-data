@@ -50,19 +50,19 @@ $FinishedDataFiles = [ordered]@{
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $IntermediateDataFiles = @{
     # Defines the available monster breeds.
-    'Breeds' = @{ Path = 'Breeds.csv'; FileType = 'CSV' }
+    'Breeds' = @{ Path = 'Breeds.csv'; FileType = 'CSV'; IsStaticData = $true }
 
     # Defines the types of forces that techniques can draw their power from. (Power, Intelligence)
-    'ForceTypes' = @{ Path = 'ForceTypes.csv'; FileType = 'CSV' }
+    'ForceTypes' = @{ Path = 'ForceTypes.csv'; FileType = 'CSV'; IsStaticData = $true }
 
     # Defines the ranges that a technique can be executed in. (Near, Middle, Far, Very Far)
-    'TechniqueRanges' = @{ Path = 'TechniqueRanges.csv'; FileType = 'CSV' }
+    'TechniqueRanges' = @{ Path = 'TechniqueRanges.csv'; FileType = 'CSV'; IsStaticData = $true }
 
     # Defines the types of technique natures. (Normal, Good, Bad)
-    'TechniqueNatures' = @{ Path = 'TechniqueNatures.csv'; FileType = 'CSV' }
+    'TechniqueNatures' = @{ Path = 'TechniqueNatures.csv'; FileType = 'CSV'; IsStaticData = $true }
 
     # Defines the types of techniques. (Basic, Hit, Heavy, Withering, Sharp, Special)
-    'TechniqueTypes' = @{ Path = 'TechniqueTypes.csv'; FileType = 'CSV' }
+    'TechniqueTypes' = @{ Path = 'TechniqueTypes.csv'; FileType = 'CSV'; IsStaticData = $true }
 }
 
 # Map friendly names to intermediate data files containing data extracted from the MR2DX game files.
