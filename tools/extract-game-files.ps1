@@ -148,6 +148,9 @@ function Get-GameArchivePath {
         }
     }
 
+    Write-Host "No -ArchivePath parameter or MR2DX_ARCHIVE_PATH environment variable set."
+    Write-Host "Will attempt to locate the MR2DX game data archive."
+
     return Find-GameArchiveInSteamLibrary
 }
 
@@ -158,7 +161,7 @@ function Find-GameArchiveInSteamLibrary {
     }
 
     Write-Host "Searching for game archive in Steam library" `
-               "at '${SteamLibraryPath}'..."
+               "at '${SteamLibraryPath}' ..."
 
     if (-not (Test-Path $SteamLibraryPath -PathType Container)) {
         Write-Host "The Steam library path '${SteamLibraryPath}' does not exist."
@@ -224,7 +227,7 @@ function Expand-ArchiveWith7z {
     if (-not $7z) {
         Abort "${ScriptName}: fatal:" `
               "Failed to find the '7z', '7zz', or '7zzs' command." `
-              "Please install 7-Zip."
+              "Please install 7-Zip (or p7zip/p7zip-full)."
     }
 
     Write-Host "Found 7-Zip command line utility: ${7z}"
