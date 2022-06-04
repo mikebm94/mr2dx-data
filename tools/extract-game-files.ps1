@@ -147,8 +147,10 @@ function Get-GameArchivePath {
             Write-Host "Game archive path '${ArchivePath}' does not exist."
         }
     }
-
-    Write-Host "No -ArchivePath parameter or MR2DX_ARCHIVE_PATH environment variable set."
+    else {
+        Write-Host "No -ArchivePath parameter or MR2DX_ARCHIVE_PATH environment variable set."
+    }
+    
     Write-Host "Will attempt to locate the MR2DX game data archive."
 
     return Find-GameArchiveInSteamLibrary
