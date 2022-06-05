@@ -126,7 +126,7 @@ function Import-Mr2dxDataFileCsv {
 
     $fileInfo = Get-ManifestFileInfo $FileManifest $FileKey
 
-    if (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
+    if ($fileInfo.FileType -notin 'CSV','TSV') {
         throw "Failed to import CSV/TSV file: " +
               "File for key '${FileKey}' in manifest '${FileManifest}' is not a CSV/TSV file."
     }
@@ -197,7 +197,7 @@ function Export-Mr2dxDataFileCsv {
     end {
         $fileInfo = Get-ManifestFileInfo $FileManifest $FileKey
 
-        if (($fileInfo.FileType -ne 'CSV') -and ($fileInfo.FileType -ne 'TSV')) {
+        if ($fileInfo.FileType -notin 'CSV','TSV') {
             throw "Failed to export data to CSV/TSV file: " +
                   "File for key '${FileKey}' in manifest '${FileManifest}' is not a CSV/TSV file."
         }
