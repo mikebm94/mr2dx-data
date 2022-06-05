@@ -126,3 +126,41 @@ function ConvertTo-OrderedDictionary {
         return $table
     }
 }
+
+
+<#
+.SYNOPSIS
+Gets the information for all applications with the specified name.
+
+.OUTPUTS
+Returns `ApplicationInfo` objects representing all applications with the specified name.
+Use the `First` switch parameter to only return the first application for each name.
+#>
+function Get-ApplicationInfo {
+    [CmdletBinding()]
+    [OutputType([System.Management.Automation.ApplicationInfo])]
+    param(
+        # The name of the applications for which to get the information.
+        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $Name,
+
+        # Indicates that this cmdlet only returns the first application with the specified name.
+        [switch]
+        $First
+    )
+
+    process {
+        $appInfo = Get-Command -Name $Name -CommandType Application -ErrorAction Ignore
+
+        if ($null -eq $appInfo) {
+            return
+        }
+        elseif ($First) {
+            return $appInfo[0]
+        }
+        
+        return $appInfo
+    }
+}

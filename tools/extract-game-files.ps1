@@ -243,12 +243,9 @@ NOTE: A non-zero exit code doesn't mean the extraction failed.
 
 function Get-7zipCommandPath {
     # Check if the 7-Zip command-line utility is in PATH.
-    foreach ($cmdName in '7z','7zzs','7zz') {
-        $7zAppInfo = Get-Command -Name $cmdName -CommandType Application -ErrorAction Ignore
-
-        if ($null -ne $7zAppInfo) {
-            return $7zAppInfo[0].Path
-        }
+    $7zAppInfo = '7zz', '7zzs', '7z' | Get-ApplicationInfo -First
+    if ($null -ne $7zAppInfo) {
+        return $7zAppInfo[0].Path
     }
 
     if (-not $IsWindows) {
