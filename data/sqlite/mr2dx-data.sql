@@ -62,10 +62,10 @@ CREATE TABLE TechniqueTypes (
 
 
 CREATE TABLE Techniques (
+    TechniqueId  INTEGER PRIMARY KEY  NOT NULL,
+
     BreedId  INT  NOT NULL
         REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
-    
-    TechniqueNumber  INT  NOT NULL  CHECK ( TechniqueNumber BETWEEN 0 AND 23 ),
 
     TechniqueRangeId  INT  NOT NULL
         REFERENCES TechniqueRanges (TechniqueRangeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
@@ -109,7 +109,6 @@ CREATE TABLE Techniques (
 
     DurationMiss  REAL  NOT NULL  CHECK ( DurationMiss BETWEEN 1.0 AND 15.0 ),
     
-    PRIMARY KEY (BreedId, TechniqueNumber),
     UNIQUE (BreedId, TechniqueRangeId, Slot)
     UNIQUE (BreedId, TechniqueName)
 );

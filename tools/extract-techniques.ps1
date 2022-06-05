@@ -21,6 +21,9 @@ $ErrorActionPreference = 'Stop'
 # The number of technique slots in each range.
 $SlotCount = 6
 
+# The maximum number of techniques that can be available to a monster breed.
+$MaxTechniques = 24
+
 # The ranges that techniques can be performed in.
 $TechniqueRanges =
     Import-Mr2dxDataFileCsv IntermediateData TechniqueRanges |
@@ -141,7 +144,7 @@ function Get-BreedTechnique {
             }
 
             $technique.BreedId = $Breed.BreedId
-
+            $technique.TechniqueId = ($technique.BreedId * $MaxTechniques) + ($technique.TechniqueNumber + 1)
             foreach ($dataPoint in $dataPoints) {
                 $technique.$dataPoint = $match.Groups[$dataPoint].Value
             }
