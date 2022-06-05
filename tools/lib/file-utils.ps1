@@ -249,10 +249,10 @@ function Get-Mr2dxGameFileContent {
         $fileInfo = Get-ManifestFileInfo GameFiles $GameFileKey
 
         if (-not (Test-Path $fileInfo.FullPath -PathType Leaf)) {
-            Abort "$( (Get-Item $MyInvocation.PSCommandPath).Name ):" `
-                  "fatal: Failed to get content of MR2DX game file:" `
-                  "File '$( $fileInfo.FullPath )' does not exist." `
-                  "Please run the game files extraction script first."
+            $errorMsg = "{0}: fatal: Failed to get content of MR2DX game file: " +
+                        "File '{1}' does not exist. " +
+                        "Please run the game files extraction script first."
+            Abort ($errorMsg -f (Get-Item $MyInvocation.PSCommandPath).Name, $fileInfo.FullPath)
         }
 
         if ($null -ne $fileInfo.CodePage) {
