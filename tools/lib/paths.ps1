@@ -54,6 +54,7 @@ $GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
 # and must exist, create them if needed.
 foreach ($path in
     $FinishedDataPath,
+    $SQLiteDataPath,
     $ExtractedIntermediateDataPath,
     $ScrapedIntermediateDataPath
 ) {
