@@ -1,7 +1,16 @@
 #!/usr/bin/env pwsh
 
 [CmdletBinding()]
-param()
+param(
+    # The command name or path to the SQLite3 command-line interface.
+    # Defaults to the value of the SQLITE3 environment variable if it is set.
+    # Otherwise, 'sqlite3' will be executed to build the database.
+    #
+    # Note: Version 3.32.0 or higher is required.
+    [Parameter(Position = 0)]
+    [string]
+    $Sqlite3Command = [Environment]::GetEnvironmentVariable('SQLITE3')
+)
 
 
 $ErrorActionPreference = 'Stop'
@@ -38,8 +47,14 @@ function Main {
 
     Write-Host 'Executing sqlite3 command line utility ...'
 
+    if (-not $Sqlite3Command) {
+        $Sqlite3Command = 'sqlite3'
+    } else {
+        Write-Host "Using sqlite3 command: ${Sqlite3Command}"
+    }
+
     Get-SqliteDbGenerationCommands $schemaScriptPath $nullableTableColumns |
-        sqlite3 $databasePath 2>&1 |
+        & $Sqlite3Command $databasePath 2>&1 |
         Tee-Object -Variable sqliteOutput
     
     $sqliteExitCode = $LASTEXITCODE
