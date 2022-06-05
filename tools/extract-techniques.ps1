@@ -102,7 +102,7 @@ function Get-BreedTechnique {
 
     process {
         $dataFileKey = 'Techniques{0}' -f $Breed.Initials
-        $techniqueData = Get-Mr2dxGameFileContent $dataFileKey
+        $techniqueData = Get-Mr2dxDataFileContent GameFiles $dataFileKey
 
         $dataFilePath = (Get-ManifestFileInfo GameFiles $dataFileKey).FullPath
         

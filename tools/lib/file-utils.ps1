@@ -229,29 +229,44 @@ function Export-Mr2dxDataFileCsv {
 
 <#
 .SYNOPSIS
-Gets the content of an MR2DX game file.
+Gets the content of a text file in one of the file manifests.
 
 .OUTPUTS
 The full content of the file as a single string.
 #>
-function Get-Mr2dxGameFileContent {
+function Get-Mr2dxDataFileContent {
     [CmdletBinding()]
     [OutputType([string])]
     param(
-        # A key referring to a game file path defined in the 'GameFiles' manifest.
-        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        # The name of the file manifest to search for the file corresponding to the specified file key.
+        [Parameter(Mandatory, Position = 0)]
         [ValidateNotNullOrEmpty()]
         [string]
-        $GameFileKey
+        $FileManifest,
+
+        # The key corresponding to a file defined in the specified file manifest.
+        [Parameter(Mandatory, Position = 1, ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileKey
     )
 
     process {
-        $fileInfo = Get-ManifestFileInfo GameFiles $GameFileKey
+        $fileInfo = Get-ManifestFileInfo $FileManifest $FileKey
 
-        if (-not (Test-Path $fileInfo.FullPath -PathType Leaf)) {
-            $errorMsg = "{0}: fatal: Failed to get content of MR2DX game file: " +
-                        "File '{1}' does not exist. " +
-                        "Please run the game files extraction script first."
+        if ($fileInfo.FileType -ne 'Text') {
+            $errorMsg = "{0}: fatal: Failed to get content of text file: " +
+                        "File for key '{1}' in manifest '{2}' is not a plain-text file."
+            Abort ($errorMsg -f (Get-Item $MyInvocation.PSCommandPath).Name, $FileKey, $FileManifest)
+        }
+        elseif (-not (Test-Path $fileInfo.FullPath -PathType Leaf)) {
+            $errorMsg = "{0}: fatal: Failed to get content of text file: " +
+                        "File '{1}' does not exist."
+            
+            if ($FileManifest -eq 'GameFiles') {
+                $errorMsg += " Please run the game files extraction script first."
+            }
+
             Abort ($errorMsg -f (Get-Item $MyInvocation.PSCommandPath).Name, $fileInfo.FullPath)
         }
 
