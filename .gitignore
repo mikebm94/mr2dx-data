@@ -5,6 +5,7 @@ game-files/
 # Database files
 *.db
 *.db-journal
+*.sqldiff
 
 ## Backup
 ##############################################################################

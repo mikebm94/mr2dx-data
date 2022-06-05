@@ -40,6 +40,7 @@ function Main {
     Write-Host 'Generating MR2DX SQLite database ...'
 
     $databasePath = (Get-ManifestFileInfo SQLiteData SQLiteDatabase).FullPath
+    $databaseBackupPath = "${databasePath}.bak"
 
     # Path to the SQL script used to create the database schema.
     $schemaScriptPath = Join-Path $SQLiteDataPath 'mr2dx-data.sql'
@@ -52,6 +53,12 @@ function Main {
 
 
     if (Test-Path -Path $databasePath -PathType Leaf) {
+        Write-Host 'Backing up existing database ...'
+        Copy-Item -LiteralPath $databasePath -Destination $databaseBackupPath -Force -ErrorAction Continue
+        if (-not $?) {
+            $databaseBackupPath = $null
+        }
+
         Write-Host 'Deleting existing database ...'
         Remove-Item -Path $databasePath -Force
     }
@@ -80,6 +87,14 @@ function Main {
     }
 
     Write-Host "Saved SQLite database to '${databasePath}'."
+
+
+    if (-not $databaseBackupPath) {
+        Write-Host 'No database backup created. Skipping diff.'
+    }
+    else {
+        Invoke-SqlDiff $databaseBackupPath $databasePath
+    }
 }
 
 
@@ -222,6 +237,56 @@ END;
 
 .import --csv --skip 1 '${SourcePath}' ${viewName}
 "@
+}
+
+
+<#
+.SYNOPSIS
+Invokes the 'sqldiff' utility (if installed) to get the difference between the newly built database
+and the previously built database. The difference is output as an SQL script that can be used
+to transform the old database into the new database and is saved as an SQL file.
+#>
+function Invoke-SqlDiff {
+    [CmdletBinding()]
+    param(
+        # The path to the previously built and backed up database.
+        [Parameter(Mandatory, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $OldDatabasePath,
+
+        # The path to the newly built database to compare to the old database.
+        [Parameter(Mandatory, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $NewDatabasePath
+    )
+
+    $sqldiffAppInfo = Get-ApplicationInfo -Name 'sqldiff' -First
+
+    if ($null -eq $sqldiffAppInfo) {
+        Write-Host "The 'sqldiff' utility is not installed. Skipping diff."
+        return
+    }
+
+    Write-Host "Performing diff between old and new database ..."
+
+    try {
+        $sqldiff = $sqldiffAppInfo.Path
+        $diffFilePath = "${databasePath}.sqldiff"
+
+        & $sqldiff --primarykey $OldDatabasePath $NewDatabasePath
+            | Out-File -LiteralPath $diffFilePath -Force
+        
+        Write-Host "sqldiff exited with code: ${LASTEXITCODE}"
+        Write-Host "Saved diff/migration SQL script to '${diffFilePath}'."
+    }
+    catch {
+        WarningMsg (
+            "{0}: warning: Could not obtain database diff: {1}" `
+                -f $ScriptName, $PSItem.Exception.Message
+        )
+    }
 }
 
 
