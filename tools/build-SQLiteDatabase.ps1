@@ -62,7 +62,7 @@ function Main {
 
     Write-Host "sqlite3 exited with code: ${sqliteExitCode}"
 
-    if (($LASTEXITCODE -ne 0) -or ($null -ne $sqliteStderr)) {
+    if (($sqliteExitCode -ne 0) -or ($null -ne $sqliteStderr)) {
         Remove-Item -Path $databasePath -Force -ErrorAction Ignore
         Abort "${ScriptName}: fatal: Failed to create the SQLite database."
     }
