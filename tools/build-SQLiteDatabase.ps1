@@ -1,5 +1,17 @@
 #!/usr/bin/env pwsh
 
+<#
+.SYNOPSIS
+Builds a SQLite database populated using the finished CSV data files.
+
+.DESCRIPTION
+Invokes the SQLite command-line interface to create the database schema using the SQL script
+data/sqlite/mr2dx-data.sql, then imports the CSV data files into their corresponding tables.
+
+.NOTES
+The SQLite CLI version must be 3.32.0 or higher to properly build the database.
+#>
+
 [CmdletBinding()]
 param(
     # The command name or path to the SQLite3 command-line interface.
