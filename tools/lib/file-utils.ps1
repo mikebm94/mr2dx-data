@@ -255,9 +255,9 @@ function Get-Mr2dxDataFileContent {
         $fileInfo = Get-ManifestFileInfo $FileManifest $FileKey
 
         if ($fileInfo.FileType -ne 'Text') {
-            $errorMsg = "{0}: fatal: Failed to get content of text file: " +
+            $errorMsg = "Failed to get content of text file: " +
                         "File for key '{1}' in manifest '{2}' is not a plain-text file."
-            Abort ($errorMsg -f (Get-Item $MyInvocation.PSCommandPath).Name, $FileKey, $FileManifest)
+            throw ($errorMsg -f $FileKey, $FileManifest)
         }
         elseif (-not (Test-Path $fileInfo.FullPath -PathType Leaf)) {
             $errorMsg = "{0}: fatal: Failed to get content of text file: " +
