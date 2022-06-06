@@ -49,8 +49,7 @@ function Main {
     
     Write-Host "Scraped $( $techniques.Count ) technique(s)."
     
-    $outputFilePath =
-        $techniques | Export-Mr2dxDataFileCsv ScrapedData TechniquesLegendCup
+    $outputFilePath = $techniques | Export-Mr2dxDataFileCsv ScrapedData TechniquesLegendCup
 
     Write-Host "Saved scraped technique data to '${outputFilePath}'."
 }
@@ -129,8 +128,7 @@ function Get-BreedCaseMatch {
             )
 '@
 
-    $matchInfo =
-        $BreedSwitchStatementContent | Select-String $breedCasePattern -AllMatches
+    $matchInfo = $BreedSwitchStatementContent | Select-String $breedCasePattern -AllMatches
     
     if (-not $matchInfo) {
         throw 'Could not find cases in breed switch statement.'
@@ -153,8 +151,8 @@ function Get-BreedTechnique {
     begin {
         $breedNamesToIds =
             Import-Mr2dxDataFileCsv IntermediateData Breeds |
-                ForEach-Object { [BreedIntermediate]$PSItem } |
-                ConvertTo-HashTable -KeyProperty BreedName -ValueProperty BreedId
+            ForEach-Object { [BreedIntermediate]$PSItem } |
+            ConvertTo-HashTable -KeyProperty BreedName -ValueProperty BreedId
         
         $techniquePattern = @'
 (?x)
@@ -180,8 +178,7 @@ function Get-BreedTechnique {
         $breedId = $breedNamesToIds[$breedName]
 
         if ($null -eq $breedId) {
-            Abort "${ScriptName}: fatal: " +
-                  "Error in scraped data: Unknown breed name '${breedName}'."
+            Abort "${ScriptName}: fatal: Error in scraped data: Unknown breed name '${breedName}'."
         }
 
         $matchInfo =
@@ -215,8 +212,8 @@ function Get-ParsedTechnique {
         $technique = [TechniqueLegendCup]::new()
         $technique.BreedId = $BreedId
 
-        # Populate the scraped techniques values using the values of
-        # the capture groups with the same name.
+        # Populate the scraped techniques values using the values
+        # of the capture groups with the same name.
         foreach ($matchGroup in $TechniqueMatch.Groups) {
             # Skip the automatic group containing the entire match.
             if ($matchGroup.Name -eq '0') {
