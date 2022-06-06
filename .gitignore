@@ -2,6 +2,9 @@
 # Directory that the MR2DX game files are extracted to
 game-files/
 
+# Directory containing Files downloaded from the web to be scraped for data
+data/intermediate/downloaded/
+
 # Database files
 *.db
 *.db-journal

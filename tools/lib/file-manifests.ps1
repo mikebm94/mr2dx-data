@@ -70,7 +70,16 @@ $IntermediateDataFiles = @{
 
 # Map friendly names to files containing data/source-code downloaded from the web.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
-$DownloadedIntermediateDataFiles = @{}
+$DownloadedIntermediateDataFiles = @{
+    <#
+      JavaScript source code from the LegendCup Errantry Calculator & Tech List page.
+      Contains data used to obtain additional data-points for techniques, as well as data on sub-breed
+      requirements for techniques and the requirements for learning techniques at errantries.
+      THANKS to everyone at LegendCup.com, including:
+        ChroniusNightmare, Edzwoo, SmilingFaces96, Teawch, Tubular
+    #>
+    'LegendCupTechsSrc' = @{ Path = 'LegendCupTechsSrc.js'; FileType = 'Text' }
+}
 
 # Map friendly names to intermediate data files containing data extracted from the MR2DX game files.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]

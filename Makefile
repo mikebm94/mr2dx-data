@@ -112,11 +112,17 @@ $(extracted_dir)/TechniquesExtracted.csv: \
 	$(PWSH) tools/extract-techniques.ps1
 
 $(scraped_dir)/TechniquesLegendCup.csv: \
+		$(downloaded_dir)/LegendCupTechsSrc.js \
 		tools/scrape-techniques.ps1 \
 		tools/lib/file-utils.ps1 \
 		tools/lib/entities/Breed.ps1 \
 		tools/lib/entities/Technique.ps1
 	$(PWSH) tools/scrape-techniques.ps1
+
+$(downloaded_dir)/LegendCupTechsSrc.js: \
+		tools/download-LegendCupTechsSrc.ps1 \
+		tools/lib/file-utils.ps1
+	$(PWSH) tools/download-LegendCupTechsSrc.ps1
 
 # Don't clean scraped data files by default.
 # Shouldn't need to connect to the internet every time

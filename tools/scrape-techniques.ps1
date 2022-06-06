@@ -29,19 +29,10 @@ function Main {
     [CmdletBinding()]
     param()
 
-    $scrapeUrl = 'https://legendcup.com/faqmr2techs.php'
-
-    Write-Host "Scraping technique data from '${scrapeUrl}' ..."
-
-    try {
-        $response = Invoke-WebRequest $scrapeUrl
-    }
-    catch {
-        Abort "${ScriptName}: fatal: $( $PSItem.Exception.Message )"
-    }
+    Write-Host "Scraping technique data from LegendCup Errantry Calculator & Tech List source code ..."
 
     $techniques =
-        $response.Content |
+        Get-Mr2dxDataFileContent DownloadedData LegendCupTechsSrc |
         Get-TechListFuncContent |
         Get-BreedSwitchStatementContent |
         Get-BreedCaseMatch |
