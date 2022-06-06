@@ -286,6 +286,9 @@ Writes text to a plain-text file in one of the file manifests.
 
 .INPUTS
 The strings to write to the file.
+
+.OUTPUTS
+The file path the content was written to.
 #>
 function Set-Mr2dxDataFileContent {
     [CmdletBinding()]
@@ -326,5 +329,7 @@ function Set-Mr2dxDataFileContent {
         }
 
         $input | Out-File -FilePath $fileInfo.FullPath -Force
+
+        return $fileInfo.FullPath
     }
 }
