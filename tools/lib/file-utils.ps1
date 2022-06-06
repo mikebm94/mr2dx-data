@@ -278,3 +278,53 @@ function Get-Mr2dxDataFileContent {
         }
     }
 }
+
+
+<#
+.SYNOPSIS
+Writes text to a plain-text file in one of the file manifests.
+
+.INPUTS
+The strings to write to the file.
+#>
+function Set-Mr2dxDataFileContent {
+    [CmdletBinding()]
+    param(
+        # The name of the file manifest containing the file to write the content to.
+        [Parameter(Mandatory, Position = 0)]
+        [ValidateSet('FinishedData', 'ExtractedData', 'ScrapedData')]
+        [string]
+        $FileManifest,
+
+        # The key corresponding to a file defined in the specified file manifest to write the content to.
+        [Parameter(Mandatory, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $FileKey,
+
+        # The strings to write to the file.
+        [Parameter(Mandatory, Position = 2, ValueFromPipeline)]
+        [AllowNull()]
+        [AllowEmptyString()]
+        [AllowEmptyCollection()]
+        [string[]]
+        $Content
+    )
+
+    end {
+        $fileInfo = Get-ManifestFileInfo $FileManifest $FileKey
+
+        if ($fileInfo.FileType -ne 'Text') {
+            $errorMsg = "Failed to write content to text file: " +
+                        "File for key '{1}' in manifest '{2}' is not a plain-text file."
+            throw ($errorMsg -f $FileKey, $FileManifest)
+        }
+        elseif ($fileInfo.IsStaticData) {
+            $errorMsg = "Failed to write content to text file: File for key '{0}' in manifest '{1}' " +
+                        "is static data (manually created) and should not be overwritten."
+            throw ($errorMsg -f $FileKey, $FileManifest)
+        }
+
+        $input | Out-File -FilePath $fileInfo.FullPath -Force
+    }
+}
