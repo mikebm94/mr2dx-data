@@ -5,6 +5,7 @@ data_dir = data
 sqlite_dir = $(data_dir)/sqlite
 finished_dir = $(data_dir)/csv
 intermediate_dir = $(data_dir)/intermediate
+downloaded_dir = $(intermediate_dir)/downloaded
 extracted_dir = $(intermediate_dir)/extracted
 scraped_dir = $(intermediate_dir)/scraped
 gamefiles_dir = game-files
@@ -135,6 +136,10 @@ clean-databases:
 .PHONY: clean-finished
 clean-finished:
 	$(PWSH) tools/clean.ps1 FinishedData
+
+.PHONY: clean-downloaded
+clean-downloaded:
+	$(PWSH) tools/clean.ps1 DownloadedData
 
 .PHONY: clean-extracted
 clean-extracted:

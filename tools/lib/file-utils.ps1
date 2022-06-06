@@ -295,7 +295,7 @@ function Set-Mr2dxDataFileContent {
     param(
         # The name of the file manifest containing the file to write the content to.
         [Parameter(Mandatory, Position = 0)]
-        [ValidateSet('FinishedData', 'ExtractedData', 'ScrapedData')]
+        [ValidateSet('FinishedData', 'DownloadedData', 'ExtractedData', 'ScrapedData')]
         [string]
         $FileManifest,
 

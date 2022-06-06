@@ -32,6 +32,11 @@ $SQLiteDataPath = Join-Path $DataPath 'sqlite/'
 #   that is used to help generate the finished data tables.
 $IntermediateDataPath = Join-Path $DataPath 'intermediate/'
 
+# data/intermediate/downloaded/
+#  Directory for data/source-code that is downloaded from the web in order to scrape the data.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$DownloadedIntermediateDataPath = Join-Path $IntermediateDataPath 'downloaded/'
+
 # data/intermediate/extracted/
 #   Directory for intermediate data extracted from the MR2DX game files
 #   that is used to help generate the finished data tables.
@@ -39,7 +44,7 @@ $IntermediateDataPath = Join-Path $DataPath 'intermediate/'
 $ExtractedIntermediateDataPath = Join-Path $IntermediateDataPath 'extracted/'
 
 # data/intermediate/scraped/
-#   Directory for intermediate data scraped from the web
+#   Directory for intermediate data scraped from downloaded data/source-code
 #   that is used to help generate the finished data tables.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ScrapedIntermediateDataPath = Join-Path $IntermediateDataPath 'scraped/'
@@ -55,6 +60,7 @@ $GameFilesPath = Join-Path $SourceTreeRoot 'game-files/'
 foreach ($path in
     $FinishedDataPath,
     $SQLiteDataPath,
+    $DownloadedIntermediateDataPath,
     $ExtractedIntermediateDataPath,
     $ScrapedIntermediateDataPath
 ) {

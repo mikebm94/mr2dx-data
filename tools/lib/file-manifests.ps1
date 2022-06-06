@@ -68,6 +68,10 @@ $IntermediateDataFiles = @{
     'TechniqueTypes' = @{ Path = 'TechniqueTypes.csv'; FileType = 'CSV'; IsStaticData = $true }
 }
 
+# Map friendly names to files containing data/source-code downloaded from the web.
+[SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
+$DownloadedIntermediateDataFiles = @{}
+
 # Map friendly names to intermediate data files containing data extracted from the MR2DX game files.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ExtractedIntermediateDataFiles = @{
@@ -75,7 +79,8 @@ $ExtractedIntermediateDataFiles = @{
     'Techniques' = @{ Path = 'TechniquesExtracted.csv'; FileType = 'CSV' }
 }
 
-# Map friendly names to intermediate data files containing data scraped from the web.
+# Map friendly names to intermediate data files containing data
+# scraped from data/source-code downloaded from the web.
 [SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '')]
 $ScrapedIntermediateDataFiles = @{
     # Defines the techniques available to each monster breed. Used to obtain additional data points
@@ -237,6 +242,11 @@ $FileManifests = @{
     'IntermediateData' = [PSCustomObject]@{
         Directory = $IntermediateDataPath
         Files     = $IntermediateDataFiles
+    }
+
+    'DownloadedData' = [PSCustomObject]@{
+        Directory = $DownloadedIntermediateDataPath
+        Files = $DownloadedIntermediateDataFiles
     }
 
     'ExtractedData' = [PSCustomObject]@{
