@@ -7,6 +7,10 @@ class TechniqueBase {
     [ValidateRange(0, 37)]
     [int] $BreedId
 
+    # The ID of the range that the technique can be performed at.
+    [ValidateRange(1, 4)]
+    [int] $TechniqueRangeId
+
     # The slot in the range that the technique occupies.
     [ValidateRange(1, 6)]
     [int] $Slot
@@ -49,10 +53,6 @@ class Technique : TechniqueBase {
     )
 
     [int] $TechniqueId
-
-    # The ID of the range that the technique can be performed at.
-    [ValidateRange(0, 3)]
-    [int] $TechniqueRangeId
 
     # The name of the technique.
     [ValidateLength(3, 12)]
@@ -111,9 +111,6 @@ class Technique : TechniqueBase {
 class TechniqueExtracted : TechniqueBase {
     [int] $TechniqueId
 
-    [ValidateRange(0, 3)]
-    [int] $TechniqueRangeId
-
     <#
       A number used to uniquely identify each of a monster breed's available techniques.
       A monster breed can have a total of 24 available techniques, but most have less than this.
@@ -162,10 +159,6 @@ class TechniqueExtracted : TechniqueBase {
     data points that cannot be extracted from the game files.
 #>
 class TechniqueLegendCup : TechniqueBase {
-    # LegendCup uses 1-4 for range IDs instead of 0-3.
-    [ValidateRange(1, 4)]
-    [int] $TechniqueRangeIdLegendCup
-
     [ValidateLength(3, 12)]
     [ValidatePattern('^\w+(?:-\w+)*(?: \w+(?:-\w+)*)*$')]
     [string] $TechniqueName

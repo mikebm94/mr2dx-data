@@ -46,7 +46,7 @@ CREATE TABLE TechniqueNatures (
 
 
 CREATE TABLE TechniqueRanges (
-    TechniqueRangeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueRangeId BETWEEN 0 AND 3 ),
+    TechniqueRangeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueRangeId BETWEEN 1 AND 4 ),
     
     TechniqueRangeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueRangeName) BETWEEN 3 AND 12 )

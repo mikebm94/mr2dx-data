@@ -1,5 +1,5 @@
-TechniqueRangeId,TechniqueRangeIdLegendCup,Flag,TechniqueRangeName
-0,1,NEAR,Near
-1,2,MIDDLE,Middle
-2,3,FAR,Far
-3,4,VERYFAR,Very Far
+TechniqueRangeId,Flag,TechniqueRangeName
+1,NEAR,Near
+2,MIDDLE,Middle
+3,FAR,Far
+4,VERYFAR,Very Far

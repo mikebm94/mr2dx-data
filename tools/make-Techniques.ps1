@@ -29,14 +29,6 @@ $ErrorActionPreference = 'Stop'
 
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
 
-# LegendCup uses different IDs for technique ranges. Use this hashtable to check that the range
-# of an extracted technique is the same as the range of the corresponding scraped technique.
-$TechniqueRangesLegendCup =
-    Import-Mr2dxDataFileCsv IntermediateData TechniqueRanges |
-    ForEach-Object { [TechniqueRangeIntermediate]$PSItem } |
-    ConvertTo-Hashtable -KeyProperty TechniqueRangeIdLegendCup
-
-
 
 function Main {
     [CmdletBinding()]
@@ -56,7 +48,7 @@ function Main {
     $scrapedTechniques =
         Import-Mr2dxDataFileCsv ScrapedData TechniquesLegendCup |
         Sort-Object -Property { [int]$PSItem.BreedId },
-                              { [int]$PSItem.TechniqueRangeIdLegendCup },
+                              { [int]$PSItem.TechniqueRangeId },
                               { [int]$PSItem.Slot } |
         ForEach-Object { [TechniqueLegendCup]$PSItem }
     
@@ -119,7 +111,7 @@ function Get-ConsolidatedTechnique {
         },
         {
             "param($a, $b)
-            $a.TechniqueRangeId -eq $TechniqueRangesLegendCup[$b.TechniqueRangeIdLegendCup].TechniqueRangeId"
+            $a.TechniqueRangeId -eq $b.TechniqueRangeId"
         },
         {
             "param($a, $b)
