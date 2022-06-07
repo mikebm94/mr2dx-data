@@ -66,7 +66,7 @@ function Get-TechListFuncContent {
     $matchInfo = $SourceContent | Select-String $techListFuncPattern
 
     if (-not $matchInfo) {
-        throw 'Could not find function techList() in page content.'
+        throw 'Could not find function techList() in source code.'
     }
 
     Write-Output $matchInfo.Matches[0].Groups['Content'].Value
