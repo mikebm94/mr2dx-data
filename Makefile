@@ -17,7 +17,8 @@ finished_data_files = \
 	$(finished_dir)/TechniqueRanges.csv \
 	$(finished_dir)/TechniqueNatures.csv \
 	$(finished_dir)/TechniqueTypes.csv \
-	$(finished_dir)/Techniques.csv
+	$(finished_dir)/Techniques.csv \
+	$(finished_dir)/Errantries.csv
 
 game_technique_files = \
 	$(gamefiles_dir)/mf2/data/mon/kapi/ka_ka_wz.dat \

@@ -112,3 +112,10 @@ CREATE TABLE Techniques (
     UNIQUE (BreedId, TechniqueRangeId, Slot)
     UNIQUE (BreedId, TechniqueName)
 );
+
+
+CREATE TABLE Errantries (
+    ErrantryId  INTEGER PRIMARY KEY  NOT NULL,
+    ErrantryName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
+        CHECK ( LENGTH(ErrantryName) BETWEEN 3 AND 12 )
+);

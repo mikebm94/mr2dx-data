@@ -41,6 +41,9 @@ $FinishedDataFiles = [ordered]@{
 
     # Defines the techniques available to each monster breed.
     'Techniques' = @{ Path = 'Techniques.csv'; FileType = 'CSV' }
+
+    # Defines the errantries that monsters can go on to learn techniques.
+    'Errantries' = @{ Path = 'Errantries.csv'; FileType = 'CSV'; IsStaticData = $true }
 }
 
 # Map friendly names to manually compiled intermediate data file paths. These files contain additional
