@@ -53,7 +53,7 @@ function Get-TechListFuncContent {
         [Parameter(Mandatory, ValueFromPipeline)]
         [ValidateNotNullOrEmpty()]
         [string]
-        $PageContent
+        $SourceContent
     )
 
     $techListFuncPattern = @'
@@ -63,7 +63,7 @@ function Get-TechListFuncContent {
         ^\}
 '@
     
-    $matchInfo = $PageContent | Select-String $techListFuncPattern
+    $matchInfo = $SourceContent | Select-String $techListFuncPattern
 
     if (-not $matchInfo) {
         throw 'Could not find function techList() in page content.'
