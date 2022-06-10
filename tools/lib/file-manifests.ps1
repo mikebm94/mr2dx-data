@@ -98,6 +98,9 @@ $ScrapedIntermediateDataFiles = @{
     # Defines the techniques available to each monster breed. Used to obtain additional data points
     # on techniques not extracted from the game files such as English names and hit/miss durations.
     'TechniquesLegendCup' = @{ Path = 'TechniquesLegendCup.csv'; FileType = 'CSV' }
+
+    # Defines the techniques that can be learned at errantry locations and the requirements to learn them.
+    'ErrantryTechniquesLegendCup' = @{ Path = 'ErrantryTechniquesLegendCup.csv'; FileType = 'CSV' }
 }
 
 # Map friendly names to game file paths.

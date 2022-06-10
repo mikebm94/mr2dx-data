@@ -85,6 +85,17 @@ $(finished_dir)/%s.csv: \
 		tools/lib/entities/%.ps1
 	$(PWSH) tools/make-$*s.ps1
 
+$(scraped_dir)/ErrantryTechniquesLegendCup.csv: \
+		$(downloaded_dir)/LegendCupTechsSrc.js \
+		$(finished_dir)/Breeds.csv \
+		$(finished_dir)/Techniques.csv \
+		tools/lib/entities/Breed.ps1 \
+		tools/lib/entities/Technique.ps1 \
+		tools/lib/entities/ErrantryTechnique.ps1 \
+		tools/lib/file-utils.ps1 \
+		tools/scrape-ErrantryTechniques.ps1
+	$(PWSH) tools/scrape-ErrantryTechniques.ps1
+
 $(finished_dir)/Techniques.csv: \
 		$(extracted_dir)/TechniquesExtracted.csv \
 		$(scraped_dir)/TechniquesLegendCup.csv \
