@@ -68,7 +68,7 @@ CREATE TABLE Techniques (
         REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
 
     TechniqueRangeId  INT  NOT NULL
-        REFERENCES TechniqueRanges (TechniqueRangeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+        REFERENCES TechniqueRanges(TechniqueRangeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
     
     Slot  INT  NOT NULL  CHECK ( Slot BETWEEN 1 AND 6 ),
 
@@ -116,6 +116,11 @@ CREATE TABLE Techniques (
 
 CREATE TABLE Errantries (
     ErrantryId  INTEGER PRIMARY KEY  NOT NULL,
+
     ErrantryName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
-        CHECK ( LENGTH(ErrantryName) BETWEEN 3 AND 12 )
+        CHECK ( LENGTH(ErrantryName) BETWEEN 3 AND 12 ),
+
+    TechniqueTypeId  INT  UNIQUE  NOT NULL
+        CHECK ( TechniqueTypeId BETWEEN 1 AND 5 )
+        REFERENCES TechniqueTypes (TechniqueTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
 );

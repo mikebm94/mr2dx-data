@@ -1,6 +1,6 @@
-ErrantryId,ErrantryName
-1,Papas
-2,Mandy
-3,Parepare
-4,Torble Sea
-5,Kawrea
+ErrantryId,ErrantryName,TechniqueTypeId
+1,Papas,4
+2,Mandy,2
+3,Parepare,3
+4,Torble Sea,1
+5,Kawrea,5

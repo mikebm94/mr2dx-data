@@ -7,4 +7,9 @@ class Errantry {
 
     [ValidateSet('Papas', 'Mandy', 'Parepare', 'Torble Sea', 'Kawrea')]
     [string] $ErrantryName
+
+    # The type of techniques (besides Basic, and in rare cases Special)
+    # that can be learned at the errantry.
+    [ValidateRange(0, 5)]
+    [int] $TechniqueTypeId
 }
