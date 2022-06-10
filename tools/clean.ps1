@@ -15,7 +15,7 @@ param(
     )]
     [string[]]
     $CleanTargets = @(
-        'SQLiteData', 'FinishedData', 'DowloadedData', 'ExtractedData', 'ScrapedData', 'GameFiles'
+        'SQLiteData', 'FinishedData', 'DownloadedData', 'ExtractedData', 'ScrapedData', 'GameFiles'
     )
 )
 
