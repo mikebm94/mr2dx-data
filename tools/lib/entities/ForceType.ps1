@@ -3,7 +3,7 @@
     their power from.
 #>
 class ForceType {
-    [ValidateRange(0, 1)]
+    [ValidateRange(1, 2)]
     [int] $ForceTypeId
 
     [ValidateSet('Power', 'Intelligence')]

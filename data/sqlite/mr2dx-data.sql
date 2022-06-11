@@ -30,7 +30,7 @@ CREATE TABLE MonsterTypes (
 
 
 CREATE TABLE ForceTypes (
-    ForceTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( ForceTypeId BETWEEN 0 AND 1 ),
+    ForceTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( ForceTypeId BETWEEN 1 AND 2 ),
     
     ForceTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(ForceTypeName) BETWEEN 3 AND 12 )
@@ -38,7 +38,7 @@ CREATE TABLE ForceTypes (
 
 
 CREATE TABLE TechniqueNatures (
-    TechniqueNatureId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueNatureId BETWEEN 0 AND 2 ),
+    TechniqueNatureId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueNatureId BETWEEN 1 AND 3 ),
     
     TechniqueNatureName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueNatureName) BETWEEN 3 AND 12 )
@@ -54,7 +54,7 @@ CREATE TABLE TechniqueRanges (
 
 
 CREATE TABLE TechniqueTypes (
-    TechniqueTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueTypeId BETWEEN 0 AND 5 ),
+    TechniqueTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueTypeId BETWEEN 1 AND 6 ),
     
     TechniqueTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueTypeName) BETWEEN 3 AND 12 )
@@ -121,6 +121,6 @@ CREATE TABLE Errantries (
         CHECK ( LENGTH(ErrantryName) BETWEEN 3 AND 12 ),
 
     TechniqueTypeId  INT  UNIQUE  NOT NULL
-        CHECK ( TechniqueTypeId BETWEEN 1 AND 5 )
+        CHECK ( TechniqueTypeId != 1 )
         REFERENCES TechniqueTypes (TechniqueTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
 );

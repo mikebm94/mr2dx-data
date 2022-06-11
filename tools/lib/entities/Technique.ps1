@@ -60,15 +60,15 @@ class Technique : TechniqueBase {
     [string] $TechniqueName
 
     # The ID of the technique's type.
-    [ValidateRange(0, 5)]
+    [ValidateRange(1, 6)]
     [int] $TechniqueTypeId
 
     # The ID of the technique's force type.
-    [ValidateRange(0, 1)]
+    [ValidateRange(1, 2)]
     [int] $ForceTypeId
 
     # The ID of the technique's nature.
-    [ValidateRange(0, 2)]
+    [ValidateRange(1, 3)]
     [int] $TechniqueNatureId
 
     # The amount of guts stolen from the opponent on success.

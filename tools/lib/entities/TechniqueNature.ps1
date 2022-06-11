@@ -2,7 +2,7 @@
     Entity representing the nature of a technique.
 #>
 class TechniqueNature {
-    [ValidateRange(0, 2)]
+    [ValidateRange(1, 3)]
     [int] $TechniqueNatureId
 
     [ValidateSet('Normal', 'Good', 'Bad')]

@@ -10,6 +10,6 @@ class Errantry {
 
     # The type of techniques (besides Basic, and in rare cases Special)
     # that can be learned at the errantry.
-    [ValidateRange(0, 5)]
+    [ValidateRange(2, 6)]
     [int] $TechniqueTypeId
 }

@@ -1,7 +1,7 @@
 TechniqueTypeId,TechniqueTypeIdLegendCup,Flag,TechniqueTypeName
-0,0,KIHON,Basic
-1,4,MEICHU,Hit
-2,2,DAI_DAMAGE,Heavy
-3,3,GUTS_DOWN,Withering
-4,1,CRITICAL,Sharp
-5,5,HISSATSU,Special
+1,0,KIHON,Basic
+2,4,MEICHU,Hit
+3,2,DAI_DAMAGE,Heavy
+4,3,GUTS_DOWN,Withering
+5,1,CRITICAL,Sharp
+6,5,HISSATSU,Special

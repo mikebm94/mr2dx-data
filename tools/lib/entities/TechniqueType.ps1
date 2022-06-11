@@ -2,7 +2,7 @@
     Entity representing a type of technique.
 #>
 class TechniqueType {
-    [ValidateRange(0, 5)]
+    [ValidateRange(1, 6)]
     [int] $TechniqueTypeId
 
     [ValidateSet('Basic', 'Hit', 'Heavy', 'Withering', 'Sharp', 'Special')]
