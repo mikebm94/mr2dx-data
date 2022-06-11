@@ -3,14 +3,14 @@ PRAGMA foreign_keys = ON;
 
 
 CREATE TABLE Breeds (
-    BreedId  INT  PRIMARY KEY  NOT NULL  CHECK ( BreedId BETWEEN 1 AND 38 ),
+    BreedId  INT  PRIMARY KEY  NOT NULL,
 
     BreedName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE  CHECK ( LENGTH(BreedName) BETWEEN 3 AND 12 )
 );
 
 
 CREATE TABLE MonsterTypes (
-    MonsterTypeId  INTEGER PRIMARY KEY  NOT NULL  CHECK ( MonsterTypeId BETWEEN 1 AND 415 ),
+    MonsterTypeId  INTEGER PRIMARY KEY  NOT NULL,
 
     MainBreedId  INT  NOT NULL
         REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
@@ -18,7 +18,7 @@ CREATE TABLE MonsterTypes (
     SubBreedId  INT
         REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
 
-    CardNumber  INT  UNIQUE  NOT NULL  CHECK ( CardNumber BETWEEN 1 and 415 ),
+    CardNumber  INT  UNIQUE  NOT NULL,
 
     MonsterTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(MonsterTypeName) BETWEEN 3 AND 12 ),
@@ -30,7 +30,7 @@ CREATE TABLE MonsterTypes (
 
 
 CREATE TABLE ForceTypes (
-    ForceTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( ForceTypeId BETWEEN 1 AND 2 ),
+    ForceTypeId  INT  PRIMARY KEY  NOT NULL,
     
     ForceTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(ForceTypeName) BETWEEN 3 AND 12 )
@@ -38,7 +38,7 @@ CREATE TABLE ForceTypes (
 
 
 CREATE TABLE TechniqueNatures (
-    TechniqueNatureId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueNatureId BETWEEN 1 AND 3 ),
+    TechniqueNatureId  INT  PRIMARY KEY  NOT NULL,
     
     TechniqueNatureName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueNatureName) BETWEEN 3 AND 12 )
@@ -46,7 +46,7 @@ CREATE TABLE TechniqueNatures (
 
 
 CREATE TABLE TechniqueRanges (
-    TechniqueRangeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueRangeId BETWEEN 1 AND 4 ),
+    TechniqueRangeId  INT  PRIMARY KEY  NOT NULL,
     
     TechniqueRangeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueRangeName) BETWEEN 3 AND 12 )
@@ -54,7 +54,7 @@ CREATE TABLE TechniqueRanges (
 
 
 CREATE TABLE TechniqueTypes (
-    TechniqueTypeId  INT  PRIMARY KEY  NOT NULL  CHECK ( TechniqueTypeId BETWEEN 1 AND 6 ),
+    TechniqueTypeId  INT  PRIMARY KEY  NOT NULL,
     
     TechniqueTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueTypeName) BETWEEN 3 AND 12 )
