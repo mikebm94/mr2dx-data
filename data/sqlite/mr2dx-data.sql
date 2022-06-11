@@ -3,7 +3,7 @@ PRAGMA foreign_keys = ON;
 
 
 CREATE TABLE Breeds (
-    BreedId  INT  PRIMARY KEY  NOT NULL  CHECK ( BreedId BETWEEN 0 AND 37 ),
+    BreedId  INT  PRIMARY KEY  NOT NULL  CHECK ( BreedId BETWEEN 1 AND 38 ),
 
     BreedName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE  CHECK ( LENGTH(BreedName) BETWEEN 3 AND 12 )
 );

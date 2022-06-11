@@ -1,416 +1,416 @@
 MonsterTypeId,MainBreedId,SubBreedId,CardNumber,MonsterTypeName,MonsterTypeDescription
-1,0,0,1,Pixie,There are many fans though it is spoiled and powerless.
-2,0,1,2,Daina,"Because it it of legendary blood, it has high pride."
-3,0,2,3,Unico,It is the most earnest monster in the Pixie species.
-4,0,6,4,Jilt,It is known that Jilt likes to tease men.
-5,0,7,5,Granity,It has a cold atmosphere mabey because of its strong will.
-6,0,8,6,Dixie,It likes wild life because it was born in a jungle.
-7,0,9,7,Janne,It is brave but its heart is a little bit too delicate to defeat enemies.
-8,0,11,8,Mint,It has charming bluish hair and a cute tail.
-9,0,13,9,Lepus,"In winter, warm air is held in its fur and keeps it warm."
-10,0,15,10,Angel,They say Angel is the most merciful monster of all.
-11,0,16,11,Kitten,"A musical, based on Kitten's life has played a long run."
-12,0,18,12,Jinnee,It is sloppy by nature and sleeps often.
-13,0,22,13,Futurity,Its looks may be what humans look like in the future.
-14,0,23,14,Vanity,This name was given by Dr. Maccots when he found it.
-15,0,24,15,Snowy,It is mentioned in the legends of some northern countries.
-16,0,26,16,Lilim,It can be best described as a little witch.
-17,0,28,17,Nagisa,"""Nagisa Skin."" This admiring word is derived from this one."
-18,0,31,18,Dryad,This monster is a tree fairy. It inhabits in the forest.
-19,0,33,19,Serenity,"In spite of its photosynthesis ability, it loves to eat."
-20,0,34,20,Silhouette,It has a shield wrapped around it in the FIMBA area.
-21,0,36,21,Night Flyer,Some people consider its beautiful feathers grotesque.
-22,0,37,22,Allure,They say that it sucks the life force out of men.
-23,0,38,23,Poison,They say it is hysterical. But the truth is unknown.
-24,0,39,24,Kasumi,Its breasts tend to get more attention than its battles.
-25,0,40,25,Mia,It draws many people's support with its cute charm.
-26,1,0,26,Tiamat,"Everybody agrees on its strength, but few agrees on its looks."
-27,1,1,27,Dragon,Everybody knows this legendary monster. But few can raise it.
-28,1,4,28,Corkasus,It is difficult to find it since it hardly leaves its homeland.
-29,1,5,29,Tecno Dragon,They say it was made with all the ancient technologies.
-30,1,7,30,Stone Dragon,"It is afraid its destructive power may affect others, and hides in a cave."
-31,1,9,31,Armor Dragon,They say it was used by humans for the ancient battles.
-32,1,10,32,Crab Dragon,It inhabits the lake and rules that lake.
-33,1,11,33,Hound Dragon,It has a habit of hiding things like a dog.
-34,1,15,34,Gariel,"Its head is like holography, for it has a kind of deity."
-35,1,16,35,Oscerot,This monster keeps a collection of oil pot in his house.
-36,1,18,36,Dodongo,This dragon can only be seen in the desert area.
-37,1,22,37,Gidras,This dragon has the mysterious power of Metalner.
-38,1,26,38,Death Dragon,It is said that this dragon was resurrected by Joker's power.
-39,1,34,39,Ragnaroks,They say the ancient culture might have been destroyed by it.
-40,1,38,40,Moo,This dreadful looking dragon hardly appears even in legends.
-41,2,0,41,Ferious,It has the upper body of a Pixie and the lower body of a horse.
-42,2,1,42,Dragoon,This monster is the mixture of a brave Dragon and a just Centaur.
-43,2,2,43,Centaur,"This monster is intelligent, just and proud."
-44,2,7,44,Trojan,It has stonelike hard skin and a stubborn character.
-45,2,9,45,Chariot,It is said that it holds the souls of Durahan and Centaur.
-46,2,10,46,Antares,It is expected to function well both in water and on land.
-47,2,11,47,Celious,It is a loner and does not like to cluster.
-48,2,18,48,Bazoo,"It resides in a harsh location, and has its own values."
-49,2,26,49,Reaper,"It was created by Joker, but it even hates him."
-50,2,38,50,Trotter,It has an excellent reputation as an excellent runner.
-51,2,39,51,Blue Thunder,This tribe is considered to be the descendant of Thor.
-52,3,0,52,PeachTreeBug,"It is cute, but you should know that it is a bit too noisy."
-53,3,3,53,ColorPandora,"This monster has three wills. Victory, love, and effort."
-54,3,28,54,Liquid Cube,It is almost impossible to recognize it in the water.
-55,3,38,55,Dice,This monster has strange patterns on its body.
-56,3,39,56,Tram,This monster is covered by a house-like pattern.
-57,4,1,57,Bethelgeus,"The image of its flying in the sky is called ""Death's Dance."""
-58,4,4,58,Beaclon,"It has a strong body and much power. However, its IQ is low."
-59,4,5,59,Melcarba,A mechanical monster who was made before Henger.
-60,4,7,60,Rocklon,Its rocky body may be hollow inside because it can fly.
-61,4,9,61,Centurion,Its body is covered with well-designed solid armor.
-62,4,11,62,Sloth Beetle,"It resides in a high mountian region, that is covered in snow."
-63,4,18,63,KautRoarKaut,It is used as a means of transportation by some people.
-64,4,26,64,Jaggernaut,Its carmine eyes show its wickedness.
-65,4,32,65,Ducklon,It has a spring that has to be wound each morning.
-66,4,38,66,Eggplantern,It is said that those who waste food are scolded by this monster.
-67,5,1,67,Garlant,It is considered to be a phantom monster in the FIMBA area.
-68,5,5,68,Henger,Monster's souls in Henger rarely maintain their past memories.
-69,5,7,69,Gaia,It is a mechanical monster with a soul from the Golem species.
-70,5,8,70,Omega,It is one of the reason why Zuum and Dino are similar.
-71,5,15,71,ProtoMessiah,An example of how monsters are not merely 'robots.'
-72,5,22,72,Heuy,You will be surprised to see it flying around in the air fast.
-73,5,26,73,End Bringer,This mechanical monster's soul has been infused by Joker.
-74,5,31,74,Automaton,It is said that it was made as a prortype for Henger.
-75,5,34,75,Black Henger,Its black body is an effective camouflage in the night.
-76,5,38,76,Skeleton,Its design is a reminder that death is always with us.
-77,6,0,77,Baby Doll,This monster is a doll of Pixie with a wicked soul.
-78,6,1,78,Draco Doll,The original version of this doll is sold at premium price.
-79,6,5,79,Henger Doll,It is a doll of Henger with a wicked soul.
-80,6,6,80,Wracky,It carries the grudges of the monsters killed in the battle.
-81,6,7,81,Pebbly,This Golem doll is made of stone and is too heavy for children.
-82,6,9,82,Petit Knight,It is the most popular doll and is often out of stock.
-83,6,18,83,Bakky,"It never used to be bought at the shop, but it has become popular."
-84,6,22,84,Metal Glay,This is popular amoung little kids and tends to be their toy.
-85,6,26,85,Tricker,"Contrary to its humorous appearance, its nature is rather evil."
-86,6,31,86,Mocky,Mention of its cheap-looking makes this monster mad.
-87,6,38,87,Dennon,No description.
-88,7,0,88,Pink Golem,It is a smart and quiet monster. It doesn't like battle.
-89,7,1,89,Tyrant,The wings on its back are to small for it to fly.
-90,7,4,90,Strong Horn,"Though it has a large horn, it hardly uses it in battle."
-91,7,5,91,Gobi,It is said that this monster was a weapon for the ancient war.
-92,7,6,92,Mariomax,It always cares how it looks. It is a little bit self conceited.
-93,7,7,93,Golem,"It moves slowly, but its punch is destructive."
-94,7,8,94,Scaled Golem,Some ornaments are made out of its green scale.
-95,7,9,95,Battle Rocks,It is said that a giant's armor turned into this monster.
-96,7,10,96,Dagon,Its hard body can even resist the pressures in the deep ocean.
-97,7,11,97,Big Blue,"Its body is made of ice rock, which will not ever melt."
-98,7,13,98,Moaigon,Its blue eyes remember the sad history between humans and them.
-99,7,14,99,Sleepyhead,It spends most of its time in one place and hardly moves.
-100,7,15,100,Amenhotep,It is popular among noblemen because of its beautiful body.
-101,7,17,101,Pressure,It cannot float on the water like Zilla. It is too heavy.
-102,7,18,102,Dao,It moves each part of its body by using a mysterious magic.
-103,7,22,103,Astro,It is said that this monster contains a Metalner in it.
-104,7,23,104,Titan,"It loves curry rice, but that is not why its body is yellow."
-105,7,26,105,Angolmor,It is a Golem under control of Joker's soul.
-106,7,28,106,Poseidon,"Though it wishes to swim the crawl, it is afraid of water."
-107,7,31,107,Wood Golem,"Unlike Mock, it rarely changes the expression on its face."
-108,7,33,108,Ecologuardia,It is worshipped as God of nature at small shrines in some cities.
-109,7,34,109,Black Golem,People cannot do bad things when they think of it watching them.
-110,7,36,110,Magna,The patterns on its body is considered to be ancient characters.
-111,7,37,111,Marble Guy,"Unlike other Golem monsters, it is rather offensive."
-112,7,38,112,New Bottle,No description.
-113,8,0,113,FairySaurian,We can ride on its back because it has no wings on its back.
-114,8,1,114,Salamander,Its IQ is lower than Dragon's. It is very fast and violent.
-115,8,7,115,Rock Saurian,"It can move quicker than its looks, but it is not very smart."
-116,8,8,116,Zuum,It's pedigree is considered to be similar to the Dino species.
-117,8,10,117,Crab Saurian,It can swim fast in water and it is also a fast runner.
-118,8,11,118,HoundSaurian,"It can run fast, so it is often used to deliver express mail."
-119,8,13,119,Spot Saurian,"Its character is quiet, but it is brave when protecting animals."
-120,8,14,120,Hachiro,It is more intelligent than people think it is.
-121,8,15,121,NobleSaurian,It is considered to be a status symbol among noble people.
-122,8,16,122,Tasman,This monster believes only in brute stength.
-123,8,18,123,Sand Saurian,"Most monsters dislike the desert, but this one does not."
-124,8,23,124,Mustardy,"It is playful, and tends to carry its jokes too far."
-125,8,26,125,Basilisk,It confuses its enemies with a special pattern on its body.
-126,8,28,126,JellySaurian,Its body is made up gel and can be a comfortable type of cushion.
-127,8,31,127,Wood Saurian,It is cowardly and runs into the forest when it sees humans.
-128,8,33,128,AlohaSaurian,Girls dream of riding on this one when they get married.
-129,8,34,129,BlackSaurian,Its body with a black luster attracts fashionable people.
-130,8,36,130,ShellSaurian,Various Knights rode on its back and fight in the ancient era.
-131,8,37,131,Naga Saurian,"Since it is a descendant from naga, it is rather violent."
-132,8,38,132,ZebraSaurian,Its striped body is the least conspicuous in savanna region.
-133,9,0,133,Lesziena,It proves that women also participated in ancient battles.
-134,9,1,134,Vesuvius,Its helmet has a curved dragon figure on it.
-135,9,4,135,Hercules,It has excellent strength and a dull sword sword won't even scratch it.
-136,9,7,136,Kelmadics,This stone armor is too heavy for normal people to wear.
-137,9,9,137,Durahan,Ancient armor has mutated into the monster with this name.
-138,9,10,138,Lorica,"This armor, made out of the shell of Arrow Heads, is light and easy to handle."
-139,9,11,139,Hound Knight,Its helmet is shaped like a Tiger's figure.
-140,9,20,140,Garuda,"It is said that the legendary general, Garuda, used to wear it."
-141,9,22,141,Metal Glory,There is no record showing that this armor has been used in the past.
-142,9,26,142,Genocider,It is said that a curse has been put upon this armor.
-143,9,31,143,Wood Knight,Poor knights made this armor out of trees in the ancient era.
-144,9,38,144,Shogun,This armor was discovered in an eastern country.
-145,9,39,145,Ruby Knight,It is said that it was the armor for the ancient royal guard.
-146,9,40,146,Kokushi Muso,This name means that no one can equal it.
-147,10,5,147,Renocraft,This monster is a prototype made by enginners prior to Hengers.
-148,10,7,148,Priarocks,This monster inhabits the desert and it is nocturnal.
-149,10,9,149,Plated Arrow,The real design of this monster is in the form of vapor.
-150,10,10,150,Arrow Head,"Since it has a very hard shell, it is hardly KO'd in battle."
-151,10,23,151,MustardArrow,Dropping tears does not always mean sadness.
-152,10,26,152,Selketo,It has thousands of thorns and stings whoever touches it.
-153,10,31,153,Log Sawer,Its body is made out of solid oak and is not soft but imflammable
-154,10,38,154,Sumopion,"It is strange looking, but it does practice hard every day."
-155,11,0,155,Daton,"It is quite playful, but sometimes it injures its trainers."
-156,11,7,156,Rock Hound,It cannot run fast because its body is made out of rocks.
-157,11,8,157,Datonare,No one equals its speed when it runs through the forest.
-158,11,11,158,Tiger,Many ordinary people keep this monster.
-159,11,13,159,Hare Hound,This monster is very cute and will make you want to keep it.
-160,11,15,160,Balon,"Because of its solemn nature, ordinary people doesn't keep it."
-161,11,23,161,Mono Eyed,It is weak in measuring exact distance with its single eye.
-162,11,28,162,Jelly Hound,"After it passes by, even warm air turns into cool air."
-163,11,33,163,Tropical Dog,It is popular mainly in the southern region.
-164,11,34,164,Terror Dog,It takes extra care properly maintain its beautiful hair.
-165,11,36,165,Jagd Hound,Its four eyes will not function at the same time.
-166,11,37,166,Cabalos,Ordinary people are prohibited from keeping this monster.
-167,11,38,167,White Hound,This monster has pure white hair and much is made of it.
-168,12,0,168,Fairy Hopper,It can jump a little higher that other hoppers.
-169,12,1,169,Draco Hopper,"Though its potential is high, few peaple raise suck a scary looking monster."
-170,12,11,170,Skipper,It will move seductively when someone touches its horn.
-171,12,12,171,Hopper,"It is a naughty monster, but it is loved by many trainers."
-172,12,16,172,Mustachios,This monster is always clustered with companions.
-173,12,18,173,Emerald Eye,"It is said that it loves to eat jewelry, especially emeralds."
-174,12,22,174,Springer,Its body shows a soft luster because of its Metalner blood.
-175,12,23,175,Rear Eyed,It has the third eye in the back of its head.
-176,12,24,176,Snow Hopper,Snowboarding was created by copying the way this monster skis.
-177,12,25,177,Pink Hopper,"It is a combined monster from two other popular monsters, but it is not popular."
-178,12,26,178,Sneak Hopper,It is very self centered and it has a cunning character.
-179,12,31,179,Woody Hopper,It is covered with body hair that looks like bark at glance.
-180,12,38,180,Frog Hopper,It likes to play battle games with kids and be mischievous.
-181,13,0,181,Fairy Hare,"It worries about what people think, and is very shy."
-182,13,7,182,Rocky Fur,"Its body is hard as rocks, but too heavy to move quickly."
-183,13,8,183,Scaled Hare,Its ability to jump is better than that of other Hares.
-184,13,11,184,Blue Hare,Its blue body is considered to be cute and is high in popularity.
-185,13,13,185,Hare,"Hare is a little monster, but it can move quickly and it is brave."
-186,13,15,186,Prince Hare,It contains deity blood and has a refined appearance.
-187,13,23,187,Four Eyed,It accurately aims at its target with its four eyes.
-188,13,28,188,Jelly Hare,"Its body is firmly constructed, except its flabby belly."
-189,13,33,189,Leaf Hare,"When it excites, the leaf pattern on its back will become embossed."
-190,13,34,190,Evil Hare,"Unlike other Hare monsters, it's a nocturnal monster."
-191,13,36,191,Wild Hare,This is a manly looking monster with famous bushy eyebrows.
-192,13,37,192,Purple Hare,"It can launch sharp attacks, but it is weak in defense."
-193,13,38,193,Tornado,No description.
-194,14,1,194,Magmax,"It is active, but it becomes lazy when it is kept by humans."
-195,14,7,195,Higante,"It has an abundant knowledge, but it is not good at applying it."
-196,14,9,196,War Baku,It functioned well as a shield in the ancient battle.
-197,14,11,197,Icebergy,"It is a glutton, so ordinary people do not raise it."
-198,14,13,198,Gontar,It is curious and wants to accept all kinds of challenges.
-199,14,14,199,Baku,"It doesn't like trouble, and it is an innocent monster."
-200,14,16,200,Nussie,It is the type of monster that won't risk anything.
-201,14,26,201,Baku Clown,"It was born as a tool of devils, but it forgets its evil duty."
-202,14,28,202,Giga Pint,It is quiet and patient. Its body of gel is very flexible.
-203,14,38,203,Dango Zaka,No description.
-204,15,0,204,Pink Mask,This monster has a pattern of the Pixies' dance on its cloak.
-205,15,7,205,Stone Mask,It is a guardian deity for the Golem species.
-206,15,8,206,Scaled Mask,Its mask is covered with scales like Dino and Zuum.
-207,15,11,207,Fanged Mask,It is a descendant from Tiger. Its mask is framed by fangs.
-208,15,13,208,Furred Mask,It is a guardian deity for the Hare species.
-209,15,15,209,Gali,It is said that its existence is close to that of God.
-210,15,23,210,Suezo Mask,Its single eye does not actually see anything.
-211,15,28,211,Aqua Mask,There is no gelled portion on the body of this monster.
-212,15,33,212,Colorful,It has a strong life force and loves peace.
-213,15,34,213,Galirous,Its cloak is as hard as platinum and is as smooth as silk.
-214,15,36,214,Brown Mask,There is an indescribable smile on its mask.
-215,15,37,215,Purple Mask,It is a guardian deity for the Naga species and likes battle.
-216,15,38,216,Happy Mask,Its bright expression make you forget about your worries.
-217,16,1,217,Draco Kato,It contains dragon's violent blood and likes battle.
-218,16,11,218,Blue Kato,Its quick movement makes its enemy confused.
-219,16,15,219,Gordish,This monster seems to take a philosophical view of life.
-220,16,16,220,Kato,"It looks like an old cat, and loves to drink olive oil."
-221,16,23,221,Citronie,It likes using a fighting style that confuses its enemies.
-222,16,25,222,Pink Kato,This monster likes its own cherry blossom colored body.
-223,16,26,223,Tainted Cat,It rejects everything in this world and lives alone.
-224,16,38,224,Axe,No description.
-225,17,0,225,Pink Zilla,"It has a beautiful white body, and strong confidence."
-226,17,11,226,Gooji,"With its huge horn, it can even sink a large ship."
-227,17,17,227,Zilla,Few trainers keep it because it is a glutton and is too big.
-228,17,28,228,Gigalon,It was believed the ocean had eyes until it was discovered.
-229,17,38,229,Deluxe Liner,It swims confidently but there is something anxious about it.
-230,18,18,230,Bajarl,"It is naughty. When someone scolds it, it hides in a pot."
-231,18,26,231,Jaba,It is said that this monster was made to be used as an assassin.
-232,18,38,232,Jimujoru,No description.
-233,18,39,233,Magic Bajarl,It is considered to be a descendant from Magic in FIMBA area.
-234,18,40,234,Ultrarl,It is said that this kind monster is a kind of hero of justice.
-235,19,0,235,Mum Mew,It is a Pixie monster that uses the body form of a Mew.
-236,19,11,236,Bowwow,This monster is related to the Tiger family.
-237,19,13,237,Eared Mew,It doesn't want people to pick it up by its long ears.
-238,19,19,238,Mew,This cat doll monster loves to sing very much.
-239,19,28,239,Aqua Mew,"A Jell, that had longed to be a Mew doll, has turned into this monster."
-240,19,38,240,Swimmer,Training in the water will make the entire body toned up.
-241,20,20,241,Phoenix,This is a legendary monster that never gives up.
-242,20,38,242,Cinder Bird,"Contrary to its looks, it is burning furiously inside."
-243,21,21,243,Ghost,"A dead monster, that was loved by its trainer, has turned into this one."
-244,21,38,244,Chef,It flies around cooking a large variety of food at one time.
-245,22,0,245,Love Seeker,"It is a Metalner combined with a Pixie to understand ""love."""
-246,22,22,246,Metalner,It is considered to have come from a planet far from here.
-247,22,23,247,Metazorl,It is combined with an expressive monster: Suezo
-248,22,38,248,Chinois,The dish that it cooked tastes so good that makes you smile.
-249,23,0,249,Pink Eye,It will become depressed if it is not treated as humans.
-250,23,7,250,Rocky Suezo,It does not like sandy areas very much because it is quite heavy.
-251,23,8,251,Melon Suezo,It loves fruits and sometimes encroaches on someone's farm.
-252,23,11,252,Horn,"In the IMa area, the horn of this monster is very very small."
-253,23,13,253,Furred Suezo,This monster likes adventure and is always exploring.
-254,23,15,254,Orion,It is said that a microcosm can be seen deep inside its eye.
-255,23,23,255,Suezo,It is popular because of its human-like expressions
-256,23,28,256,Clear Suezo,It is a Jell monster that has transformed itself to Suezo.
-257,23,33,257,Green Suezo,"Unlike other Suezo monsters, it's an earnest monster."
-258,23,34,258,Red Eye,Its red eye is due to the fact that it stays up late.
-259,23,36,259,Fly Eye,Everything it looks at is seen in a multiplied form.
-260,23,37,260,Purple Suezo,It thinks that to put forth its maximum strength is embarrassing.
-261,23,38,261,Gold Suezo,"This is a very rare monster, for its body is the color gold."
-262,23,39,262,Silver Suezo,"This is also rare, for its body is the color silver."
-263,23,40,263,Bronze Suezo,"It is another rare one, for its body is the color bronze."
-264,23,41,264,Birdie,"Say, ""Nice Shot"" when you want to praise it for its good work."
-265,23,42,265,Sueki Suezo,"It is a man made monster, and its form is based on Suezo."
-266,24,0,266,Pong Pong,This one is a meat lover and a glutton.
-267,24,11,267,Pierry,This monster is used to gather lumps of ice in high mountians.
-268,24,13,268,Wondar,It always forgets what it is supposed to do.
-269,24,16,269,Bengal,All Jills are gluttons. This one loves to eat fruits.
-270,24,23,270,Zorjil,It has a high IQ and it often gets lost in its thoughts.
-271,24,24,271,Jill,This legendary monster can be found in the snow mountains.
-272,24,26,272,Skull Capped,It is scheming but not enough smart to deceive someone.
-273,24,38,273,Pithecan,There is a scholar who says that humans are descended from this monster.
-274,25,0,274,Manna,It believes that it is the most beautiful monster of all.
-275,25,1,275,Draco Mocchi,"Contrary to its cute movements, it is a violent monster."
-276,25,9,276,KnightMocchi,Some sections of its body have been hardened like armor.
-277,25,11,277,Fake Penguin,"It is similar to a penguin, but they are not related at all."
-278,25,16,278,Nyankoro,"Since it is a descendant from Kato, it looks like and old cat."
-279,25,25,279,Mocchi,Its sticky skin and cute movements attaract a lot of trainers.
-280,25,26,280,Hell Pierrot,"Though it is a descendant from Joker, it cannot turn into a complete fiend."
-281,25,28,281,Gelatine,Its flabby looking body is actually firmer than it appears.
-282,25,38,282,GentleMocchi,It is a phantom monster and only a skillful and lucky trainer can get it.
-283,25,39,283,Caloriena,This monster never ceases its exercise and diet regiment.
-284,25,40,284,Mocchini,It always wears black tights in order to protect its legs. It is a fast runner.
-285,26,0,285,Hell Heart,"According to legends, it was an atrocious monster."
-286,26,1,286,Flare Death,A descendant of a dragon has turned into an atrocious Joker.
-287,26,7,287,Tombstone,This is a Joker monster with the strength of the Golem species.
-288,26,11,288,Blue Terror,It painlessly kills its enemy with one deadly attack.
-289,26,18,289,Odium,It is said that its spell causes its enemy to be unable to move.
-290,26,26,290,Joker,This monster was so atrocious that it was once sealed up.
-291,26,38,291,Bloodshed,This is the most aggressive monster of all the Joker species.
-292,27,11,292,Frozen Gaboo,Its body temperature is always kept low even during summer.
-293,27,26,293,Dokoo,It carries a type of poison that paralyzes other monsters.
-294,27,27,294,Gaboo,"Contrary to its scary appearance, it is earnest and shy."
-295,27,28,295,Jelly Gaboo,"It is similar to Jell, but it has no core like that of Jell."
-296,27,38,296,GabooSoldier,"This monster is hot blooded, but often make careless mistakes."
-297,28,0,297,Pink Jam,This monster smells slightly sweet. But it is inedible.
-298,28,7,298,Wall Mimic,It likes to turn into a stone wall in order to tease people.
-299,28,8,299,Scaled Jell,Its gelled sections are harder than its scaled sections.
-300,28,11,300,Icy Jell,There is a type of confectionery that is modeled after this one.
-301,28,13,301,Muddy Jell,This monster is not a descendant from Gaboo.
-302,28,15,302,Noble Jell,"This monster has high pride, but it is also very earnest."
-303,28,23,303,Eye Jell,This monster can see through everything with its eye ball.
-304,28,28,304,Jell,It transfigures its gelled body and attacks its enemies.
-305,28,33,305,Chloro Jell,It needs more water than other Jell monsters.
-306,28,34,306,Clay,"Though its name is Clay, it is rather similar to coal tar."
-307,28,36,307,Worm Jell,Its eyes are located in the lower portion of its body.
-308,28,37,308,Purple Jell,Its memory is so bad that it needs a lot of looking after.
-309,28,38,309,Metal Jell,"It is very rare. Even if you find it, it will run away quickly."
-310,29,26,310,Siren,It has the ability to not only manipulate water but also wind.
-311,29,29,311,Undine,This is a legendary monster living deep in the ocean.
-312,29,38,312,Mermaid,This monster appears in fairy tales once in a while.
-313,30,7,313,Ammon,It usually stays completely still in one place like a fossil.
-314,30,9,314,Knight Niton,Its shell is the hardest of all the Niton species.
-315,30,16,315,Stripe Shell,This monster is very patient when fighting.
-316,30,18,316,Alabia Niton,"""Alabia"" means to appear and disappear."
-317,30,22,317,Metal Shell,Its body is made out of a strange substance.
-318,30,28,318,Clear Shell,Its gelled section is almost as hard as its shell.
-319,30,30,319,Niton,"When something surprises it, it hides in its shell quickly."
-320,30,31,320,Baum Kuchen,"""Baumkuchen"" is German for ""tree cake."" This is similar to it."
-321,30,38,321,Dribbler,"""Kickball"" is the most popular sport in the IMa area."
-322,30,39,322,Radial Niton,"It is said that there was a play titled ""Cars"" in the ancient era."
-323,30,40,323,Disc Niton,It has a pattern design that looks like a disc stone.
-324,31,26,324,Ebony,This monster lives to confuse and surprise humans.
-325,31,31,325,Mock,This tree-like monster has a crooked character.
-326,31,38,326,White Birch,It is more resistant to cold than other Mock monsters.
-327,31,39,327,Pole Mock,It stands in dark places and eats bugs that were lured.
-328,32,7,328,Blocken,This monster's duck-like shape is made up of several rocks.
-329,32,23,329,Ticken,It is said that it contains the secret of the lost technology.
-330,32,32,330,Ducken,This toy-like monster is an artifact of the ancient era.
-331,32,38,331,Watermelony,"On the beach, it is often mistaken for a watermelon."
-332,32,39,332,Cawken,Some people consider this monster to be unlucky.
-333,33,0,333,Queen Plant,This monster is considered to be the strongest in the FIMBA area.
-334,33,7,334,Rock Plant,It brings forth buds out of hard rock. Its life force is strong.
-335,33,8,335,Scaled Plant,"Its green body is luminous at night, so many people have it."
-336,33,11,336,Blue Plant,"This monster is obedient, easy to take care of, and colorful."
-337,33,13,337,Hare Plant,It is so active that it hardly ever remains in the same place.
-338,33,15,338,Gold Plant,Noble people tend to like this flashy Plant monster.
-339,33,23,339,Usaba,It is more difficult to grow than any other Plant monster.
-340,33,28,340,Mirage Plant,Its quiet character is often mentioned in sad songs.
-341,33,33,341,Plant,"Thought it's not powerful, it can win by attacking repetitively."
-342,33,34,342,Black Plant,A soot-like substance makes its body black.
-343,33,36,343,Fly Plant,It hates its name and is gets mad when someone calls its name.
-344,33,37,344,Weeds,It can survive for several days without being fed.
-345,33,38,345,Raggae Plant,This monster loves a certain kind of music very much.
-346,34,0,346,Romper Wall,It's so friendly that it often tries to take too much care of humans.
-347,34,7,347,Obelisk,"It is rather active, so it cannot be used as a stone wall."
-348,34,8,348,Jura Wall,"Noodles, which are made by using its moist body, are tasty."
-349,34,11,349,Blue Sponge,You are guaranteed a good night's sleep if you sleep on it.
-350,34,13,350,Furred Wall,"Though it has fluffy hair, its body is hard."
-351,34,15,351,Ivory Wall,It has the pattern of God that is embossed on its body.
-352,34,23,352,Sandy,Its conspicuous figure is easy to spot even if it has escaped.
-353,34,28,353,Ice Candy,"During summer, its body is cool and comfortable to lie on."
-354,34,33,354,New Leaf,It'll be filled with energy when half of its body is buried.
-355,34,34,355,Monol,It will separate into pieces to cushion against enemy's attacks.
-356,34,36,356,Soboros,It has eyes unlike other Monol and can see its enemy.
-357,34,37,357,Asphaltum,"Ants try to make colonies in it, but it is impossible."
-358,34,38,358,Galaxy,This monster relates to the Sky monster in the FIMBA area.
-359,34,39,359,Dominos,These monsters like to gather and form a line.
-360,34,40,360,Scribble,This monster is rarely found in the IMa area.
-361,35,7,361,Rock Ape,It is a lazy monster and sits as still as a stone staute.
-362,35,13,362,Gibberer,Female trainers try not to teach it some kind of techniques.
-363,35,15,363,Bossy,"Though it is one of the laziest monsters, it is quite capable."
-364,35,33,364,Tropical Ape,This monster sprays a scent that decreases fighting spirits.
-365,35,35,365,Ape,There are many legends regarding this one's laziness.
-366,35,38,366,Gold Dust,"It seems to be decadent, but it is actually a hard worker."
-367,36,0,367,Red Worm,It may emerge as a beautiful monster once in a long while.
-368,36,7,368,Rock Worm,"It has beautiful eyes, but they do not work well in the light."
-369,36,8,369,Scaled Worm,It hides its legs and uses them only for quick movement.
-370,36,11,370,Drill Tusk,Its drill-like tusks can break even hard rocks into pieces.
-371,36,13,371,Corone,A chocolate filled sweet pastry is named after this one.
-372,36,15,372,Mask Worm,"Though it is a descendant from God, it is not all that tough."
-373,36,23,373,Eye Worm,"It has four fake eyes, and single real eye is usually hidden in its forehead."
-374,36,28,374,Jelly Worm,Its flabby body cushions against its enemy's attack.
-375,36,33,375,Flower Worm,The contrast of its red body and blue eyes is very buautiful.
-376,36,34,376,Black Worm,This monster is used to carry heavy objects.
-377,36,36,377,Worm,Its abilities are all in balance and it has no weak points.
-378,36,37,378,Purple Worm,It frightens its enemies with its multitude of shiny eyes.
-379,36,38,379,Express Worm,None can compete with its speed as long as it is on its line.
-380,37,0,380,Ripper,"Its IQ is high, but it often mistakes itself for a human."
-381,37,7,381,Trident,It likes to kill its enemies with one deadly attack.
-382,37,8,382,Stinger,It always holds its tongue out to cool its body tempature.
-383,37,11,383,Striker,Its obedient character is rare for the Naga species.
-384,37,13,384,Edgehog,"It is descended from the Hare species, but it is very violent."
-385,37,15,385,Bazula,It is very careful and is rarely caught off guard.
-386,37,23,386,Cyclops,It is so clever that it often disagrees with its trainer.
-387,37,28,387,Aqua Cutter,It is a Jell monster that is shaped in the form of Naga.
-388,37,33,388,Jungler,It hides in the forest and hunts animals.
-389,37,34,389,Crimson Eyed,It likes to damage its enemies little by little.
-390,37,36,390,Earth Keeper,"It won't forgive anyone, even humans, that destroy nature."
-391,37,37,391,Naga,This one's cruel fighting style horrifies other monsters.
-392,37,38,392,Time Noise,The secret goal of this one has is to obtain immortality. 
-393,1,39,393,Magma Heart,It will immediately attack whoever invades its territory.
-394,2,40,394,Sniper,This monster is feared as the dominater of the Mandy Desert.
-395,7,39,395,Sand Golem,It will not forgive anyone who breaks its quiet living.
-396,8,39,396,Wild Saurian,It is an active Zuum-type monster that has become wild.
-397,10,39,397,Silver Face,It has escaped from its trainers because of hard training.
-398,11,39,398,Kamui,It escaped being executed for killing humans.
-399,12,39,399,Bloody Eye,Its unique red eyes have caused it to be put on display.
-400,16,39,400,Crescent,An evil spirit is dwelling in it because of a forbidden drink.
-401,17,39,401,Zilla King,It was awakened from an ancient sleep by a major earthquake.
-402,20,39,402,Blue Phoenix,"Unlike other Phoenix monsters, it is very violent."
-403,24,39,403,Bighand,This kind of monsters are considered to be extinct.
-404,27,39,404,Mad Gaboo,A tool to make it obey is buried in its forehead.
-405,34,41,405,Burning Wall,This one escaped from its trainer while its stable was on fire.
-406,35,39,406,King Ape,This monster is feared as the dominater of the Parepare Jungle.
-407,37,39,407,Punisher,It is said that it was actually raised by another monster.
-408,23,43,408,White Suezo,It was raised very carefully because of its pure white body.
-409,25,41,409,White Mocchi,It has changed the color of its skin in order to be conspicuous.
-410,6,39,410,Satan Clause,A festival doll became possessed and then became this monster.
-411,7,40,411,ForwardGolem,This monster has a strong will to rush into its goals.
-412,13,39,412,Kung Fu Hare,It trains daily to master the ancient art of kung fu.
-413,14,39,413,Shishi,It is said that anyone bitten by it will be lucky for a year.
-414,16,40,414,Ninja Kato,It originated from a Kato with master Ninja skills.
-415,18,41,415,Boxer Bajarl,It has great footwork even without feet.
+1,1,1,1,Pixie,There are many fans though it is spoiled and powerless.
+2,1,2,2,Daina,"Because it it of legendary blood, it has high pride."
+3,1,3,3,Unico,It is the most earnest monster in the Pixie species.
+4,1,7,4,Jilt,It is known that Jilt likes to tease men.
+5,1,8,5,Granity,It has a cold atmosphere mabey because of its strong will.
+6,1,9,6,Dixie,It likes wild life because it was born in a jungle.
+7,1,10,7,Janne,It is brave but its heart is a little bit too delicate to defeat enemies.
+8,1,12,8,Mint,It has charming bluish hair and a cute tail.
+9,1,14,9,Lepus,"In winter, warm air is held in its fur and keeps it warm."
+10,1,16,10,Angel,They say Angel is the most merciful monster of all.
+11,1,17,11,Kitten,"A musical, based on Kitten's life has played a long run."
+12,1,19,12,Jinnee,It is sloppy by nature and sleeps often.
+13,1,23,13,Futurity,Its looks may be what humans look like in the future.
+14,1,24,14,Vanity,This name was given by Dr. Maccots when he found it.
+15,1,25,15,Snowy,It is mentioned in the legends of some northern countries.
+16,1,27,16,Lilim,It can be best described as a little witch.
+17,1,29,17,Nagisa,"""Nagisa Skin."" This admiring word is derived from this one."
+18,1,32,18,Dryad,This monster is a tree fairy. It inhabits in the forest.
+19,1,34,19,Serenity,"In spite of its photosynthesis ability, it loves to eat."
+20,1,35,20,Silhouette,It has a shield wrapped around it in the FIMBA area.
+21,1,37,21,Night Flyer,Some people consider its beautiful feathers grotesque.
+22,1,38,22,Allure,They say that it sucks the life force out of men.
+23,1,39,23,Poison,They say it is hysterical. But the truth is unknown.
+24,1,40,24,Kasumi,Its breasts tend to get more attention than its battles.
+25,1,41,25,Mia,It draws many people's support with its cute charm.
+26,2,1,26,Tiamat,"Everybody agrees on its strength, but few agrees on its looks."
+27,2,2,27,Dragon,Everybody knows this legendary monster. But few can raise it.
+28,2,5,28,Corkasus,It is difficult to find it since it hardly leaves its homeland.
+29,2,6,29,Tecno Dragon,They say it was made with all the ancient technologies.
+30,2,8,30,Stone Dragon,"It is afraid its destructive power may affect others, and hides in a cave."
+31,2,10,31,Armor Dragon,They say it was used by humans for the ancient battles.
+32,2,11,32,Crab Dragon,It inhabits the lake and rules that lake.
+33,2,12,33,Hound Dragon,It has a habit of hiding things like a dog.
+34,2,16,34,Gariel,"Its head is like holography, for it has a kind of deity."
+35,2,17,35,Oscerot,This monster keeps a collection of oil pot in his house.
+36,2,19,36,Dodongo,This dragon can only be seen in the desert area.
+37,2,23,37,Gidras,This dragon has the mysterious power of Metalner.
+38,2,27,38,Death Dragon,It is said that this dragon was resurrected by Joker's power.
+39,2,35,39,Ragnaroks,They say the ancient culture might have been destroyed by it.
+40,2,39,40,Moo,This dreadful looking dragon hardly appears even in legends.
+41,3,1,41,Ferious,It has the upper body of a Pixie and the lower body of a horse.
+42,3,2,42,Dragoon,This monster is the mixture of a brave Dragon and a just Centaur.
+43,3,3,43,Centaur,"This monster is intelligent, just and proud."
+44,3,8,44,Trojan,It has stonelike hard skin and a stubborn character.
+45,3,10,45,Chariot,It is said that it holds the souls of Durahan and Centaur.
+46,3,11,46,Antares,It is expected to function well both in water and on land.
+47,3,12,47,Celious,It is a loner and does not like to cluster.
+48,3,19,48,Bazoo,"It resides in a harsh location, and has its own values."
+49,3,27,49,Reaper,"It was created by Joker, but it even hates him."
+50,3,39,50,Trotter,It has an excellent reputation as an excellent runner.
+51,3,40,51,Blue Thunder,This tribe is considered to be the descendant of Thor.
+52,4,1,52,PeachTreeBug,"It is cute, but you should know that it is a bit too noisy."
+53,4,4,53,ColorPandora,"This monster has three wills. Victory, love, and effort."
+54,4,29,54,Liquid Cube,It is almost impossible to recognize it in the water.
+55,4,39,55,Dice,This monster has strange patterns on its body.
+56,4,40,56,Tram,This monster is covered by a house-like pattern.
+57,5,2,57,Bethelgeus,"The image of its flying in the sky is called ""Death's Dance."""
+58,5,5,58,Beaclon,"It has a strong body and much power. However, its IQ is low."
+59,5,6,59,Melcarba,A mechanical monster who was made before Henger.
+60,5,8,60,Rocklon,Its rocky body may be hollow inside because it can fly.
+61,5,10,61,Centurion,Its body is covered with well-designed solid armor.
+62,5,12,62,Sloth Beetle,"It resides in a high mountian region, that is covered in snow."
+63,5,19,63,KautRoarKaut,It is used as a means of transportation by some people.
+64,5,27,64,Jaggernaut,Its carmine eyes show its wickedness.
+65,5,33,65,Ducklon,It has a spring that has to be wound each morning.
+66,5,39,66,Eggplantern,It is said that those who waste food are scolded by this monster.
+67,6,2,67,Garlant,It is considered to be a phantom monster in the FIMBA area.
+68,6,6,68,Henger,Monster's souls in Henger rarely maintain their past memories.
+69,6,8,69,Gaia,It is a mechanical monster with a soul from the Golem species.
+70,6,9,70,Omega,It is one of the reason why Zuum and Dino are similar.
+71,6,16,71,ProtoMessiah,An example of how monsters are not merely 'robots.'
+72,6,23,72,Heuy,You will be surprised to see it flying around in the air fast.
+73,6,27,73,End Bringer,This mechanical monster's soul has been infused by Joker.
+74,6,32,74,Automaton,It is said that it was made as a prortype for Henger.
+75,6,35,75,Black Henger,Its black body is an effective camouflage in the night.
+76,6,39,76,Skeleton,Its design is a reminder that death is always with us.
+77,7,1,77,Baby Doll,This monster is a doll of Pixie with a wicked soul.
+78,7,2,78,Draco Doll,The original version of this doll is sold at premium price.
+79,7,6,79,Henger Doll,It is a doll of Henger with a wicked soul.
+80,7,7,80,Wracky,It carries the grudges of the monsters killed in the battle.
+81,7,8,81,Pebbly,This Golem doll is made of stone and is too heavy for children.
+82,7,10,82,Petit Knight,It is the most popular doll and is often out of stock.
+83,7,19,83,Bakky,"It never used to be bought at the shop, but it has become popular."
+84,7,23,84,Metal Glay,This is popular amoung little kids and tends to be their toy.
+85,7,27,85,Tricker,"Contrary to its humorous appearance, its nature is rather evil."
+86,7,32,86,Mocky,Mention of its cheap-looking makes this monster mad.
+87,7,39,87,Dennon,No description.
+88,8,1,88,Pink Golem,It is a smart and quiet monster. It doesn't like battle.
+89,8,2,89,Tyrant,The wings on its back are to small for it to fly.
+90,8,5,90,Strong Horn,"Though it has a large horn, it hardly uses it in battle."
+91,8,6,91,Gobi,It is said that this monster was a weapon for the ancient war.
+92,8,7,92,Mariomax,It always cares how it looks. It is a little bit self conceited.
+93,8,8,93,Golem,"It moves slowly, but its punch is destructive."
+94,8,9,94,Scaled Golem,Some ornaments are made out of its green scale.
+95,8,10,95,Battle Rocks,It is said that a giant's armor turned into this monster.
+96,8,11,96,Dagon,Its hard body can even resist the pressures in the deep ocean.
+97,8,12,97,Big Blue,"Its body is made of ice rock, which will not ever melt."
+98,8,14,98,Moaigon,Its blue eyes remember the sad history between humans and them.
+99,8,15,99,Sleepyhead,It spends most of its time in one place and hardly moves.
+100,8,16,100,Amenhotep,It is popular among noblemen because of its beautiful body.
+101,8,18,101,Pressure,It cannot float on the water like Zilla. It is too heavy.
+102,8,19,102,Dao,It moves each part of its body by using a mysterious magic.
+103,8,23,103,Astro,It is said that this monster contains a Metalner in it.
+104,8,24,104,Titan,"It loves curry rice, but that is not why its body is yellow."
+105,8,27,105,Angolmor,It is a Golem under control of Joker's soul.
+106,8,29,106,Poseidon,"Though it wishes to swim the crawl, it is afraid of water."
+107,8,32,107,Wood Golem,"Unlike Mock, it rarely changes the expression on its face."
+108,8,34,108,Ecologuardia,It is worshipped as God of nature at small shrines in some cities.
+109,8,35,109,Black Golem,People cannot do bad things when they think of it watching them.
+110,8,37,110,Magna,The patterns on its body is considered to be ancient characters.
+111,8,38,111,Marble Guy,"Unlike other Golem monsters, it is rather offensive."
+112,8,39,112,New Bottle,No description.
+113,9,1,113,FairySaurian,We can ride on its back because it has no wings on its back.
+114,9,2,114,Salamander,Its IQ is lower than Dragon's. It is very fast and violent.
+115,9,8,115,Rock Saurian,"It can move quicker than its looks, but it is not very smart."
+116,9,9,116,Zuum,It's pedigree is considered to be similar to the Dino species.
+117,9,11,117,Crab Saurian,It can swim fast in water and it is also a fast runner.
+118,9,12,118,HoundSaurian,"It can run fast, so it is often used to deliver express mail."
+119,9,14,119,Spot Saurian,"Its character is quiet, but it is brave when protecting animals."
+120,9,15,120,Hachiro,It is more intelligent than people think it is.
+121,9,16,121,NobleSaurian,It is considered to be a status symbol among noble people.
+122,9,17,122,Tasman,This monster believes only in brute stength.
+123,9,19,123,Sand Saurian,"Most monsters dislike the desert, but this one does not."
+124,9,24,124,Mustardy,"It is playful, and tends to carry its jokes too far."
+125,9,27,125,Basilisk,It confuses its enemies with a special pattern on its body.
+126,9,29,126,JellySaurian,Its body is made up gel and can be a comfortable type of cushion.
+127,9,32,127,Wood Saurian,It is cowardly and runs into the forest when it sees humans.
+128,9,34,128,AlohaSaurian,Girls dream of riding on this one when they get married.
+129,9,35,129,BlackSaurian,Its body with a black luster attracts fashionable people.
+130,9,37,130,ShellSaurian,Various Knights rode on its back and fight in the ancient era.
+131,9,38,131,Naga Saurian,"Since it is a descendant from naga, it is rather violent."
+132,9,39,132,ZebraSaurian,Its striped body is the least conspicuous in savanna region.
+133,10,1,133,Lesziena,It proves that women also participated in ancient battles.
+134,10,2,134,Vesuvius,Its helmet has a curved dragon figure on it.
+135,10,5,135,Hercules,It has excellent strength and a dull sword sword won't even scratch it.
+136,10,8,136,Kelmadics,This stone armor is too heavy for normal people to wear.
+137,10,10,137,Durahan,Ancient armor has mutated into the monster with this name.
+138,10,11,138,Lorica,"This armor, made out of the shell of Arrow Heads, is light and easy to handle."
+139,10,12,139,Hound Knight,Its helmet is shaped like a Tiger's figure.
+140,10,21,140,Garuda,"It is said that the legendary general, Garuda, used to wear it."
+141,10,23,141,Metal Glory,There is no record showing that this armor has been used in the past.
+142,10,27,142,Genocider,It is said that a curse has been put upon this armor.
+143,10,32,143,Wood Knight,Poor knights made this armor out of trees in the ancient era.
+144,10,39,144,Shogun,This armor was discovered in an eastern country.
+145,10,40,145,Ruby Knight,It is said that it was the armor for the ancient royal guard.
+146,10,41,146,Kokushi Muso,This name means that no one can equal it.
+147,11,6,147,Renocraft,This monster is a prototype made by enginners prior to Hengers.
+148,11,8,148,Priarocks,This monster inhabits the desert and it is nocturnal.
+149,11,10,149,Plated Arrow,The real design of this monster is in the form of vapor.
+150,11,11,150,Arrow Head,"Since it has a very hard shell, it is hardly KO'd in battle."
+151,11,24,151,MustardArrow,Dropping tears does not always mean sadness.
+152,11,27,152,Selketo,It has thousands of thorns and stings whoever touches it.
+153,11,32,153,Log Sawer,Its body is made out of solid oak and is not soft but imflammable
+154,11,39,154,Sumopion,"It is strange looking, but it does practice hard every day."
+155,12,1,155,Daton,"It is quite playful, but sometimes it injures its trainers."
+156,12,8,156,Rock Hound,It cannot run fast because its body is made out of rocks.
+157,12,9,157,Datonare,No one equals its speed when it runs through the forest.
+158,12,12,158,Tiger,Many ordinary people keep this monster.
+159,12,14,159,Hare Hound,This monster is very cute and will make you want to keep it.
+160,12,16,160,Balon,"Because of its solemn nature, ordinary people doesn't keep it."
+161,12,24,161,Mono Eyed,It is weak in measuring exact distance with its single eye.
+162,12,29,162,Jelly Hound,"After it passes by, even warm air turns into cool air."
+163,12,34,163,Tropical Dog,It is popular mainly in the southern region.
+164,12,35,164,Terror Dog,It takes extra care properly maintain its beautiful hair.
+165,12,37,165,Jagd Hound,Its four eyes will not function at the same time.
+166,12,38,166,Cabalos,Ordinary people are prohibited from keeping this monster.
+167,12,39,167,White Hound,This monster has pure white hair and much is made of it.
+168,13,1,168,Fairy Hopper,It can jump a little higher that other hoppers.
+169,13,2,169,Draco Hopper,"Though its potential is high, few peaple raise suck a scary looking monster."
+170,13,12,170,Skipper,It will move seductively when someone touches its horn.
+171,13,13,171,Hopper,"It is a naughty monster, but it is loved by many trainers."
+172,13,17,172,Mustachios,This monster is always clustered with companions.
+173,13,19,173,Emerald Eye,"It is said that it loves to eat jewelry, especially emeralds."
+174,13,23,174,Springer,Its body shows a soft luster because of its Metalner blood.
+175,13,24,175,Rear Eyed,It has the third eye in the back of its head.
+176,13,25,176,Snow Hopper,Snowboarding was created by copying the way this monster skis.
+177,13,26,177,Pink Hopper,"It is a combined monster from two other popular monsters, but it is not popular."
+178,13,27,178,Sneak Hopper,It is very self centered and it has a cunning character.
+179,13,32,179,Woody Hopper,It is covered with body hair that looks like bark at glance.
+180,13,39,180,Frog Hopper,It likes to play battle games with kids and be mischievous.
+181,14,1,181,Fairy Hare,"It worries about what people think, and is very shy."
+182,14,8,182,Rocky Fur,"Its body is hard as rocks, but too heavy to move quickly."
+183,14,9,183,Scaled Hare,Its ability to jump is better than that of other Hares.
+184,14,12,184,Blue Hare,Its blue body is considered to be cute and is high in popularity.
+185,14,14,185,Hare,"Hare is a little monster, but it can move quickly and it is brave."
+186,14,16,186,Prince Hare,It contains deity blood and has a refined appearance.
+187,14,24,187,Four Eyed,It accurately aims at its target with its four eyes.
+188,14,29,188,Jelly Hare,"Its body is firmly constructed, except its flabby belly."
+189,14,34,189,Leaf Hare,"When it excites, the leaf pattern on its back will become embossed."
+190,14,35,190,Evil Hare,"Unlike other Hare monsters, it's a nocturnal monster."
+191,14,37,191,Wild Hare,This is a manly looking monster with famous bushy eyebrows.
+192,14,38,192,Purple Hare,"It can launch sharp attacks, but it is weak in defense."
+193,14,39,193,Tornado,No description.
+194,15,2,194,Magmax,"It is active, but it becomes lazy when it is kept by humans."
+195,15,8,195,Higante,"It has an abundant knowledge, but it is not good at applying it."
+196,15,10,196,War Baku,It functioned well as a shield in the ancient battle.
+197,15,12,197,Icebergy,"It is a glutton, so ordinary people do not raise it."
+198,15,14,198,Gontar,It is curious and wants to accept all kinds of challenges.
+199,15,15,199,Baku,"It doesn't like trouble, and it is an innocent monster."
+200,15,17,200,Nussie,It is the type of monster that won't risk anything.
+201,15,27,201,Baku Clown,"It was born as a tool of devils, but it forgets its evil duty."
+202,15,29,202,Giga Pint,It is quiet and patient. Its body of gel is very flexible.
+203,15,39,203,Dango Zaka,No description.
+204,16,1,204,Pink Mask,This monster has a pattern of the Pixies' dance on its cloak.
+205,16,8,205,Stone Mask,It is a guardian deity for the Golem species.
+206,16,9,206,Scaled Mask,Its mask is covered with scales like Dino and Zuum.
+207,16,12,207,Fanged Mask,It is a descendant from Tiger. Its mask is framed by fangs.
+208,16,14,208,Furred Mask,It is a guardian deity for the Hare species.
+209,16,16,209,Gali,It is said that its existence is close to that of God.
+210,16,24,210,Suezo Mask,Its single eye does not actually see anything.
+211,16,29,211,Aqua Mask,There is no gelled portion on the body of this monster.
+212,16,34,212,Colorful,It has a strong life force and loves peace.
+213,16,35,213,Galirous,Its cloak is as hard as platinum and is as smooth as silk.
+214,16,37,214,Brown Mask,There is an indescribable smile on its mask.
+215,16,38,215,Purple Mask,It is a guardian deity for the Naga species and likes battle.
+216,16,39,216,Happy Mask,Its bright expression make you forget about your worries.
+217,17,2,217,Draco Kato,It contains dragon's violent blood and likes battle.
+218,17,12,218,Blue Kato,Its quick movement makes its enemy confused.
+219,17,16,219,Gordish,This monster seems to take a philosophical view of life.
+220,17,17,220,Kato,"It looks like an old cat, and loves to drink olive oil."
+221,17,24,221,Citronie,It likes using a fighting style that confuses its enemies.
+222,17,26,222,Pink Kato,This monster likes its own cherry blossom colored body.
+223,17,27,223,Tainted Cat,It rejects everything in this world and lives alone.
+224,17,39,224,Axe,No description.
+225,18,1,225,Pink Zilla,"It has a beautiful white body, and strong confidence."
+226,18,12,226,Gooji,"With its huge horn, it can even sink a large ship."
+227,18,18,227,Zilla,Few trainers keep it because it is a glutton and is too big.
+228,18,29,228,Gigalon,It was believed the ocean had eyes until it was discovered.
+229,18,39,229,Deluxe Liner,It swims confidently but there is something anxious about it.
+230,19,19,230,Bajarl,"It is naughty. When someone scolds it, it hides in a pot."
+231,19,27,231,Jaba,It is said that this monster was made to be used as an assassin.
+232,19,39,232,Jimujoru,No description.
+233,19,40,233,Magic Bajarl,It is considered to be a descendant from Magic in FIMBA area.
+234,19,41,234,Ultrarl,It is said that this kind monster is a kind of hero of justice.
+235,20,1,235,Mum Mew,It is a Pixie monster that uses the body form of a Mew.
+236,20,12,236,Bowwow,This monster is related to the Tiger family.
+237,20,14,237,Eared Mew,It doesn't want people to pick it up by its long ears.
+238,20,20,238,Mew,This cat doll monster loves to sing very much.
+239,20,29,239,Aqua Mew,"A Jell, that had longed to be a Mew doll, has turned into this monster."
+240,20,39,240,Swimmer,Training in the water will make the entire body toned up.
+241,21,21,241,Phoenix,This is a legendary monster that never gives up.
+242,21,39,242,Cinder Bird,"Contrary to its looks, it is burning furiously inside."
+243,22,22,243,Ghost,"A dead monster, that was loved by its trainer, has turned into this one."
+244,22,39,244,Chef,It flies around cooking a large variety of food at one time.
+245,23,1,245,Love Seeker,"It is a Metalner combined with a Pixie to understand ""love."""
+246,23,23,246,Metalner,It is considered to have come from a planet far from here.
+247,23,24,247,Metazorl,It is combined with an expressive monster: Suezo
+248,23,39,248,Chinois,The dish that it cooked tastes so good that makes you smile.
+249,24,1,249,Pink Eye,It will become depressed if it is not treated as humans.
+250,24,8,250,Rocky Suezo,It does not like sandy areas very much because it is quite heavy.
+251,24,9,251,Melon Suezo,It loves fruits and sometimes encroaches on someone's farm.
+252,24,12,252,Horn,"In the IMa area, the horn of this monster is very very small."
+253,24,14,253,Furred Suezo,This monster likes adventure and is always exploring.
+254,24,16,254,Orion,It is said that a microcosm can be seen deep inside its eye.
+255,24,24,255,Suezo,It is popular because of its human-like expressions
+256,24,29,256,Clear Suezo,It is a Jell monster that has transformed itself to Suezo.
+257,24,34,257,Green Suezo,"Unlike other Suezo monsters, it's an earnest monster."
+258,24,35,258,Red Eye,Its red eye is due to the fact that it stays up late.
+259,24,37,259,Fly Eye,Everything it looks at is seen in a multiplied form.
+260,24,38,260,Purple Suezo,It thinks that to put forth its maximum strength is embarrassing.
+261,24,39,261,Gold Suezo,"This is a very rare monster, for its body is the color gold."
+262,24,40,262,Silver Suezo,"This is also rare, for its body is the color silver."
+263,24,41,263,Bronze Suezo,"It is another rare one, for its body is the color bronze."
+264,24,42,264,Birdie,"Say, ""Nice Shot"" when you want to praise it for its good work."
+265,24,43,265,Sueki Suezo,"It is a man made monster, and its form is based on Suezo."
+266,25,1,266,Pong Pong,This one is a meat lover and a glutton.
+267,25,12,267,Pierry,This monster is used to gather lumps of ice in high mountians.
+268,25,14,268,Wondar,It always forgets what it is supposed to do.
+269,25,17,269,Bengal,All Jills are gluttons. This one loves to eat fruits.
+270,25,24,270,Zorjil,It has a high IQ and it often gets lost in its thoughts.
+271,25,25,271,Jill,This legendary monster can be found in the snow mountains.
+272,25,27,272,Skull Capped,It is scheming but not enough smart to deceive someone.
+273,25,39,273,Pithecan,There is a scholar who says that humans are descended from this monster.
+274,26,1,274,Manna,It believes that it is the most beautiful monster of all.
+275,26,2,275,Draco Mocchi,"Contrary to its cute movements, it is a violent monster."
+276,26,10,276,KnightMocchi,Some sections of its body have been hardened like armor.
+277,26,12,277,Fake Penguin,"It is similar to a penguin, but they are not related at all."
+278,26,17,278,Nyankoro,"Since it is a descendant from Kato, it looks like and old cat."
+279,26,26,279,Mocchi,Its sticky skin and cute movements attaract a lot of trainers.
+280,26,27,280,Hell Pierrot,"Though it is a descendant from Joker, it cannot turn into a complete fiend."
+281,26,29,281,Gelatine,Its flabby looking body is actually firmer than it appears.
+282,26,39,282,GentleMocchi,It is a phantom monster and only a skillful and lucky trainer can get it.
+283,26,40,283,Caloriena,This monster never ceases its exercise and diet regiment.
+284,26,41,284,Mocchini,It always wears black tights in order to protect its legs. It is a fast runner.
+285,27,1,285,Hell Heart,"According to legends, it was an atrocious monster."
+286,27,2,286,Flare Death,A descendant of a dragon has turned into an atrocious Joker.
+287,27,8,287,Tombstone,This is a Joker monster with the strength of the Golem species.
+288,27,12,288,Blue Terror,It painlessly kills its enemy with one deadly attack.
+289,27,19,289,Odium,It is said that its spell causes its enemy to be unable to move.
+290,27,27,290,Joker,This monster was so atrocious that it was once sealed up.
+291,27,39,291,Bloodshed,This is the most aggressive monster of all the Joker species.
+292,28,12,292,Frozen Gaboo,Its body temperature is always kept low even during summer.
+293,28,27,293,Dokoo,It carries a type of poison that paralyzes other monsters.
+294,28,28,294,Gaboo,"Contrary to its scary appearance, it is earnest and shy."
+295,28,29,295,Jelly Gaboo,"It is similar to Jell, but it has no core like that of Jell."
+296,28,39,296,GabooSoldier,"This monster is hot blooded, but often make careless mistakes."
+297,29,1,297,Pink Jam,This monster smells slightly sweet. But it is inedible.
+298,29,8,298,Wall Mimic,It likes to turn into a stone wall in order to tease people.
+299,29,9,299,Scaled Jell,Its gelled sections are harder than its scaled sections.
+300,29,12,300,Icy Jell,There is a type of confectionery that is modeled after this one.
+301,29,14,301,Muddy Jell,This monster is not a descendant from Gaboo.
+302,29,16,302,Noble Jell,"This monster has high pride, but it is also very earnest."
+303,29,24,303,Eye Jell,This monster can see through everything with its eye ball.
+304,29,29,304,Jell,It transfigures its gelled body and attacks its enemies.
+305,29,34,305,Chloro Jell,It needs more water than other Jell monsters.
+306,29,35,306,Clay,"Though its name is Clay, it is rather similar to coal tar."
+307,29,37,307,Worm Jell,Its eyes are located in the lower portion of its body.
+308,29,38,308,Purple Jell,Its memory is so bad that it needs a lot of looking after.
+309,29,39,309,Metal Jell,"It is very rare. Even if you find it, it will run away quickly."
+310,30,27,310,Siren,It has the ability to not only manipulate water but also wind.
+311,30,30,311,Undine,This is a legendary monster living deep in the ocean.
+312,30,39,312,Mermaid,This monster appears in fairy tales once in a while.
+313,31,8,313,Ammon,It usually stays completely still in one place like a fossil.
+314,31,10,314,Knight Niton,Its shell is the hardest of all the Niton species.
+315,31,17,315,Stripe Shell,This monster is very patient when fighting.
+316,31,19,316,Alabia Niton,"""Alabia"" means to appear and disappear."
+317,31,23,317,Metal Shell,Its body is made out of a strange substance.
+318,31,29,318,Clear Shell,Its gelled section is almost as hard as its shell.
+319,31,31,319,Niton,"When something surprises it, it hides in its shell quickly."
+320,31,32,320,Baum Kuchen,"""Baumkuchen"" is German for ""tree cake."" This is similar to it."
+321,31,39,321,Dribbler,"""Kickball"" is the most popular sport in the IMa area."
+322,31,40,322,Radial Niton,"It is said that there was a play titled ""Cars"" in the ancient era."
+323,31,41,323,Disc Niton,It has a pattern design that looks like a disc stone.
+324,32,27,324,Ebony,This monster lives to confuse and surprise humans.
+325,32,32,325,Mock,This tree-like monster has a crooked character.
+326,32,39,326,White Birch,It is more resistant to cold than other Mock monsters.
+327,32,40,327,Pole Mock,It stands in dark places and eats bugs that were lured.
+328,33,8,328,Blocken,This monster's duck-like shape is made up of several rocks.
+329,33,24,329,Ticken,It is said that it contains the secret of the lost technology.
+330,33,33,330,Ducken,This toy-like monster is an artifact of the ancient era.
+331,33,39,331,Watermelony,"On the beach, it is often mistaken for a watermelon."
+332,33,40,332,Cawken,Some people consider this monster to be unlucky.
+333,34,1,333,Queen Plant,This monster is considered to be the strongest in the FIMBA area.
+334,34,8,334,Rock Plant,It brings forth buds out of hard rock. Its life force is strong.
+335,34,9,335,Scaled Plant,"Its green body is luminous at night, so many people have it."
+336,34,12,336,Blue Plant,"This monster is obedient, easy to take care of, and colorful."
+337,34,14,337,Hare Plant,It is so active that it hardly ever remains in the same place.
+338,34,16,338,Gold Plant,Noble people tend to like this flashy Plant monster.
+339,34,24,339,Usaba,It is more difficult to grow than any other Plant monster.
+340,34,29,340,Mirage Plant,Its quiet character is often mentioned in sad songs.
+341,34,34,341,Plant,"Thought it's not powerful, it can win by attacking repetitively."
+342,34,35,342,Black Plant,A soot-like substance makes its body black.
+343,34,37,343,Fly Plant,It hates its name and is gets mad when someone calls its name.
+344,34,38,344,Weeds,It can survive for several days without being fed.
+345,34,39,345,Raggae Plant,This monster loves a certain kind of music very much.
+346,35,1,346,Romper Wall,It's so friendly that it often tries to take too much care of humans.
+347,35,8,347,Obelisk,"It is rather active, so it cannot be used as a stone wall."
+348,35,9,348,Jura Wall,"Noodles, which are made by using its moist body, are tasty."
+349,35,12,349,Blue Sponge,You are guaranteed a good night's sleep if you sleep on it.
+350,35,14,350,Furred Wall,"Though it has fluffy hair, its body is hard."
+351,35,16,351,Ivory Wall,It has the pattern of God that is embossed on its body.
+352,35,24,352,Sandy,Its conspicuous figure is easy to spot even if it has escaped.
+353,35,29,353,Ice Candy,"During summer, its body is cool and comfortable to lie on."
+354,35,34,354,New Leaf,It'll be filled with energy when half of its body is buried.
+355,35,35,355,Monol,It will separate into pieces to cushion against enemy's attacks.
+356,35,37,356,Soboros,It has eyes unlike other Monol and can see its enemy.
+357,35,38,357,Asphaltum,"Ants try to make colonies in it, but it is impossible."
+358,35,39,358,Galaxy,This monster relates to the Sky monster in the FIMBA area.
+359,35,40,359,Dominos,These monsters like to gather and form a line.
+360,35,41,360,Scribble,This monster is rarely found in the IMa area.
+361,36,8,361,Rock Ape,It is a lazy monster and sits as still as a stone staute.
+362,36,14,362,Gibberer,Female trainers try not to teach it some kind of techniques.
+363,36,16,363,Bossy,"Though it is one of the laziest monsters, it is quite capable."
+364,36,34,364,Tropical Ape,This monster sprays a scent that decreases fighting spirits.
+365,36,36,365,Ape,There are many legends regarding this one's laziness.
+366,36,39,366,Gold Dust,"It seems to be decadent, but it is actually a hard worker."
+367,37,1,367,Red Worm,It may emerge as a beautiful monster once in a long while.
+368,37,8,368,Rock Worm,"It has beautiful eyes, but they do not work well in the light."
+369,37,9,369,Scaled Worm,It hides its legs and uses them only for quick movement.
+370,37,12,370,Drill Tusk,Its drill-like tusks can break even hard rocks into pieces.
+371,37,14,371,Corone,A chocolate filled sweet pastry is named after this one.
+372,37,16,372,Mask Worm,"Though it is a descendant from God, it is not all that tough."
+373,37,24,373,Eye Worm,"It has four fake eyes, and single real eye is usually hidden in its forehead."
+374,37,29,374,Jelly Worm,Its flabby body cushions against its enemy's attack.
+375,37,34,375,Flower Worm,The contrast of its red body and blue eyes is very buautiful.
+376,37,35,376,Black Worm,This monster is used to carry heavy objects.
+377,37,37,377,Worm,Its abilities are all in balance and it has no weak points.
+378,37,38,378,Purple Worm,It frightens its enemies with its multitude of shiny eyes.
+379,37,39,379,Express Worm,None can compete with its speed as long as it is on its line.
+380,38,1,380,Ripper,"Its IQ is high, but it often mistakes itself for a human."
+381,38,8,381,Trident,It likes to kill its enemies with one deadly attack.
+382,38,9,382,Stinger,It always holds its tongue out to cool its body tempature.
+383,38,12,383,Striker,Its obedient character is rare for the Naga species.
+384,38,14,384,Edgehog,"It is descended from the Hare species, but it is very violent."
+385,38,16,385,Bazula,It is very careful and is rarely caught off guard.
+386,38,24,386,Cyclops,It is so clever that it often disagrees with its trainer.
+387,38,29,387,Aqua Cutter,It is a Jell monster that is shaped in the form of Naga.
+388,38,34,388,Jungler,It hides in the forest and hunts animals.
+389,38,35,389,Crimson Eyed,It likes to damage its enemies little by little.
+390,38,37,390,Earth Keeper,"It won't forgive anyone, even humans, that destroy nature."
+391,38,38,391,Naga,This one's cruel fighting style horrifies other monsters.
+392,38,39,392,Time Noise,The secret goal of this one has is to obtain immortality. 
+393,2,40,393,Magma Heart,It will immediately attack whoever invades its territory.
+394,3,41,394,Sniper,This monster is feared as the dominater of the Mandy Desert.
+395,8,40,395,Sand Golem,It will not forgive anyone who breaks its quiet living.
+396,9,40,396,Wild Saurian,It is an active Zuum-type monster that has become wild.
+397,11,40,397,Silver Face,It has escaped from its trainers because of hard training.
+398,12,40,398,Kamui,It escaped being executed for killing humans.
+399,13,40,399,Bloody Eye,Its unique red eyes have caused it to be put on display.
+400,17,40,400,Crescent,An evil spirit is dwelling in it because of a forbidden drink.
+401,18,40,401,Zilla King,It was awakened from an ancient sleep by a major earthquake.
+402,21,40,402,Blue Phoenix,"Unlike other Phoenix monsters, it is very violent."
+403,25,40,403,Bighand,This kind of monsters are considered to be extinct.
+404,28,40,404,Mad Gaboo,A tool to make it obey is buried in its forehead.
+405,35,42,405,Burning Wall,This one escaped from its trainer while its stable was on fire.
+406,36,40,406,King Ape,This monster is feared as the dominater of the Parepare Jungle.
+407,38,40,407,Punisher,It is said that it was actually raised by another monster.
+408,24,44,408,White Suezo,It was raised very carefully because of its pure white body.
+409,26,42,409,White Mocchi,It has changed the color of its skin in order to be conspicuous.
+410,7,40,410,Satan Clause,A festival doll became possessed and then became this monster.
+411,8,41,411,ForwardGolem,This monster has a strong will to rush into its goals.
+412,14,40,412,Kung Fu Hare,It trains daily to master the ancient art of kung fu.
+413,15,40,413,Shishi,It is said that anyone bitten by it will be lucky for a year.
+414,17,41,414,Ninja Kato,It originated from a Kato with master Ninja skills.
+415,19,42,415,Boxer Bajarl,It has great footwork even without feet.

@@ -2,7 +2,7 @@
     Entity representing a monster breed.
 #>
 class Breed {
-    [ValidateRange(0, 37)]
+    [ValidateRange(1, 38)]
     [int] $BreedId
 
     [ValidateLength(3, 12)]

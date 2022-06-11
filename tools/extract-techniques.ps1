@@ -144,7 +144,7 @@ function Get-BreedTechnique {
             }
 
             $technique.BreedId = $Breed.BreedId
-            $technique.TechniqueId = ($technique.BreedId * $MaxTechniques) + ($technique.TechniqueNumber + 1)
+            $technique.TechniqueId = (($technique.BreedId - 1) * $MaxTechniques) + ($technique.TechniqueNumber + 1)
             foreach ($dataPoint in $dataPoints) {
                 $technique.$dataPoint = $match.Groups[$dataPoint].Value
             }

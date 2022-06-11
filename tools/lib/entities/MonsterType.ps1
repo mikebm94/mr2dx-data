@@ -7,7 +7,7 @@ class MonsterTypeBase {
 
     # ID of the monster type's primary breed.
     # Must be one of the breeds defined in the 'Breeds' table.
-    [ValidateRange(0, 37)]
+    [ValidateRange(1, 38)]
     [int] $MainBreedId
 
     # The number of the monster card that is obtained from raising this monster type
@@ -40,7 +40,7 @@ class MonsterTypeIntermediate : MonsterTypeBase {
       it is an implementation detail. This also allows a foreign-key to be enforced between this column
       and the 'Breeds' table in generated databases.
     #>
-    [ValidateRange(0, [int]::MaxValue)]
+    [ValidateRange(1, [int]::MaxValue)]
     [int] $SubBreedId
 }
 
@@ -54,6 +54,6 @@ class MonsterType : MonsterTypeBase {
         'MonsterTypeName', 'MonsterTypeDescription'
     )
 
-    [ValidatePattern('^(?:\d|[1-9]\d|)$')]
+    [ValidatePattern('^(?:[1-9][0-9]?|)$')]
     [string] $SubBreedId
 }

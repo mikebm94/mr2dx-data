@@ -4,7 +4,7 @@
 #>
 class TechniqueBase {
     # The ID of the monster breed that the technique is available to.
-    [ValidateRange(0, 37)]
+    [ValidateRange(1, 38)]
     [int] $BreedId
 
     # The ID of the range that the technique can be performed at.
