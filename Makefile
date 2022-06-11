@@ -136,12 +136,12 @@ $(downloaded_dir)/LegendCupTechsSrc.js: \
 		tools/lib/file-utils.ps1
 	$(PWSH) tools/download-LegendCupTechsSrc.ps1
 
-# Don't clean scraped data files by default.
+# Don't clean downloaded data files by default.
 # Shouldn't need to connect to the internet every time
 # the other directories are cleaned.
 .PHONY: clean
 clean:
-	$(PWSH) tools/clean.ps1 SQLiteData FinishedData ExtractedData GameFiles
+	$(PWSH) tools/clean.ps1 SQLiteData FinishedData ScrapedData ExtractedData GameFiles
 
 .PHONY: clean-all
 clean-all:
