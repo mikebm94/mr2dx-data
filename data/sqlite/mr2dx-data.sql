@@ -109,7 +109,7 @@ CREATE TABLE Techniques (
 
     DurationMiss  REAL  NOT NULL  CHECK ( DurationMiss BETWEEN 1.0 AND 15.0 ),
     
-    UNIQUE (BreedId, TechniqueRangeId, Slot)
+    UNIQUE (BreedId, TechniqueRangeId, Slot),
     UNIQUE (BreedId, TechniqueName)
 );
 
