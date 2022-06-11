@@ -136,7 +136,6 @@ $(scraped_dir)/TechniquesLegendCup.csv: \
 $(finished_dir)/Techniques.csv: \
 		$(intermediate_dir)/ForceTypes.csv $(entities_dir)/ForceType.ps1 \
 		$(intermediate_dir)/TechniqueNatures.csv $(entities_dir)/TechniqueNature.ps1 \
-		$(intermediate_dir)/TechniqueRanges.csv $(entities_dir)/TechniqueRange.ps1 \
 		$(intermediate_dir)/TechniqueTypes.csv $(entities_dir)/TechniqueType.ps1 \
 		$(extracted_dir)/TechniquesExtracted.csv \
 		$(scraped_dir)/TechniquesLegendCup.csv \

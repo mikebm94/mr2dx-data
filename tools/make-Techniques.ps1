@@ -23,7 +23,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/entities/ForceType.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/Technique.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueNature.ps1')
-. (Join-Path $PSScriptRoot 'lib/entities/TechniqueRange.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueType.ps1')
 
 
