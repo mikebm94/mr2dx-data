@@ -125,6 +125,7 @@ $(extracted_dir)/TechniquesExtracted.csv: \
 
 $(scraped_dir)/TechniquesLegendCup.csv: \
 		$(downloaded_dir)/LegendCupTechsSrc.js \
+		$(finished_dir)/Breeds.csv
 		tools/scrape-techniques.ps1 \
 		tools/lib/file-utils.ps1 \
 		tools/lib/entities/Breed.ps1 \
