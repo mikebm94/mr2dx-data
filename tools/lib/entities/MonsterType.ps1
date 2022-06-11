@@ -19,6 +19,7 @@ class MonsterTypeBase {
     [ValidatePattern('^[A-Z][a-z]+(?: ?[A-Z][a-z]+)*$')]
     [string] $MonsterTypeName
 
+    [ValidateLength(0, 96)]
     [string] $MonsterTypeDescription
 }
 
