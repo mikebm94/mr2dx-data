@@ -9,16 +9,9 @@ downloaded_dir = $(intermediate_dir)/downloaded
 extracted_dir = $(intermediate_dir)/extracted
 scraped_dir = $(intermediate_dir)/scraped
 gamefiles_dir = game-files
-
-finished_data_files = \
-	$(finished_dir)/Breeds.csv \
-	$(finished_dir)/MonsterTypes.csv \
-	$(finished_dir)/ForceTypes.csv \
-	$(finished_dir)/TechniqueRanges.csv \
-	$(finished_dir)/TechniqueNatures.csv \
-	$(finished_dir)/TechniqueTypes.csv \
-	$(finished_dir)/Techniques.csv \
-	$(finished_dir)/Errantries.csv
+tools_dir = tools
+lib_dir = $(tools_dir)/lib
+entities_dir = $(lib_dir)/entities
 
 game_technique_files = \
 	$(gamefiles_dir)/mf2/data/mon/kapi/ka_ka_wz.dat \
@@ -62,6 +55,16 @@ game_technique_files = \
 
 game_files = $(game_technique_files)
 
+finished_data_files = \
+	$(finished_dir)/Breeds.csv \
+	$(finished_dir)/MonsterTypes.csv \
+	$(finished_dir)/ForceTypes.csv \
+	$(finished_dir)/TechniqueRanges.csv \
+	$(finished_dir)/TechniqueNatures.csv \
+	$(finished_dir)/TechniqueTypes.csv \
+	$(finished_dir)/Techniques.csv \
+	$(finished_dir)/Errantries.csv
+
 
 .PHONY: all
 all: $(finished_data_files)
@@ -69,105 +72,95 @@ all: $(finished_data_files)
 .PHONY: sqlite-db
 sqlite-db: $(sqlite_dir)/mr2dx-data.db
 
-$(sqlite_dir)/mr2dx-data.db: \
-		$(finished_data_files) \
-		$(sqlite_dir)/mr2dx-data.sql \
-		tools/build-SQLiteDatabase.ps1
-	$(PWSH) tools/build-SQLiteDatabase.ps1
-
-$(game_files) &: tools/extract-game-files.ps1
-	$(PWSH) tools/extract-game-files.ps1
+$(game_files) &: $(tools_dir)/extract-game-files.ps1
+	$(PWSH) $(tools_dir)/extract-game-files.ps1
 
 $(finished_dir)/%s.csv: \
 		$(intermediate_dir)/%s.csv \
-		tools/make-%s.ps1 \
-		tools/lib/file-utils.ps1 \
-		tools/lib/entities/%.ps1
-	$(PWSH) tools/make-$*s.ps1
-
-$(scraped_dir)/ErrantryTechniquesLegendCup.csv: \
-		$(downloaded_dir)/LegendCupTechsSrc.js \
-		$(finished_dir)/Breeds.csv \
-		$(finished_dir)/Techniques.csv \
-		tools/lib/entities/Breed.ps1 \
-		tools/lib/entities/Technique.ps1 \
-		tools/lib/entities/ErrantryTechnique.ps1 \
-		tools/lib/file-utils.ps1 \
-		tools/scrape-ErrantryTechniques.ps1
-	$(PWSH) tools/scrape-ErrantryTechniques.ps1
-
-$(finished_dir)/Techniques.csv: \
-		$(extracted_dir)/TechniquesExtracted.csv \
-		$(scraped_dir)/TechniquesLegendCup.csv \
-		$(intermediate_dir)/ForceTypes.csv \
-		$(intermediate_dir)/TechniqueNatures.csv \
-		$(intermediate_dir)/TechniqueRanges.csv \
-		$(intermediate_dir)/TechniqueTypes.csv \
-		tools/lib/entities/ForceType.ps1 \
-		tools/lib/entities/TechniqueNature.ps1 \
-		tools/lib/entities/TechniqueRange.ps1 \
-		tools/lib/entities/TechniqueType.ps1 \
-		tools/make-Techniques.ps1 \
-		tools/lib/file-utils.ps1 \
-		tools/lib/entities/Technique.ps1
-	$(PWSH) tools/make-Techniques.ps1
+		$(tools_dir)/make-%s.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(entities_dir)/%.ps1
+	$(PWSH) $(tools_dir)/make-$*s.ps1
 
 $(extracted_dir)/TechniquesExtracted.csv: \
-		$(intermediate_dir)/Breeds.csv \
-		$(intermediate_dir)/TechniqueRanges.csv \
+		$(intermediate_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \
+		$(intermediate_dir)/TechniqueRanges.csv $(entities_dir)/TechniqueRange.ps1 \
 		$(game_technique_files) \
-		tools/extract-techniques.ps1 \
-		tools/lib/entities/Breed.ps1 \
-		tools/lib/entities/Technique.ps1 \
-		tools/lib/entities/TechniqueRange.ps1 \
-		tools/lib/file-utils.ps1
-	$(PWSH) tools/extract-techniques.ps1
-
-$(scraped_dir)/TechniquesLegendCup.csv: \
-		$(downloaded_dir)/LegendCupTechsSrc.js \
-		$(finished_dir)/Breeds.csv
-		tools/scrape-techniques.ps1 \
-		tools/lib/file-utils.ps1 \
-		tools/lib/entities/Breed.ps1 \
-		tools/lib/entities/Technique.ps1
-	$(PWSH) tools/scrape-techniques.ps1
+		$(lib_dir)/file-utils.ps1 \
+		$(entities_dir)/Technique.ps1 \
+		$(tools_dir)/extract-techniques.ps1
+	$(PWSH) $(tools_dir)/extract-techniques.ps1
 
 $(downloaded_dir)/LegendCupTechsSrc.js: \
-		tools/download-LegendCupTechsSrc.ps1 \
-		tools/lib/file-utils.ps1
-	$(PWSH) tools/download-LegendCupTechsSrc.ps1
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/download-LegendCupTechsSrc.ps1
+	$(PWSH) $(tools_dir)/download-LegendCupTechsSrc.ps1
 
-# Don't clean downloaded data files by default.
-# Shouldn't need to connect to the internet every time
-# the other directories are cleaned.
+$(scraped_dir)/TechniquesLegendCup.csv: \
+		$(finished_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \
+		$(downloaded_dir)/LegendCupTechsSrc.js \
+		$(lib_dir)/file-utils.ps1 \
+		$(entities_dir)/Technique.ps1 \
+		$(tools_dir)/scrape-techniques.ps1
+	$(PWSH) $(tools_dir)/scrape-techniques.ps1
+
+$(finished_dir)/Techniques.csv: \
+		$(intermediate_dir)/ForceTypes.csv $(entities_dir)/ForceType.ps1 \
+		$(intermediate_dir)/TechniqueNatures.csv $(entities_dir)/TechniqueNature.ps1 \
+		$(intermediate_dir)/TechniqueRanges.csv $(entities_dir)/TechniqueRange.ps1 \
+		$(intermediate_dir)/TechniqueTypes.csv $(entities_dir)/TechniqueType.ps1 \
+		$(extracted_dir)/TechniquesExtracted.csv \
+		$(scraped_dir)/TechniquesLegendCup.csv \
+		$(lib_dir)/file-utils.ps1 \
+		$(entities_dir)/Technique.ps1 \
+		$(tools_dir)/make-Techniques.ps1
+	$(PWSH) $(tools_dir)/make-Techniques.ps1
+
+$(scraped_dir)/ErrantryTechniquesLegendCup.csv: \
+		$(finished_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \
+		$(finished_dir)/Techniques.csv $(entities_dir)/Technique.ps1 \
+		$(downloaded_dir)/LegendCupTechsSrc.js \
+		$(entities_dir)/ErrantryTechnique.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/scrape-ErrantryTechniques.ps1
+	$(PWSH) $(tools_dir)/scrape-ErrantryTechniques.ps1
+
+$(sqlite_dir)/mr2dx-data.db: \
+		$(finished_data_files) \
+		$(sqlite_dir)/mr2dx-data.sql \
+		$(tools_dir)/build-SQLiteDatabase.ps1
+	$(PWSH) $(tools_dir)/build-SQLiteDatabase.ps1
+
+# Don't clean downloaded data files by default. No need to connect to the internet
+# every time the other directories are cleaned.
 .PHONY: clean
 clean:
-	$(PWSH) tools/clean.ps1 SQLiteData FinishedData ScrapedData ExtractedData GameFiles
+	$(PWSH) $(tools_dir)/clean.ps1 SQLiteData FinishedData ScrapedData ExtractedData GameFiles
 
 .PHONY: clean-all
 clean-all:
-	$(PWSH) tools/clean.ps1
+	$(PWSH) $(tools_dir)/clean.ps1
 
 .PHONY: clean-databases
 clean-databases:
-	$(PWSH) tools/clean.ps1 SQLiteData
+	$(PWSH) $(tools_dir)/clean.ps1 SQLiteData
 
 .PHONY: clean-finished
 clean-finished:
-	$(PWSH) tools/clean.ps1 FinishedData
+	$(PWSH) $(tools_dir)/clean.ps1 FinishedData
 
 .PHONY: clean-downloaded
 clean-downloaded:
-	$(PWSH) tools/clean.ps1 DownloadedData
+	$(PWSH) $(tools_dir)/clean.ps1 DownloadedData
 
 .PHONY: clean-extracted
 clean-extracted:
-	$(PWSH) tools/clean.ps1 ExtractedData
+	$(PWSH) $(tools_dir)/clean.ps1 ExtractedData
 
 .PHONY: clean-scraped
 clean-scraped:
-	$(PWSH) tools/clean.ps1 ScrapedData
+	$(PWSH) $(tools_dir)/clean.ps1 ScrapedData
 
 .PHONY: clean-gamefiles
 clean-gamefiles:
-	$(PWSH) tools/clean.ps1 GameFiles
+	$(PWSH) $(tools_dir)/clean.ps1 GameFiles
