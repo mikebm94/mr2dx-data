@@ -18,7 +18,7 @@ CREATE TABLE MonsterTypes (
     SubBreedId  INT
         REFERENCES Breeds (BreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
 
-    CardNumber  INT  UNIQUE  NOT NULL,
+    CardNumber  INT  UNIQUE  NOT NULL  CHECK ( CardNumber > 0 ),
 
     MonsterTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(MonsterTypeName) BETWEEN 3 AND 12 ),
