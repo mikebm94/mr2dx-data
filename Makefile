@@ -75,12 +75,41 @@ sqlite-db: $(sqlite_dir)/mr2dx-data.db
 $(game_files) &: $(tools_dir)/extract-game-files.ps1
 	$(PWSH) $(tools_dir)/extract-game-files.ps1
 
-$(finished_dir)/%s.csv: \
-		$(intermediate_dir)/%s.csv \
-		$(tools_dir)/make-%s.ps1 \
+$(finished_dir)/Breeds.csv: \
+		$(intermediate_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \
 		$(lib_dir)/file-utils.ps1 \
-		$(entities_dir)/%.ps1
-	$(PWSH) $(tools_dir)/make-$*s.ps1
+		$(tools_dir)/make-Breeds.ps1
+	$(PWSH) $(tools_dir)/make-Breeds.ps1
+
+$(finished_dir)/MonsterTypes.csv: \
+		$(intermediate_dir)/MonsterTypes.csv $(entities_dir)/MonsterType.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-MonsterTypes.ps1
+	$(PWSH) $(tools_dir)/make-MonsterTypes.ps1
+
+$(finished_dir)/ForceTypes.csv: \
+		$(intermediate_dir)/ForceTypes.csv $(entities_dir)/ForceType.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-ForceTypes.ps1
+	$(PWSH) $(tools_dir)/make-ForceTypes.ps1
+
+$(finished_dir)/TechniqueNatures.csv: \
+		$(intermediate_dir)/TechniqueNatures.csv $(entities_dir)/TechniqueNature.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-TechniqueNatures.ps1
+	$(PWSH) $(tools_dir)/make-TechniqueNatures.ps1
+
+$(finished_dir)/TechniqueRanges.csv: \
+		$(intermediate_dir)/TechniqueRanges.csv $(entities_dir)/TechniqueRange.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-TechniqueRanges.ps1
+	$(PWSH) $(tools_dir)/make-TechniqueRanges.ps1
+
+$(finished_dir)/TechniqueTypes.csv: \
+		$(intermediate_dir)/TechniqueTypes.csv $(entities_dir)/TechniqueType.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-TechniqueTypes.ps1
+	$(PWSH) $(tools_dir)/make-TechniqueTypes.ps1
 
 $(extracted_dir)/TechniquesExtracted.csv: \
 		$(intermediate_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \
