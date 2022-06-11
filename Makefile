@@ -59,8 +59,8 @@ finished_data_files = \
 	$(finished_dir)/Breeds.csv \
 	$(finished_dir)/MonsterTypes.csv \
 	$(finished_dir)/ForceTypes.csv \
-	$(finished_dir)/TechniqueRanges.csv \
 	$(finished_dir)/TechniqueNatures.csv \
+	$(finished_dir)/TechniqueRanges.csv \
 	$(finished_dir)/TechniqueTypes.csv \
 	$(finished_dir)/Techniques.csv \
 	$(finished_dir)/Errantries.csv
