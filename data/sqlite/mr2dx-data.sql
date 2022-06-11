@@ -3,7 +3,7 @@ PRAGMA foreign_keys = ON;
 
 
 CREATE TABLE Breeds (
-    BreedId  INT  PRIMARY KEY  NOT NULL,
+    BreedId  INTEGER PRIMARY KEY  NOT NULL,
 
     BreedName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE  CHECK ( LENGTH(BreedName) BETWEEN 3 AND 12 )
 );
@@ -30,7 +30,7 @@ CREATE TABLE MonsterTypes (
 
 
 CREATE TABLE ForceTypes (
-    ForceTypeId  INT  PRIMARY KEY  NOT NULL,
+    ForceTypeId  INTEGER PRIMARY KEY  NOT NULL,
     
     ForceTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(ForceTypeName) BETWEEN 3 AND 12 )
@@ -38,7 +38,7 @@ CREATE TABLE ForceTypes (
 
 
 CREATE TABLE TechniqueNatures (
-    TechniqueNatureId  INT  PRIMARY KEY  NOT NULL,
+    TechniqueNatureId  INTEGER PRIMARY KEY  NOT NULL,
     
     TechniqueNatureName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueNatureName) BETWEEN 3 AND 12 )
@@ -46,7 +46,7 @@ CREATE TABLE TechniqueNatures (
 
 
 CREATE TABLE TechniqueRanges (
-    TechniqueRangeId  INT  PRIMARY KEY  NOT NULL,
+    TechniqueRangeId  INTEGER PRIMARY KEY  NOT NULL,
     
     TechniqueRangeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueRangeName) BETWEEN 3 AND 12 )
@@ -54,7 +54,7 @@ CREATE TABLE TechniqueRanges (
 
 
 CREATE TABLE TechniqueTypes (
-    TechniqueTypeId  INT  PRIMARY KEY  NOT NULL,
+    TechniqueTypeId  INTEGER PRIMARY KEY  NOT NULL,
     
     TechniqueTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
         CHECK ( LENGTH(TechniqueTypeName) BETWEEN 3 AND 12 )
