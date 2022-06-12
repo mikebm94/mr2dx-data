@@ -230,7 +230,7 @@ function Get-ErrantryTechnique {
                 '(?<ChainedTechniqueUses>.*?)' , \s*
                 '(?<RequiredSubBreedNames>.*?)' , \s*
                 '(?<LockedSubBreedNames>.*?)' , \s*
-                (?<Priority>.+?)
+                (?<LearnPriority>.+?)
             \s* \] \s* ,? \s* \r?$
 '@
 
@@ -241,7 +241,7 @@ function Get-ErrantryTechnique {
         $dataPoints = @(
             'ErrantryId', 'AutoLearnPercent', 'Lif', 'Pow', 'IQ', 'Ski', 'Spd', 'Def',
             'StatTotalMin', 'StatTotalMax', 'Nature', 'ChainedTechniqueName', 'ChainedTechniqueUses',
-            'RequiredSubBreedNames', 'LockedSubBreedNames', 'Priority'
+            'RequiredSubBreedNames', 'LockedSubBreedNames', 'LearnPriority'
         )
     }
 

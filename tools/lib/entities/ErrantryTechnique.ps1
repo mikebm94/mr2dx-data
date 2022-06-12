@@ -71,10 +71,10 @@ class ErrantryTechnique {
     [int] $Nature
 
     # A tie-breaking priority value.
-    # If multiple techniques at the same errantry location have a 100% chance of being learned,
+    # If multiple techniques at the same errantry location have the same chance of being learned,
     # the technique with the highest priority (lowest number) will be learned.
     [ValidateRange(1, 24)]
-    [int] $Priority
+    [int] $LearnPriority
 }
 
 

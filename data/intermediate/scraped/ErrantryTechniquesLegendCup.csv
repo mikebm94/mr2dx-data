@@ -1,4 +1,4 @@
-ChainedTechniqueName,ChainedTechniqueUses,RequiredSubBreedNames,LockedSubBreedNames,ErrantryId,TechniqueId,AutoLearnPercent,Lif,Pow,IQ,Ski,Spd,Def,StatTotalMin,StatTotalMax,Nature,Priority
+ChainedTechniqueName,ChainedTechniqueUses,RequiredSubBreedNames,LockedSubBreedNames,ErrantryId,TechniqueId,AutoLearnPercent,Lif,Pow,IQ,Ski,Spd,Def,StatTotalMin,StatTotalMax,Nature,LearnPriority
 ,0,,,4,13,3,0,0,1,1,0,0,250,400,0,1
 Bolt,50,,,4,14,0,0,0,0,0,0,0,0,0,0,2
 Pat,30,,,4,2,0,0,0,0,0,0,0,0,0,0,3
