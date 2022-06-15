@@ -1,0 +1,13 @@
+BattleSpecialId,BattleSpecialName,TriggerPriority,Analysis
+1,Power,3,You won't see its true abilities until it's cornered.
+2,Anger,4,It becomes easily enraged.
+3,Grit,0,Giving up is not in its nature.
+4,Will,12,Its senses are very keen.
+5,Fight,8,It is very passionate.
+6,Fury,2,It goes completely out of control when it's angered.
+7,Guard,11,It knows how to endure hardships.
+8,Ease,10,It appears confident.
+9,Hurry,9,It doesn't give up even until the last moment.
+10,Vigor,7,It tends to get elated easily.
+11,Real,1,It tends to hide its true abilities.
+13,Unity,5,They are three but have one mind.

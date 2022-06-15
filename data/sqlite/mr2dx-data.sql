@@ -116,6 +116,19 @@ CREATE TABLE Techniques (
 );
 
 
+CREATE TABLE BattleSpecials (
+    BattleSpecialId  INTEGER PRIMARY KEY  NOT NULL,
+
+    BattleSpecialName  TEXT  UNIQUE  COLLATE NOCASE
+        CHECK ( LENGTH(BattleSpecialName) BETWEEN 3 AND 12 ),
+
+    TriggerPriority  INT  NOT NULL,
+
+    Analysis  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
+        CHECK ( LENGTH(Analysis) BETWEEN 12 AND 60 )
+);
+
+
 CREATE TABLE Errantries (
     ErrantryId  INTEGER PRIMARY KEY  NOT NULL,
 

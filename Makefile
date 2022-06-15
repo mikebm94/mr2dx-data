@@ -58,6 +58,7 @@ game_files = $(game_technique_files)
 finished_data_files = \
 	$(finished_dir)/Breeds.csv \
 	$(finished_dir)/MonsterTypes.csv \
+	$(finished_dir)/BattleSpecials.csv \
 	$(finished_dir)/ForceTypes.csv \
 	$(finished_dir)/TechniqueNatures.csv \
 	$(finished_dir)/TechniqueRanges.csv \
@@ -86,6 +87,12 @@ $(finished_dir)/MonsterTypes.csv: \
 		$(lib_dir)/file-utils.ps1 \
 		$(tools_dir)/make-MonsterTypes.ps1
 	$(PWSH) $(tools_dir)/make-MonsterTypes.ps1
+
+$(finished_dir)/BattleSpecials.csv: \
+		$(intermediate_dir)/BattleSpecials.csv $(entities_dir)/BattleSpecial.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-BattleSpecials.ps1
+	$(PWSH) $(tools_dir)/make-BattleSpecials.ps1
 
 $(finished_dir)/ForceTypes.csv: \
 		$(intermediate_dir)/ForceTypes.csv $(entities_dir)/ForceType.ps1 \

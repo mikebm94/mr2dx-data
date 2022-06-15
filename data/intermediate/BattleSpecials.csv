@@ -1,0 +1,13 @@
+BattleSpecialId,Flag,BattleSpecialName,TriggerPriority,Analysis
+1,SOKO,Power,3,You won't see its true abilities until it's cornered.
+2,GYAKU,Anger,4,It becomes easily enraged.
+3,KONJO,Grit,0,Giving up is not in its nature.
+4,SHUCHU,Will,12,Its senses are very keen.
+5,TOUKON,Fight,8,It is very passionate.
+6,FUNNU,Fury,2,It goes completely out of control when it's angered.
+7,GAMAN,Guard,11,It knows how to endure hardships.
+8,YOYU,Ease,10,It appears confident.
+9,HISSHI,Hurry,9,It doesn't give up even until the last moment.
+10,GENKI,Vigor,7,It tends to get elated easily.
+11,HONKI,Real,1,It tends to hide its true abilities.
+13,DANKETSU,Unity,5,They are three but have one mind.
