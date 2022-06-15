@@ -5,7 +5,9 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE Breeds (
     BreedId  INTEGER PRIMARY KEY  NOT NULL,
 
-    BreedName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE  CHECK ( LENGTH(BreedName) BETWEEN 3 AND 12 )
+    BreedName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE  CHECK ( LENGTH(BreedName) BETWEEN 3 AND 12 ),
+
+    BloodStrength  INT  NOT NULL  CHECK ( BloodStrength BETWEEN 1 AND 10 )
 );
 
 
