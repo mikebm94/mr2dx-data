@@ -129,6 +129,14 @@ CREATE TABLE BattleSpecials (
 );
 
 
+CREATE TABLE Fortes (
+    ForteId  INTEGER PRIMARY KEY  NOT NULL,
+
+    ForteName  TEXT  UNIQUE  COLLATE NOCASE
+        CHECK ( LENGTH(ForteName) BETWEEN 3 AND 12 )
+);
+
+
 CREATE TABLE Errantries (
     ErrantryId  INTEGER PRIMARY KEY  NOT NULL,
 

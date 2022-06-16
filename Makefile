@@ -59,6 +59,7 @@ finished_data_files = \
 	$(finished_dir)/Breeds.csv \
 	$(finished_dir)/MonsterTypes.csv \
 	$(finished_dir)/BattleSpecials.csv \
+	$(finished_dir)/Fortes.csv \
 	$(finished_dir)/ForceTypes.csv \
 	$(finished_dir)/TechniqueNatures.csv \
 	$(finished_dir)/TechniqueRanges.csv \
@@ -93,6 +94,12 @@ $(finished_dir)/BattleSpecials.csv: \
 		$(lib_dir)/file-utils.ps1 \
 		$(tools_dir)/make-BattleSpecials.ps1
 	$(PWSH) $(tools_dir)/make-BattleSpecials.ps1
+
+$(finished_dir)/Fortes.csv: \
+		$(intermediate_dir)/Fortes.csv $(entities_dir)/Forte.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-Fortes.ps1
+	$(PWSH) $(tools_dir)/make-Fortes.ps1
 
 $(finished_dir)/ForceTypes.csv: \
 		$(intermediate_dir)/ForceTypes.csv $(entities_dir)/ForceType.ps1 \

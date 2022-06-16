@@ -1,0 +1,16 @@
+ForteId,Flag,ForteName
+1,T_DOMINO,Domino
+2,T_STUDY,Study
+3,T_RUN,Run
+4,T_SHOOT,Shoot
+5,T_STONE,Dodge
+6,T_WOOD,Endure
+7,T_WEIGHT,Pull
+8,T_MED,Meditate
+9,T_FLOOR,Leap
+10,T_SWIM,Swim
+11,S_SEA,Torble Sea
+12,S_SNOW,Papas
+13,S_DESERT,Mandy
+14,S_JUNGLE,Parepare
+15,S_VOLCANO,Kawrea
