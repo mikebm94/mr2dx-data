@@ -21,6 +21,9 @@ class Breed {
     data points not needed in the finished data.
 #>
 class BreedIntermediate : Breed {
+    # The names of properties that are not needed in the finished data.
+    static [string[]] $IntermediateProperties = @( 'Initials' )
+
     # Two-letter initials used in some game data files to specify a breed.
     [ValidatePattern('^[A-Z]{2}$')]
     [string] $Initials

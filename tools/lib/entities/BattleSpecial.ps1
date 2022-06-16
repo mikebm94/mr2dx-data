@@ -29,6 +29,9 @@ class BattleSpecial {
     and activate during battle, including additional data points not needed in the finished data.
 #>
 class BattleSpecialIntermediate : BattleSpecial {
+    # The names of properties that are not needed in the finished data.
+    static [string[]] $IntermediateProperties = @( 'Flag' )
+
     # Flag name used in the games data files to specify a battle special.
     [ValidateSet(
         'SOKO', 'GYAKU', 'KONJO', 'SHUCHU', 'TOUKON', 'FUNNU',

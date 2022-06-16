@@ -25,7 +25,7 @@ $TechniqueTypesIntermediate =
 
 $TechniqueTypes =
     $TechniqueTypesIntermediate |
-    Select-Object -ExcludeProperty TechniqueTypeIdLegendCup, Flag |
+    Select-Object -ExcludeProperty ([TechniqueTypeIntermediate]::IntermediateProperties) |
     ForEach-Object { [TechniqueType]$PSItem }
 
 $OutputFilePath = $TechniqueTypes | Export-Mr2dxDataFileCsv FinishedData $TableName

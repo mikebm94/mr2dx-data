@@ -14,6 +14,9 @@ class TechniqueType {
     including data points not needed in the finished data.
 #>
 class TechniqueTypeIntermediate : TechniqueType {
+    # The names of properties that are not needed in the finished data.
+    static [string[]] $IntermediateProperties = @( 'TechniqueTypeIdLegendCup', 'Flag' )
+
     # Technique data scraped from LegendCup.com uses different indexes
     # for technique types.
     [ValidateRange(0, 5)]

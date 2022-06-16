@@ -84,6 +84,11 @@ class ErrantryTechnique {
     that will be normalized and used to build various other tables.
 #>
 class ErrantryTechniqueLegendCup : ErrantryTechnique {
+    # The names of properties that are not needed in the finished data.
+    static [string[]] $IntermediateProperties = @(
+        'ChainedTechniqueName', 'ChainedTechniqueUses', 'RequiredSubBreedNames', 'LockedSubBreedNames'
+    )
+
     # The name of the technique (if any) required to be learned and used a number of times
     # before this technique can be learned.
     [ValidateLength(0, 12)]

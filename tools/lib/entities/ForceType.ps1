@@ -15,6 +15,9 @@ class ForceType {
     from, including data points not needed in the finished data.
 #>
 class ForceTypeIntermediate : ForceType {
+    # The names of properties that are not needed in the finished data.
+    static [string[]] $IntermediateProperties = @( 'Flag' )
+    
     # Flag name used in the games technique data files to specify a force type.
     [ValidateSet('POW', 'IQ')]
     [string] $Flag
