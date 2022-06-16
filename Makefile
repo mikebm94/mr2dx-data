@@ -60,6 +60,7 @@ finished_data_files = \
 	$(finished_dir)/MonsterTypes.csv \
 	$(finished_dir)/BattleSpecials.csv \
 	$(finished_dir)/Fortes.csv \
+	$(finished_dir)/GrowthTypes.csv \
 	$(finished_dir)/ForceTypes.csv \
 	$(finished_dir)/TechniqueNatures.csv \
 	$(finished_dir)/TechniqueRanges.csv \

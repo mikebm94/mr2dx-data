@@ -34,6 +34,9 @@ $FinishedDataFiles = [ordered]@{
     # Defines the drills or errantries that a monster can do particularly well at.
     'Fortes' = @{ Path = 'Fortes.csv'; FileType = 'CSV' }
 
+    # Defines the patterns of growth a monster can experience during it's lifetime.
+    'GrowthTypes' = @{ Path = 'GrowthTypes.csv'; FileType = 'CSV'; IsStaticData = $true }
+
     # Defines the types of forces that techniques can draw their power from. (Power, Intelligence)
     'ForceTypes' = @{ Path = 'ForceTypes.csv'; FileType = 'CSV' }
 

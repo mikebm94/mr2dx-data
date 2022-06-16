@@ -137,6 +137,38 @@ CREATE TABLE Fortes (
 );
 
 
+CREATE TABLE GrowthTypes (
+    GrowthTypeId  INTEGER PRIMARY KEY  NOT NULL,
+
+    GrowthTypeName  TEXT  UNIQUE  NOT NULL  COLLATE NOCASE
+        CHECK ( LENGTH(GrowthTypeName) BETWEEN 3 AND 12 ),
+
+    Stage1  INT  NOT NULL  CHECK ( Stage1 BETWEEN 0 AND 100 ),
+
+    Stage2  INT  NOT NULL  CHECK ( Stage2 BETWEEN 0 AND 100 ),
+
+    Stage3  INT  NOT NULL  CHECK ( Stage3 BETWEEN 0 AND 100 ),
+
+    Stage4  INT  NOT NULL  CHECK ( Stage4 BETWEEN 0 AND 100 ),
+
+    Stage5  INT  NOT NULL  CHECK ( Stage5 BETWEEN 0 AND 100 ),
+
+    Stage6  INT  NOT NULL  CHECK ( Stage6 BETWEEN 0 AND 100 ),
+
+    Stage7  INT  NOT NULL  CHECK ( Stage7 BETWEEN 0 AND 100 ),
+
+    Stage8  INT  NOT NULL  CHECK ( Stage8 BETWEEN 0 AND 100 ),
+
+    Stage9  INT  NOT NULL  CHECK ( Stage9 BETWEEN 0 AND 100 ),
+
+    Stage10  INT  NOT NULL  CHECK ( Stage10 BETWEEN 0 AND 100 ),
+
+    CHECK (
+        (Stage1 + Stage2 + Stage3 + Stage4 + Stage5 + Stage6 + Stage7 + Stage8 + Stage9 + Stage10) = 100
+    )
+);
+
+
 CREATE TABLE Errantries (
     ErrantryId  INTEGER PRIMARY KEY  NOT NULL,
 
