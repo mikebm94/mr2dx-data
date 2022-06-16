@@ -8,7 +8,7 @@ class Forte {
     [int] $ForteId
 
     [ValidateLength(3, 12)]
-    [ValidatePattern('^[A-Z][a-z]{2,}(?: [A-Z][a-z]{2,})*')]
+    [ValidatePattern('^[A-Z][a-z]{2,}(?: [A-Z][a-z]{2,})*$')]
     [string] $ForteName
 }
 
