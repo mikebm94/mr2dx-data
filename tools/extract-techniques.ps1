@@ -17,7 +17,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/entities/Technique.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueRange.ps1')
 
-
 # The number of technique slots in each range.
 $SlotCount = 6
 

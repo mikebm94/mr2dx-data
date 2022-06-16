@@ -17,7 +17,6 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
-
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
 $PageUrl = 'https://legendcup.com/faqmr2techs.php'
 

@@ -8,6 +8,7 @@ Generates the finished data for the 'BattleSpecials' table.
 [CmdletBinding()]
 param()
 
+
 $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')

@@ -25,7 +25,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueNature.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueType.ps1')
 
-
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
 
 

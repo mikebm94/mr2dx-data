@@ -20,7 +20,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/entities/Technique.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/ErrantryTechnique.ps1')
 
-
 # Timeout regular expression searches after 5 seconds.
 $MatchTimeout = [TimeSpan]::new(0, 0, 5)
 

@@ -78,7 +78,6 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 
-
 $ScriptName = (Get-Item -Path $MyInvocation.MyCommand.Path).Name
 $GameArchivePassword = 'KoeiTecmoMF1&2'
 

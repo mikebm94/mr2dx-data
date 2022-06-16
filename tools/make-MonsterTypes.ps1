@@ -15,7 +15,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/entities/Breed.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/MonsterType.ps1')
 
-
 $TableName = 'MonsterTypes'
 
 
@@ -49,9 +48,9 @@ $MonsterTypes = $MonsterTypesIntermediate | ForEach-Object {
     Write-Output $monsterType
 }
 
-$outputFilePath =
+$OutputFilePath =
     $MonsterTypes |
     Select-Object -Property ([MonsterType]::ColumnOrder) |
     Export-Mr2dxDataFileCsv FinishedData $TableName
 
-Write-Host "Saved '${TableName}' table data to '${outputFilePath}'."
+Write-Host "Saved '${TableName}' table data to '${OutputFilePath}'."

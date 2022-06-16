@@ -14,19 +14,19 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/file-utils.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/Breed.ps1')
 
-
 $TableName = 'Breeds'
+
 
 Write-Host "Generating finished data for the '${TableName}' table ..."
 
 $BreedsIntermediate =
     Import-Mr2dxDataFileCsv IntermediateData $TableName |
-        ForEach-Object { [BreedIntermediate]$PSItem }
+    ForEach-Object { [BreedIntermediate]$PSItem }
 
 $Breeds =
     $BreedsIntermediate |
-        Select-Object -ExcludeProperty Initials |
-        ForEach-Object { [Breed]$PSItem }
+    Select-Object -ExcludeProperty Initials |
+    ForEach-Object { [Breed]$PSItem }
 
 $OutputFilePath = $Breeds | Export-Mr2dxDataFileCsv FinishedData $TableName
 
