@@ -87,11 +87,11 @@ class ShrineMonster {
 class ShrineMonsterExtracted : ShrineMonster {
     # A combination of BattleSpecial IDs (zero-based) stored as a bitmask
     # specifying the shrine monster's battle specials.
-    [int] $BattleSpecialsBitmask
+    [UInt32] $BattleSpecialsBitmask
 
     # A combination of Forte IDs (zero-based) stored as a bitmask specifying the shrine monster's fortes.
-    [int] $FortesBitmask
+    [UInt32] $FortesBitmask
 
     # A combination of Technique numbers (0-23) stored as a bitmask specifying the initial techniques.
-    [int] $TechniquesBitmask
+    [UInt32] $TechniquesBitmask
 }

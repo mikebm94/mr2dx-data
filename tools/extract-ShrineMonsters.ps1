@@ -91,7 +91,7 @@ function ConvertTo-ShrineMonsterExtracted {
         $monster.SpdGainLvl = [int]$InputObject.SpdGainLvl + 1
         $monster.DefGainLvl = [int]$InputObject.DefGainLvl + 1
         $monster.ArenaSpeedLvl = [int]$InputObject.DefGainLvl + 1
-        $monster.TechniquesBitmask = [Convert]::ToInt32($InputObject.TechniquesBitmask, 2)
+        $monster.TechniquesBitmask = [Convert]::ToUInt32($InputObject.TechniquesBitmask, 2)
         $monster.OffsetsApplied = ([int]$InputObject.NoOffsets -eq 0) ? 1 : 0
         
         $nonConvertedColumns = @(
