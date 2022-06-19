@@ -10,4 +10,5 @@ BattleSpecialId,Flag,BattleSpecialName,TriggerPriority,Analysis
 9,HISSHI,Hurry,9,It doesn't give up even until the last moment.
 10,GENKI,Vigor,7,It tends to get elated easily.
 11,HONKI,Real,1,It tends to hide its true abilities.
+12,DEISUI,Drunk,6,Be careful when he drinks alchohol.
 13,DANKETSU,Unity,5,They are three but have one mind.

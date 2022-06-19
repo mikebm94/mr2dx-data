@@ -10,4 +10,5 @@ BattleSpecialId,BattleSpecialName,TriggerPriority,Analysis
 9,Hurry,9,It doesn't give up even until the last moment.
 10,Vigor,7,It tends to get elated easily.
 11,Real,1,It tends to hide its true abilities.
+12,Drunk,6,Be careful when he drinks alchohol.
 13,Unity,5,They are three but have one mind.
