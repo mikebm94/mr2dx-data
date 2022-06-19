@@ -53,7 +53,9 @@ game_technique_files = \
 	$(gamefiles_dir)/mf2/data/mon/mzmus/mz_mz_wz.dat \
 	$(gamefiles_dir)/mf2/data/mon/naaga/na_na_wz.dat
 
-game_files = $(game_technique_files)
+game_files = \
+	$(game_technique_files) \
+	$(gamefiles_dir)/SDATA_MONSTER.csv
 
 finished_data_files = \
 	$(finished_dir)/Breeds.csv \
@@ -158,6 +160,14 @@ $(finished_dir)/Techniques.csv: \
 		$(entities_dir)/Technique.ps1 \
 		$(tools_dir)/make-Techniques.ps1
 	$(PWSH) $(tools_dir)/make-Techniques.ps1
+
+$(extracted_dir)/ShrineMonstersExtracted.csv: \
+		$(intermediate_dir)/MonsterTypes.csv $(entities_dir)/MonsterType.ps1 \
+		$(gamefiles_dir)/SDATA_MONSTER.csv \
+		$(lib_dir)/file-utils.ps1 \
+		$(entities_dir)/ShrineMonster.ps1 \
+		$(tools_dir)/extract-ShrineMonsters.ps1
+	$(PWSH) $(tools_dir)/extract-ShrineMonsters.ps1
 
 $(scraped_dir)/ErrantryTechniquesLegendCup.csv: \
 		$(finished_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \

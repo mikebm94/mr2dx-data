@@ -106,6 +106,9 @@ $DownloadedIntermediateDataFiles = @{
 $ExtractedIntermediateDataFiles = @{
     # Defines the techniques available to each monster breed.
     'Techniques' = @{ Path = 'TechniquesExtracted.csv'; FileType = 'CSV' }
+
+    # Defines the monsters that can be obtained at the shrine.
+    'ShrineMonsters' = @{ Path = 'ShrineMonstersExtracted.csv'; FileType = 'CSV' }
 }
 
 # Map friendly names to intermediate data files containing data
