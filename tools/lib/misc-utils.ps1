@@ -117,3 +117,33 @@ function Get-ApplicationInfo {
         return $appInfo
     }
 }
+
+
+<#
+.SYNOPSIS
+Expands a bitmask into the flag values it represents.
+
+.OUTPUTS
+Unsigned 32-bit integers representing the flag values present in the bitmask.
+#>
+function Expand-Bitmask {
+    [CmdletBinding()]
+    [OutputType([UInt32])]
+    param(
+        # The bitmask value to expand.
+        [Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+        [UInt32]
+        $Bitmask
+    )
+
+    process {
+        $binary = [Convert]::ToString([Int64]$Bitmask, 2)
+
+        for ($bit = 1; $bit -le $binary.Length; $bit++) {
+            if ($binary[$binary.Length - $bit] -eq '1') {
+                [UInt32]$flagValue = [Math]::Pow(2, $bit - 1)
+                Write-Output $flagValue
+            }
+        }
+    }
+}
