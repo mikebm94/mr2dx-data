@@ -90,7 +90,7 @@ function ConvertTo-ShrineMonsterExtracted {
         $monster.SkiGainLvl = [int]$InputObject.SkiGainLvl + 1
         $monster.SpdGainLvl = [int]$InputObject.SpdGainLvl + 1
         $monster.DefGainLvl = [int]$InputObject.DefGainLvl + 1
-        $monster.ArenaSpeedLvl = [int]$InputObject.DefGainLvl + 1
+        $monster.ArenaSpeedLvl = [int]$InputObject.ArenaSpeedLvl + 1
         $monster.TechniquesBitmask = [Convert]::ToUInt32($InputObject.TechniquesBitmask, 2)
         $monster.OffsetsApplied = ([int]$InputObject.NoOffsets -eq 0) ? 1 : 0
         
