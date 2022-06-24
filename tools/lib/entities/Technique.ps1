@@ -156,6 +156,19 @@ class TechniqueExtracted : TechniqueBase {
     
     [ValidateRange(0, 255)]
     [int] $SelfDamageMiss
+
+
+    <#
+      Gets a technique's ID from it's breed ID and number.
+      
+      For example:
+        Pixie's (breed ID 1) techniques have IDs 1-24
+        Dragon's (breed ID 2) techniques have IDs 25-48
+    #>
+    static [int] GetTechniqueId([int] $techBreedId, [int] $techNumber) {
+        $offset = [Technique]::MaxBreedTechniques * ($techBreedId - 1)
+        return ($offset + ($techNumber + 1))
+    }
 }
 
 <#
