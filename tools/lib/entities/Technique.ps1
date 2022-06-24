@@ -1,6 +1,5 @@
 <#
-    Base class containing properties common
-    to all entities representing a technique.
+    Base class containing properties common to all entities representing a technique.
 #>
 class TechniqueBase {
     # The ID of the monster breed that the technique is available to.
@@ -19,10 +18,9 @@ class TechniqueBase {
     [ValidateRange(0, 100)]
     [int] $Damage
 
-    # Determines how likely the technique is to succeed in hitting the
-    # opponent. The initial percentage is determined by the monsters Skill,
-    # amount of guts, and the opponents Speed (and possibly other factors).
-    # This hit percentage is then applied to it.
+    # Determines how likely the technique is to succeed in hitting the opponent. The initial percentage
+    # is determined by the monsters Skill, amount of guts, and the opponents Speed (and possibly other
+    # factors.) This hit percentage is then applied to it.
     [ValidateRange(-50, 50)]
     [int] $HitPercent
 
@@ -155,8 +153,8 @@ class TechniqueExtracted : TechniqueBase {
 }
 
 <#
-    Entity representing a technique scraped from LegendCup.com used to obtain
-    data points that cannot be extracted from the game files.
+    Entity representing a technique scraped from LegendCup.com used to obtain data points
+    that cannot be extracted from the game files.
 #>
 class TechniqueLegendCup : TechniqueBase {
     [ValidateLength(3, 12)]
