@@ -134,8 +134,8 @@ $(extracted_dir)/TechniquesExtracted.csv: \
 		$(game_technique_files) \
 		$(lib_dir)/file-utils.ps1 \
 		$(entities_dir)/Technique.ps1 \
-		$(tools_dir)/extract-techniques.ps1
-	$(PWSH) $(tools_dir)/extract-techniques.ps1
+		$(tools_dir)/extract-Techniques.ps1
+	$(PWSH) $(tools_dir)/extract-Techniques.ps1
 
 $(downloaded_dir)/LegendCupTechsSrc.js: \
 		$(lib_dir)/file-utils.ps1 \
@@ -147,8 +147,8 @@ $(scraped_dir)/TechniquesLegendCup.csv: \
 		$(downloaded_dir)/LegendCupTechsSrc.js \
 		$(lib_dir)/file-utils.ps1 \
 		$(entities_dir)/Technique.ps1 \
-		$(tools_dir)/scrape-techniques.ps1
-	$(PWSH) $(tools_dir)/scrape-techniques.ps1
+		$(tools_dir)/scrape-Techniques.ps1
+	$(PWSH) $(tools_dir)/scrape-Techniques.ps1
 
 $(finished_dir)/Techniques.csv: \
 		$(intermediate_dir)/ForceTypes.csv $(entities_dir)/ForceType.ps1 \
