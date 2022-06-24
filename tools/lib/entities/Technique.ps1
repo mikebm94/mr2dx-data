@@ -42,6 +42,12 @@ class TechniqueBase {
     by a certain monster breed during battle.
 #>
 class Technique : TechniqueBase {
+    # The maximum number of techniques that a monster breed can have.
+    static [int] $MaxBreedTechniques = 24
+
+    # The maximum number of techniques that a monster breed can have for a single range.
+    static [int] $TechniqueSlotsPerRange = 6
+
     # The order in which the columns should appear in the finished CSV data.
     static [string[]] $ColumnOrder = @(
         'TechniqueId', 'BreedId', 'TechniqueRangeId', 'Slot', 'TechniqueName', 'TechniqueTypeId',

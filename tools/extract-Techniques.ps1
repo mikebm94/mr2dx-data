@@ -17,12 +17,6 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'lib/entities/Technique.ps1')
 . (Join-Path $PSScriptRoot 'lib/entities/TechniqueRange.ps1')
 
-# The number of technique slots in each range.
-$SlotCount = 6
-
-# The maximum number of techniques that can be available to a monster breed.
-$MaxTechniques = 24
-
 # The ranges that techniques can be performed in.
 $TechniqueRanges =
     Import-Mr2dxDataFileCsv IntermediateData TechniqueRanges |
@@ -143,7 +137,7 @@ function Get-BreedTechnique {
             }
 
             $technique.BreedId = $Breed.BreedId
-            $technique.TechniqueId = (($technique.BreedId - 1) * $MaxTechniques) + ($technique.TechniqueNumber + 1)
+            $technique.TechniqueId = (($technique.BreedId - 1) * [Technique]::MaxBreedTechniques) + ($technique.TechniqueNumber + 1)
             foreach ($dataPoint in $dataPoints) {
                 $technique.$dataPoint = $match.Groups[$dataPoint].Value
             }
@@ -199,7 +193,7 @@ function Get-DeclaredTechnique {
         $slotPatternTemplate = 'WAZA_DATA_(?<{0}_{1}>DMY|0*\d+)'
 
         foreach ($range in $TechniqueRanges) {
-            $slotPatterns = 1..$SlotCount | ForEach-Object {
+            $slotPatterns = 1..[Technique]::TechniqueSlotsPerRange | ForEach-Object {
                 $slotPatternTemplate -f $range.Flag, $PSItem
             }
 
@@ -223,7 +217,7 @@ function Get-DeclaredTechnique {
         foreach ($range in $TechniqueRanges) {
             $slot = 1
 
-            for ($i = 1; $i -le $SlotCount; $i++) {
+            for ($i = 1; $i -le [Technique]::TechniqueSlotsPerRange; $i++) {
                 $slotGroupName = "{0}_{1}" -f $range.Flag, $i
                 $techniqueNumber = $match.Groups[$slotGroupName].Value
 
