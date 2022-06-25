@@ -64,6 +64,7 @@ function Main {
 
 
     Write-Host 'Executing sqlite3 command line utility ...'
+    Write-Host "Using database schema creation script: ${schemaScriptPath}"
 
     if (-not $Sqlite3Command) {
         $Sqlite3Command = 'sqlite3'
@@ -126,8 +127,8 @@ function Get-SqliteDbGenerationCommands {
     )
 
     Write-Output '.bail on'
-    Write-Output '.echo on'
     Write-Output ".read '${SchemaScriptPath}'"
+    Write-Output '.echo on'
 
     $finishedDataFilesInfo = Get-ManifestFileInfo FinishedData
 
