@@ -64,7 +64,6 @@ function Main {
 
 
     Write-Host 'Executing sqlite3 command line utility ...'
-    Write-Host "Using database schema creation script: ${schemaScriptPath}"
 
     if (-not $Sqlite3Command) {
         $Sqlite3Command = 'sqlite3'
@@ -127,7 +126,10 @@ function Get-SqliteDbGenerationCommands {
     )
 
     Write-Output '.bail on'
+
+    Write-Host "Sourcing schema creation SQL script '${schemaScriptPath}' ..."
     Write-Output ".read '${SchemaScriptPath}'"
+
     Write-Output '.echo on'
 
     $finishedDataFilesInfo = Get-ManifestFileInfo FinishedData
@@ -196,6 +198,7 @@ function Get-SqliteImportCsvCommands {
     $triggerName = "${viewName}_ConvertEmptyToNull"
 
     Write-Output @"
+
 CREATE TEMP VIEW ${viewName} (
     $( $columnNames -join (',' + [System.Environment]::NewLine + '    ') )
 )
@@ -234,7 +237,6 @@ BEGIN
     Write-Output @"
     );
 END;
-
 .import --csv --skip 1 '${SourcePath}' ${viewName}
 "@
 }
