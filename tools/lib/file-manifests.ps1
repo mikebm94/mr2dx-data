@@ -52,6 +52,17 @@ $FinishedDataFiles = [ordered]@{
     # Defines the techniques available to each monster breed.
     'Techniques' = @{ Path = 'Techniques.csv'; FileType = 'CSV' }
 
+    # Defines sets of baseline monster stats and parameters.
+    'Baselines' = @{ Path = 'Baselines.csv'; FileType = 'CSV' }
+    'Baselines_BattleSpecials' = @{ Path = 'Baselines_BattleSpecials.csv'; FileType = 'CSV' }
+    'Baselines_Fortes' = @{ Path = 'Baselines_Fortes.csv'; FileType = 'CSV' }
+    'Baselines_Techniques' = @{ Path = 'Baselines_Techniques.csv'; FileType = 'CSV' }
+
+    # Defines the baseline for each monster type. There is a corresponding record in the 'Baselines'
+    # table for each non-special normal type, while special monster types will share a baseline with
+    # the pure-breed monster type corresponding to their main breed.
+    'MonsterTypes_Baselines' = @{ Path = 'MonsterTypes_Baselines.csv'; FileType = 'CSV' }
+
     # Defines the errantries that monsters can go on to learn techniques.
     'Errantries' = @{ Path = 'Errantries.csv'; FileType = 'CSV'; IsStaticData = $true }
 }
@@ -109,6 +120,10 @@ $ExtractedIntermediateDataFiles = @{
 
     # Defines the monsters that can be obtained at the shrine.
     'ShrineMonsters' = @{ Path = 'ShrineMonstersExtracted.csv'; FileType = 'CSV' }
+    
+    # Defines sets of baseline monster stats and parameters, including data points
+    # that will be split into additional data tables for data normalization purposes.
+    'Baselines'  = @{ Path = 'BaselinesExtracted.csv'; FileType = 'CSV' }
 }
 
 # Map friendly names to intermediate data files containing data
@@ -256,7 +271,7 @@ $GameFiles = @{
 
     # Data file defining baseline stats and parameters for all non-special monster types.
     # Encoded using Shift-JIS.
-    'MonsterTypeBaselines' = @{
+    'Baselines' = @{
         Path = 'mf2/data/monbase/mon_base.dat'; FileType = 'Text'; CodePage = 932
     }
 }

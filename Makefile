@@ -68,6 +68,11 @@ finished_data_files = \
 	$(finished_dir)/TechniqueRanges.csv \
 	$(finished_dir)/TechniqueTypes.csv \
 	$(finished_dir)/Techniques.csv \
+	$(finished_dir)/Baselines.csv \
+	$(finished_dir)/Baselines_BattleSpecials.csv \
+	$(finished_dir)/Baselines_Fortes.csv \
+	$(finished_dir)/Baselines_Techniques.csv \
+	$(finished_dir)/MonsterTypes_Baselines.csv \
 	$(finished_dir)/Errantries.csv
 
 
@@ -168,6 +173,48 @@ $(extracted_dir)/ShrineMonstersExtracted.csv: \
 		$(entities_dir)/ShrineMonster.ps1 \
 		$(tools_dir)/extract-ShrineMonsters.ps1
 	$(PWSH) $(tools_dir)/extract-ShrineMonsters.ps1
+
+$(extracted_dir)/BaselinesExtracted.csv: \
+		$(finished_dir)/MonsterTypes.csv $(entities_dir)/MonsterType.ps1 \
+		$(extracted_dir)/ShrineMonstersExtracted.csv $(entities_dir)/ShrineMonster.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(entities_dir)/Baseline.ps1 \
+		$(tools_dir)/extract-Baselines.ps1
+	$(PWSH) $(tools_dir)/extract-Baselines.ps1
+
+$(finished_dir)/Baselines.csv: \
+		$(extracted_dir)/BaselinesExtracted.csv $(entities_dir)/Baseline.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-Baselines.ps1
+	$(PWSH) $(tools_dir)/make-Baselines.ps1
+
+$(finished_dir)/Baselines_BattleSpecials.csv: \
+		$(finished_dir)/BattleSpecials.csv $(entities_dir)/BattleSpecial.ps1 \
+		$(extracted_dir)/BaselinesExtracted.csv $(entities_dir)/Baseline.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-Baselines_BattleSpecials.ps1
+	$(PWSH) $(tools_dir)/make-Baselines_BattleSpecials.ps1
+
+$(finished_dir)/Baselines_Fortes.csv: \
+		$(finished_dir)/Fortes.csv $(entities_dir)/Forte.ps1 \
+		$(extracted_dir)/BaselinesExtracted.csv $(entities_dir)/Baseline.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-Baselines_Fortes.ps1
+	$(PWSH) $(tools_dir)/make-Baselines_Fortes.ps1
+
+$(finished_dir)/Baselines_Techniques.csv: \
+		$(finished_dir)/Techniques.csv $(entities_dir)/Technique.ps1 \
+		$(extracted_dir)/BaselinesExtracted.csv $(entities_dir)/Baseline.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-Baselines_Techniques.ps1
+	$(PWSH) $(tools_dir)/make-Baselines_Techniques.ps1
+
+$(finished_dir)/MonsterTypes_Baselines.csv: \
+		$(finished_dir)/Baselines.csv $(entities_dir)/Baseline.ps1 \
+		$(finished_dir)/MonsterTypes.csv $(entities_dir)/MonsterType.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-MonsterTypes_Baselines.ps1
+	$(PWSH) $(tools_dir)/make-MonsterTypes_Baselines.ps1
 
 $(scraped_dir)/ErrantryTechniquesLegendCup.csv: \
 		$(finished_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \

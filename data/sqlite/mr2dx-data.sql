@@ -27,7 +27,9 @@ CREATE TABLE MonsterTypes (
 
     MonsterTypeDescription  TEXT  COLLATE NOCASE  CHECK ( LENGTH(MonsterTypeDescription) <= 96 ),
 
-    UNIQUE (MainBreedId, SubBreedId)
+    UNIQUE (MainBreedId, SubBreedId),
+
+    UNIQUE (MainBreedId, MonsterTypeId)
 );
 
 
@@ -112,6 +114,7 @@ CREATE TABLE Techniques (
     DurationMiss  REAL  NOT NULL  CHECK ( DurationMiss BETWEEN 1.0 AND 15.0 ),
     
     UNIQUE (BreedId, TechniqueRangeId, Slot),
+    UNIQUE (BreedId, TechniqueId),
     UNIQUE (BreedId, TechniqueName)
 );
 
@@ -167,6 +170,117 @@ CREATE TABLE GrowthTypes (
         (Stage1 + Stage2 + Stage3 + Stage4 + Stage5 + Stage6 + Stage7 + Stage8 + Stage9 + Stage10) = 100
     )
 );
+
+
+CREATE TABLE Baselines (
+    MainBreedId  INT  NOT NULL,
+    
+    SubBreedId  INT  NOT NULL,
+    
+    Lifespan  INT  NOT NULL  CHECK ( Lifespan BETWEEN 1 AND 600 ),
+
+    Nature  INT  NOT NULL  CHECK ( Nature BETWEEN -100 AND 100 ),
+
+    GrowthTypeId  INT  NOT NULL
+        REFERENCES GrowthTypes (GrowthTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+    
+    Lif  INT  NOT NULL  CHECK ( Lif BETWEEN 0 AND 999 ),
+
+    Pow  INT  NOT NULL  CHECK ( Pow BETWEEN 0 AND 999 ),
+
+    IQ  INT  NOT NULL  CHECK ( IQ BETWEEN 0 AND 999 ),
+
+    Ski  INT  NOT NULL  CHECK ( Ski BETWEEN 0 AND 999 ),
+
+    Spd  INT  NOT NULL  CHECK ( Spd BETWEEN 0 AND 999 ),
+
+    Def  INT  NOT NULL  CHECK ( Def BETWEEN 0 AND 999 ),
+
+    LifGainLvl  INT  NOT NULL  CHECK ( LifGainLvl BETWEEN 1 AND 5 ),
+
+    PowGainLvl  INT  NOT NULL  CHECK ( PowGainLvl BETWEEN 1 AND 5 ),
+
+    IQGainLvl  INT  NOT NULL  CHECK ( IQGainLvl BETWEEN 1 AND 5 ),
+
+    SkiGainLvl  INT  NOT NULL  CHECK ( SkiGainLvl BETWEEN 1 AND 5 ),
+
+    SpdGainLvl  INT  NOT NULL  CHECK ( SpdGainLvl BETWEEN 1 AND 5 ),
+
+    DefGainLvl  INT  NOT NULL  CHECK ( DefGainLvl BETWEEN 1 AND 5 ),
+
+    ArenaSpeedLvl  INT  NOT NULL  CHECK ( ArenaSpeedLvl BETWEEN 1 AND 5 ),
+
+    FramesPerGut  INT  NOT NULL  CHECK ( FramesPerGut BETWEEN 1 AND 30 ),
+
+    PRIMARY KEY (MainBreedId, SubBreedId),
+    
+    FOREIGN KEY (MainBreedId, SubBreedId)
+        REFERENCES MonsterTypes (MainBreedId, SubBreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
+) WITHOUT ROWID;
+
+
+CREATE TABLE Baselines_BattleSpecials (
+    MainBreedId  INT  NOT NULL,
+
+    SubBreedId  INT  NOT NULL,
+
+    BattleSpecialId  INT  NOT NULL
+        REFERENCES BattleSpecials (BattleSpecialId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+
+    PRIMARY KEY (MainBreedId, SubBreedId, BattleSpecialId),
+
+    FOREIGN KEY (MainBreedId, SubBreedId)
+        REFERENCES Baselines (MainBreedId, SubBreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
+) WITHOUT ROWID;
+
+
+CREATE TABLE Baselines_Fortes (
+    MainBreedId  INT  NOT NULL,
+
+    SubBreedId  INT  NOT NULL,
+
+    ForteId  INT  NOT NULL
+        REFERENCES Fortes (ForteId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+
+    PRIMARY KEY (MainBreedId, SubBreedId, ForteId),
+
+    FOREIGN KEY (MainBreedId, SubBreedId)
+        REFERENCES Baselines (MainBreedId, SubBreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
+) WITHOUT ROWID;
+
+
+CREATE TABLE Baselines_Techniques (
+    MainBreedId  INT  NOT NULL,
+
+    SubBreedId  INT  NOT NULL,
+
+    TechniqueId  INT  NOT NULL,
+
+    PRIMARY KEY (MainBreedId, SubBreedId, TechniqueId),
+
+    FOREIGN KEY (MainBreedId, SubBreedId)
+        REFERENCES Baselines (MainBreedId, SubBreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+    
+    FOREIGN KEY (MainBreedId, TechniqueId)
+        REFERENCES Techniques (BreedId, TechniqueId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
+) WITHOUT ROWID;
+
+
+CREATE TABLE MonsterTypes_Baselines (
+    MonsterTypeId  INT  UNIQUE  NOT NULL,
+    
+    MainBreedId  INT  NOT NULL,
+    
+    SubBreedId  INT  NOT NULL,
+
+    PRIMARY KEY (MainBreedId, SubBreedId, MonsterTypeId),
+
+    FOREIGN KEY (MainBreedId, MonsterTypeId)
+        REFERENCES MonsterTypes (MainBreedId, MonsterTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+    
+    FOREIGN KEY (MainBreedId, SubBreedId)
+        REFERENCES Baselines (MainBreedId, SubBreedId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
+) WITHOUT ROWID;
 
 
 CREATE TABLE Errantries (
