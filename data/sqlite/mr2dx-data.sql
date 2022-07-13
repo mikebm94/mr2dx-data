@@ -119,6 +119,24 @@ CREATE TABLE Techniques (
 );
 
 
+CREATE TABLE MonsterTypes_Techniques (
+    MonsterTypeId  INT  NOT NULL,
+
+    -- Used to prevent linking a monster type to a technique that isn't available for it's main breed.
+    MainBreedId  INT  NOT NULL,
+
+    TechniqueId  INT  NOT NULL,
+
+    PRIMARY KEY (MonsterTypeId, TechniqueId),
+
+    FOREIGN KEY (MainBreedId, MonsterTypeId)
+        REFERENCES MonsterTypes (MainBreedId, MonsterTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+    
+    FOREIGN KEY (MainBreedId, TechniqueId)
+        REFERENCES Techniques (MainBreedId, TechniqueId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
+) WITHOUT ROWID;
+
+
 CREATE TABLE TechniqueChains (
     TechniqueId  INTEGER PRIMARY KEY  NOT NULL,
 
