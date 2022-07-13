@@ -68,6 +68,7 @@ finished_data_files = \
 	$(finished_dir)/TechniqueRanges.csv \
 	$(finished_dir)/TechniqueTypes.csv \
 	$(finished_dir)/Techniques.csv \
+	$(finished_dir)/TechniqueChains.csv \
 	$(finished_dir)/Baselines.csv \
 	$(finished_dir)/Baselines_BattleSpecials.csv \
 	$(finished_dir)/Baselines_Fortes.csv \
@@ -166,6 +167,22 @@ $(finished_dir)/Techniques.csv: \
 		$(tools_dir)/make-Techniques.ps1
 	$(PWSH) $(tools_dir)/make-Techniques.ps1
 
+$(scraped_dir)/ErrantryTechniquesLegendCup.csv: \
+		$(finished_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \
+		$(finished_dir)/Techniques.csv $(entities_dir)/Technique.ps1 \
+		$(downloaded_dir)/LegendCupTechsSrc.js \
+		$(entities_dir)/ErrantryTechnique.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/scrape-ErrantryTechniques.ps1
+	$(PWSH) $(tools_dir)/scrape-ErrantryTechniques.ps1
+
+$(finished_dir)/TechniqueChains.csv: \
+		$(finished_dir)/Techniques.csv $(entities_dir)/Technique.ps1 \
+		$(scraped_dir)/ErrantryTechniquesLegendCup.csv $(entities_dir)/ErrantryTechnique.ps1 \
+		$(lib_dir)/file-utils.ps1 \
+		$(tools_dir)/make-TechniqueChains.ps1
+	$(PWSH) $(tools_dir)/make-TechniqueChains.ps1
+
 $(extracted_dir)/ShrineMonstersExtracted.csv: \
 		$(intermediate_dir)/MonsterTypes.csv $(entities_dir)/MonsterType.ps1 \
 		$(gamefiles_dir)/SDATA_MONSTER.csv \
@@ -215,15 +232,6 @@ $(finished_dir)/MonsterTypes_Baselines.csv: \
 		$(lib_dir)/file-utils.ps1 \
 		$(tools_dir)/make-MonsterTypes_Baselines.ps1
 	$(PWSH) $(tools_dir)/make-MonsterTypes_Baselines.ps1
-
-$(scraped_dir)/ErrantryTechniquesLegendCup.csv: \
-		$(finished_dir)/Breeds.csv $(entities_dir)/Breed.ps1 \
-		$(finished_dir)/Techniques.csv $(entities_dir)/Technique.ps1 \
-		$(downloaded_dir)/LegendCupTechsSrc.js \
-		$(entities_dir)/ErrantryTechnique.ps1 \
-		$(lib_dir)/file-utils.ps1 \
-		$(tools_dir)/scrape-ErrantryTechniques.ps1
-	$(PWSH) $(tools_dir)/scrape-ErrantryTechniques.ps1
 
 $(sqlite_dir)/mr2dx-data.db: \
 		$(finished_data_files) \

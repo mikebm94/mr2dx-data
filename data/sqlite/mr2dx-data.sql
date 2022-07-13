@@ -119,6 +119,23 @@ CREATE TABLE Techniques (
 );
 
 
+CREATE TABLE TechniqueChains (
+    TechniqueId  INTEGER PRIMARY KEY  NOT NULL,
+
+    BreedId  INT  NOT NULL,
+
+    RequiredTechniqueId  INT  NOT NULL,
+
+    RequiredTechniqueUses  INT  NOT NULL  CHECK ( RequiredTechniqueUses > 0 ),
+
+    FOREIGN KEY (BreedId, TechniqueId)
+        REFERENCES Techniques (BreedId, TechniqueId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+    
+    FOREIGN KEY (BreedId, RequiredTechniqueId)
+        REFERENCES Techniques (BreedId, TechniqueId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
+);
+
+
 CREATE TABLE BattleSpecials (
     BattleSpecialId  INTEGER PRIMARY KEY  NOT NULL,
 
@@ -293,3 +310,38 @@ CREATE TABLE Errantries (
         CHECK ( TechniqueTypeId != 1 )
         REFERENCES TechniqueTypes (TechniqueTypeId)  ON UPDATE RESTRICT  ON DELETE RESTRICT
 );
+
+
+CREATE TABLE Errantries_Techniques (
+    ErrantryId  INT  NOT NULL
+        REFERENCES Errantries (ErrantryId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+
+    TechniqueId  INT  NOT NULL
+        REFERENCES Techniques (TechniqueId)  ON UPDATE RESTRICT  ON DELETE RESTRICT,
+    
+    AutoLearnPercent  INT  NOT NULL  CHECK ( AutoLearnPercent BETWEEN 0 AND 100 ),
+
+    Lif  INT  NOT NULL  CHECK ( Lif BETWEEN 0 AND 999 ),
+
+    Pow  INT  NOT NULL  CHECK ( Pow BETWEEN 0 AND 999 ),
+
+    IQ  INT  NOT NULL  CHECK ( IQ BETWEEN 0 AND 999 ),
+
+    Ski  INT  NOT NULL  CHECK ( Ski BETWEEN 0 AND 999 ),
+
+    Spd  INT  NOT NULL  CHECK ( Spd BETWEEN 0 AND 999 ),
+
+    Def  INT  NOT NULL  CHECK ( Def BETWEEN 0 AND 999 ),
+
+    StatTotalMin  INT  NOT NULL  CHECK ( StatTotalMin BETWEEN 0 AND 5994 ),
+
+    StatTotalMax  INT  NOT NULL  CHECK ( StatTotalMax BETWEEN 0 AND 5994 ),
+
+    Nature  INT  NOT NULL  CHECK ( Nature BETWEEN -100 AND 100 ),
+
+    LearnPriority  INT  NOT NULL  CHECK ( LearnPriority BETWEEN 1 AND 24 ),
+
+    PRIMARY KEY (ErrantryId, TechniqueId),
+
+    CHECK ( StatTotalMax >= StatTotalMin )
+) WITHOUT ROWID;

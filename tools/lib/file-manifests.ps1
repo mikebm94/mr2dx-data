@@ -52,6 +52,10 @@ $FinishedDataFiles = [ordered]@{
     # Defines the techniques available to each monster breed.
     'Techniques' = @{ Path = 'Techniques.csv'; FileType = 'CSV' }
 
+    # Defines which techniques require another technique to be used
+    # a certain number of times before they can be learned.
+    'TechniqueChains' = @{ Path = 'TechniqueChains.csv'; FileType = 'CSV' }
+
     # Defines sets of baseline monster stats and parameters.
     'Baselines' = @{ Path = 'Baselines.csv'; FileType = 'CSV' }
     'Baselines_BattleSpecials' = @{ Path = 'Baselines_BattleSpecials.csv'; FileType = 'CSV' }
