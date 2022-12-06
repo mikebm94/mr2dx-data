@@ -4,7 +4,7 @@ BattleSpecialId,Flag,BattleSpecialName,TriggerPriority,Analysis
 3,KONJO,Grit,0,Giving up is not in its nature.
 4,SHUCHU,Will,12,Its senses are very keen.
 5,TOUKON,Fight,8,It is very passionate.
-6,FUNNU,Fury,2,It goes completely out of control when it's angered.
+6,FUNNU,Fury,2,It goes completely out of control when it becomes angry.
 7,GAMAN,Guard,11,It knows how to endure hardships.
 8,YOYU,Ease,10,It appears confident.
 9,HISSHI,Hurry,9,It doesn't give up even until the last moment.
