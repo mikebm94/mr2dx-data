@@ -32,14 +32,16 @@ catch {
 
 $SourceCodePattern = @'
 (?msx)
-    ^\s* <script> \s*
-    ^\s* (function \s+ newmain \s* \( .*?)
-    ^\s* </script>
+    ^\s* <script> \s* (
+    ^\s* // .*
+    ^\s* newmain\(\); .*?
+    ^\s* ) </script>
 '@
 
 $MatchInfo = $Response.Content | Select-String $SourceCodePattern
 
 if (-not $MatchInfo) {
+    # TODO: Source code in page was refactored.
     throw "Could not locate errantry calculator & tech list source code in page source."
 }
 
