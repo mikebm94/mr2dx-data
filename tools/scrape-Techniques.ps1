@@ -144,23 +144,33 @@ function Get-BreedTechnique {
             ForEach-Object { [Breed]$PSItem } |
             ConvertTo-HashTable -KeyProperty BreedName -ValueProperty BreedId
         
-        $techniquePattern = @'
-(?x)
-            \[\s*
-            '(?<TechniqueRangeId>\d)-(?<Slot>\d)',\s*
-            '(?<TechniqueName>[\w -]+)',\s*
-            (?<TechniqueTypeIdLegendCup>\d+),\s*
-            (?<GutsCost>\d+),\s*
-            '(?<Damage>\d*)',\s*
-            '(?<HitPercent>(?:-?\d+)?)',\s*
-            '(?<Withering>\d*)',\s*
-            '(?<Sharpness>\d*)',\s*
-            '(?<Effect>.*)',\s*
-            (?<DurationHit>\d+(?:\.\d+)?),\s*
-            (?<DurationMiss>\d+(?:\.\d+)?),\s*
-            (?<Errantry>-?\d)\s*
-            \]
-'@
+        $fieldPatterns = (
+            "'(?<TechniqueRangeId>\d)-(?<Slot>\d)'",
+            "'(?<TechniqueName>[\w -]+)'",
+            "(?<TechniqueTypeIdLegendCup>\d+)",
+            "(?<GutsCost>\d+)",
+            "'(?<Damage>\d*)'",
+            "'(?<HitPercent>(?:-?\d+)?)'",
+            "'(?<Withering>\d*)'",
+            "'(?<Sharpness>\d*)'",
+            "'(?<Effect>.*)'",
+            "(?<DurationHit>\d+(?:\.\d+)?)",
+            "(?<DurationMiss>\d+(?:\.\d+)?)",
+            "(?<Errantry>-?\d)"
+        )
+
+        $techniquePattern = '(?x) \[ \s*'
+        
+        for ($i = 0; $i -lt $fieldPatterns.Count; $i++) {
+            $techniquePattern += @"
+                (?: dx \s* \? \s* $( $fieldPatterns[$i] ) \s* : \s* .+?
+                  | $( $fieldPatterns[$i] ) )
+"@
+            $isLastField = ($i -eq ($fieldPatterns.Count - 1))
+            $techniquePattern += $isLastField ? '\s* \]' : '\s* , \s*'
+        }
+
+        Write-Host $techniquePattern
     }
 
     process {
