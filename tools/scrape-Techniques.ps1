@@ -169,8 +169,6 @@ function Get-BreedTechnique {
             $isLastField = ($i -eq ($fieldPatterns.Count - 1))
             $techniquePattern += $isLastField ? '\s* \]' : '\s* , \s*'
         }
-
-        Write-Host $techniquePattern
     }
 
     process {
