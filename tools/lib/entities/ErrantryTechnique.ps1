@@ -36,6 +36,9 @@ class ErrantryTechnique {
       A value of 0 means the stat has no effect on the chance of learning the technique.
 
       A monsters loyalty value counts point-for-point towards the Stat Total.
+
+      NOTE: Maybe this would be a nullable field. NULL means no requirement, 0 means it contributes
+      to the stat total, >0 means it has a minimum.
     #>
 
     # The minimum value of Life needed to learn the technique.
