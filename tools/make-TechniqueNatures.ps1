@@ -25,7 +25,7 @@ $TechniqueNaturesIntermediate =
 
 $TechniqueNatures =
     $TechniqueNaturesIntermediate |
-    Select-Object -ExcludeProperty ([TechniqueNatureIntermediate]::IntermediateProperties) |
+    Select-Object -Property ([TechniqueNature]::ColumnOrder) |
     ForEach-Object { [TechniqueNature]$PSItem }
 
 $OutputFilePath = $TechniqueNatures | Export-Mr2dxDataFileCsv FinishedData $TableName

@@ -25,7 +25,7 @@ $TechniqueRangesIntermediate =
 
 $TechniqueRanges =
     $TechniqueRangesIntermediate |
-    Select-Object -ExcludeProperty ([TechniqueRangeIntermediate]::IntermediateProperties) |
+    Select-Object -Property ([TechniqueRange]::ColumnOrder) |
     ForEach-Object { [TechniqueRange]$PSItem }
 
 $OutputFilePath = $TechniqueRanges | Export-Mr2dxDataFileCsv FinishedData $TableName

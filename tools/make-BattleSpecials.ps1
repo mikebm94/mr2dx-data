@@ -25,7 +25,7 @@ $BattleSpecialsIntermediate =
 
 $BattleSpecials =
     $BattleSpecialsIntermediate |
-    Select-Object -ExcludeProperty ([BattleSpecialIntermediate]::IntermediateProperties) |
+    Select-Object -Property ([BattleSpecial]::ColumnOrder) |
     ForEach-Object { [BattleSpecial]$PSItem }
 
 $OutputFilePath = $BattleSpecials | Export-Mr2dxDataFileCsv FinishedData $TableName

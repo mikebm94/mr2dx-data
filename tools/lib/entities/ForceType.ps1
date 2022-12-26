@@ -3,6 +3,12 @@
     their power from.
 #>
 class ForceType {
+    # The order in which the columns should appear in the finished CSV data.
+    # This should align with the column order in the SQLite database tables, since the `sqlite3`
+    # utility doesn't use the header when importing CSV tables, only the column order.
+    static [string[]] $ColumnOrder = @( 'ForceTypeId', 'ForceTypeName' )
+    
+    
     [ValidateRange(1, 2)]
     [int] $ForceTypeId
 
@@ -15,9 +21,6 @@ class ForceType {
     from, including data points not needed in the finished data.
 #>
 class ForceTypeIntermediate : ForceType {
-    # The names of properties that are not needed in the finished data.
-    static [string[]] $IntermediateProperties = @( 'Flag' )
-    
     # Flag name used in the games technique data files to specify a force type.
     [ValidateSet('POW', 'IQ')]
     [string] $Flag

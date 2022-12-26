@@ -25,7 +25,7 @@ $FortesIntermediate =
 
 $Fortes =
     $FortesIntermediate |
-    Select-Object -ExcludeProperty ([ForteIntermediate]::IntermediateProperties) |
+    Select-Object -Property ([Forte]::ColumnOrder) |
     ForEach-Object { [Forte]$PSItem }
 
 $OutputFilePath = $Fortes | Export-Mr2dxDataFileCsv FinishedData ${TableName}

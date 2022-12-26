@@ -25,7 +25,7 @@ $ForceTypesIntermediate =
 
 $ForceTypes =
     $ForceTypesIntermediate |
-    Select-Object -ExcludeProperty ([ForceTypeIntermediate]::IntermediateProperties) |
+    Select-Object -Property ([ForceType]::ColumnOrder) |
     ForEach-Object { [ForceType]$PSItem }
 
 $OutputFilePath = $ForceTypes | Export-Mr2dxDataFileCsv FinishedData $TableName

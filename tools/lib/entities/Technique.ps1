@@ -49,6 +49,8 @@ class Technique : TechniqueBase {
     static [int] $TechniqueSlotsPerRange = 6
 
     # The order in which the columns should appear in the finished CSV data.
+    # This should align with the column order in the SQLite database tables, since the `sqlite3`
+    # utility doesn't use the header when importing CSV tables, only the column order.
     static [string[]] $ColumnOrder = @(
         'TechniqueId', 'BreedId', 'TechniqueRangeId', 'Slot', 'TechniqueName', 'TechniqueTypeId',
         'ForceTypeId', 'TechniqueNatureId', 'HitPercent', 'Damage', 'Withering', 'Sharpness',
@@ -56,6 +58,7 @@ class Technique : TechniqueBase {
         'Effect', 'DurationHit', 'DurationMiss'
     )
 
+    
     [int] $TechniqueId
 
     # The name of the technique.

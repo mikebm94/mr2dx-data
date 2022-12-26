@@ -25,7 +25,7 @@ $TechniqueTypesIntermediate =
 
 $TechniqueTypes =
     $TechniqueTypesIntermediate |
-    Select-Object -ExcludeProperty ([TechniqueTypeIntermediate]::IntermediateProperties) |
+    Select-Object -Property ([TechniqueType]::ColumnOrder) |
     ForEach-Object { [TechniqueType]$PSItem }
 
 $OutputFilePath = $TechniqueTypes | Export-Mr2dxDataFileCsv FinishedData $TableName

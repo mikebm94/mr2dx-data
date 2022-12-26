@@ -2,6 +2,17 @@
     Entity representing a monster that can be obtained at the shrine.
 #>
 class ShrineMonster {
+    # The order in which the columns should appear in the finished CSV data.
+    # This should align with the column order in the SQLite database tables, since the `sqlite3`
+    # utility doesn't use the header when importing CSV tables, only the column order.
+    static [string[]] $ColumnOrder = @(
+        'ShrineMonsterId', 'MonsterTypeId', 'Lifespan', 'Nature', 'GrowthTypeId',
+        'Lif', 'Pow', 'IQ', 'Ski', 'Spd', 'Def', 'LifGainLvl', 'PowGainLvl', 'IQGainLvl',
+        'SkiGainLvl', 'SpdGainLvl', 'DefGainLvl', 'ArenaSpeedLvl', 'FramesPerGut',
+        'DiffersFromBaseline', 'OffsetsApplied'
+    )
+
+    
     [int] $ShrineMonsterId
 
     [int] $MonsterTypeId

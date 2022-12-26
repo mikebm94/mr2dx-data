@@ -50,11 +50,14 @@ class MonsterTypeIntermediate : MonsterTypeBase {
 #>
 class MonsterType : MonsterTypeBase {
     # The order in which the columns should appear in the finished CSV data.
+    # This should align with the column order in the SQLite database tables, since the `sqlite3`
+    # utility doesn't use the header when importing CSV tables, only the column order.
     static [string[]] $ColumnOrder = @(
         'MonsterTypeId', 'MainBreedId', 'SubBreedId', 'CardNumber',
         'MonsterTypeName', 'MonsterTypeDescription'
     )
 
+    
     [ValidatePattern('^(?:[1-9][0-9]?|)$')]
     [string] $SubBreedId
 }

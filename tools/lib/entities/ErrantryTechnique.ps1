@@ -3,6 +3,15 @@
     and the requirements that must be met to learn it.
 #>
 class ErrantryTechnique {
+    # The order in which the columns should appear in the finished CSV data.
+    # This should align with the column order in the SQLite database tables, since the `sqlite3`
+    # utility doesn't use the header when importing CSV tables, only the column order.
+    static [string[]] $ColumnOrder = @(
+        'ErrantryId', 'TechniqueId', 'AutoLearnPercent', 'Lif', 'Pow', 'IQ', 'Ski', 'Spd', 'Def',
+        'StatTotalMin', 'StatTotalMax', 'Nature', 'LearnPriority'
+    )
+
+    
     # The ID of the errantry location the technique can be learned at.
     [ValidateRange(1, 5)]
     [int] $ErrantryId
@@ -84,11 +93,6 @@ class ErrantryTechnique {
     that will be normalized and used to build various other tables.
 #>
 class ErrantryTechniqueLegendCup : ErrantryTechnique {
-    # The names of properties that are not needed in the finished data.
-    static [string[]] $IntermediateProperties = @(
-        'ChainedTechniqueName', 'ChainedTechniqueUses', 'RequiredSubBreedNames', 'LockedSubBreedNames'
-    )
-
     # The name of the technique (if any) required to be learned and used a number of times
     # before this technique can be learned.
     [ValidateLength(0, 12)]

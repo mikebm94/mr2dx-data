@@ -10,6 +10,8 @@
 #>
 class Baseline {
     # The order in which the columns should appear in the finished CSV data.
+    # This should align with the column order in the SQLite database tables, since the `sqlite3`
+    # utility doesn't use the header when importing CSV tables, only the column order.
     static [string[]] $ColumnOrder = @(
         'MainBreedId', 'SubBreedId', 'Lifespan', 'Nature', 'GrowthTypeId',
         'Lif', 'Pow', 'IQ', 'Ski', 'Spd', 'Def',
@@ -17,6 +19,7 @@ class Baseline {
         'ArenaSpeedLvl', 'FramesPerGut'
     )
 
+    
     [ValidateRange(1, 38)]
     [int] $MainBreedId
 
@@ -91,11 +94,6 @@ class Baseline {
     into additional data tables for data normalization purposes.
 #>
 class BaselineExtracted : Baseline {
-    # The names of properties that are not needed in the finished data.
-    static [string[]] $IntermediateProperties = @(
-        'BattleSpecialsBitmask', 'FortesBitmask', 'TechniquesBitmask'
-    )
-
     # A bitmask of BattleSpecial IDs (zero-based, 0-12) specifying the monster type's baseline battle specials.
     [UInt32] $BattleSpecialsBitmask
 

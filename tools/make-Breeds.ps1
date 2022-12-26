@@ -25,7 +25,7 @@ $BreedsIntermediate =
 
 $Breeds =
     $BreedsIntermediate |
-    Select-Object -ExcludeProperty ([BreedIntermediate]::IntermediateProperties) |
+    Select-Object -Property ([Breed]::ColumnOrder) |
     ForEach-Object { [Breed]$PSItem }
 
 $OutputFilePath = $Breeds | Export-Mr2dxDataFileCsv FinishedData $TableName

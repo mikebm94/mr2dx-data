@@ -2,6 +2,12 @@
     Entity representing a type of technique.
 #>
 class TechniqueType {
+    # The order in which the columns should appear in the finished CSV data.
+    # This should align with the column order in the SQLite database tables, since the `sqlite3`
+    # utility doesn't use the header when importing CSV tables, only the column order.
+    static [string[]] $ColumnOrder = @( 'TechniqueTypeId', 'TechniqueTypeName' )
+
+    
     [ValidateRange(1, 6)]
     [int] $TechniqueTypeId
 
@@ -14,9 +20,6 @@ class TechniqueType {
     including data points not needed in the finished data.
 #>
 class TechniqueTypeIntermediate : TechniqueType {
-    # The names of properties that are not needed in the finished data.
-    static [string[]] $IntermediateProperties = @( 'TechniqueTypeIdLegendCup', 'Flag' )
-
     # Technique data scraped from LegendCup.com uses different indexes
     # for technique types.
     [ValidateRange(0, 5)]
